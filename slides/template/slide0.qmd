@@ -1,0 +1,66 @@
+---
+title: "MD21 Introdução à Estatística"
+subtitle: "Tema da vez"
+author: "Leo Bastos"
+format: 
+  revealjs:
+    logo: ../impa-tech-h.png
+    footer: '<https://github.com/lsbastos/md21/>'
+    theme: simple
+    chalkboard: true
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+
+## Bullets
+
+When you click the **Render** button a document will be generated that includes:
+
+-   Content authored with markdown
+-   Output from executable code
+
+## Bullets (one by one)
+
+When you click the **Render** button a document will be generated that includes:
+
+::: {.incremental}
+- Eat spaghetti
+- Drink wine
+:::
+
+## Slide with a pause
+
+content before the pause
+
+. . .
+
+content after the pause
+
+## Code
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+## Slide Title
+
+-   Green [^1]
+-   Brown
+-   Purple
+
+[^1]: A footnote
+
+::: aside
+Some additional commentary of more peripheral interest.
+:::
+
+## Equations
+
+Equação no texto $A \in (0,\alpha)$ ou como equação centrada
+
+$$p(\theta \mid x) = \frac{p(\theta) p(x \mid \theta)}{\int_\theta p(\theta) p(x \mid \theta)d\theta}$$
