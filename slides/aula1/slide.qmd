@@ -1,0 +1,160 @@
+---
+title: "MD21 Introdução à Estatística"
+subtitle: ""
+author: "Leo Bastos"
+format: 
+  revealjs:
+    logo: ../impa-tech-h.png
+    footer: '<https://github.com/lsbastos/md21/>'
+    theme: simple
+    chalkboard: true
+editor: visual
+---
+
+## Quem sou eu?
+
+-   Estatístico (graduação, mestrado e doutorado)
+
+-   Pesquisador da Fiocruz e recentemente professor do IMPA tech
+
+-   Trabalho com desenvolvimento e aplicação de métodos estatísticos na epidemiologia das doenças infecciosas
+
+-   Coordeno os sistemas de alerta de epidemias: InfoDengue e InfoGripe
+
+-   Site pessoal: [lsbastos.github.io](https://lsbastos.github.io)
+
+## Burocracias
+
+-   Aulas teoricas: segundas e quarta na parte da tarde (1:30-3pm)
+
+-   Monitorias: segundas e quartas na parte da manha (8:30-10am).
+
+    -   O curso tem 2 monitores
+
+-   Avaliação: AV1 e AV2 60% por provas e 40% listas para entregar.
+
+-   Listas serão disponibilizadas em todas as aulas, somente algumas para entregar.
+
+-   Slides e listas estarão disponíveis no github do curso
+
+## Bibliografia básica
+
+-   RICE, J. A. Mathematical statistics and data analysis. 2006.
+
+-   WASSERMAN, L. All of Statistics. NY, 2004.
+
+-   CASELLA, G.; BERGER, R. L. Statistical inference. 2021.
+
+## Ementa proposta para o curso
+
+1.  Fundamentos (AV1)
+
+    -   Variáveis aleatórias e principais distribuições
+
+    -   Conceitos e procedimentos estatísticos modernos
+
+. . .
+
+2.  Inferência (AV2)
+
+    -   Estimação pontual e intervalar
+
+    -   Bootstrap
+
+    -   Métodos bayesianos
+
+    -   Teoria da decisão
+
+## Introdução à probabilidade
+
+-   Axiomas de probabilidade
+
+-   Independência
+
+-   Probabilidade condicional
+
+-   Teorema de Bayes
+
+## Axiomas de probabilidade
+
+A função $\mathbb{P}$ que atribui um valor real $\mathbb{P}(A)$ para cada evento $A$ é uma função de probabilidade se ela satifaz:
+
+::: incremental
+1.  $\mathbb{P}(A) \geq 0$ para todo $A$
+2.  $\mathbb{P}(\Omega) = 1$
+3.  se $A_1, A_2,\ldots$ são disjuntos, então $$\mathbb{P}(\bigcup_{i=1}^{\infty}A_i) = \sum_{i=1}^{\infty}\mathbb{P}(A_i)$$
+:::
+
+## Independência de eventos
+
+Dizemos que dois eventos $A$ e $B$ são independentes, $A \perp B$, se $$\mathbb{P}(AB) = \mathbb{P}(A \cap B) = \mathbb{P}(A)\mathbb{P}(B)$$
+
+Dizemos que um conjunto de eventos $\{A_i : i \in I\}$ é independente se $$\mathbb{P}(\bigcap_{i \in I} A_i) = \prod_{i \in I} \mathbb{P}(A_i)$$
+
+## Probabilidade condicional
+
+Assumindo que $\mathbb{P}(B) > 0$, definimos a probabilidade condicional de $A$ dado a ocorrência de $B$ como $$\mathbb{P}(A \mid B) = \frac{\mathbb{P}(AB)}{\mathbb{P}(B)}.$$
+
+## Exemplo
+
+Suponha que um teste laboratorial para uma doença $D$ tenha os seguintes resultados $+$ e $-$, com probabilidades:
+
+|     |  $D$  | $D^C$ |
+|:---:|:-----:|:-----:|
+| $+$ | 0.009 | 0.099 |
+| $-$ | 0.001 | 0.891 |
+
+$\mathbb{P}(+|D) = ?$
+
+. . .
+
+$$\mathbb{P}(+|D) = \frac{\mathbb{P}(+ \cap D)}{\mathbb{P}(D)} = \frac{0.009}{0.009+0.001} = 0.9$$
+
+(Parei aqui: Wasserman cap 1)
+
+## Teorema de Bayes
+
+## Exemplo
+
+## Bullets (one by one)
+
+When you click the **Render** button a document will be generated that includes:
+
+::: incremental
+-   Eat spaghetti
+-   Drink wine
+:::
+
+## Slide with a pause
+
+content before the pause
+
+. . .
+
+content after the pause
+
+## Code
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+## Slide Title
+
+-   Green [^1]
+-   Brown
+-   Purple
+
+[^1]: A footnote
+
+::: aside
+Some additional commentary of more peripheral interest.
+:::
+
+## Equations
+
+Equação no texto $A \in (0,\alpha)$ ou como equação centrada
+
+$$p(\theta \mid x) = \frac{p(\theta) p(x \mid \theta)}{\int_\theta p(\theta) p(x \mid \theta)d\theta}$$
