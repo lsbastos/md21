@@ -13,18 +13,17 @@ editor: visual
 
 ## Quem sou eu?
 
+::: incremental
+-   Pesquisador da Fiocruz e professor do IMPA tech
 -   Estatístico (graduação, mestrado e doutorado)
-
--   Pesquisador da Fiocruz e recentemente professor do IMPA tech
-
 -   Trabalho com desenvolvimento e aplicação de métodos estatísticos na epidemiologia das doenças infecciosas
-
 -   Coordeno os sistemas de alerta de epidemias: InfoDengue e InfoGripe
-
 -   Site pessoal: [lsbastos.github.io](https://lsbastos.github.io)
+:::
 
 ## Burocracias
 
+::: incremental
 -   Aulas teoricas: segundas e quartas (1:30-3pm)
 
 -   Aulas práticas: segundas e quartas (8:30-10am).
@@ -36,6 +35,7 @@ editor: visual
 -   Toda aula terá recomendação de exercícios, cada tópico terá uma lista.
 
 -   Slides, exercícios e listas estarão disponíveis no github do curso
+:::
 
 ## Bibliografia básica
 
@@ -74,6 +74,18 @@ editor: visual
 -   Probabilidade condicional
 
 -   Teorema de Bayes
+
+## Interpretações de probabilidade
+
+::: incremental
+- Interpretação clássica (Baseada em resultados equiprováveis)
+- Interpretação frequentista (Baseada na frequência relativa)
+- Interpretação subjetiva (trata a probabilidade como função de crença)
+:::
+
+. . .
+
+Nota: Independente da interpretação de probabilidade usada, a teoria de probabilidades é a mesma.
 
 ## Axiomas de probabilidade
 
@@ -120,6 +132,8 @@ $$\mathbb{P}(D) = \mathbb{P}(D \cap +) + \mathbb{P}(D \cap -) = {0.009+0.001} = 
 
 $$\mathbb{P}(+|D) = \frac{\mathbb{P}(+ \cap D)}{\mathbb{P}(D)} = \frac{0.009}{0.009+0.001} = 0.9$$
 
+
+
 ## Teorema de Bayes
 
 Teorema da probabilidade total: Seja $A_1, A_2,\ldots,A_n$ uma partição de $\Omega$. Então para qualquer evento $B$, $$\mathbb{P}(B) = \sum_{i=1}^{n} \mathbb{P}(A_i \mid B) \mathbb{P}(A_i).$$
@@ -163,4 +177,13 @@ E se a pessoa fosse de uma população chave, em particular HSH, cuja prevalênc
 & = & 0.569
 \end{eqnarray}
 
-## Definições de probabilidade
+. . .
+
+Testar a população geral pode não ser uma boa ideia, pois falso alarmes ocorrer. Já em populações chave, ou de maior risco, as chances de falso alarme reduzem. 
+
+## Encerrando
+
+- Revisão de probabilidades (Capitulo 1 dos livros Wasserman e Rice)
+  - Incluirei um conjunto de exercícios relacionado a essa parte
+- Próximas aulas:
+  - Variáveis aleatórias: Fundamentos e principais distribuições (Capítulos 2 dos livros Wasserman e Rice)
