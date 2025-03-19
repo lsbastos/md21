@@ -4,7 +4,7 @@ subtitle: ""
 author: "Leo Bastos"
 format: 
   revealjs:
-    logo: ../impa-tech-h.png
+    logo: ../../impa-tech-h.png
     footer: '<https://github.com/lsbastos/md21/>'
     theme: simple
     chalkboard: true
@@ -138,7 +138,7 @@ Suponha também que uma pessoa foi aleatoriamente selecionada no país, testada 
 
 ## Exemplo (HIV)
 
-Informações: 
+Informações:
 
 $\mathbb{P}(+ \mid D) = 0.95$, $\mathbb{P}(- \mid D^c) = 0.94$, $\mathbb{P}(D) = 0.006$
 
@@ -148,8 +148,7 @@ Queremos: $\mathbb{P}(D \mid +)$
 
 . . .
 
-Aplicando o teorema de Bayes temos que:
-$$\mathbb{P}(D \mid +) = \frac{\mathbb{P}(+ \mid D)\mathbb{P}(D)}{\mathbb{P}(+ \mid D)\mathbb{P}(D) + \mathbb{P}(+ \mid D^c)\mathbb{P}(D^c)}$$
+Aplicando o teorema de Bayes temos que: $$\mathbb{P}(D \mid +) = \frac{\mathbb{P}(+ \mid D)\mathbb{P}(D)}{\mathbb{P}(+ \mid D)\mathbb{P}(D) + \mathbb{P}(+ \mid D^c)\mathbb{P}(D^c)}$$
 
 . . .
 
@@ -164,6 +163,4 @@ E se a pessoa fosse de uma população chave, em particular HSH, cuja prevalênc
 & = & 0.569
 \end{eqnarray}
 
-
 ## Definições de probabilidade
-

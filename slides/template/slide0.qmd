@@ -4,7 +4,7 @@ subtitle: "Tema da vez"
 author: "Leo Bastos"
 format: 
   revealjs:
-    logo: ../impa-tech-h.png
+    logo: ../../impa-tech-h.png
     footer: '<https://github.com/lsbastos/md21/>'
     theme: simple
     chalkboard: true
@@ -26,9 +26,9 @@ When you click the **Render** button a document will be generated that includes:
 
 When you click the **Render** button a document will be generated that includes:
 
-::: {.incremental}
-- Eat spaghetti
-- Drink wine
+::: incremental
+-   Eat spaghetti
+-   Drink wine
 :::
 
 ## Slide with a pause
