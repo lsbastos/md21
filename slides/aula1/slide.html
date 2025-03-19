@@ -352,14 +352,14 @@ Leo Bastos
 <section id="burocracias" class="slide level2">
 <h2>Burocracias</h2>
 <ul>
-<li><p>Aulas teoricas: segundas e quarta na parte da tarde (1:30-3pm)</p></li>
-<li><p>Monitorias: segundas e quartas na parte da manha (8:30-10am).</p>
+<li><p>Aulas teoricas: segundas e quartas (1:30-3pm)</p></li>
+<li><p>Aulas práticas: segundas e quartas (8:30-10am).</p>
 <ul>
-<li>O curso tem 2 monitores</li>
+<li>O curso tem 2 professores auxiliares</li>
 </ul></li>
 <li><p>Avaliação: AV1 e AV2 60% por provas e 40% listas para entregar.</p></li>
-<li><p>Listas serão disponibilizadas em todas as aulas, somente algumas para entregar.</p></li>
-<li><p>Slides e listas estarão disponíveis no github do curso</p></li>
+<li><p>Toda aula terá recomendação de exercícios, cada tópico terá uma lista.</p></li>
+<li><p>Slides, exercícios e listas estarão disponíveis no github do curso</p></li>
 </ul>
 </section>
 <section id="bibliografia-básica" class="slide level2">
@@ -407,18 +407,23 @@ Leo Bastos
 <ol type="1">
 <li class="fragment"><span class="math inline">\(\mathbb{P}(A) \geq 0\)</span> para todo <span class="math inline">\(A\)</span></li>
 <li class="fragment"><span class="math inline">\(\mathbb{P}(\Omega) = 1\)</span></li>
-<li class="fragment">se <span class="math inline">\(A_1, A_2,\ldots\)</span> são disjuntos, então <span class="math display">\[\mathbb{P}(\bigcup_{i=1}^{\infty}A_i) = \sum_{i=1}^{\infty}\mathbb{P}(A_i)\]</span></li>
+<li class="fragment">se <span class="math inline">\(A_1, A_2,\ldots\)</span> são disjuntos, então <span class="math display">\[\mathbb{P}\left(\bigcup_{i=1}^{\infty}A_i\right) = \sum_{i=1}^{\infty}\mathbb{P}(A_i)\]</span></li>
 </ol>
 </div>
 </section>
 <section id="independência-de-eventos" class="slide level2">
 <h2>Independência de eventos</h2>
 <p>Dizemos que dois eventos <span class="math inline">\(A\)</span> e <span class="math inline">\(B\)</span> são independentes, <span class="math inline">\(A \perp B\)</span>, se <span class="math display">\[\mathbb{P}(AB) = \mathbb{P}(A \cap B) = \mathbb{P}(A)\mathbb{P}(B)\]</span></p>
-<p>Dizemos que um conjunto de eventos <span class="math inline">\(\{A_i : i \in I\}\)</span> é independente se <span class="math display">\[\mathbb{P}(\bigcap_{i \in I} A_i) = \prod_{i \in I} \mathbb{P}(A_i)\]</span></p>
+<div class="fragment">
+<p>Dizemos que um conjunto de eventos <span class="math inline">\(\{A_i : i \in I\}\)</span> é independente se <span class="math display">\[\mathbb{P}\left(\bigcap_{i \in I} A_i\right) = \prod_{i \in I} \mathbb{P}(A_i)\]</span></p>
+</div>
 </section>
 <section id="probabilidade-condicional" class="slide level2">
 <h2>Probabilidade condicional</h2>
 <p>Assumindo que <span class="math inline">\(\mathbb{P}(B) &gt; 0\)</span>, definimos a probabilidade condicional de <span class="math inline">\(A\)</span> dado a ocorrência de <span class="math inline">\(B\)</span> como <span class="math display">\[\mathbb{P}(A \mid B) = \frac{\mathbb{P}(AB)}{\mathbb{P}(B)}.\]</span></p>
+<div class="fragment">
+<p>Lema: Se <span class="math inline">\(A \perp B\)</span>, então <span class="math inline">\(\mathbb{P}(A \mid B) = \mathbb{P}(A)\)</span></p>
+</div>
 </section>
 <section id="exemplo" class="slide level2">
 <h2>Exemplo</h2>
@@ -444,58 +449,52 @@ Leo Bastos
 </tr>
 </tbody>
 </table>
-<p><span class="math inline">\(\mathbb{P}(+|D) = ?\)</span></p>
+<p>Qual o valor de <span class="math inline">\(\mathbb{P}(D)\)</span> e <span class="math inline">\(\mathbb{P}(+|D)\)</span>?</p>
+<div class="fragment">
+<p><span class="math display">\[\mathbb{P}(D) = \mathbb{P}(D \cap +) + \mathbb{P}(D \cap -) = {0.009+0.001} = 0.01\]</span></p>
+</div>
 <div class="fragment">
 <p><span class="math display">\[\mathbb{P}(+|D) = \frac{\mathbb{P}(+ \cap D)}{\mathbb{P}(D)} = \frac{0.009}{0.009+0.001} = 0.9\]</span></p>
 </div>
 </section>
 <section id="teorema-de-bayes" class="slide level2">
 <h2>Teorema de Bayes</h2>
-</section>
-<section id="exemplo-1" class="slide level2">
-<h2>Exemplo</h2>
-</section>
-<section id="bullets-one-by-one" class="slide level2">
-<h2>Bullets (one by one)</h2>
-<p>When you click the <strong>Render</strong> button a document will be generated that includes:</p>
-<div>
-<ul>
-<li class="fragment">Eat spaghetti</li>
-<li class="fragment">Drink wine</li>
-</ul>
-</div>
-</section>
-<section id="slide-with-a-pause" class="slide level2">
-<h2>Slide with a pause</h2>
-<p>content before the pause</p>
+<p>Teorema da probabilidade total: Seja <span class="math inline">\(A_1, A_2,\ldots,A_n\)</span> uma partição de <span class="math inline">\(\Omega\)</span>. Então para qualquer evento <span class="math inline">\(B\)</span>, <span class="math display">\[\mathbb{P}(B) = \sum_{i=1}^{n} \mathbb{P}(A_i \mid B) \mathbb{P}(A_i).\]</span></p>
 <div class="fragment">
-<p>content after the pause</p>
+<p>Teorema de Bayes: Seja <span class="math inline">\(A_1, A_2,\ldots,A_n\)</span> uma partição de <span class="math inline">\(\Omega\)</span> tal que <span class="math inline">\(\mathbb{P}(A_i) &gt; 0\)</span> para cada <span class="math inline">\(i\)</span>. Se <span class="math inline">\(\mathbb{P}(B) &gt; 0\)</span>, então <span class="math inline">\(\forall i\)</span> <span class="math display">\[P(A_i \mid B) = \frac{ \mathbb{P}(B \mid A_i) \mathbb{P}(A_i) }{ \sum_{i=1}^{n} \mathbb{P}(B \mid A_i) \mathbb{P}(A_i)}\]</span></p>
 </div>
 </section>
-<section id="code" class="slide level2">
-<h2>Code</h2>
-<p>When you click the <strong>Render</strong> button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
+<section id="exemplo-hiv" class="slide level2">
+<h2>Exemplo (HIV)</h2>
+<p>Suponha que temos um teste para HIV com sensibilidade (<span class="math inline">\(P(+ \mid D)\)</span>) de 95% e especificidade (<span class="math inline">\(P(- \mid D^c)\)</span>) de 94%. A prevalência, isto é, a probabilidade de encontrar uma pessoa entre 15 e 49 anos vivendo com HIV no Brasil, segundo dados abertos do banco mundial, é de 0.6%.</p>
+<div class="fragment">
+<p>Suponha também que uma pessoa foi aleatoriamente selecionada no país, testada e o resultado foi positivo. Qual a probabilidade dela de fato estar vivendo com o HIV?</p>
 </div>
 </section>
-<section id="slide-title" class="slide level2">
-<h2>Slide Title</h2>
-<ul>
-<li>Green <sup>1</sup></li>
-<li>Brown</li>
-<li>Purple</li>
-</ul>
-
-<aside><div>
-<p>Some additional commentary of more peripheral interest.</p>
-</div><ol class="aside-footnotes"><li id="fn1"><p>A footnote</p></li></ol></aside></section>
-<section id="equations" class="slide level2">
-<h2>Equations</h2>
-<p>Equação no texto <span class="math inline">\(A \in (0,\alpha)\)</span> ou como equação centrada</p>
-<p><span class="math display">\[p(\theta \mid x) = \frac{p(\theta) p(x \mid \theta)}{\int_\theta p(\theta) p(x \mid \theta)d\theta}\]</span></p>
+<section id="exemplo-hiv-1" class="slide level2">
+<h2>Exemplo (HIV)</h2>
+<p>Informações:</p>
+<p><span class="math inline">\(\mathbb{P}(+ \mid D) = 0.95\)</span>, <span class="math inline">\(\mathbb{P}(- \mid D^c) = 0.94\)</span>, <span class="math inline">\(\mathbb{P}(D) = 0.006\)</span></p>
+<div class="fragment">
+<p>Queremos: <span class="math inline">\(\mathbb{P}(D \mid +)\)</span></p>
+</div>
+<div class="fragment">
+<p>Aplicando o teorema de Bayes temos que: <span class="math display">\[\mathbb{P}(D \mid +) = \frac{\mathbb{P}(+ \mid D)\mathbb{P}(D)}{\mathbb{P}(+ \mid D)\mathbb{P}(D) + \mathbb{P}(+ \mid D^c)\mathbb{P}(D^c)}\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[ = \frac{0.95 \times  0.006}{0.95 \times  0.006 + (1-0.94) \times  (1-0.006)} = 0.087\]</span></p>
+</div>
+</section>
+<section id="exemplo-hiv-2" class="slide level2">
+<h2>Exemplo (HIV)</h2>
+<p>E se a pessoa fosse de uma população chave, em particular HSH, cuja prevalência de HIV é de 7.7%?</p>
+<p><span class="math display">\[\begin{eqnarray}
+\mathbb{P}(D \mid +) &amp; = &amp; \frac{0.95 \times  0.077}{0.95 \times  0.077 + (1-0.94) \times  (1-0.077)} \\
+&amp; = &amp; 0.569
+\end{eqnarray}\]</span></p>
+</section>
+<section id="definições-de-probabilidade" class="slide level2">
+<h2>Definições de probabilidade</h2>
 <div class="quarto-auto-generated-content">
 <p><img src="../impa-tech-h.png" class="slide-logo"></p>
 <div class="footer footer-default">
@@ -503,7 +502,6 @@ Leo Bastos
 </div>
 </div>
 </section>
-
     </div>
   </div>
 
@@ -716,44 +714,6 @@ Leo Bastos
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

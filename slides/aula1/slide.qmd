@@ -25,17 +25,17 @@ editor: visual
 
 ## Burocracias
 
--   Aulas teoricas: segundas e quarta na parte da tarde (1:30-3pm)
+-   Aulas teoricas: segundas e quartas (1:30-3pm)
 
--   Monitorias: segundas e quartas na parte da manha (8:30-10am).
+-   Aulas práticas: segundas e quartas (8:30-10am).
 
-    -   O curso tem 2 monitores
+    -   O curso tem 2 professores auxiliares
 
 -   Avaliação: AV1 e AV2 60% por provas e 40% listas para entregar.
 
--   Listas serão disponibilizadas em todas as aulas, somente algumas para entregar.
+-   Toda aula terá recomendação de exercícios, cada tópico terá uma lista.
 
--   Slides e listas estarão disponíveis no github do curso
+-   Slides, exercícios e listas estarão disponíveis no github do curso
 
 ## Bibliografia básica
 
@@ -82,18 +82,24 @@ A função $\mathbb{P}$ que atribui um valor real $\mathbb{P}(A)$ para cada even
 ::: incremental
 1.  $\mathbb{P}(A) \geq 0$ para todo $A$
 2.  $\mathbb{P}(\Omega) = 1$
-3.  se $A_1, A_2,\ldots$ são disjuntos, então $$\mathbb{P}(\bigcup_{i=1}^{\infty}A_i) = \sum_{i=1}^{\infty}\mathbb{P}(A_i)$$
+3.  se $A_1, A_2,\ldots$ são disjuntos, então $$\mathbb{P}\left(\bigcup_{i=1}^{\infty}A_i\right) = \sum_{i=1}^{\infty}\mathbb{P}(A_i)$$
 :::
 
 ## Independência de eventos
 
 Dizemos que dois eventos $A$ e $B$ são independentes, $A \perp B$, se $$\mathbb{P}(AB) = \mathbb{P}(A \cap B) = \mathbb{P}(A)\mathbb{P}(B)$$
 
-Dizemos que um conjunto de eventos $\{A_i : i \in I\}$ é independente se $$\mathbb{P}(\bigcap_{i \in I} A_i) = \prod_{i \in I} \mathbb{P}(A_i)$$
+. . .
+
+Dizemos que um conjunto de eventos $\{A_i : i \in I\}$ é independente se $$\mathbb{P}\left(\bigcap_{i \in I} A_i\right) = \prod_{i \in I} \mathbb{P}(A_i)$$
 
 ## Probabilidade condicional
 
 Assumindo que $\mathbb{P}(B) > 0$, definimos a probabilidade condicional de $A$ dado a ocorrência de $B$ como $$\mathbb{P}(A \mid B) = \frac{\mathbb{P}(AB)}{\mathbb{P}(B)}.$$
+
+. . .
+
+Lema: Se $A \perp B$, então $\mathbb{P}(A \mid B) = \mathbb{P}(A)$
 
 ## Exemplo
 
@@ -104,57 +110,60 @@ Suponha que um teste laboratorial para uma doença $D$ tenha os seguintes result
 | $+$ | 0.009 | 0.099 |
 | $-$ | 0.001 | 0.891 |
 
-$\mathbb{P}(+|D) = ?$
+Qual o valor de $\mathbb{P}(D)$ e $\mathbb{P}(+|D)$?
+
+. . .
+
+$$\mathbb{P}(D) = \mathbb{P}(D \cap +) + \mathbb{P}(D \cap -) = {0.009+0.001} = 0.01$$
 
 . . .
 
 $$\mathbb{P}(+|D) = \frac{\mathbb{P}(+ \cap D)}{\mathbb{P}(D)} = \frac{0.009}{0.009+0.001} = 0.9$$
 
-(Parei aqui: Wasserman cap 1)
-
 ## Teorema de Bayes
 
-## Exemplo
-
-## Bullets (one by one)
-
-When you click the **Render** button a document will be generated that includes:
-
-::: incremental
--   Eat spaghetti
--   Drink wine
-:::
-
-## Slide with a pause
-
-content before the pause
+Teorema da probabilidade total: Seja $A_1, A_2,\ldots,A_n$ uma partição de $\Omega$. Então para qualquer evento $B$, $$\mathbb{P}(B) = \sum_{i=1}^{n} \mathbb{P}(A_i \mid B) \mathbb{P}(A_i).$$
 
 . . .
 
-content after the pause
+Teorema de Bayes: Seja $A_1, A_2,\ldots,A_n$ uma partição de $\Omega$ tal que $\mathbb{P}(A_i) > 0$ para cada $i$. Se $\mathbb{P}(B) > 0$, então $\forall i$ $$P(A_i \mid B) = \frac{ \mathbb{P}(B \mid A_i) \mathbb{P}(A_i) }{ \sum_{i=1}^{n} \mathbb{P}(B \mid A_i) \mathbb{P}(A_i)}$$
 
-## Code
+## Exemplo (HIV)
 
-When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+Suponha que temos um teste para HIV com sensibilidade ($P(+ \mid D)$) de 95% e especificidade ($P(- \mid D^c)$) de 94%. A prevalência, isto é, a probabilidade de encontrar uma pessoa entre 15 e 49 anos vivendo com HIV no Brasil, segundo dados abertos do banco mundial, é de 0.6%.
 
-```{r}
-1 + 1
-```
+. . .
 
-## Slide Title
+Suponha também que uma pessoa foi aleatoriamente selecionada no país, testada e o resultado foi positivo. Qual a probabilidade dela de fato estar vivendo com o HIV?
 
--   Green [^1]
--   Brown
--   Purple
+## Exemplo (HIV)
 
-[^1]: A footnote
+Informações: 
 
-::: aside
-Some additional commentary of more peripheral interest.
-:::
+$\mathbb{P}(+ \mid D) = 0.95$, $\mathbb{P}(- \mid D^c) = 0.94$, $\mathbb{P}(D) = 0.006$
 
-## Equations
+. . .
 
-Equação no texto $A \in (0,\alpha)$ ou como equação centrada
+Queremos: $\mathbb{P}(D \mid +)$
 
-$$p(\theta \mid x) = \frac{p(\theta) p(x \mid \theta)}{\int_\theta p(\theta) p(x \mid \theta)d\theta}$$
+. . .
+
+Aplicando o teorema de Bayes temos que:
+$$\mathbb{P}(D \mid +) = \frac{\mathbb{P}(+ \mid D)\mathbb{P}(D)}{\mathbb{P}(+ \mid D)\mathbb{P}(D) + \mathbb{P}(+ \mid D^c)\mathbb{P}(D^c)}$$
+
+. . .
+
+$$ = \frac{0.95 \times  0.006}{0.95 \times  0.006 + (1-0.94) \times  (1-0.006)} = 0.087$$
+
+## Exemplo (HIV)
+
+E se a pessoa fosse de uma população chave, em particular HSH, cuja prevalência de HIV é de 7.7%?
+
+\begin{eqnarray}
+\mathbb{P}(D \mid +) & = & \frac{0.95 \times  0.077}{0.95 \times  0.077 + (1-0.94) \times  (1-0.077)} \\
+& = & 0.569
+\end{eqnarray}
+
+
+## Definições de probabilidade
+
