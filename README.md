@@ -30,4 +30,7 @@ Revisão de variáveis aleatórias e Teorema Central do Limite. Conceitos e proc
 
 ### Programa
 
-(TO DO)
+| Aula     | Material | Capítulo sugerido |
+|:---:|:---:|:---:|:---:|
+| 1 |  [Slides](https://raw.githack.com/lsbastos/md21/refs/heads/main/slides/aula1/slide.html) e [exercícios](listas/exercícios1.md)   | Rice Cap. 1 ou Wasserman Cap. 1 |
+

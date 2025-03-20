@@ -136,7 +136,7 @@ $$\mathbb{P}(+|D) = \frac{\mathbb{P}(+ \cap D)}{\mathbb{P}(D)} = \frac{0.009}{0.
 
 ## Teorema de Bayes
 
-Teorema da probabilidade total: Seja $A_1, A_2,\ldots,A_n$ uma partição de $\Omega$. Então para qualquer evento $B$, $$\mathbb{P}(B) = \sum_{i=1}^{n} \mathbb{P}(A_i \mid B) \mathbb{P}(A_i).$$
+Teorema da probabilidade total: Seja $A_1, A_2,\ldots,A_n$ uma partição de $\Omega$. Então para qualquer evento $B$, $$\mathbb{P}(B) = \sum_{i=1}^{n} \mathbb{P}(B \mid A_i) \mathbb{P}(A_i).$$
 
 . . .
 
