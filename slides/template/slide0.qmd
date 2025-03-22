@@ -15,6 +15,10 @@ editor: visual
 
 Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
 
+<https://quarto.org/docs/presentations/revealjs/>
+
+<https://github.com/quarto-dev/quarto-web/blob/main/docs/presentations/revealjs/demo/index.qmd>
+
 ## Bullets
 
 When you click the **Render** button a document will be generated that includes:
