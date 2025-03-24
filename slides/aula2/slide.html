@@ -667,72 +667,46 @@ Leo Bastos
 <div>
 <ul>
 <li class="fragment">A distribuição Normal ou distribuição Gaussiana ou distribuição Laplace-Gauss é a distribuição mais popular estatística e ciência de dados</li>
-<li class="fragment">Teorema central do limite, em suas diversas versões, é chave para essa popularidade</li>
-<li class="fragment">Outros teoremas de inferência reforçam esse popularidade</li>
+<li class="fragment">História (De Moivre, 1738; Gauss 1823; Laplace 1774, 1778, 1810)</li>
+<li class="fragment">Teorema central do limite, junto com outros resultados e teoremas importantes reforçam essa popularidade dessa distribuição</li>
 </ul>
 </div>
 </section>
 <section id="normal-1" class="slide level2">
 <h2>Normal</h2>
+<p><span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span></p>
+
+<img data-src="slide_files/figure-revealjs/dnorm-1.png" width="960" class="r-stretch"></section>
+<section id="normal-definição" class="slide level2">
+<h2>Normal (definição)</h2>
 <p>Seja <span class="math inline">\(X\)</span> uma variável aleatória nos reais. Dizemos que <span class="math inline">\(X\)</span> segue uma distribuiçao Normal, ou distribuição Gaussiana, com parâmetros <span class="math inline">\((\mu, \sigma^2)\)</span>, <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span>, se <span class="math display">\[ f_X(x) = \frac{1}{\sqrt{2\pi \sigma^2}} e^{-\frac{1}{2\sigma^2}(x-\mu)^2}, \quad x \in \mathbb{R}\]</span></p>
 <div class="fragment">
 <p><span class="math display">\[\mathbb{E}(X) = \int_{-\infty}^\infty x f_X(x) dx = \cdots = \mu\]</span></p>
 </div>
 </section>
-<section id="normal-2" class="slide level2">
-<h2>Normal</h2>
-<p><span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span></p>
-
-<img data-src="slide_files/figure-revealjs/dnorm-1.png" width="960" class="r-stretch"></section>
-<section id="bullets" class="slide level2">
-<h2>Bullets</h2>
-<p>When you click the <strong>Render</strong> button a document will be generated that includes:</p>
-<ul>
-<li>Content authored with markdown</li>
-<li>Output from executable code</li>
-</ul>
-</section>
-<section id="bullets-one-by-one" class="slide level2">
-<h2>Bullets (one by one)</h2>
-<p>When you click the <strong>Render</strong> button a document will be generated that includes:</p>
+<section id="normal-propriedades" class="slide level2">
+<h2>Normal (propriedades)</h2>
 <div>
 <ul>
-<li class="fragment">Eat spaghetti</li>
-<li class="fragment">Drink wine</li>
-</ul>
-</div>
-</section>
-<section id="slide-with-a-pause" class="slide level2">
-<h2>Slide with a pause</h2>
-<p>content before the pause</p>
-<div class="fragment">
-<p>content after the pause</p>
-</div>
-</section>
-<section id="code" class="slide level2">
-<h2>Code</h2>
-<p>When you click the <strong>Render</strong> button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
-</section>
-<section id="slide-title" class="slide level2">
-<h2>Slide Title</h2>
+<li class="fragment">Se <span class="math inline">\(X\)</span> segue uma distribuição normal <span class="math inline">\((\mu,\sigma^2)\)</span>, então <span class="math inline">\(Y = aX + b\)</span> também é normal com parâmetros <span class="math inline">\((a\mu + b, a^2\sigma^2)\)</span></li>
+<li class="fragment">Em particular, seja <span class="math inline">\(Z = \frac{X - \mu}{\sigma}\)</span>. Se <span class="math inline">\(X \sim N(\mu,\sigma^2)\)</span> então <span class="math inline">\(Z \sim N(0,1)\)</span>. (Chamada de Normal padrão)
 <ul>
-<li>Green <sup>1</sup></li>
-<li>Brown</li>
-<li>Purple</li>
+<li class="fragment">Útil para cálculos, já que a distribuição acumulada da normal <strong>não</strong> tem solução analítica. E existem tabelas para a normal padrão.</li>
+<li class="fragment">Se <span class="math inline">\(U = Z^2\)</span>, então <span class="math inline">\(U\sim \chi^2_1\)</span> (distribuição chi-quadrado).</li>
+</ul></li>
 </ul>
-
-<aside><div>
-<p>Some additional commentary of more peripheral interest.</p>
-</div><ol class="aside-footnotes"><li id="fn1"><p>A footnote</p></li></ol></aside></section>
-<section id="equations" class="slide level2">
-<h2>Equations</h2>
-<p>Equação no texto <span class="math inline">\(A \in (0,\alpha)\)</span> ou como equação centrada</p>
-<p><span class="math display">\[p(\theta \mid x) = \frac{p(\theta) p(x \mid \theta)}{\int_\theta p(\theta) p(x \mid \theta)d\theta}\]</span></p>
+</div>
+</section>
+<section id="próxima-aula" class="slide level2">
+<h2>Próxima aula</h2>
+<div>
+<ul>
+<li class="fragment">Outras distribuições importantes (Gama, Beta, t, <span class="math inline">\(\chi^2\)</span>)</li>
+<li class="fragment">Distribuições conjuntas</li>
+<li class="fragment">Transformações de variáveis aleatórias</li>
+<li class="fragment">Valor esperado, variância, função geradora de momentos</li>
+</ul>
+</div>
 <div class="quarto-auto-generated-content">
 <p><img src="../../impa-tech-h.png" class="slide-logo"></p>
 <div class="footer footer-default">
@@ -740,7 +714,6 @@ Leo Bastos
 </div>
 </div>
 </section>
-
     </div>
   </div>
 

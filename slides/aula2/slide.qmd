@@ -150,81 +150,67 @@ Seja $X$ o número de caras em $n$ lançamentos de uma moeda com probabilidade d
 Seja $X$ o número de caras em $n$ lançamentos de uma moeda com probabilidade de cara $\theta$.
 
 ::: incremental
--   Verifique se
-$$\sum_x f_x(x) = \sum_{x=0}^n {n \choose k}\theta^x (1-\theta)^{n-x} = 1$$
--   Basta aplicar o teorema binomial
-        $$\sum_{k=0}^n {n \choose k} a^kb^{n-k} = (a + b)^n$$
-::: 
+-   Verifique se $$\sum_x f_x(x) = \sum_{x=0}^n {n \choose k}\theta^x (1-\theta)^{n-x} = 1$$
+-   Basta aplicar o teorema binomial $$\sum_{k=0}^n {n \choose k} a^kb^{n-k} = (a + b)^n$$
+:::
 
 ## V.A. contínua
 
 **Definição.** Dizemos que $X$ é uma variável aleatória contínua, se existe uma função $f_X$ tal que
 
 ::: incremental
-- $f_X(x)\geq 0, \, \forall x$
-- $\int_{x\in \mathbb{R}} f_X(x) dx = 1$ 
-- para todo $a \leq b$,
-$$\mathbb{P}( a \leq X \leq b) = \int_a^b f_X(x) dx.$$
-- A função $f_X$ é chamada de função de densidade de probabilidade
+-   $f_X(x)\geq 0, \, \forall x$
+-   $\int_{x\in \mathbb{R}} f_X(x) dx = 1$
+-   para todo $a \leq b$, $$\mathbb{P}( a \leq X \leq b) = \int_a^b f_X(x) dx.$$
+-   A função $f_X$ é chamada de função de densidade de probabilidade
 :::
 
 ## V.A. contínua
 
-A função de probabilidade acumulada de uma variável aleatória contínua é dada por
-$$F_X(x) = \mathbb{P}(X \leq x)  = \int_{-\infty}^x f_X(t) dt$$
+A função de probabilidade acumulada de uma variável aleatória contínua é dada por $$F_X(x) = \mathbb{P}(X \leq x)  = \int_{-\infty}^x f_X(t) dt$$
 
 . . .
 
 Em todos os pontos que $F_X$ é diferenciável, $f_X(x) = F'_X(x)$.
 
-
 ## Exemplo v.a. contínua
 
-Seja $X$ um ponto aleatoriamente selecionado no intervalo $(a,b)$, e que todos os pontos nesse intervalo são equiprováveis. Ou seja,
-$$f_X(x) = \left\{ \begin{array}{ll} k, & x \in (a,b) \\ 0 & c.c.\end{array}\right.$$
+Seja $X$ um ponto aleatoriamente selecionado no intervalo $(a,b)$, e que todos os pontos nesse intervalo são equiprováveis. Ou seja, $$f_X(x) = \left\{ \begin{array}{ll} k, & x \in (a,b) \\ 0 & c.c.\end{array}\right.$$
 
-. . . 
+. . .
 
 Para que $f_X$ seja uma função de densidade ela deve ser positiva e integrar 1.
 
-. . . 
+. . .
 
 $$\int_a^b k dx = k (b-a) = 1 \to k = \frac{1}{b-a}$$
 
 ## Função quantil
 
-Seja $X$ uma v.a. com função de probabilidade acumulada $F_X$. A função quantil ou função acumulada inversa é dada por
-$$F_X^{-1}(q) = \mathbb{Q}_X(q) = \inf\left\{ x : F_X(x) > q\right\}$$
+Seja $X$ uma v.a. com função de probabilidade acumulada $F_X$. A função quantil ou função acumulada inversa é dada por $$F_X^{-1}(q) = \mathbb{Q}_X(q) = \inf\left\{ x : F_X(x) > q\right\}$$
 
 . . .
 
 Chamamos de $F_X^{-1}(1/4)$ de **primeiro quartil**, $F_X^{-1}(1/2)$ de **mediana** (ou **segundo quartil**) e $F_X^{-1}(3/4)$ de **terceiro quartil**.
 
-
 ## Valor esperado de uma variável aleatória
 
-Definição. O **valor esperado**, ou **a média**, ou **o primeiro momento**, de uma variável aleatória $X$ é definido como
-$$\mathbb{E}(X) = \left\{ 
+Definição. O **valor esperado**, ou **a média**, ou **o primeiro momento**, de uma variável aleatória $X$ é definido como $$\mathbb{E}(X) = \left\{ 
 \begin{array}{ll} 
 \int_{x \in \mathbb{R}} x f_X(x) dx & \mbox{se } x \mbox{ é contínua}, 
 \\ \sum_{x} x f_X(x) & \mbox{se } x \mbox{ é discreta}. \\ 
 \end{array}\right.$$
 
-
-
 ## Algumas v.a. univariadas discretas
 
+-   Discretas
+    -   Uniforme discreta, Bernoulli, Binomial, Poisson
+-   Contínuas
+    -   Uniforme, exponencial, Normal
 
-- Discretas
-  - Uniforme discreta, Bernoulli, Binomial, Poisson
-- Contínuas
-  - Uniforme, exponencial, Normal
+## Uniforme discreta
 
-
-## Uniforme discreta 
-
-Seja $k>1$ inteiro. Dizemos que $X$ segue uma uniforme discreta se
-$$ f_X(x) = \left\{ 
+Seja $k>1$ inteiro. Dizemos que $X$ segue uma uniforme discreta se $$ f_X(x) = \left\{ 
 \begin{array}{ll} 
 \frac{1}{k} & \mbox{se } x=1,2,\ldots,k, 
 \\ 0  & \mbox{c.c}. \\ 
@@ -234,11 +220,9 @@ $$ f_X(x) = \left\{
 
 $$\mathbb{E}(X) = \sum_x xf_X(x) = \sum_{x=1}^k x\frac{1}{k} = \frac{1}{k} k \frac{(k+1)}{2} = \frac{k+1}{2}$$
 
+## Bernoulli
 
-## Bernoulli 
-
-Seja $X$ uma v.a. que representa um evento binário. $X=1$ se o evento ocorre, e $X=0$ se o evento não ocorre. Suponha também que $\theta$ é a probabilidade de ocorrência desse evento. Então dizemos que $X$ segue uma distribuição Bernoulli, $X \sim Bern(\theta)$, se
-$$ f_X(x) = \left\{ 
+Seja $X$ uma v.a. que representa um evento binário. $X=1$ se o evento ocorre, e $X=0$ se o evento não ocorre. Suponha também que $\theta$ é a probabilidade de ocorrência desse evento. Então dizemos que $X$ segue uma distribuição Bernoulli, $X \sim Bern(\theta)$, se $$ f_X(x) = \left\{ 
 \begin{array}{ll} 
 \theta^x(1-\theta)^{1-x} & \mbox{se } x=0,1, 
 \\ 0  & \mbox{c.c}. \\ 
@@ -248,11 +232,9 @@ $$ f_X(x) = \left\{
 
 $$\mathbb{E}(X) = \sum_{x=0}^{1} x \theta^x(1-\theta)^{1-x} = \theta$$
 
-
 ## Binomial
 
-Seja $X$ a soma de $n$ experimentos de Bernoulli com probabilidade $\theta$. Dizemos que $X$ segue uma distribuição Binomial, $X \sim Binom(n, \theta)$, se
-$$ f_X(x) = \left\{ 
+Seja $X$ a soma de $n$ experimentos de Bernoulli com probabilidade $\theta$. Dizemos que $X$ segue uma distribuição Binomial, $X \sim Binom(n, \theta)$, se $$ f_X(x) = \left\{ 
 \begin{array}{ll} 
 {n\choose x }\theta^x(1-\theta)^{1-x} & \mbox{se } x=0,1,2,\ldots,n, 
 \\ 0  & \mbox{c.c}. \\ 
@@ -264,9 +246,7 @@ $$\mathbb{E}(X) = \sum_{x=0}^{n} x {n\choose x } \theta^x(1-\theta)^{n-x} = \cdo
 
 ## Poisson
 
-
-Seja $X$ uma variável aleatória que assume valores $0,1,2,\ldots$. Dizemos que $X$ segue uma distribuiçao de Poisson com parâmetro $\theta$, $X \sim Pois(\theta)$, se
-$$ f_X(x) = \left\{ 
+Seja $X$ uma variável aleatória que assume valores $0,1,2,\ldots$. Dizemos que $X$ segue uma distribuiçao de Poisson com parâmetro $\theta$, $X \sim Pois(\theta)$, se $$ f_X(x) = \left\{ 
 \begin{array}{ll} 
 \frac{\theta^x}{x!} e^{-\theta} & \mbox{se } x=0,1,2,\ldots, 
 \\ 0  & \mbox{c.c}. \\ 
@@ -278,13 +258,11 @@ $$\mathbb{E}(X) = \sum_{x=0}^\infty x \frac{\theta^x}{x!} e^{-\theta}= \cdots = 
 
 . . .
 
- Binomial(n,p) $\to$  Poisson($\theta$),  se $n\to\infty$ e $np\to\theta$.
+Binomial(n,p) $\to$ Poisson($\theta$), se $n\to\infty$ e $np\to\theta$.
 
 ## Uniforme (a,b)
 
-
-Seja $X$ uma variável aleatória que assume qualquer valor real no intevalo $(a,b)$. Dizemos que $X$ segue uma distribuiçao uniforme no intervalo, $X \sim U(a,b)$, se
-$$ f_X(x) = \left\{ 
+Seja $X$ uma variável aleatória que assume qualquer valor real no intevalo $(a,b)$. Dizemos que $X$ segue uma distribuiçao uniforme no intervalo, $X \sim U(a,b)$, se $$ f_X(x) = \left\{ 
 \begin{array}{ll} 
 \frac{1}{b-a} & \mbox{se } x\in (a,b), 
 \\ 0  & \mbox{c.c}. \\ 
@@ -297,18 +275,18 @@ $$\mathbb{E}(X) = \int_a^b \frac{x}{b-a} dx = \cdots = \frac{b+a}{2}$$
 <!-- ## Uniforme(0,1) -->
 
 <!-- Suponha que $X\sim U(0,1)$, a função acumulada é dada por -->
+
 <!-- $$F_X(x) = \int_{t=0}^{x} 1 dx = x$$ -->
 
 <!-- . . .  -->
 
 <!-- E a função quantil é dada por -->
-<!-- $$F^{-1}(q) = \inf\{x : F_X(x) > q\} =  q$$ -->
 
+<!-- $$F^{-1}(q) = \inf\{x : F_X(x) > q\} =  q$$ -->
 
 ## Exponencial
 
-Seja $X$ uma variável aleatória nos reais positivos. Dizemos que $X$ segue uma distribuiçao exponencial com parâmetro $\theta$, $X \sim Exp(\theta)$, se
-$$ f_X(x) = \left\{ 
+Seja $X$ uma variável aleatória nos reais positivos. Dizemos que $X$ segue uma distribuiçao exponencial com parâmetro $\theta$, $X \sim Exp(\theta)$, se $$ f_X(x) = \left\{ 
 \begin{array}{ll} 
 \theta e^{-x\theta} & \mbox{se } x > 0, 
 \\ 0  & \mbox{c.c}. \\ 
@@ -379,19 +357,10 @@ ggplot() +
 ## Normal
 
 ::: incremental
-- A distribuição Normal ou distribuição Gaussiana ou distribuição Laplace-Gauss é a distribuição mais popular estatística e ciência de dados
-- Teorema central do limite, em suas diversas versões, é chave para essa popularidade
-- Outros teoremas de inferência reforçam esse popularidade
-::: 
-
-## Normal
-
-Seja $X$ uma variável aleatória nos reais. Dizemos que $X$ segue uma distribuiçao Normal, ou distribuição Gaussiana, com parâmetros $(\mu, \sigma^2)$, $X \sim N(\mu, \sigma^2)$, se
-$$ f_X(x) = \frac{1}{\sqrt{2\pi \sigma^2}} e^{-\frac{1}{2\sigma^2}(x-\mu)^2}, \quad x \in \mathbb{R}$$
-
-. . .
-
-$$\mathbb{E}(X) = \int_{-\infty}^\infty x f_X(x) dx = \cdots = \mu$$
+-   A distribuição Normal ou distribuição Gaussiana ou distribuição Laplace-Gauss é a distribuição mais popular estatística e ciência de dados
+-   História (De Moivre, 1738; Gauss 1823; Laplace 1774, 1778, 1810)
+-   Teorema central do limite, junto com outros resultados e teoremas importantes reforçam essa popularidade dessa distribuição
+:::
 
 ## Normal
 
@@ -407,6 +376,8 @@ library(ggplot2)
 ggplot() +
   geom_function(fun = dnorm, args = list(sd = 1), 
                 mapping = aes(colour = "N(0,1)", linetype = "N(0,1)") ) +
+  geom_function(fun = dnorm, args = list(mean = 2, sd = 1), 
+                mapping = aes(colour = "N(2,1)", linetype = "N(2,1)") ) +
   geom_function(fun = dnorm, args = list(sd = 2), 
                 mapping = aes(colour = "N(0,4)", linetype = "N(0,4)") ) +
   geom_function(fun = dnorm, args = list(sd = sqrt(0.5)), 
@@ -422,54 +393,28 @@ ggplot() +
     theme(legend.position = c(.9,.8))
 ```
 
+## Normal (definição)
 
-
-## Bullets
-
-When you click the **Render** button a document will be generated that includes:
-
--   Content authored with markdown
--   Output from executable code
-
-## Bullets (one by one)
-
-When you click the **Render** button a document will be generated that includes:
-
-::: incremental
--   Eat spaghetti
--   Drink wine
-:::
-
-## Slide with a pause
-
-content before the pause
+Seja $X$ uma variável aleatória nos reais. Dizemos que $X$ segue uma distribuiçao Normal, ou distribuição Gaussiana, com parâmetros $(\mu, \sigma^2)$, $X \sim N(\mu, \sigma^2)$, se $$ f_X(x) = \frac{1}{\sqrt{2\pi \sigma^2}} e^{-\frac{1}{2\sigma^2}(x-\mu)^2}, \quad x \in \mathbb{R}$$
 
 . . .
 
-content after the pause
+$$\mathbb{E}(X) = \int_{-\infty}^\infty x f_X(x) dx = \cdots = \mu$$
 
-## Code
+## Normal (propriedades)
 
-When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
-
-```{r}
-1 + 1
-```
-
-## Slide Title
-
--   Green [^1]
--   Brown
--   Purple
-
-[^1]: A footnote
-
-::: aside
-Some additional commentary of more peripheral interest.
+::: incremental
+-   Se $X$ segue uma distribuição normal $(\mu,\sigma^2)$, então $Y = aX + b$ também é normal com parâmetros $(a\mu + b, a^2\sigma^2)$
+-   Em particular, seja $Z = \frac{X - \mu}{\sigma}$. Se $X \sim N(\mu,\sigma^2)$ então $Z \sim N(0,1)$. (Chamada de Normal padrão)
+    -   Útil para cálculos, já que a distribuição acumulada da normal **não** tem solução analítica. E existem tabelas para a normal padrão.
+    -   Se $U = Z^2$, então $U\sim \chi^2_1$ (distribuição chi-quadrado).
 :::
 
-## Equations
+## Próxima aula
 
-Equação no texto $A \in (0,\alpha)$ ou como equação centrada
-
-$$p(\theta \mid x) = \frac{p(\theta) p(x \mid \theta)}{\int_\theta p(\theta) p(x \mid \theta)d\theta}$$
+::: incremental
+-   Outras distribuições importantes (Gama, Beta, t, $\chi^2$)
+-   Distribuições conjuntas
+-   Transformações de variáveis aleatórias
+-   Valor esperado, variância, função geradora de momentos
+:::
