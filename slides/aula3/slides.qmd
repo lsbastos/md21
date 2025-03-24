@@ -1,0 +1,64 @@
+---
+  title: "MD21 Introdução à Estatística"
+  subtitle: "Variáveis aleatórias"
+  author: "Leo Bastos"
+  format: 
+    revealjs:
+      slide-number: true
+      logo: ../../impa-tech-h.png
+      footer: '<https://github.com/lsbastos/md21/>'
+  theme: simple
+  chalkboard: true
+  editor: visual
+---
+
+## A função $\Gamma(\cdot)$
+
+A função $\Gamma(z)$, conhecida por função Gamma, é definida para todo $z>0$ $$\Gamma(z) = \int_{0}^{\infty} t^{z-1}e^{-t}dt$$
+
+. . .
+
+Algumas propriedades
+
+::: incremental
+  - $\Gamma(z+1) = z\Gamma(z)$
+  - Se $n$ é inteiro, $\Gamma(n) = (n-1)!$
+  - $\Gamma(1)=1$, $\Gamma(1/2)=\sqrt{\pi}$
+  
+:::
+
+## Distribuição Gamma
+
+Seja $X$ uma variável aleatória positiva. Dizemos que $X$ segue uma distribuiçao Gamma com parâmetros $(\alpha, \beta)$, $X \sim Gamma(\alpha,\beta)$, se $$ f_X(x) = \left\{ 
+\begin{array}{ll} 
+\frac{\beta^\alpha}{ \Gamma(\alpha)} x^{\alpha-1}  e^{-x\beta} & \mbox{se } x > 0, 
+\\ 0  & \mbox{c.c}. \\ 
+\end{array}\right.$$ 
+
+. . .
+
+$$\mathbb{E}(X) = \int_0^\infty x \frac{\beta^\alpha}{ \Gamma(\alpha)} x^{\alpha-1}  e^{-x\beta} dx = \cdots = \frac{\alpha}{\beta}$$
+
+## Distribuição Beta
+
+Seja $X$ uma variável aleatória no intervalo (0,1). Dizemos que $X$ segue uma distribuiçao Beta com parâmetros $(\alpha, \beta)$, $X \sim Beta(\alpha,\beta)$, se $$ f_X(x) = \left\{ 
+\begin{array}{ll} 
+\frac{\Gamma(\alpha + \beta)}{ \Gamma(\alpha) \Gamma(\beta)} x^{\alpha-1} (1-x)^{\beta-1} & \mbox{se } x \in (0,1), 
+\\ 0  & \mbox{c.c}. \\ 
+\end{array}\right.$$ 
+
+. . .
+
+$$\mathbb{E}(X) = \int_0^\infty x \theta e^{-x\theta} dx = \cdots = \theta$$
+
+## Distribuição Chi-quadrado
+
+## Distribuição t-Student
+
+## Transformações de variáveis aleatórias
+
+## Distribuições conjuntas
+
+## Valor esperado, variância, função geradora de momentos
+
+

@@ -401,14 +401,58 @@ Seja $X$ uma variável aleatória nos reais. Dizemos que $X$ segue uma distribui
 
 $$\mathbb{E}(X) = \int_{-\infty}^\infty x f_X(x) dx = \cdots = \mu$$
 
-## Normal (propriedades)
+
+## Normal (fatos)
 
 ::: incremental
--   Se $X$ segue uma distribuição normal $(\mu,\sigma^2)$, então $Y = aX + b$ também é normal com parâmetros $(a\mu + b, a^2\sigma^2)$
--   Em particular, seja $Z = \frac{X - \mu}{\sigma}$. Se $X \sim N(\mu,\sigma^2)$ então $Z \sim N(0,1)$. (Chamada de Normal padrão)
-    -   Útil para cálculos, já que a distribuição acumulada da normal **não** tem solução analítica. E existem tabelas para a normal padrão.
-    -   Se $U = Z^2$, então $U\sim \chi^2_1$ (distribuição chi-quadrado).
+
+-   Se $X \sim N(\mu, \sigma^2)$, então $Z = (X - \mu) / \sigma \sim N(0, 1)$
+-   Se $Z \sim N(0, 1)$, então $X = \mu + \sigma Z \sim N( \mu , \sigma^2)$
+    -   $$\begin{eqnarray}\mathbb{P}(a < X < b) & = & \mathbb{P}\left( \frac{a - \mu}{\sigma} < Z < \frac{b - \mu}{\sigma} \right) \\ 
+         & =  & \Phi\left(\frac{b - \mu}{\sigma} \right) - \Phi\left(\frac{a - \mu}{\sigma} \right) \end{eqnarray}$$
+    -   $\Phi(z)$ é a acumulada da normal padrão e pode ser obtida em softwares e tabelas.
+    
 :::
+
+
+## Exemplo
+
+Construindo um intervalo de 95% para $X \sim N(5, 3^2)$.
+
+. . .
+
+$$\begin{eqnarray}\mathbb{P}(a < X < b) & = & 0.95 \\
+\mathbb{P}\left( \frac{a - 5}{3} < Z < \frac{b - 5}{3} \right)  & = & 0.95 \\
+ \end{eqnarray}$$
+ 
+ . . .
+ 
+Com auxílio de um softare ou tabela, sabe-se que $\mathbb{P}(-1.96 < Z < 1.96) = 0.95$, logo $a = 5 - 1.96 * 3 = -0.88$ e $b = 5 + 1.96*3 = 10.88$
+
+<!-- -   Se $X_i \sim N(\mu_i, \sigma_i^2)$, $i=1,2,\ldots,n$, então $$\sum_{i=1}^{n} X_i \sim N\left( \sum_{i=1}^{n}\mu_i, \sum_{i=1}^{n} \sigma_i^2 \right).$$ -->
+
+
+## Visualizando
+
+```{r}
+#| label: dnorm3
+#| message: false
+#| warning: false
+#| echo: false
+
+library(ggplot2)
+ggplot() +
+  geom_function(fun = dnorm, args = list(mean = 5, sd = 3)) +
+  geom_vline(xintercept = c(-0.88, 10.88)) + 
+  xlim(-5,15) + 
+  labs(
+    x = "x",
+    y = "f(x)",
+  ) + 
+  theme_bw(base_size = 16) + 
+    theme(legend.position = c(.9,.8))
+```
+
 
 ## Próxima aula
 

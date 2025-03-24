@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="slide_files/libs/clipboard/clipboard.min.js"></script>
-<script src="slide_files/libs/quarto-html/tabby.min.js"></script>
-<script src="slide_files/libs/quarto-html/popper.min.js"></script>
-<script src="slide_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="slide_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="slide_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="slide_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="slide_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="slides_files/libs/clipboard/clipboard.min.js"></script>
+<script src="slides_files/libs/quarto-html/tabby.min.js"></script>
+<script src="slides_files/libs/quarto-html/popper.min.js"></script>
+<script src="slides_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="slides_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="slides_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="slides_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="slides_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Leo Bastos">
@@ -15,8 +15,8 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="slide_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="slide_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="slides_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="slides_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -30,13 +30,13 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="slide_files/libs/revealjs/dist/theme/quarto.css">
-  <link href="slide_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="slide_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="slide_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="slide_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
-  <link href="slide_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="slide_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="slides_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="slides_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="slides_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="slides_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="slides_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -340,391 +340,56 @@ Leo Bastos
 </div>
 
 </section>
-<section id="variáveis-aleatórias-introdução" class="slide level2">
-<h2>Variáveis aleatórias (Introdução)</h2>
-<p>A estatística (e a ciência de dados) lida essencialmente com suposições do proceso gerador dos dados.</p>
+<section id="a-função-gammacdot" class="slide level2">
+<h2>A função <span class="math inline">\(\Gamma(\cdot)\)</span></h2>
+<p>A função <span class="math inline">\(\Gamma(z)\)</span>, conhecida por função Gamma, é definida para todo <span class="math inline">\(z&gt;0\)</span> <span class="math display">\[\Gamma(z) = \int_{0}^{\infty} t^{z-1}e^{-t}dt\]</span></p>
 <div class="fragment">
-<p>A incerteza associada a esse processor gerador dos dados é baseada em eventos de probabilidade.</p>
-</div>
-<div class="fragment">
-<p>A <strong>função</strong> que relaciona os eventos de probabilidade e os valores que os dados podem assumir é chamada de variável aleatória.</p>
-</div>
-</section>
-<section id="variáveis-aleatórias-definição" class="slide level2">
-<h2>Variáveis aleatórias (Definição)</h2>
-<dl>
-<dt>Definição.</dt>
-<dd>
-<p>Uma variável aleatória é uma função que leva do espaço amostral aos reais.</p>
-</dd>
-</dl>
-<p><span class="math display">\[X : \Omega \to \mathbb{R} \]</span></p>
-<div class="fragment">
-<p>Quando uma v.a. <span class="math inline">\(X\)</span> usualmente assume valores enumeráveis, a chamamos de <strong>v.a. discreta</strong>. Se ela assume valores em um espaço continuo tem-se uma <strong>v.a. contínua</strong>,</p>
-</div>
-</section>
-<section id="variáveis-aleatórias-exemplo" class="slide level2">
-<h2>Variáveis aleatórias (Exemplo)</h2>
-<p>Seja <span class="math inline">\(X\)</span> o número de caras no lançamento de 2 moedas.</p>
-<div class="fragment">
-<div class="columns">
-<div class="column" style="width:50%;">
-<h4 id="probabilidade-dos-eventos">Probabilidade dos eventos</h4>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th><span class="math inline">\(\omega\)</span></th>
-<th><span class="math inline">\(X(\omega)\)</span></th>
-<th><span class="math inline">\(\mathbb{P}(X(\omega))\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>{Co,Co}</td>
-<td><span class="math inline">\(X=0\)</span></td>
-<td>1/4</td>
-</tr>
-<tr class="even">
-<td>{Ca,Co}</td>
-<td><span class="math inline">\(X=1\)</span></td>
-<td>1/4</td>
-</tr>
-<tr class="odd">
-<td>{Co,Ca}</td>
-<td><span class="math inline">\(X=1\)</span></td>
-<td>1/4</td>
-</tr>
-<tr class="even">
-<td>{Ca,Ca}</td>
-<td><span class="math inline">\(X=2\)</span></td>
-<td>1/4</td>
-</tr>
-</tbody>
-</table>
-</div><div class="column" style="width:6%;">
-
-</div><div class="column" style="width:44%;">
-<h4 id="probabilidade-da-v.a.">Probabilidade da v.a.</h4>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th><span class="math inline">\(X(\omega) = x\)</span></th>
-<th><span class="math inline">\(\mathbb{P}(X = x)\)</span></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(X=0\)</span></td>
-<td>1/4</td>
-</tr>
-<tr class="even">
-<td><span class="math inline">\(X=1\)</span></td>
-<td>1/2</td>
-</tr>
-<tr class="odd">
-<td><span class="math inline">\(X=2\)</span></td>
-<td>1/4</td>
-</tr>
-</tbody>
-</table>
-</div></div>
-</div>
-<div class="fragment">
-<p>Qualquer valor de <span class="math inline">\(X\)</span> diferente de 0,1,ou 2 tem probabilidade <em>zero</em> de ocorrer.</p>
-</div>
-</section>
-<section id="função-de-distribuição-acumulada" class="slide level2">
-<h2>Função de distribuição acumulada</h2>
-<dl>
-<dt>Definição.</dt>
-<dd>
-<p>A função de distribuição acumulada é uma função <span class="math inline">\(F_X: \mathbb{R} \to [0,1]\)</span> definida por</p>
-</dd>
-</dl>
-<p><span class="math display">\[F_X(x) = \mathbb{P}(X \leq x).  \]</span></p>
-</section>
-<section id="exemplo" class="slide level2">
-<h2>Exemplo</h2>
-<p>A função de distribuição de probabilidade do número de caras no lançamento de 2 moedas é dado por</p>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><span class="math display">\[F_X(x) = \left\{\begin{array}{cc} 0, &amp; x &lt; 0 \\ 1/4, &amp; 0\leq x &lt; 1 \\ 3/4, &amp; 1\leq x &lt; 2 \\ 1, &amp;  x \geq 1 \end{array}\right.\]</span></p>
-</div><div class="column" style="width:50%;">
-<p><img data-src="images/fX.png" style="width:100.0%"></p>
-</div></div>
-<div class="fragment">
-<p>Esse é um exemplo de v.a. discreta.</p>
-</div>
-</section>
-<section id="função-de-probabilidade" class="slide level2">
-<h2>Função de probabilidade</h2>
-<dl>
-<dt>Definição</dt>
-<dd>
-<p>Se <span class="math inline">\(X\)</span> é uma v.a. discreta, então definimos a função de probabilidade para <span class="math inline">\(X\)</span> por <span class="math display">\[ f_X(x) = p_X(x) = \mathbb{P}(X = x) \]</span></p>
-</dd>
-</dl>
-<div class="fragment">
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><span class="math display">\[f_X(x) = \left\{\begin{array}{cc} 1/4, &amp; x = 0 \\ 1/2, &amp; x=1 \\ 1/4, &amp; x = 2 \\ 0, &amp;  c.c. \end{array}\right.\]</span></p>
-</div><div class="column" style="width:50%;">
-<p><img data-src="images/pX.png" style="width:100.0%"></p>
-</div></div>
-</div>
-</section>
-<section id="algumas-propriedades-de-f_xx" class="slide level2">
-<h2>Algumas propriedades de <span class="math inline">\(f_X(x)\)</span></h2>
-<ul>
-<li><span class="math inline">\(f_X(x) \geq 0\)</span></li>
-<li><span class="math inline">\(\sum_x f_x(x) = 1\)</span></li>
-<li><span class="math inline">\(\displaystyle F_X(x) = \mathbb{P}(X \leq x) = \sum_{k: k \leq x} f_X(k)\)</span></li>
-</ul>
-</section>
-<section id="estendendo-o-exemplo" class="slide level2">
-<h2>Estendendo o exemplo</h2>
-<p>Seja <span class="math inline">\(X\)</span> o número de caras em <span class="math inline">\(n\)</span> lançamentos de uma moeda com probabilidade de cara <span class="math inline">\(\theta\)</span>.</p>
-<ul>
-<li>Qual o domínio de <span class="math inline">\(X\)</span>?</li>
-<li>Qual a função de probabilidade?</li>
-<li>Verifique se <span class="math inline">\(\sum_x f_x(x) = 1\)</span>.</li>
-</ul>
-</section>
-<section id="estendendo-o-exemplo-1" class="slide level2">
-<h2>Estendendo o exemplo</h2>
-<p>Seja <span class="math inline">\(X\)</span> o número de caras em <span class="math inline">\(n\)</span> lançamentos de uma moeda com probabilidade de cara <span class="math inline">\(\theta\)</span>.</p>
+<p>Algumas propriedades</p>
 <div>
 <ul>
-<li class="fragment">Qual o domínio de <span class="math inline">\(X\)</span>?
-<ul>
-<li class="fragment"><span class="math inline">\(X=0,1,2,\ldots,n.\)</span></li>
-</ul></li>
-<li class="fragment">Qual a função de probabilidade?
-<ul>
-<li class="fragment"><span class="math display">\[ f_X(x) = \left\{
-\begin{array}{ll}
-{n \choose x} \theta^x (1-\theta)^{n-x}, &amp; x=0,1,2,\ldots,n, \\
-0 &amp; c.c.
-\end{array}\right.\]</span></li>
-</ul></li>
+<li class="fragment"><span class="math inline">\(\Gamma(z+1) = z\Gamma(z)\)</span></li>
+<li class="fragment">Se <span class="math inline">\(n\)</span> é inteiro, <span class="math inline">\(\Gamma(n) = (n-1)!\)</span></li>
+<li class="fragment"><span class="math inline">\(\Gamma(1)=1\)</span>, <span class="math inline">\(\Gamma(1/2)=\sqrt{\pi}\)</span></li>
 </ul>
 </div>
-</section>
-<section id="estendendo-o-exemplo-2" class="slide level2">
-<h2>Estendendo o exemplo</h2>
-<p>Seja <span class="math inline">\(X\)</span> o número de caras em <span class="math inline">\(n\)</span> lançamentos de uma moeda com probabilidade de cara <span class="math inline">\(\theta\)</span>.</p>
-<div>
-<ul>
-<li class="fragment">Verifique se <span class="math display">\[\sum_x f_x(x) = \sum_{x=0}^n {n \choose k}\theta^x (1-\theta)^{n-x} = 1\]</span></li>
-<li class="fragment">Basta aplicar o teorema binomial <span class="math display">\[\sum_{k=0}^n {n \choose k} a^kb^{n-k} = (a + b)^n\]</span></li>
-</ul>
 </div>
 </section>
-<section id="v.a.-contínua" class="slide level2">
-<h2>V.A. contínua</h2>
-<p><strong>Definição.</strong> Dizemos que <span class="math inline">\(X\)</span> é uma variável aleatória contínua, se existe uma função <span class="math inline">\(f_X\)</span> tal que</p>
-<div>
-<ul>
-<li class="fragment"><span class="math inline">\(f_X(x)\geq 0, \, \forall x\)</span></li>
-<li class="fragment"><span class="math inline">\(\int_{x\in \mathbb{R}} f_X(x) dx = 1\)</span></li>
-<li class="fragment">para todo <span class="math inline">\(a \leq b\)</span>, <span class="math display">\[\mathbb{P}( a \leq X \leq b) = \int_a^b f_X(x) dx.\]</span></li>
-<li class="fragment">A função <span class="math inline">\(f_X\)</span> é chamada de função de densidade de probabilidade</li>
-</ul>
-</div>
-</section>
-<section id="v.a.-contínua-1" class="slide level2">
-<h2>V.A. contínua</h2>
-<p>A função de probabilidade acumulada de uma variável aleatória contínua é dada por <span class="math display">\[F_X(x) = \mathbb{P}(X \leq x)  = \int_{-\infty}^x f_X(t) dt\]</span></p>
-<div class="fragment">
-<p>Em todos os pontos que <span class="math inline">\(F_X\)</span> é diferenciável, <span class="math inline">\(f_X(x) = F'_X(x)\)</span>.</p>
-</div>
-</section>
-<section id="exemplo-v.a.-contínua" class="slide level2">
-<h2>Exemplo v.a. contínua</h2>
-<p>Seja <span class="math inline">\(X\)</span> um ponto aleatoriamente selecionado no intervalo <span class="math inline">\((a,b)\)</span>, e que todos os pontos nesse intervalo são equiprováveis. Ou seja, <span class="math display">\[f_X(x) = \left\{ \begin{array}{ll} k, &amp; x \in (a,b) \\ 0 &amp; c.c.\end{array}\right.\]</span></p>
-<div class="fragment">
-<p>Para que <span class="math inline">\(f_X\)</span> seja uma função de densidade ela deve ser positiva e integrar 1.</p>
-</div>
-<div class="fragment">
-<p><span class="math display">\[\int_a^b k dx = k (b-a) = 1 \to k = \frac{1}{b-a}\]</span></p>
-</div>
-</section>
-<section id="função-quantil" class="slide level2">
-<h2>Função quantil</h2>
-<p>Seja <span class="math inline">\(X\)</span> uma v.a. com função de probabilidade acumulada <span class="math inline">\(F_X\)</span>. A função quantil ou função acumulada inversa é dada por <span class="math display">\[F_X^{-1}(q) = \mathbb{Q}_X(q) = \inf\left\{ x : F_X(x) &gt; q\right\}\]</span></p>
-<div class="fragment">
-<p>Chamamos de <span class="math inline">\(F_X^{-1}(1/4)\)</span> de <strong>primeiro quartil</strong>, <span class="math inline">\(F_X^{-1}(1/2)\)</span> de <strong>mediana</strong> (ou <strong>segundo quartil</strong>) e <span class="math inline">\(F_X^{-1}(3/4)\)</span> de <strong>terceiro quartil</strong>.</p>
-</div>
-</section>
-<section id="valor-esperado-de-uma-variável-aleatória" class="slide level2">
-<h2>Valor esperado de uma variável aleatória</h2>
-<p>Definição. O <strong>valor esperado</strong>, ou <strong>a média</strong>, ou <strong>o primeiro momento</strong>, de uma variável aleatória <span class="math inline">\(X\)</span> é definido como <span class="math display">\[\mathbb{E}(X) = \left\{
+<section id="distribuição-gamma" class="slide level2">
+<h2>Distribuição Gamma</h2>
+<p>Seja <span class="math inline">\(X\)</span> uma variável aleatória positiva. Dizemos que <span class="math inline">\(X\)</span> segue uma distribuiçao Gamma com parâmetros <span class="math inline">\((\alpha, \beta)\)</span>, <span class="math inline">\(X \sim Gamma(\alpha,\beta)\)</span>, se <span class="math display">\[ f_X(x) = \left\{
 \begin{array}{ll}
-\int_{x \in \mathbb{R}} x f_X(x) dx &amp; \mbox{se } x \mbox{ é contínua},
-\\ \sum_{x} x f_X(x) &amp; \mbox{se } x \mbox{ é discreta}. \\
-\end{array}\right.\]</span></p>
-</section>
-<section id="algumas-v.a.-univariadas-discretas" class="slide level2">
-<h2>Algumas v.a. univariadas discretas</h2>
-<ul>
-<li>Discretas
-<ul>
-<li>Uniforme discreta, Bernoulli, Binomial, Poisson</li>
-</ul></li>
-<li>Contínuas
-<ul>
-<li>Uniforme, exponencial, Normal</li>
-</ul></li>
-</ul>
-</section>
-<section id="uniforme-discreta" class="slide level2">
-<h2>Uniforme discreta</h2>
-<p>Seja <span class="math inline">\(k&gt;1\)</span> inteiro. Dizemos que <span class="math inline">\(X\)</span> segue uma uniforme discreta se <span class="math display">\[ f_X(x) = \left\{
-\begin{array}{ll}
-\frac{1}{k} &amp; \mbox{se } x=1,2,\ldots,k,
+\frac{\beta^\alpha}{ \Gamma(\alpha)} x^{\alpha-1}  e^{-x\beta} &amp; \mbox{se } x &gt; 0,
 \\ 0  &amp; \mbox{c.c}. \\
 \end{array}\right.\]</span></p>
 <div class="fragment">
-<p><span class="math display">\[\mathbb{E}(X) = \sum_x xf_X(x) = \sum_{x=1}^k x\frac{1}{k} = \frac{1}{k} k \frac{(k+1)}{2} = \frac{k+1}{2}\]</span></p>
+<p><span class="math display">\[\mathbb{E}(X) = \int_0^\infty x \frac{\beta^\alpha}{ \Gamma(\alpha)} x^{\alpha-1}  e^{-x\beta} dx = \cdots = \frac{\alpha}{\beta}\]</span></p>
 </div>
 </section>
-<section id="bernoulli" class="slide level2">
-<h2>Bernoulli</h2>
-<p>Seja <span class="math inline">\(X\)</span> uma v.a. que representa um evento binário. <span class="math inline">\(X=1\)</span> se o evento ocorre, e <span class="math inline">\(X=0\)</span> se o evento não ocorre. Suponha também que <span class="math inline">\(\theta\)</span> é a probabilidade de ocorrência desse evento. Então dizemos que <span class="math inline">\(X\)</span> segue uma distribuição Bernoulli, <span class="math inline">\(X \sim Bern(\theta)\)</span>, se <span class="math display">\[ f_X(x) = \left\{
+<section id="distribuição-beta" class="slide level2">
+<h2>Distribuição Beta</h2>
+<p>Seja <span class="math inline">\(X\)</span> uma variável aleatória no intervalo (0,1). Dizemos que <span class="math inline">\(X\)</span> segue uma distribuiçao Beta com parâmetros <span class="math inline">\((\alpha, \beta)\)</span>, <span class="math inline">\(X \sim Beta(\alpha,\beta)\)</span>, se <span class="math display">\[ f_X(x) = \left\{
 \begin{array}{ll}
-\theta^x(1-\theta)^{1-x} &amp; \mbox{se } x=0,1,
-\\ 0  &amp; \mbox{c.c}. \\
-\end{array}\right.\]</span></p>
-<div class="fragment">
-<p><span class="math display">\[\mathbb{E}(X) = \sum_{x=0}^{1} x \theta^x(1-\theta)^{1-x} = \theta\]</span></p>
-</div>
-</section>
-<section id="binomial" class="slide level2">
-<h2>Binomial</h2>
-<p>Seja <span class="math inline">\(X\)</span> a soma de <span class="math inline">\(n\)</span> experimentos de Bernoulli com probabilidade <span class="math inline">\(\theta\)</span>. Dizemos que <span class="math inline">\(X\)</span> segue uma distribuição Binomial, <span class="math inline">\(X \sim Binom(n, \theta)\)</span>, se <span class="math display">\[ f_X(x) = \left\{
-\begin{array}{ll}
-{n\choose x }\theta^x(1-\theta)^{1-x} &amp; \mbox{se } x=0,1,2,\ldots,n,
-\\ 0  &amp; \mbox{c.c}. \\
-\end{array}\right.\]</span></p>
-<div class="fragment">
-<p><span class="math display">\[\mathbb{E}(X) = \sum_{x=0}^{n} x {n\choose x } \theta^x(1-\theta)^{n-x} = \cdots = n\theta\]</span></p>
-</div>
-</section>
-<section id="poisson" class="slide level2">
-<h2>Poisson</h2>
-<p>Seja <span class="math inline">\(X\)</span> uma variável aleatória que assume valores <span class="math inline">\(0,1,2,\ldots\)</span>. Dizemos que <span class="math inline">\(X\)</span> segue uma distribuiçao de Poisson com parâmetro <span class="math inline">\(\theta\)</span>, <span class="math inline">\(X \sim Pois(\theta)\)</span>, se <span class="math display">\[ f_X(x) = \left\{
-\begin{array}{ll}
-\frac{\theta^x}{x!} e^{-\theta} &amp; \mbox{se } x=0,1,2,\ldots,
-\\ 0  &amp; \mbox{c.c}. \\
-\end{array}\right.\]</span></p>
-<div class="fragment">
-<p><span class="math display">\[\mathbb{E}(X) = \sum_{x=0}^\infty x \frac{\theta^x}{x!} e^{-\theta}= \cdots = \theta\]</span></p>
-</div>
-<div class="fragment">
-<p>Binomial(n,p) <span class="math inline">\(\to\)</span> Poisson(<span class="math inline">\(\theta\)</span>), se <span class="math inline">\(n\to\infty\)</span> e <span class="math inline">\(np\to\theta\)</span>.</p>
-</div>
-</section>
-<section id="uniforme-ab" class="slide level2">
-<h2>Uniforme (a,b)</h2>
-<p>Seja <span class="math inline">\(X\)</span> uma variável aleatória que assume qualquer valor real no intevalo <span class="math inline">\((a,b)\)</span>. Dizemos que <span class="math inline">\(X\)</span> segue uma distribuiçao uniforme no intervalo, <span class="math inline">\(X \sim U(a,b)\)</span>, se <span class="math display">\[ f_X(x) = \left\{
-\begin{array}{ll}
-\frac{1}{b-a} &amp; \mbox{se } x\in (a,b),
-\\ 0  &amp; \mbox{c.c}. \\
-\end{array}\right.\]</span></p>
-<div class="fragment">
-<p><span class="math display">\[\mathbb{E}(X) = \int_a^b \frac{x}{b-a} dx = \cdots = \frac{b+a}{2}\]</span></p>
-<!-- ## Uniforme(0,1) -->
-<!-- Suponha que $X\sim U(0,1)$, a função acumulada é dada por -->
-<!-- $$F_X(x) = \int_{t=0}^{x} 1 dx = x$$ -->
-<!-- . . .  -->
-<!-- E a função quantil é dada por -->
-<!-- $$F^{-1}(q) = \inf\{x : F_X(x) > q\} =  q$$ -->
-</div>
-</section>
-<section id="exponencial" class="slide level2">
-<h2>Exponencial</h2>
-<p>Seja <span class="math inline">\(X\)</span> uma variável aleatória nos reais positivos. Dizemos que <span class="math inline">\(X\)</span> segue uma distribuiçao exponencial com parâmetro <span class="math inline">\(\theta\)</span>, <span class="math inline">\(X \sim Exp(\theta)\)</span>, se <span class="math display">\[ f_X(x) = \left\{
-\begin{array}{ll}
-\theta e^{-x\theta} &amp; \mbox{se } x &gt; 0,
+\frac{\Gamma(\alpha + \beta)}{ \Gamma(\alpha) \Gamma(\beta)} x^{\alpha-1} (1-x)^{\beta-1} &amp; \mbox{se } x \in (0,1),
 \\ 0  &amp; \mbox{c.c}. \\
 \end{array}\right.\]</span></p>
 <div class="fragment">
 <p><span class="math display">\[\mathbb{E}(X) = \int_0^\infty x \theta e^{-x\theta} dx = \cdots = \theta\]</span></p>
 </div>
 </section>
-<section id="exponencial-1" class="slide level2">
-<h2>Exponencial</h2>
-<p><span class="math inline">\(X \sim Exp(\theta)\)</span></p>
-
-<img data-src="slide_files/figure-revealjs/exp-1.png" width="960" class="r-stretch"></section>
-<section id="exponencial-2" class="slide level2">
-<h2>Exponencial</h2>
-<p><span class="math inline">\(\mathbb{P}(X &gt; x) = \int_x^\infty \theta e^{-\theta x} dx = \cdots = 1 - e^{-\theta x}\)</span></p>
-
-<img data-src="slide_files/figure-revealjs/pexp-1.png" width="960" class="r-stretch"></section>
-<section id="normal" class="slide level2">
-<h2>Normal</h2>
-<div>
-<ul>
-<li class="fragment">A distribuição Normal ou distribuição Gaussiana ou distribuição Laplace-Gauss é a distribuição mais popular estatística e ciência de dados</li>
-<li class="fragment">História (De Moivre, 1738; Gauss 1823; Laplace 1774, 1778, 1810)</li>
-<li class="fragment">Teorema central do limite, junto com outros resultados e teoremas importantes reforçam essa popularidade dessa distribuição</li>
-</ul>
-</div>
+<section id="distribuição-chi-quadrado" class="slide level2">
+<h2>Distribuição Chi-quadrado</h2>
 </section>
-<section id="normal-1" class="slide level2">
-<h2>Normal</h2>
-<p><span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span></p>
-
-<img data-src="slide_files/figure-revealjs/dnorm-1.png" width="960" class="r-stretch"></section>
-<section id="normal-definição" class="slide level2">
-<h2>Normal (definição)</h2>
-<p>Seja <span class="math inline">\(X\)</span> uma variável aleatória nos reais. Dizemos que <span class="math inline">\(X\)</span> segue uma distribuiçao Normal, ou distribuição Gaussiana, com parâmetros <span class="math inline">\((\mu, \sigma^2)\)</span>, <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span>, se <span class="math display">\[ f_X(x) = \frac{1}{\sqrt{2\pi \sigma^2}} e^{-\frac{1}{2\sigma^2}(x-\mu)^2}, \quad x \in \mathbb{R}\]</span></p>
-<div class="fragment">
-<p><span class="math display">\[\mathbb{E}(X) = \int_{-\infty}^\infty x f_X(x) dx = \cdots = \mu\]</span></p>
-</div>
+<section id="distribuição-t-student" class="slide level2">
+<h2>Distribuição t-Student</h2>
 </section>
-<section id="normal-fatos" class="slide level2">
-<h2>Normal (fatos)</h2>
-<div>
-<ul>
-<li class="fragment">Se <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span>, então <span class="math inline">\(Z = (X - \mu) / \sigma \sim N(0, 1)\)</span></li>
-<li class="fragment">Se <span class="math inline">\(Z \sim N(0, 1)\)</span>, então <span class="math inline">\(X = \mu + \sigma Z \sim N( \mu , \sigma^2)\)</span>
-<ul>
-<li class="fragment"><span class="math display">\[\begin{eqnarray}\mathbb{P}(a &lt; X &lt; b) &amp; = &amp; \mathbb{P}\left( \frac{a - \mu}{\sigma} &lt; Z &lt; \frac{b - \mu}{\sigma} \right) \\
-&amp; =  &amp; \Phi\left(\frac{b - \mu}{\sigma} \right) - \Phi\left(\frac{a - \mu}{\sigma} \right) \end{eqnarray}\]</span></li>
-<li class="fragment"><span class="math inline">\(\Phi(z)\)</span> é a acumulada da normal padrão e pode ser obtida em softwares e tabelas.</li>
-</ul></li>
-</ul>
-</div>
+<section id="transformações-de-variáveis-aleatórias" class="slide level2">
+<h2>Transformações de variáveis aleatórias</h2>
 </section>
-<section id="exemplo-1" class="slide level2">
-<h2>Exemplo</h2>
-<p>Construindo um intervalo de 95% para <span class="math inline">\(X \sim N(5, 3^2)\)</span>.</p>
-<div class="fragment">
-<p><span class="math display">\[\begin{eqnarray}\mathbb{P}(a &lt; X &lt; b) &amp; = &amp; 0.95 \\
-\mathbb{P}\left( \frac{a - 5}{3} &lt; Z &lt; \frac{b - 5}{3} \right)  &amp; = &amp; 0.95 \\
-\end{eqnarray}\]</span></p>
-</div>
-<div class="fragment">
-<p>Com auxílio de um softare ou tabela, sabe-se que <span class="math inline">\(\mathbb{P}(-1.96 &lt; Z &lt; 1.96) = 0.95\)</span>, logo <span class="math inline">\(a = 5 - 1.96 * 3 = -0.88\)</span> e <span class="math inline">\(b = 5 + 1.96*3 = 10.88\)</span></p>
-<!-- -   Se $X_i \sim N(\mu_i, \sigma_i^2)$, $i=1,2,\ldots,n$, então $$\sum_{i=1}^{n} X_i \sim N\left( \sum_{i=1}^{n}\mu_i, \sum_{i=1}^{n} \sigma_i^2 \right).$$ -->
-</div>
+<section id="distribuições-conjuntas" class="slide level2">
+<h2>Distribuições conjuntas</h2>
 </section>
-<section id="visualizando" class="slide level2">
-<h2>Visualizando</h2>
-
-<img data-src="slide_files/figure-revealjs/dnorm3-1.png" width="960" class="r-stretch"></section>
-<section id="próxima-aula" class="slide level2">
-<h2>Próxima aula</h2>
-<div>
-<ul>
-<li class="fragment">Outras distribuições importantes (Gama, Beta, t, <span class="math inline">\(\chi^2\)</span>)</li>
-<li class="fragment">Distribuições conjuntas</li>
-<li class="fragment">Transformações de variáveis aleatórias</li>
-<li class="fragment">Valor esperado, variância, função geradora de momentos</li>
-</ul>
-</div>
+<section id="valor-esperado-variância-função-geradora-de-momentos" class="slide level2">
+<h2>Valor esperado, variância, função geradora de momentos</h2>
 <div class="quarto-auto-generated-content">
 <p><img src="../../impa-tech-h.png" class="slide-logo"></p>
 <div class="footer footer-default">
@@ -736,20 +401,20 @@ Leo Bastos
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="slide_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="slides_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="slide_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="slide_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="slide_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="slide_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="slide_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="slide_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="slides_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="slides_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="slides_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="slides_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="slides_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="slides_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="slide_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="slide_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="slide_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="slide_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="slides_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="slides_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="slides_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="slides_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -944,44 +609,6 @@ Leo Bastos
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
