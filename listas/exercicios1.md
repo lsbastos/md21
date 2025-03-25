@@ -10,7 +10,7 @@
 
 -   Rice 54
 
--   Wasserman 23 e 24 (Experimentos computacionais)
+-   Wasserman 22 e 23 (Experimentos computacionais)
 
 ### Referências:
 
