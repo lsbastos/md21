@@ -34,10 +34,51 @@ Seja $X$ uma variável aleatória positiva. Dizemos que $X$ segue uma distribui�
 \frac{\beta^\alpha}{ \Gamma(\alpha)} x^{\alpha-1}  e^{-x\beta} & \mbox{se } x > 0, 
 \\ 0  & \mbox{c.c}. \\ 
 \end{array}\right.$$ 
+onde $\alpha>0$ e $\beta>0$.
 
 . . .
 
 $$\mathbb{E}(X) = \int_0^\infty x \frac{\beta^\alpha}{ \Gamma(\alpha)} x^{\alpha-1}  e^{-x\beta} dx = \cdots = \frac{\alpha}{\beta}$$
+
+## Distribuição Gamma
+
+$X \sim Gamma(\alpha, \beta)$
+```{r}
+#| label: dgamma
+#| message: false
+#| warning: false
+#| echo: false
+
+library(ggplot2)
+
+param = cbind(c(1:5), c(rep(2,3),1,1))
+labels <- parse(text = sprintf("alpha == %d ~ beta == %d", param[,1], param[,2]))
+
+ggplot() +
+  geom_function(fun = dgamma, args = list(shape = param[1,1], scale = param[1,2]), 
+                mapping = aes(colour = "1", linetype ="1" ) ) +
+  geom_function(fun = dgamma, args = list(shape = param[2,1], scale = param[2,2]), 
+                mapping = aes(colour = "2", linetype ="2" ) ) +
+  geom_function(fun = dgamma, args = list(shape = param[3,1], scale = param[3,2]), 
+                mapping = aes(colour = "3", linetype ="3" ) ) +
+  geom_function(fun = dgamma, args = list(shape = param[4,1], scale = param[4,2]), 
+                mapping = aes(colour = "4", linetype ="4" ) ) +
+  # geom_function(fun = dgamma, args = list(shape = param[5,1], scale = param[5,2]), 
+  #               mapping = aes(colour = "5", linetype ="5" ) ) +
+  scale_color_manual(values = 1:5, breaks =  1:5, labels = labels) +
+  scale_linetype_manual(values = 1:5, breaks =  1:5, labels = labels) +
+  xlim(0,10) + 
+  labs(
+    x = "x",
+    y = "f(x)",
+    colour = "",
+    linetype = "",
+  ) + 
+  theme_bw(base_size = 16) + 
+    theme(legend.position = c(.8,.75))
+```
+
+
 
 ## Distribuição Beta
 
@@ -46,16 +87,172 @@ Seja $X$ uma variável aleatória no intervalo (0,1). Dizemos que $X$ segue uma 
 \frac{\Gamma(\alpha + \beta)}{ \Gamma(\alpha) \Gamma(\beta)} x^{\alpha-1} (1-x)^{\beta-1} & \mbox{se } x \in (0,1), 
 \\ 0  & \mbox{c.c}. \\ 
 \end{array}\right.$$ 
+onde $\alpha>0$ e $\beta>0$.
 
 . . .
 
 $$\mathbb{E}(X) = \int_0^\infty x \theta e^{-x\theta} dx = \cdots = \theta$$
 
-## Distribuição Chi-quadrado
+## Distribuição Beta
 
-## Distribuição t-Student
+$X \sim Beta(\alpha, \beta)$
+
+```{r}
+#| label: dbeta
+#| message: false
+#| warning: false
+#| echo: false
+
+library(ggplot2)
+
+param = cbind(c(1,.5,2,1,5,2), c(1,.5, 2, 5, 1, 5))
+labels <- parse(text = sprintf("alpha == %f ~ beta == %f", param[,1], param[,2]))
+
+ggplot() +
+  geom_function(fun = dbeta, args= list(shape1 = param[1,1], shape2 = param[1,2]), 
+                mapping = aes(colour = "1", linetype ="1" ) ) +
+  geom_function(fun = dbeta, args= list(shape1 = param[2,1], shape2 = param[2,2]), 
+                mapping = aes(colour = "2", linetype ="2" ) ) +
+  geom_function(fun = dbeta, args= list(shape1 = param[3,1], shape2 = param[3,2]), 
+                mapping = aes(colour = "3", linetype ="3" ) ) +
+  geom_function(fun = dbeta, args= list(shape1 = param[4,1], shape2 = param[4,2]), 
+                mapping = aes(colour = "4", linetype ="4" ) ) +
+  geom_function(fun = dbeta, args= list(shape1 = param[5,1], shape2 = param[5,2]), 
+                mapping = aes(colour = "5", linetype ="5" ) ) +
+  geom_function(fun = dbeta, args= list(shape1 = param[6,1], shape2 = param[6,2]), 
+                mapping = aes(colour = "6", linetype ="6" ) ) +
+  scale_color_manual(values = 1:6, breaks =  1:6, labels = labels) +
+  scale_linetype_manual(values = 1:6, breaks =  1:6, labels = labels) +
+  xlim(0,1) + 
+  # ylim(0,2.5) + 
+  labs(
+    x = "x",
+    y = "f(x)",
+    colour = "",
+    linetype = "",
+  ) + 
+  theme_bw(base_size = 16) + 
+    theme(legend.position = c(.6,.75))
+```
+
 
 ## Transformações de variáveis aleatórias
+
+Suponha agora que $X$ tem função de densidade $f_X(x)$. 
+
+Seja $Y = g(X)$. Qual a distribuição de $Y$?
+
+. . .
+
+
+Se $g(X) = a X + b$, então podemos partir da distribuição conjunta:
+
+. . .
+
+$$F_Y(y) = \mathbb{P}(Y \leq y) = \mathbb{P}\left(aX + b \leq  y\right) \\ =  \mathbb{P}\left(X \leq  \frac{y-b}{a}\right) = F_X\left(X \leq  \frac{y-b}{a}\right)$$
+
+## Transformações de variáveis aleatórias
+
+Logo,
+
+$$f_Y(y) = \frac{d}{dy} F_Y(y) = \frac{d}{dy} F_X\left(\frac{y-b}{a}\right) = \frac{1}{a} f_X\left(\frac{y-b}{a}\right)$$
+
+. . . 
+
+
+Seja $X \sim N(\mu, \sigma^2)$ e $Y = aX + b, \qquad a > 0$.
+
+. . . 
+
+
+$$f_Y(y) = \frac{1}{a\sigma \sqrt{2\pi}} \exp\left\{ -\frac{1}{2} \left(\frac{y-b-a\mu}{a\sigma}  \right)^2\right\}$$
+ou seja, $Y \sim N(a\mu + b, (a\sigma)^2)$. 
+
+<!-- Se $a=1/\sigma$ e $b = -\mu/\sigma$, então $Y \sim N(0,1)$. -->
+
+
+##  Transformações de variáveis aleatórias
+
+
+Seja $Z \sim N(0,1)$ e $X = Z^2$, qual a distribuição de $X$?
+
+. . .
+
+
+\begin{eqnarray}
+F_X(x) & = & \mathbb{P}(X \leq x) = \mathbb{P}(-\sqrt{x} \leq Z \leq \sqrt{x}) = \\
+       & = & \Phi(\sqrt{x}) - \Phi(-\sqrt{x}).
+\end{eqnarray}
+
+
+. . . 
+
+Usando a simetria da Normal, $\Phi(-a) = 1 - \Phi(a)$. Logo
+
+\begin{eqnarray}
+f_X(x) & = &  \frac{d}{dx} 2\Phi(\sqrt{x}) - 1 = x^{-1/2}  \phi(\sqrt{x}) = \frac{x^{-1/2}}{\sqrt{2\pi}} e^{-x/2}.
+\end{eqnarray}
+
+
+## Distribuição Chi-quadrado
+
+Seja $X$ uma variável aleatória positiva. Dizemos que $X$ segue uma distribuiçao $\chi^2_1$ com um grau de liberdade, $X \sim \chi^2_1$, se 
+$$f_X(x) = \frac{x^{-1/2}}{\sqrt{2\pi}} e^{-x/2}, \quad x > 0.$$
+
+. . .
+
+Note que a distribuição $\chi^2_1$ é equivalente a uma distribuitção $Gamma(1/2, 1/2)$. 
+
+## Distribuição Chi-quadrado
+
+$X \sim \chi^2_1$
+```{r}
+#| label: dchisq
+#| message: false
+#| warning: false
+#| echo: false
+
+library(ggplot2)
+
+param = cbind(c(0.5, 1:4), c(0.5, rep(2,3),1))
+labels <- parse(text = sprintf("alpha == %f ~ beta == %f", param[,1], param[,2]))
+
+ggplot() +
+  geom_function(fun = dgamma, args = list(shape = param[1,1], scale = param[1,2]), 
+                mapping = aes(colour = "1", linetype ="1" ) ) +
+  # geom_function(fun = dgamma, args = list(shape = param[2,1], scale = param[2,2]), 
+  #               mapping = aes(colour = "2", linetype ="2" ) ) +
+  # geom_function(fun = dgamma, args = list(shape = param[3,1], scale = param[3,2]), 
+  #               mapping = aes(colour = "3", linetype ="3" ) ) +
+  # geom_function(fun = dgamma, args = list(shape = param[4,1], scale = param[4,2]), 
+  #               mapping = aes(colour = "4", linetype ="4" ) ) +
+  # geom_function(fun = dgamma, args = list(shape = param[5,1], scale = param[5,2]), 
+  #               mapping = aes(colour = "5", linetype ="5" ) ) +
+  scale_color_manual(values = 1:5, breaks =  1:5, labels = labels) +
+  scale_linetype_manual(values = 1:5, breaks =  1:5, labels = labels) +
+  xlim(0,4) +
+  labs(
+    x = "x",
+    y = "f(x)",
+    colour = "",
+    linetype = "",
+  ) + 
+  theme_bw(base_size = 16) + 
+    theme(legend.position = c(.8,.75))
+```
+
+## Transformações de variáveis aleatórias
+
+Gerando números aleatórios de uma distribuição qualquer.
+
+Caso geral (Rice pg. 62)
+
+
+## Exemplo
+
+Rice pg. 63
+
+## Distribuição t-Student
 
 ## Distribuições conjuntas
 

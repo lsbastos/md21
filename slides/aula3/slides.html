@@ -360,20 +360,69 @@ Leo Bastos
 \begin{array}{ll}
 \frac{\beta^\alpha}{ \Gamma(\alpha)} x^{\alpha-1}  e^{-x\beta} &amp; \mbox{se } x &gt; 0,
 \\ 0  &amp; \mbox{c.c}. \\
-\end{array}\right.\]</span></p>
+\end{array}\right.\]</span> onde <span class="math inline">\(\alpha&gt;0\)</span> e <span class="math inline">\(\beta&gt;0\)</span>.</p>
 <div class="fragment">
 <p><span class="math display">\[\mathbb{E}(X) = \int_0^\infty x \frac{\beta^\alpha}{ \Gamma(\alpha)} x^{\alpha-1}  e^{-x\beta} dx = \cdots = \frac{\alpha}{\beta}\]</span></p>
 </div>
 </section>
+<section id="distribuição-gamma-1" class="slide level2">
+<h2>Distribuição Gamma</h2>
+<p><span class="math inline">\(X \sim Gamma(\alpha, \beta)\)</span></p>
+
+<img data-src="slides_files/figure-revealjs/dgamma-1.png" width="960" class="r-stretch"></section>
 <section id="distribuição-beta" class="slide level2">
 <h2>Distribuição Beta</h2>
 <p>Seja <span class="math inline">\(X\)</span> uma variável aleatória no intervalo (0,1). Dizemos que <span class="math inline">\(X\)</span> segue uma distribuiçao Beta com parâmetros <span class="math inline">\((\alpha, \beta)\)</span>, <span class="math inline">\(X \sim Beta(\alpha,\beta)\)</span>, se <span class="math display">\[ f_X(x) = \left\{
 \begin{array}{ll}
 \frac{\Gamma(\alpha + \beta)}{ \Gamma(\alpha) \Gamma(\beta)} x^{\alpha-1} (1-x)^{\beta-1} &amp; \mbox{se } x \in (0,1),
 \\ 0  &amp; \mbox{c.c}. \\
-\end{array}\right.\]</span></p>
+\end{array}\right.\]</span> onde <span class="math inline">\(\alpha&gt;0\)</span> e <span class="math inline">\(\beta&gt;0\)</span>.</p>
 <div class="fragment">
 <p><span class="math display">\[\mathbb{E}(X) = \int_0^\infty x \theta e^{-x\theta} dx = \cdots = \theta\]</span></p>
+</div>
+</section>
+<section id="distribuição-beta-1" class="slide level2">
+<h2>Distribuição Beta</h2>
+<p><span class="math inline">\(X \sim Beta(\alpha, \beta)\)</span></p>
+
+<img data-src="slides_files/figure-revealjs/dbeta-1.png" width="960" class="r-stretch"></section>
+<section id="transformações-de-variáveis-aleatórias" class="slide level2">
+<h2>Transformações de variáveis aleatórias</h2>
+<p>Suponha agora que <span class="math inline">\(X\)</span> tem função de densidade <span class="math inline">\(f_X(x)\)</span>.</p>
+<p>Seja <span class="math inline">\(Y = g(X)\)</span>. Qual a distribuição de <span class="math inline">\(Y\)</span>?</p>
+<div class="fragment">
+<p>Se <span class="math inline">\(g(X) = a X + b\)</span>, então podemos partir da distribuição conjunta:</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[F_Y(y) = \mathbb{P}(Y \leq y) = \mathbb{P}\left(aX + b \leq  y\right) \\ =  \mathbb{P}\left(X \leq  \frac{y-b}{a}\right) = F_X\left(X \leq  \frac{y-b}{a}\right)\]</span></p>
+</div>
+</section>
+<section id="transformações-de-variáveis-aleatórias-1" class="slide level2">
+<h2>Transformações de variáveis aleatórias</h2>
+<p>Logo,</p>
+<p><span class="math display">\[f_Y(y) = \frac{d}{dy} F_Y(y) = \frac{d}{dy} F_X\left(\frac{y-b}{a}\right) = \frac{1}{a} f_X\left(\frac{y-b}{a}\right)\]</span></p>
+<div class="fragment">
+<p>Seja <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span> e <span class="math inline">\(Y = aX + b, \qquad a &gt; 0\)</span>.</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[f_Y(y) = \frac{1}{a\sigma \sqrt{2\pi}} \exp\left\{ -\frac{1}{2} \left(\frac{y-b-a\mu}{a\sigma}  \right)^2\right\}\]</span> ou seja, <span class="math inline">\(Y \sim N(a\mu + b, (a\sigma)^2)\)</span>.</p>
+<p>Se <span class="math inline">\(a=1/\sigma\)</span> e <span class="math inline">\(b = -\mu/\sigma\)</span>, então <span class="math inline">\(Y \sim N(0,1)\)</span>.</p>
+</div>
+</section>
+<section id="transformações-de-variáveis-aleatórias-2" class="slide level2">
+<h2>Transformações de variáveis aleatórias</h2>
+<p>Seja <span class="math inline">\(Z \sim N(0,1)\)</span> e <span class="math inline">\(X = Z^2\)</span>, qual a distribuição de <span class="math inline">\(X\)</span>?</p>
+<div class="fragment">
+<p><span class="math display">\[\begin{eqnarray}
+F_X(x) &amp; = &amp; \mathbb{P}(X \leq x) = \mathbb{P}(-\sqrt{x} \leq Z \leq \sqrt{x}) = \\
+       &amp; = &amp; \Phi(\sqrt{x}) - \Phi(-\sqrt{x}).
+\end{eqnarray}\]</span></p>
+</div>
+<div class="fragment">
+<p>Usando a simetria da Normal, <span class="math inline">\(\Phi(-a) = 1 - \Phi(a)\)</span>. Logo</p>
+<p><span class="math display">\[\begin{eqnarray}
+f_X(x) &amp; = &amp;  \frac{d}{dx} 2\Phi(\sqrt{x}) - 1 = x^{-1/2}  \phi(\sqrt{x}) = \frac{x^{-1/2}}{\sqrt{2\pi}} e^{-x/2}.
+\end{eqnarray}\]</span></p>
 </div>
 </section>
 <section id="distribuição-chi-quadrado" class="slide level2">
@@ -381,9 +430,6 @@ Leo Bastos
 </section>
 <section id="distribuição-t-student" class="slide level2">
 <h2>Distribuição t-Student</h2>
-</section>
-<section id="transformações-de-variáveis-aleatórias" class="slide level2">
-<h2>Transformações de variáveis aleatórias</h2>
 </section>
 <section id="distribuições-conjuntas" class="slide level2">
 <h2>Distribuições conjuntas</h2>
@@ -609,6 +655,44 @@ Leo Bastos
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
