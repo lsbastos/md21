@@ -370,6 +370,19 @@ Leo Bastos
 <p><span class="math inline">\(X \sim Gamma(\alpha, \beta)\)</span></p>
 
 <img data-src="slides_files/figure-revealjs/dgamma-1.png" width="960" class="r-stretch"></section>
+<section id="a-função-beta" class="slide level2">
+<h2>A função Beta</h2>
+<p>A função <span class="math inline">\(B(z_1, z_2)\)</span>, conhecida por função Beta, é definida para todo <span class="math inline">\(z_1&gt;0\)</span> e <span class="math inline">\(z_2&gt;0\)</span> <span class="math display">\[B(z_1, z_2) = \int_{0}^{\infty} t^{z_1-1}(1-t)^{z_2-1}dt\]</span></p>
+<div class="fragment">
+<p>Algumas propriedades</p>
+<div>
+<ul>
+<li class="fragment">Simetria: <span class="math inline">\(B(z_1, z_2) = B(z_2, z_1)\)</span></li>
+<li class="fragment"><span class="math inline">\(B(z_1, z_2) = \frac{\Gamma(z_1)\Gamma(z_2)}{\Gamma(z_1+z_2)}\)</span> <!-- -   Se $z_1 = n$ e $z_2 = m$ inteiros, então $B(n, m) = (m-1)!(n-1)! / (m+n-1)!$ --></li>
+</ul>
+</div>
+</div>
+</section>
 <section id="distribuição-beta" class="slide level2">
 <h2>Distribuição Beta</h2>
 <p>Seja <span class="math inline">\(X\)</span> uma variável aleatória no intervalo (0,1). Dizemos que <span class="math inline">\(X\)</span> segue uma distribuiçao Beta com parâmetros <span class="math inline">\((\alpha, \beta)\)</span>, <span class="math inline">\(X \sim Beta(\alpha,\beta)\)</span>, se <span class="math display">\[ f_X(x) = \left\{
@@ -399,17 +412,22 @@ Leo Bastos
 </section>
 <section id="transformações-de-variáveis-aleatórias-1" class="slide level2">
 <h2>Transformações de variáveis aleatórias</h2>
-<p>Logo,</p>
+<p>Portanto, para <span class="math inline">\(Y = aX + b\)</span>,</p>
+<p><span class="math display">\[F_Y(y) =  F_X\left(X \leq  \frac{y-b}{a}\right)\]</span></p>
+<div class="fragment">
+<p>E consequentemente,</p>
 <p><span class="math display">\[f_Y(y) = \frac{d}{dy} F_Y(y) = \frac{d}{dy} F_X\left(\frac{y-b}{a}\right) = \frac{1}{a} f_X\left(\frac{y-b}{a}\right)\]</span></p>
-<div class="fragment">
-<p>Seja <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span> e <span class="math inline">\(Y = aX + b, \qquad a &gt; 0\)</span>.</p>
-</div>
-<div class="fragment">
-<p><span class="math display">\[f_Y(y) = \frac{1}{a\sigma \sqrt{2\pi}} \exp\left\{ -\frac{1}{2} \left(\frac{y-b-a\mu}{a\sigma}  \right)^2\right\}\]</span> ou seja, <span class="math inline">\(Y \sim N(a\mu + b, (a\sigma)^2)\)</span>.</p>
-<p>Se <span class="math inline">\(a=1/\sigma\)</span> e <span class="math inline">\(b = -\mu/\sigma\)</span>, então <span class="math inline">\(Y \sim N(0,1)\)</span>.</p>
 </div>
 </section>
 <section id="transformações-de-variáveis-aleatórias-2" class="slide level2">
+<h2>Transformações de variáveis aleatórias</h2>
+<p>Seja <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span> e <span class="math inline">\(Y = aX + b, \qquad a &gt; 0\)</span>.</p>
+<div class="fragment">
+<p><span class="math display">\[f_Y(y) = \frac{1}{a\sigma \sqrt{2\pi}} \exp\left\{ -\frac{1}{2} \left(\frac{y-b-a\mu}{a\sigma}  \right)^2\right\}\]</span> ou seja, <span class="math inline">\(Y \sim N(a\mu + b, (a\sigma)^2)\)</span>.</p>
+<!-- Se $a=1/\sigma$ e $b = -\mu/\sigma$, então $Y \sim N(0,1)$. -->
+</div>
+</section>
+<section id="transformações-de-variáveis-aleatórias-3" class="slide level2">
 <h2>Transformações de variáveis aleatórias</h2>
 <p>Seja <span class="math inline">\(Z \sim N(0,1)\)</span> e <span class="math inline">\(X = Z^2\)</span>, qual a distribuição de <span class="math inline">\(X\)</span>?</p>
 <div class="fragment">
@@ -427,13 +445,250 @@ f_X(x) &amp; = &amp;  \frac{d}{dx} 2\Phi(\sqrt{x}) - 1 = x^{-1/2}  \phi(\sqrt{x}
 </section>
 <section id="distribuição-chi-quadrado" class="slide level2">
 <h2>Distribuição Chi-quadrado</h2>
+<p>Seja <span class="math inline">\(X\)</span> uma variável aleatória positiva. Dizemos que <span class="math inline">\(X\)</span> segue uma distribuiçao <span class="math inline">\(\chi^2_1\)</span> com um grau de liberdade, <span class="math inline">\(X \sim \chi^2_1\)</span>, se <span class="math display">\[f_X(x) = \frac{x^{-1/2}}{\sqrt{2\pi}} e^{-x/2}, \quad x &gt; 0.\]</span></p>
+<div class="fragment">
+<p>Note que a distribuição <span class="math inline">\(\chi^2_1\)</span> é equivalente a uma distribuição <span class="math inline">\(Gama(1/2, 1/2)\)</span>.</p>
+</div>
 </section>
-<section id="distribuição-t-student" class="slide level2">
-<h2>Distribuição t-Student</h2>
+<section id="distribuição-chi-quadrado-1" class="slide level2">
+<h2>Distribuição Chi-quadrado</h2>
+<p><span class="math inline">\(X \sim \chi^2_1\)</span></p>
+
+<img data-src="slides_files/figure-revealjs/dchisq-1.png" width="960" class="r-stretch"></section>
+<section id="transformações-de-variáveis-aleatórias-4" class="slide level2">
+<h2>Transformações de variáveis aleatórias</h2>
+<p>Suponha que <span class="math inline">\(X\)</span> tem função de distribuição acumulada <span class="math inline">\(F_X\)</span>.</p>
+<p>Seja <span class="math inline">\(U = F_X(X)\)</span>. Qual a distribuição de <span class="math inline">\(U\)</span>?</p>
+<div class="fragment">
+<p><span class="math display">\[\begin{eqnarray}
+F_U(u)  &amp; = &amp; \mathbb{P}(U \leq u) = \mathbb{P}(F_X(X) \leq u) \\
+        &amp; = &amp; \mathbb{P}(X \leq F_X^{-1}(u)) = F_X(F_X^{-1}(u)) \\
+        &amp; = &amp; u.
+\end{eqnarray}\]</span></p>
+</div>
+<div class="fragment">
+<p>Que é a acumulada da uniforme no intervalo (0,1), ou seja, <span class="math inline">\(U \sim U(0,1)\)</span>.</p>
+</div>
 </section>
-<section id="distribuições-conjuntas" class="slide level2">
-<h2>Distribuições conjuntas</h2>
+<section id="transformações-de-variáveis-aleatórias-5" class="slide level2">
+<h2>Transformações de variáveis aleatórias</h2>
+<p>Suponha agora que <span class="math inline">\(U \sim U(0,1)\)</span>, e seja <span class="math inline">\(X = F^{-1}(U)\)</span>. Então a distribuição acumulada de <span class="math inline">\(X\)</span> é <span class="math inline">\(F\)</span>.</p>
+<div class="fragment">
+<p><span class="math display">\[\begin{eqnarray}
+\mathbb{P}(X \leq x) &amp; = &amp; \mathbb{P}(F^{-1}(U) \leq x) \\
+                     &amp; = &amp;  \mathbb{P}(U \leq F(x)) = \\
+                     &amp; = &amp; F_U(F(x)) = F(x).
+\end{eqnarray}\]</span></p>
+</div>
+<div class="fragment">
+<p>Esse resultado é bastante útil, pois se <span class="math inline">\(F^{-1}\)</span> for simples de se calcular. Então podemos gerar amostras de <span class="math inline">\(X\)</span> a partir de amostras de uma uniforme(0,1).</p>
+</div>
 </section>
+<section id="exemplo" class="slide level2">
+<h2>Exemplo</h2>
+<p>Gerando amostras da Normal(0,1) a partir de amostras da uniforme(0,1).</p>
+
+<img data-src="slides_files/figure-revealjs/qnorm-1.png" width="960" class="r-stretch"></section>
+<section id="exemplo-1" class="slide level2">
+<h2>Exemplo</h2>
+
+<img data-src="slides_files/figure-revealjs/qnorm.hist-1.png" width="960" class="r-stretch"></section>
+<section id="transformações-de-variáveis-aleatórias-6" class="slide level2">
+<h2>Transformações de variáveis aleatórias</h2>
+<p>Seja <span class="math inline">\(X\)</span> uma variável aleatŕia contínua com densidade <span class="math inline">\(f_X\)</span> e seja <span class="math inline">\(Y=g(X)\)</span> onde <span class="math inline">\(g\)</span> é diferenciável e estritamente monotônica em um intervalo <span class="math inline">\(I\)</span>. E suponha que <span class="math inline">\(f_X(x) = 0\)</span> se <span class="math inline">\(x\)</span> não pertença a <span class="math inline">\(I\)</span>. Então <span class="math inline">\(Y\)</span> tem a seguinte densidade</p>
+<p><span class="math display">\[f_Y(y) = f_X(g^{-1}(y)) \left| \frac{d}{dy} g^{-1}(y)\right|\]</span></p>
+</section>
+<section id="exemplo-2" class="slide level2">
+<h2>Exemplo</h2>
+<p>Seja <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span> e <span class="math inline">\(Y = e^X\)</span>. Qual a distribuição de <span class="math inline">\(Y\)</span>?</p>
+<div class="fragment">
+<p><span class="math display">\[\begin{eqnarray}
+f_Y(y) &amp; = &amp; f_X(g^{-1}(y)) \left| \frac{d}{dy} g^{-1}(y)\right| \\
+       &amp; = &amp; f_X(\log(y)) \left| \frac{d}{dy} \log(y)\right| \\
+       &amp; = &amp; \frac{1}{\sigma \sqrt{2\pi}} \exp\left\{ -\frac{1}{2\sigma^2} (\log(y) - \mu) \right\}\frac{1}{y}, \, y &gt; 0 \\
+\end{eqnarray}\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(Y \sim logNormal(\mu, \sigma^2)\)</span>.</p>
+<!-- ## Distribuição t-Student -->
+</div>
+</section>
+<section id="distribuições-conjunta" class="slide level2">
+<h2>Distribuições conjunta</h2>
+<p>Caso discreto. Dado um par de variáveis aleatórias discretas <span class="math inline">\((X,Y)\)</span>, definimos a função de probabilidade conjunta como <span class="math display">\[p_{X,Y}(x,y) = f_{X,Y}(x,y) = \mathbb{P}(X=x, Y=y)\]</span></p>
+<div class="fragment">
+<p>Seja o seguinte exemplo para a distribuição de probabilidade de duas variáveis aleatórias</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;"><span class="math inline">\(Y=0\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(Y=1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(X=0\)</span></td>
+<td style="text-align: center;">1/9</td>
+<td style="text-align: center;">2/9</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(X=1\)</span></td>
+<td style="text-align: center;">2/9</td>
+<td style="text-align: center;">4/9</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="distribuições-conjunta-1" class="slide level2">
+<h2>Distribuições conjunta</h2>
+<p>Sejam <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> duas variáveis aleatórias, dizemos que <span class="math inline">\(f_{X,Y}\)</span> é a função de densidade de probabilidade conjunta de <span class="math inline">\((X,Y)\)</span> se</p>
+<div>
+<ul>
+<li class="fragment"><p><span class="math inline">\(f_{X,Y}(x,y) \geq 0\)</span> para todos <span class="math inline">\((x,y)\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}  f_{X,Y}(x,y) dy dx = 1\)</span> e</p></li>
+<li class="fragment"><p>Para qualquer conjunto <span class="math inline">\(A \subset \mathbb{R}^2\)</span>, <span class="math inline">\(\mathbb{P}((X,Y)\subset A) = \int \int_Af_{X,Y}(x,y) dy dx\)</span></p></li>
+</ul>
+</div>
+</section>
+<section id="distribuição-conjunta" class="slide level2 scrollable">
+<h2>Distribuição conjunta</h2>
+<p>Exemplo. <span class="math display">\[f(x,y) = e^{-(x+y)}, \quad x&gt;0 \, y&gt;0\]</span></p>
+<div class="fragment">
+<p><span class="math inline">\(f_{X,Y}(x,y) \geq 0\)</span> para todos <span class="math inline">\((x,y)\)</span> (ok)</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\begin{eqnarray}
+\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}  f_{X,Y}(x,y) dy dx &amp; = &amp; \int_{0}^{\infty}\int_{0}^{\infty}  e^{-(x+y)} dy dx \\
+&amp; = &amp; \int_{0}^{\infty} e^{-x}\int_{0}^{\infty}  e^{-y} dy dx  \\
+&amp; = &amp; \int_{0}^{\infty} e^{-x} 1 dx = 1.
+\end{eqnarray}\]</span></p>
+</div>
+</section>
+<section id="distribuições-marginais" class="slide level2">
+<h2>Distribuições marginais</h2>
+<p>Definição. Se <span class="math inline">\((X,Y)\)</span> tem distribuição conjunta <span class="math inline">\(f_{X,Y}(x,y)\)</span>, então a distribuição marginal de <span class="math inline">\(X\)</span> é dada por <span class="math display">\[f_X(x) = \left\{ \begin{array}{ll} \sum_y f_{X,Y}(x,y), &amp; \mbox{se } Y \mbox{ discreta} \\
+\int_{-\infty}^{\infty} f_{X,Y}(x,y) dy, &amp; \mbox{se } Y \mbox{ contínua.} \\\end{array}
+\right.\]</span></p>
+<div class="fragment">
+<p>E a distribuição marginal de <span class="math inline">\(Y\)</span> é dada por <span class="math display">\[f_Y(y) = \left\{ \begin{array}{ll} \sum_x f_{X,Y}(x,y), &amp; \mbox{se } X \mbox{ discreta} \\
+\int_{-\infty}^{\infty} f_{X,Y}(x,y) dx, &amp; \mbox{se } X \mbox{ contínua.} \\\end{array}
+\right.\]</span></p>
+</div>
+</section>
+<section id="exemplo-3" class="slide level2">
+<h2>Exemplo</h2>
+<p>Seja <span class="math inline">\(f_{X,Y}(x,y)\)</span> abaixo</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;"><span class="math inline">\(Y=0\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(Y=1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(X=0\)</span></td>
+<td style="text-align: center;">3/9</td>
+<td style="text-align: center;">1/9</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(X=1\)</span></td>
+<td style="text-align: center;">3/9</td>
+<td style="text-align: center;">2/9</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p><span class="math display">\[f_X(x) = \left\{ \begin{array}{ll} 3/9 + 1/9 = 4/9, &amp; x=0 \\
+3/9 + 2/9 = 5/9, &amp; x = 1\end{array}\right.\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[f_Y(y) = \left\{ \begin{array}{ll} 3/9 + 3/9 = 6/9, &amp; y=0 \\
+1/9 + 2/9 = 3/9, &amp; y = 1\end{array}\right.\]</span></p>
+</div>
+</section>
+<section id="independência" class="slide level2">
+<h2>Independência</h2>
+<p>Dizemos que duas variáveis aleatórias <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> são independentes, <span class="math inline">\(X \perp Y\)</span>, se para todo <span class="math inline">\(A\)</span> e <span class="math inline">\(B\)</span> <span class="math display">\[\mathbb{P}(X \in A, Y \in B) = \mathbb{P}(X \in A) \mathbb{P}(Y \in B)\]</span></p>
+<div class="fragment">
+<p>Se a distribuição conjunta de <span class="math inline">\((X,Y)\)</span> é dada por <span class="math inline">\(f_{X,Y}\)</span>, dizemos que <span class="math inline">\(X \perp Y\)</span> se, e somente se, <span class="math display">\[f_{X,Y}(x,y) = f_X(x) f_Y(y)\]</span></p>
+</div>
+</section>
+<section id="exemplo-4" class="slide level2">
+<h2>Exemplo</h2>
+<p>No exemplo anterior, vimos que <span class="math inline">\(f_{X,Y}(x,y)\)</span> é dada por</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;"><span class="math inline">\(Y=0\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(Y=1\)</span></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(X=0\)</span></td>
+<td style="text-align: center;">3/9</td>
+<td style="text-align: center;">1/9</td>
+<td style="text-align: center;">4/9</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(X=1\)</span></td>
+<td style="text-align: center;">3/9</td>
+<td style="text-align: center;">2/9</td>
+<td style="text-align: center;">5/9</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td style="text-align: center;">6/9</td>
+<td style="text-align: center;">3/9</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p><span class="math inline">\(X\)</span> não é independente de <span class="math inline">\(Y\)</span> pois <span class="math inline">\(\mathbb{P}(X = 0, Y = 0) = 3/9 \neq \mathbb{P}(X=0)\mathbb{P}(Y=0) = 24/81\)</span></p>
+</div>
+</section>
+<section id="variáveis-aleatórias-independentes" class="slide level2">
+<h2>Variáveis aleatórias independentes</h2>
+<p>Dizemos que as variáveis aleatórias <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> são independentes se <span class="math display">\[ f_{X_1, X_2, \ldots, X_n}(x_1, x_2, \ldots, x_n) = \prod_{i=1}^{n} f_{X_i}(x_i)\]</span></p>
+<div class="fragment">
+<p>Se a distribuição marginal <span class="math inline">\(f_{X_i}(x_i)\)</span> for a mesma para todo <span class="math inline">\(i\)</span>, dizemos que <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> são independentes e identicamente distribuídos (iid) com função de densidade <span class="math inline">\(f_X = f_{X_i}, \forall i\)</span>.</p>
+<!-- $X_1, X_2, \ldots, X_n$ é chamada de amostra aleatória de tamanho $n$ da distribuição  $F$. -->
+</div>
+</section>
+<section id="distribuições-condicionais" class="slide level2">
+<h2>Distribuições condicionais</h2>
+<p>Se <span class="math inline">\((X,Y)\)</span> tem distribuição conjunta <span class="math inline">\(f_{X,Y}\)</span>, a distribuição condicional de <span class="math inline">\(X\mid Y = y\)</span> é definida por <span class="math display">\[f_{X \mid Y} (x \mid y) = \frac{f_{X,Y}(x, y)}{f_Y(y)}\]</span></p>
+<div class="fragment">
+<p>Analogamente, a distribuição de <span class="math inline">\(Y \mid X = x\)</span> é dada por <span class="math display">\[f_{Y \mid X} (y \mid x) = \frac{f_{X,Y}(x, y)}{f_X(x)}\]</span></p>
+</div>
+</section>
+<section id="distribuições-condicionais-1" class="slide level2">
+<h2>Distribuições condicionais</h2>
+<p>Note que a conjunta de <span class="math inline">\((X,Y)\)</span> pode ser expressa em termos da distribuição marginal e condicional <span class="math display">\[  f_{X,Y}(x, y) = f_{Y \mid X} (y \mid x) f_X(x)\]</span></p>
+<div class="fragment">
+<p>E integrando (ou somando) <span class="math inline">\(X\)</span> fora do dois lado, tem-se que <span class="math display">\[  f_{Y}(y) = \left\{ \begin{array}{ll} \sum_x f_{Y \mid X} (y \mid x) f_X(x), &amp; \mbox{se } X \mbox{ for discreta} \\
+\int_{-\infty}^{\infty} f_{Y \mid X} (y \mid x) f_X(x) dx, &amp; \mbox{se } X \mbox{ for contínua.} \\\end{array} \right.\]</span></p>
+</div>
+<div class="fragment">
+<p>Defindo a lei da probabilidade total para variáveis aleatórias.</p>
+</div>
+</section>
+<section id="teorema-de-bayes" class="slide level2">
+<h2>Teorema de Bayes</h2>
+<p>Suponha que conhecemos a distribuição conjunta <span class="math inline">\(f_{X \mid Y}\)</span> e a distribuição marginal <span class="math inline">\(f_Y\)</span>, então a distribuição condicional <span class="math inline">\(Y\)</span> dado <span class="math inline">\(X\)</span> pode ser calculada da seguinte forma <span class="math display">\[\begin{equation}
+f_{Y\mid X}( y \mid x) = \frac{ f_{X \mid Y}(x \mid y) f_Y(y)}{ \int f_{X \mid Y}(x \mid y) f_Y(y) dy}
+\end{equation}\]</span></p>
+
+<aside><div>
+<p>Se <span class="math inline">\(Y\)</span> for discreta, a integral dá lugar a um somatório.</p>
+</div></aside></section>
 <section id="valor-esperado-variância-função-geradora-de-momentos" class="slide level2">
 <h2>Valor esperado, variância, função geradora de momentos</h2>
 <div class="quarto-auto-generated-content">
