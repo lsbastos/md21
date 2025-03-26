@@ -1,0 +1,143 @@
+---
+title: "MD21 Introdução à Estatística"
+subtitle: "Valor esperado, desigualdades e teoria assintótica"
+author: "Leo Bastos"
+format: 
+  revealjs:
+    logo: ../../impa-tech-h.png
+    footer: '<https://github.com/lsbastos/md21/>'
+    theme: simple
+    chalkboard: true
+editor: visual
+---
+
+<!-- Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>. -->
+
+<!-- <https://quarto.org/docs/presentations/revealjs/> -->
+
+<!-- <https://github.com/quarto-dev/quarto-web/blob/main/docs/presentations/revealjs/demo/index.qmd> -->
+
+## Valor esperado
+
+Vimos anteriormente que o valor esperado de uma v.a. $X$ é calculado da seguinta forme\
+$$\mathbb{E}[X] = \left\{ \begin{array}{ll} \sum_x xf_{X}(x), & \mbox{se } X \mbox{ discreta} \\
+\int_{-\infty}^{\infty} xf_{X}(x) dx, & \mbox{se } X \mbox{ contínua.} \\\end{array}
+\right.$$
+
+. . .
+
+Algumas propriedades importantes.
+
+::: incremental
+- $\mathbb{E}[a] = a$, onde $a$ é uma constante.
+- $\mathbb{E}[aX] = a\mathbb{E}[X]$
+- $\mathbb{E}[aX + b] = a\mathbb{E}[X] + b$
+:::
+
+
+## Valor esperado
+
+Seja $Y = g(X)$, para encontrarmos o valor esperado de $Y$
+
+$$\mathbb{E}[Y] = \int yf_Y(y) dy = \int y f_X(g^{-1}(y)) |\frac{d}{dy}g^{-1}(y)|dy$$
+
+. . .
+
+Seja $X$ uma v.a. e $Y = g(X)$, o valor esperado de $Y$ pode ser encontrado sem encontrar a distribuição de $Y$.
+
+$$ \mathbb{E}[Y] = \mathbb{E}[g(X)] = \int g(X) f_X(x) dx $$
+
+<!-- ::: aside -->
+<!-- Se $X$ for discreta, substituir a integral por um somatório. -->
+<!-- ::: -->
+
+
+## Valor esperado
+
+Caso especial, seja $A$ um possível evento e seja $g(x) = \mathbb{I}_A(x)$ onde $\mathbb{I}_A(x) = 1$ se $x \in A$, e $\mathbb{I}_A(x)= 0$ se $x \notin A$. Então
+
+$$\mathbb{E}[\mathbb{I}_A(X)] = \int \mathbb{I}_A(x) f_x(x)dx = \int_{x \in A} f_x(x)dx = \mathbb{P}(X \in A).$$
+
+. . .
+
+O $k$-ésimo momento de uma variável aleatória $X$ é definido como
+$\mathbb{E}[X^k]$, assumindo que $\mathbb{E}[|X|^k] < \infty$ 
+
+. . .
+
+O $k$-ésimo momento central de $X$ é $\mathbb{E}[(X-\mu)^k]$
+
+
+
+## Valor esperado (propriedades)
+
+Uma propriedade importante do valor esperado é que a esperança da somas é a soma das esperanças, i.e.
+$$\mathbb{E}[X + Y] = \mathbb{E}[X] + \mathbb{E}[Y]$$
+
+. . .
+
+De forma mais geral, sejam $X_1, X_2,\ldots, X_n$ v.a.s com $\mathbb{E}[X_i]<\infty$, e $(a_1,b_1), (a_2,b_2),\ldots,(a_n,b_n)$ constantes, 
+$$\mathbb{E}\left[\sum_{i=1}^n (a_i X_i + b_i)\right] = \sum_{i=1}^n a_i \mathbb{E}[X_i] + \sum_{i=1}^n b_i$$
+
+
+
+## Esperança (Momentos)
+
+O $k$-ésimo momento de uma variável aleatória $X$ é definido como
+$\mathbb{E}[X^k]$, assumindo que $\mathbb{E}[|X|^k] < \infty$ 
+
+::: incremental
+- O primeiro momento é a média da variável aleatória $\mathbb{E}[X] = \mu$
+- O $k$-ésimo momento central de $X$ é $\mathbb{E}[(X-\mu)^k]$
+- O segundo momento central é chamado de variância $\mathbb{V}(X) = \mathbb{E}[(X-\mu)^2]$
+:::
+
+
+## Esperança 
+
+O valor esperado de uma função de duas (ou mais) variáveis aleatórias $X$ e $Y$, $Z = g(X,Y)$ pode ser calculada da seguinte forma
+$$\mathbb{E}[Z] = \mathbb{E}[g(X,Y)] = \int \int g(x,y) f_{X,Y}(x,y) dy dx$$
+
+
+## Bullets (one by one)
+
+When you click the **Render** button a document will be generated that includes:
+
+::: incremental
+-   Eat spaghetti
+-   Drink wine
+:::
+
+## Slide with a pause
+
+content before the pause
+
+. . .
+
+content after the pause
+
+## Code
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+## Slide Title
+
+-   Green [^1]
+-   Brown
+-   Purple
+
+[^1]: A footnote
+
+::: aside
+Some additional commentary of more peripheral interest.
+:::
+
+## Equations
+
+Equação no texto $A \in (0,\alpha)$ ou como equação centrada
+
+$$p(\theta \mid x) = \frac{p(\theta) p(x \mid \theta)}{\int_\theta p(\theta) p(x \mid \theta)d\theta}$$
