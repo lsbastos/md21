@@ -32,6 +32,7 @@ Revisão de variáveis aleatórias e Teorema Central do Limite. Conceitos e proc
 
 | Aula     | Material | Capítulo sugerido |
 |:---:|:---:|:---:|
-| 1 |  [Slides](https://raw.githack.com/lsbastos/md21/refs/heads/main/slides/aula1/slide.html) e [exercícios](listas/exercicios1.md)   | Rice Cap. 1 ou Wasserman Cap. 1 |
-| 2 |  [Slides](https://raw.githack.com/lsbastos/md21/refs/heads/main/slides/aula2/slide.html) e [exercícios](listas/exercicios2.md)   | Rice 2.1-2.2 e Wasserman 2.1-2.3 |
+| 1 |  [Slides](https://htmlpreview.github.io/?https://github.com/lsbastos/md21/blob/main/slides/aula1/slide.html) e [exercícios](listas/exercicios1.md)   | Rice Cap. 1 ou Wasserman Cap. 1 |
+| 2 |  [Slides](https://htmlpreview.github.io/?https://github.com/lsbastos/md21/blob/main/slides/aula2/slide.html) e [exercícios](listas/exercicios2.md)   | Rice 2.1-2.2 e Wasserman 2.1-2.3 |
+| 2 |  [Slides](https://htmlpreview.github.io/?https://github.com/lsbastos/md21/blob/main/slides/aula3/slide.html) e [exercícios]()   | Rice 3.1-3.6  e Wasserman  2.3-2.13 |
 
