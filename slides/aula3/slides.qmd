@@ -100,7 +100,7 @@ Seja $X$ uma variável aleatória no intervalo (0,1). Dizemos que $X$ segue uma 
 
 . . .
 
-$$\mathbb{E}(X) = \int_0^\infty x \theta e^{-x\theta} dx = \cdots = \theta$$
+$$\mathbb{E}(X) = \int_0^1 x  f_X(x) dx = \cdots = \frac{\alpha}{\alpha + \beta}$$
 
 ## Distribuição Beta
 
@@ -156,13 +156,13 @@ Se $g(X) = a X + b$, então podemos partir da distribuição conjunta:
 
 . . .
 
-$$F_Y(y) = \mathbb{P}(Y \leq y) = \mathbb{P}\left(aX + b \leq  y\right) \\ =  \mathbb{P}\left(X \leq  \frac{y-b}{a}\right) = F_X\left(X \leq  \frac{y-b}{a}\right)$$
+$$F_Y(y) = \mathbb{P}(Y \leq y) = \mathbb{P}\left(aX + b \leq  y\right) \\ =  \mathbb{P}\left(X \leq  \frac{y-b}{a}\right) = F_X\left(\frac{y-b}{a}\right)$$
 
 ## Transformações de variáveis aleatórias
 
 Portanto, para $Y = aX + b$,
 
-$$F_Y(y) =  F_X\left(X \leq  \frac{y-b}{a}\right)$$
+$$F_Y(y) =  F_X\left(\frac{y-b}{a}\right)$$
 
 . . .
 
@@ -289,10 +289,10 @@ Gerando amostras da Normal(0,1) a partir de amostras da uniforme(0,1).
 #| message: false
 #| warning: false
 #| echo: false
-set.seed(1234)
+# set.seed(1234)
 
 library(ggplot2)
-n <- 200
+n <- 50
 U <- runif(n)
 X <- qnorm(U)
 
@@ -310,8 +310,9 @@ ggplot() +
 
 ## Exemplo
 
+$n = 50$
 ```{r}
-#| label: qnorm.hist
+#| label: qnorm.hist.50
 #| message: false
 #| warning: false
 #| echo: false
@@ -326,6 +327,55 @@ ggplot() +
   ) + 
   theme_bw(base_size = 16) #+     theme(legend.position = c(.8,.75))
 ```
+
+
+## Exemplo
+
+$n = 100$
+```{r}
+#| label: qnorm.hist.100
+#| message: false
+#| warning: false
+#| echo: false
+n <- 100
+U <- runif(n)
+X <- qnorm(U)
+
+ggplot() +
+  geom_histogram(aes(x=X, y=..density..), color = "black", fill="red", binwidth = 0.5) + 
+  geom_function(fun = dnorm) +
+  xlim(-4,4) +
+  labs(
+    x = "x",
+    y = "F(x)",
+  ) + 
+  theme_bw(base_size = 16) #+     theme(legend.position = c(.8,.75))
+```
+
+
+## Exemplo
+
+$n = 1000$
+```{r}
+#| label: qnorm.hist.1000
+#| message: false
+#| warning: false
+#| echo: false
+n <- 1000
+U <- runif(n)
+X <- qnorm(U)
+
+ggplot() +
+  geom_histogram(aes(x=X, y=..density..), color = "black", fill="red", binwidth = 0.5) + 
+  geom_function(fun = dnorm) +
+  xlim(-4,4) +
+  labs(
+    x = "x",
+    y = "F(x)",
+  ) + 
+  theme_bw(base_size = 16) #+     theme(legend.position = c(.8,.75))
+```
+
 
 ## Transformações de variáveis aleatórias
 
@@ -445,11 +495,9 @@ No exemplo anterior, vimos que $f_{X,Y}(x,y)$ é dada por
 
 $X$ não é independente de $Y$ pois $\mathbb{P}(X = 0, Y = 0) = 3/9 \neq \mathbb{P}(X=0)\mathbb{P}(Y=0) = 24/81$
 
-
 ## Variáveis aleatórias independentes
 
-Dizemos que as variáveis aleatórias $X_1, X_2, \ldots, X_n$ são independentes se
-$$ f_{X_1, X_2, \ldots, X_n}(x_1, x_2, \ldots, x_n) = \prod_{i=1}^{n} f_{X_i}(x_i)$$
+Dizemos que as variáveis aleatórias $X_1, X_2, \ldots, X_n$ são independentes se $$ f_{X_1, X_2, \ldots, X_n}(x_1, x_2, \ldots, x_n) = \prod_{i=1}^{n} f_{X_i}(x_i)$$
 
 . . .
 
@@ -457,38 +505,84 @@ Se a distribuição marginal $f_{X_i}(x_i)$ for a mesma para todo $i$, dizemos q
 
 <!-- $X_1, X_2, \ldots, X_n$ é chamada de amostra aleatória de tamanho $n$ da distribuição  $F$. -->
 
+## Exemplo
 
-## Distribuições condicionais
+Seja $X_i \sim Exp(\lambda)$, $i=1,2,\ldots,n$ e $X_i \perp X_j$, $\forall i \neq j$. 
 
-Se $(X,Y)$ tem distribuição conjunta $f_{X,Y}$, a distribuição condicional de $X\mid Y = y$ é definida por
-$$f_{X \mid Y} (x \mid y) = \frac{f_{X,Y}(x, y)}{f_Y(y)}$$
-
-. . . 
-
-Analogamente, a distribuição de $Y \mid X = x$ é dada por
-$$f_{Y \mid X} (y \mid x) = \frac{f_{X,Y}(x, y)}{f_X(x)}$$
-
-## Distribuições condicionais
-
-Note que a conjunta de $(X,Y)$ pode ser expressa em termos da distribuição marginal e condicional
-$$  f_{X,Y}(x, y) = f_{Y \mid X} (y \mid x) f_X(x)$$
+Escreva a distribuição conjunta $f_{X_1, X_2, \ldots, X_n}$.
 
 . . . 
 
+\begin{eqnarray} 
+f_{X_1, X_2, \ldots, X_n}(x_1, x_2, \ldots, x_n) & = & \prod_{i=1}^n f_{X_i}(x_i) \\
+ & = & \prod_{i=1}^n \lambda e^{\lambda x_i} \\
+ & = & \lambda^n e^{\lambda \sum_{i=1}^n x_i} 
+\end{eqnarray}
 
-E integrando (ou somando) $X$ fora do dois lado, tem-se que
-$$  f_{Y}(y) = \left\{ \begin{array}{ll} \sum_x f_{Y \mid X} (y \mid x) f_X(x), & \mbox{se } X \mbox{ for discreta} \\
+
+## Distribuições condicionais
+
+Se $(X,Y)$ tem distribuição conjunta $f_{X,Y}$, a distribuição condicional de $X\mid Y = y$ é definida por $$f_{X \mid Y} (x \mid y) = \frac{f_{X,Y}(x, y)}{f_Y(y)}$$
+
+. . .
+
+Analogamente, a distribuição de $Y \mid X = x$ é dada por $$f_{Y \mid X} (y \mid x) = \frac{f_{X,Y}(x, y)}{f_X(x)}$$
+
+## Distribuições condicionais
+
+Note que a conjunta de $(X,Y)$ pode ser expressa em termos da distribuição marginal e condicional $$  f_{X,Y}(x, y) = f_{Y \mid X} (y \mid x) f_X(x)$$
+
+. . .
+
+E integrando (ou somando) $X$ fora do dois lado, tem-se que $$  f_{Y}(y) = \left\{ \begin{array}{ll} \sum_x f_{Y \mid X} (y \mid x) f_X(x), & \mbox{se } X \mbox{ for discreta} \\
 \int_{-\infty}^{\infty} f_{Y \mid X} (y \mid x) f_X(x) dx, & \mbox{se } X \mbox{ for contínua.} \\\end{array} \right.$$
 
 . . .
 
 Defindo a lei da probabilidade total para variáveis aleatórias.
 
+## Exemplo (discreto)
+
+No exemplo (discreto), calcule $f_{X \mid Y=0}(x \mid Y=0)$
+
+|       | $Y=0$ | $Y=1$ |     |
+|-------|:-----:|:-----:|:---:|
+| $X=0$ |  3/9  |  1/9  | 4/9 |
+| $X=1$ |  3/9  |  2/9  | 5/9 |
+|       |  6/9  |  3/9  |     |
+
+. . .
+
+$$f_{X|Y=0}(x \mid Y=0) = \frac{ f_{X,Y=0}(x, Y=0)}{f_Y(0)} = \left\{ 
+\begin{array}{ll}
+\frac{3/9}{6/9} = 1/2, & x=0, \\
+\frac{3/9}{6/9} = 1/2, & x=1
+\end{array}\right.$$
+
+## Exemplo (contínuo)  {.scrollable}
+
+Suponha que $X | Y \sim Poisson(Y)$ e $Y \sim Exp(\lambda)$. Encontre a conjunta $f_{X,Y}$ e a marginal de $X$, $f_X$.
+
+. . .
+
+$$f_{X,Y}(x,y) = f_{X|Y}(x) f_Y(y) = \frac{y^x}{x!}e^{-y} \times \lambda e^{-\lambda y} \\ 
+= \frac{\lambda y^x}{x!}e^{-y(1+\lambda)}, \quad y>0, \, x=0,1,2,\ldots$$
+
+. . .
+
+$$f_X(x) = \int_0^{\infty} f_{X,Y}(x,y) dy = \int_0^{\infty} \frac{\lambda y^x}{x!}e^{-y(1+\lambda)} dy $$
+
+. . .
+
+$$ = \frac{\lambda}{x!}\int_0^{\infty} y^{x+1-1} e^{-y(1+\lambda)} dy $$
+
+. . .
+
+$$ = \frac{\lambda}{x!} \frac{\Gamma(x+1)}{(1+\lambda)^{x+1}} = \frac{\lambda}{(1+\lambda)^{x+1}}, \, x=0,1,2\ldots $$
 
 ## Teorema de Bayes
 
-Suponha que conhecemos a distribuição conjunta $f_{X \mid Y}$ e a distribuição marginal  $f_Y$, então a distribuição condicional $Y$ dado $X$ pode ser calculada da seguinte forma
-\begin{equation}
+Suponha que conhecemos a distribuição conjunta $f_{X \mid Y}$ e a distribuição marginal $f_Y$, então a distribuição condicional $Y$ dado $X$ pode ser calculada da seguinte forma \begin{equation}
 f_{Y\mid X}( y \mid x) = \frac{ f_{X \mid Y}(x \mid y) f_Y(y)}{ \int f_{X \mid Y}(x \mid y) f_Y(y) dy}
 \end{equation}
 
@@ -496,4 +590,34 @@ f_{Y\mid X}( y \mid x) = \frac{ f_{X \mid Y}(x \mid y) f_Y(y)}{ \int f_{X \mid Y
 Se $Y$ for discreta, a integral dá lugar a um somatório.
 :::
 
-## Valor esperado, variância, função geradora de momentos
+
+. . . 
+
+As vezes é conveniente escrever,
+
+$$f_{Y\mid X}( y \mid x) \propto f_{X \mid Y}(x \mid y) f_Y(y)$$
+
+
+## Exemplo {.scrollable}
+
+No exemplo, Poisson-exponencial, conhecemos a distribuição de $X\mid Y$ e de $Y$, encontre a distribuição de $Y\mid X=x$.
+
+. . .
+
+Como a distribuição de $X$ já foi calculada, $f_{Y|X=x}(y)$ é dada por
+
+$$ f_{Y \mid X = x}(y) = \frac{f_{X|Y=y}(x\mid y) f_Y(y)}{f_{X}(x)} \\ 
+=  \frac{\frac{y^x}{x!}e^{-y} \times \lambda e^{-\lambda y}}{\frac{\lambda}{(1+\lambda)^{x+1}}} $$
+
+. . .
+
+$$= \frac{(1+\lambda)^{x+1}}{x!} y^{x}e^{-y(1+\lambda)}, \, y>0$$
+
+. . .
+
+$Y \mid X=x \sim Gamma(x+1, 1+\lambda)$
+
+## Proxima semana
+
+- Valor esperado, desigualdades, teoremas limite
+- Lista 1

@@ -391,7 +391,7 @@ Leo Bastos
 \\ 0  &amp; \mbox{c.c}. \\
 \end{array}\right.\]</span> onde <span class="math inline">\(\alpha&gt;0\)</span> e <span class="math inline">\(\beta&gt;0\)</span>.</p>
 <div class="fragment">
-<p><span class="math display">\[\mathbb{E}(X) = \int_0^\infty x \theta e^{-x\theta} dx = \cdots = \theta\]</span></p>
+<p><span class="math display">\[\mathbb{E}(X) = \int_0^1 x  f_X(x) dx = \cdots = \frac{\alpha}{\alpha + \beta}\]</span></p>
 </div>
 </section>
 <section id="distribuição-beta-1" class="slide level2">
@@ -407,13 +407,13 @@ Leo Bastos
 <p>Se <span class="math inline">\(g(X) = a X + b\)</span>, então podemos partir da distribuição conjunta:</p>
 </div>
 <div class="fragment">
-<p><span class="math display">\[F_Y(y) = \mathbb{P}(Y \leq y) = \mathbb{P}\left(aX + b \leq  y\right) \\ =  \mathbb{P}\left(X \leq  \frac{y-b}{a}\right) = F_X\left(X \leq  \frac{y-b}{a}\right)\]</span></p>
+<p><span class="math display">\[F_Y(y) = \mathbb{P}(Y \leq y) = \mathbb{P}\left(aX + b \leq  y\right) \\ =  \mathbb{P}\left(X \leq  \frac{y-b}{a}\right) = F_X\left(\frac{y-b}{a}\right)\]</span></p>
 </div>
 </section>
 <section id="transformações-de-variáveis-aleatórias-1" class="slide level2">
 <h2>Transformações de variáveis aleatórias</h2>
 <p>Portanto, para <span class="math inline">\(Y = aX + b\)</span>,</p>
-<p><span class="math display">\[F_Y(y) =  F_X\left(X \leq  \frac{y-b}{a}\right)\]</span></p>
+<p><span class="math display">\[F_Y(y) =  F_X\left(\frac{y-b}{a}\right)\]</span></p>
 <div class="fragment">
 <p>E consequentemente,</p>
 <p><span class="math display">\[f_Y(y) = \frac{d}{dy} F_Y(y) = \frac{d}{dy} F_X\left(\frac{y-b}{a}\right) = \frac{1}{a} f_X\left(\frac{y-b}{a}\right)\]</span></p>
@@ -491,14 +491,25 @@ F_U(u)  &amp; = &amp; \mathbb{P}(U \leq u) = \mathbb{P}(F_X(X) \leq u) \\
 <img data-src="slides_files/figure-revealjs/qnorm-1.png" width="960" class="r-stretch"></section>
 <section id="exemplo-1" class="slide level2">
 <h2>Exemplo</h2>
+<p><span class="math inline">\(n = 50\)</span></p>
 
-<img data-src="slides_files/figure-revealjs/qnorm.hist-1.png" width="960" class="r-stretch"></section>
+<img data-src="slides_files/figure-revealjs/qnorm.hist.50-1.png" width="960" class="r-stretch"></section>
+<section id="exemplo-2" class="slide level2">
+<h2>Exemplo</h2>
+<p><span class="math inline">\(n = 100\)</span></p>
+
+<img data-src="slides_files/figure-revealjs/qnorm.hist.100-1.png" width="960" class="r-stretch"></section>
+<section id="exemplo-3" class="slide level2">
+<h2>Exemplo</h2>
+<p><span class="math inline">\(n = 1000\)</span></p>
+
+<img data-src="slides_files/figure-revealjs/qnorm.hist.1000-1.png" width="960" class="r-stretch"></section>
 <section id="transformações-de-variáveis-aleatórias-6" class="slide level2">
 <h2>Transformações de variáveis aleatórias</h2>
 <p>Seja <span class="math inline">\(X\)</span> uma variável aleatŕia contínua com densidade <span class="math inline">\(f_X\)</span> e seja <span class="math inline">\(Y=g(X)\)</span> onde <span class="math inline">\(g\)</span> é diferenciável e estritamente monotônica em um intervalo <span class="math inline">\(I\)</span>. E suponha que <span class="math inline">\(f_X(x) = 0\)</span> se <span class="math inline">\(x\)</span> não pertença a <span class="math inline">\(I\)</span>. Então <span class="math inline">\(Y\)</span> tem a seguinte densidade</p>
 <p><span class="math display">\[f_Y(y) = f_X(g^{-1}(y)) \left| \frac{d}{dy} g^{-1}(y)\right|\]</span></p>
 </section>
-<section id="exemplo-2" class="slide level2">
+<section id="exemplo-4" class="slide level2">
 <h2>Exemplo</h2>
 <p>Seja <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span> e <span class="math inline">\(Y = e^X\)</span>. Qual a distribuição de <span class="math inline">\(Y\)</span>?</p>
 <div class="fragment">
@@ -577,7 +588,7 @@ f_Y(y) &amp; = &amp; f_X(g^{-1}(y)) \left| \frac{d}{dy} g^{-1}(y)\right| \\
 \right.\]</span></p>
 </div>
 </section>
-<section id="exemplo-3" class="slide level2">
+<section id="exemplo-5" class="slide level2">
 <h2>Exemplo</h2>
 <p>Seja <span class="math inline">\(f_{X,Y}(x,y)\)</span> abaixo</p>
 <table class="caption-top">
@@ -617,7 +628,7 @@ f_Y(y) &amp; = &amp; f_X(g^{-1}(y)) \left| \frac{d}{dy} g^{-1}(y)\right| \\
 <p>Se a distribuição conjunta de <span class="math inline">\((X,Y)\)</span> é dada por <span class="math inline">\(f_{X,Y}\)</span>, dizemos que <span class="math inline">\(X \perp Y\)</span> se, e somente se, <span class="math display">\[f_{X,Y}(x,y) = f_X(x) f_Y(y)\]</span></p>
 </div>
 </section>
-<section id="exemplo-4" class="slide level2">
+<section id="exemplo-6" class="slide level2">
 <h2>Exemplo</h2>
 <p>No exemplo anterior, vimos que <span class="math inline">\(f_{X,Y}(x,y)\)</span> é dada por</p>
 <table class="caption-top">
@@ -662,6 +673,18 @@ f_Y(y) &amp; = &amp; f_X(g^{-1}(y)) \left| \frac{d}{dy} g^{-1}(y)\right| \\
 <!-- $X_1, X_2, \ldots, X_n$ é chamada de amostra aleatória de tamanho $n$ da distribuição  $F$. -->
 </div>
 </section>
+<section id="exemplo-7" class="slide level2">
+<h2>Exemplo</h2>
+<p>Seja <span class="math inline">\(X_i \sim Exp(\lambda)\)</span>, <span class="math inline">\(i=1,2,\ldots,n\)</span> e <span class="math inline">\(X_i \perp X_j\)</span>, <span class="math inline">\(\forall i \neq j\)</span>.</p>
+<p>Escreva a distribuição conjunta <span class="math inline">\(f_{X_1, X_2, \ldots, X_n}\)</span>.</p>
+<div class="fragment">
+<p><span class="math display">\[\begin{eqnarray}
+f_{X_1, X_2, \ldots, X_n}(x_1, x_2, \ldots, x_n) &amp; = &amp; \prod_{i=1}^n f_{X_i}(x_i) \\
+&amp; = &amp; \prod_{i=1}^n \lambda e^{\lambda x_i} \\
+&amp; = &amp; \lambda^n e^{\lambda \sum_{i=1}^n x_i}
+\end{eqnarray}\]</span></p>
+</div>
+</section>
 <section id="distribuições-condicionais" class="slide level2">
 <h2>Distribuições condicionais</h2>
 <p>Se <span class="math inline">\((X,Y)\)</span> tem distribuição conjunta <span class="math inline">\(f_{X,Y}\)</span>, a distribuição condicional de <span class="math inline">\(X\mid Y = y\)</span> é definida por <span class="math display">\[f_{X \mid Y} (x \mid y) = \frac{f_{X,Y}(x, y)}{f_Y(y)}\]</span></p>
@@ -680,17 +703,98 @@ f_Y(y) &amp; = &amp; f_X(g^{-1}(y)) \left| \frac{d}{dy} g^{-1}(y)\right| \\
 <p>Defindo a lei da probabilidade total para variáveis aleatórias.</p>
 </div>
 </section>
+<section id="exemplo-discreto" class="slide level2">
+<h2>Exemplo (discreto)</h2>
+<p>No exemplo (discreto), calcule <span class="math inline">\(f_{X \mid Y=0}(x \mid Y=0)\)</span></p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;"><span class="math inline">\(Y=0\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(Y=1\)</span></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(X=0\)</span></td>
+<td style="text-align: center;">3/9</td>
+<td style="text-align: center;">1/9</td>
+<td style="text-align: center;">4/9</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(X=1\)</span></td>
+<td style="text-align: center;">3/9</td>
+<td style="text-align: center;">2/9</td>
+<td style="text-align: center;">5/9</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td style="text-align: center;">6/9</td>
+<td style="text-align: center;">3/9</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p><span class="math display">\[f_{X|Y=0}(x \mid Y=0) = \frac{ f_{X,Y=0}(x, Y=0)}{f_Y(0)} = \left\{
+\begin{array}{ll}
+\frac{3/9}{6/9} = 1/2, &amp; x=0, \\
+\frac{3/9}{6/9} = 1/2, &amp; x=1
+\end{array}\right.\]</span></p>
+</div>
+</section>
+<section id="exemplo-contínuo" class="slide level2 scrollable">
+<h2>Exemplo (contínuo)</h2>
+<p>Suponha que <span class="math inline">\(X | Y \sim Poisson(Y)\)</span> e <span class="math inline">\(Y \sim Exp(\lambda)\)</span>. Encontre a conjunta <span class="math inline">\(f_{X,Y}\)</span> e a marginal de <span class="math inline">\(X\)</span>, <span class="math inline">\(f_X\)</span>.</p>
+<div class="fragment">
+<p><span class="math display">\[f_{X,Y}(x,y) = f_{X|Y}(x) f_Y(y) = \frac{y^x}{x!}e^{-y} \times \lambda e^{-\lambda y} \\
+= \frac{\lambda y^x}{x!}e^{-y(1+\lambda)}, \quad y&gt;0, \, x=0,1,2,\ldots\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[f_X(x) = \int_0^{\infty} f_{X,Y}(x,y) dy = \int_0^{\infty} \frac{\lambda y^x}{x!}e^{-y(1+\lambda)} dy \]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[ = \frac{\lambda}{x!}\int_0^{\infty} y^{x+1-1} e^{-y(1+\lambda)} dy \]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[ = \frac{\lambda}{x!} \frac{\Gamma(x+1)}{(1+\lambda)^{x+1}} = \frac{\lambda}{(1+\lambda)^{x+1}}, \, x=0,1,2\ldots \]</span></p>
+</div>
+</section>
 <section id="teorema-de-bayes" class="slide level2">
 <h2>Teorema de Bayes</h2>
 <p>Suponha que conhecemos a distribuição conjunta <span class="math inline">\(f_{X \mid Y}\)</span> e a distribuição marginal <span class="math inline">\(f_Y\)</span>, então a distribuição condicional <span class="math inline">\(Y\)</span> dado <span class="math inline">\(X\)</span> pode ser calculada da seguinte forma <span class="math display">\[\begin{equation}
 f_{Y\mid X}( y \mid x) = \frac{ f_{X \mid Y}(x \mid y) f_Y(y)}{ \int f_{X \mid Y}(x \mid y) f_Y(y) dy}
 \end{equation}\]</span></p>
 
+<div class="fragment">
+<p>As vezes é conveniente escrever,</p>
+<p><span class="math display">\[f_{Y\mid X}( y \mid x) \propto f_{X \mid Y}(x \mid y) f_Y(y)\]</span></p>
+</div>
 <aside><div>
 <p>Se <span class="math inline">\(Y\)</span> for discreta, a integral dá lugar a um somatório.</p>
 </div></aside></section>
-<section id="valor-esperado-variância-função-geradora-de-momentos" class="slide level2">
-<h2>Valor esperado, variância, função geradora de momentos</h2>
+<section id="exemplo-8" class="slide level2 scrollable">
+<h2>Exemplo</h2>
+<p>No exemplo, Poisson-exponencial, conhecemos a distribuição de <span class="math inline">\(X\mid Y\)</span> e de <span class="math inline">\(Y\)</span>, encontre a distribuição de <span class="math inline">\(Y\mid X=x\)</span>.</p>
+<div class="fragment">
+<p>Como a distribuição de <span class="math inline">\(X\)</span> já foi calculada, <span class="math inline">\(f_{Y|X=x}(y)\)</span> é dada por</p>
+<p><span class="math display">\[ f_{Y \mid X = x}(y) = \frac{f_{X|Y=y}(x\mid y) f_Y(y)}{f_{X}(x)} \\
+=  \frac{\frac{y^x}{x!}e^{-y} \times \lambda e^{-\lambda y}}{\frac{\lambda}{(1+\lambda)^{x+1}}} \]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[= \frac{(1+\lambda)^{x+1}}{x!} y^{x}e^{-y(1+\lambda)}, \, y&gt;0\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(Y \mid X=x \sim Gamma(x+1, 1+\lambda)\)</span></p>
+</div>
+</section>
+<section id="proxima-semana" class="slide level2">
+<h2>Proxima semana</h2>
+<ul>
+<li>Valor esperado, desigualdades, teoremas limite</li>
+<li>Lista 1</li>
+</ul>
 <div class="quarto-auto-generated-content">
 <p><img src="../../impa-tech-h.png" class="slide-logo"></p>
 <div class="footer footer-default">
