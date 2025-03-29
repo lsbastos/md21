@@ -4,6 +4,7 @@ subtitle: "Valor esperado, desigualdades e teoria assintótica"
 author: "Leo Bastos"
 format: 
   revealjs:
+    slide-number: true
     logo: ../../impa-tech-h.png
     footer: '<https://github.com/lsbastos/md21/>'
     theme: simple
@@ -11,13 +12,12 @@ format:
 editor: visual
 ---
 
+## Valor esperado (definição)
+
 <!-- Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>. -->
-
 <!-- <https://quarto.org/docs/presentations/revealjs/> -->
-
 <!-- <https://github.com/quarto-dev/quarto-web/blob/main/docs/presentations/revealjs/demo/index.qmd> -->
 
-## Valor esperado
 
 Vimos anteriormente que o valor esperado de uma v.a. $X$ é calculado da seguinta forme\
 $$\mathbb{E}[X] = \left\{ \begin{array}{ll} \sum_x xf_{X}(x), & \mbox{se } X \mbox{ discreta} \\
@@ -29,17 +29,32 @@ $$\mathbb{E}[X] = \left\{ \begin{array}{ll} \sum_x xf_{X}(x), & \mbox{se } X \mb
 Algumas propriedades importantes.
 
 ::: incremental
-- $\mathbb{E}[a] = a$, onde $a$ é uma constante.
-- $\mathbb{E}[aX] = a\mathbb{E}[X]$
-- $\mathbb{E}[aX + b] = a\mathbb{E}[X] + b$
+-   $\mathbb{E}[b] = b$, onde $b$ é uma constante (não depende de $X$).
+-   $\mathbb{E}[aX] = a\mathbb{E}[X]$
+-   $\mathbb{E}[aX + b] = a\mathbb{E}[X] + b$
 :::
 
+## Mostrando o caso geral
 
-## Valor esperado
+Seja $X$ uma v.a. com f.d.p. $f_X$ e seja $Y=aX+b$.
+
+$$\mathbb{E}[aX + b] = a\mathbb{E}[X] + b$$
+
+. . . 
+
+
+$$\mathbb{E}[aX + b] = \int_{-\infty}^{\infty} (ax + b) f_X(x) dx  \\ 
+= \int_{-\infty}^{\infty} ax f_X(x)dx + \int_{-\infty}^{\infty}b f_X(x) dx $$
+
+. . . 
+
+$$= a \int_{-\infty}^{\infty} x f_X(x)dx + b \int_{-\infty}^{\infty} f_X(x) dx = a\mathbb{E}[X] + b$$
+
+## Valor esperado de uma função
 
 Seja $Y = g(X)$, para encontrarmos o valor esperado de $Y$
 
-$$\mathbb{E}[Y] = \int yf_Y(y) dy = \int y f_X(g^{-1}(y)) |\frac{d}{dy}g^{-1}(y)|dy$$
+$$\mathbb{E}[Y] = \int yf_Y(y) dy = \int y f_X(g^{-1}(y)) \left|\frac{d}{dy}g^{-1}(y)\right|dy$$
 
 . . .
 
@@ -48,96 +63,264 @@ Seja $X$ uma v.a. e $Y = g(X)$, o valor esperado de $Y$ pode ser encontrado sem 
 $$ \mathbb{E}[Y] = \mathbb{E}[g(X)] = \int g(X) f_X(x) dx $$
 
 <!-- ::: aside -->
+
 <!-- Se $X$ for discreta, substituir a integral por um somatório. -->
+
 <!-- ::: -->
 
+## Exemplo {.scrollable}
 
-## Valor esperado
-
-Caso especial, seja $A$ um possível evento e seja $g(x) = \mathbb{I}_A(x)$ onde $\mathbb{I}_A(x) = 1$ se $x \in A$, e $\mathbb{I}_A(x)= 0$ se $x \notin A$. Então
-
-$$\mathbb{E}[\mathbb{I}_A(X)] = \int \mathbb{I}_A(x) f_x(x)dx = \int_{x \in A} f_x(x)dx = \mathbb{P}(X \in A).$$
+Seja $X$ uma v.a. com distribuição $U(0,1)$, i.e. $f_X(x) = \mathbb{I}_{X\in (0,1)}(x)$, e seja $Y=X^2$. Calcule $\mathbb{E}[X^2]$
 
 . . .
 
-O $k$-ésimo momento de uma variável aleatória $X$ é definido como
-$\mathbb{E}[X^k]$, assumindo que $\mathbb{E}[|X|^k] < \infty$ 
+Caminho 1:
+
+$$\mathbb{E}[Y = X^2] = \int_0^1 y f_X(y^{1/2}) \left|\frac{d}{dy} y^{1/2}\right| dy \\ = \int_0^1 y^{1/2} \frac{1}{2} y^{-1/2} dy = \left. \frac{1}{2}\right|_0^1 = 1/2 $$
 
 . . .
 
-O $k$-ésimo momento central de $X$ é $\mathbb{E}[(X-\mu)^k]$
+Caminho 2:
 
+$$\mathbb{E}[Y = X^2] = \int_0^1 x^2 f_X(x) dx = \left. \frac{x}{2}\right|_0^1 = 1/2 $$
+
+
+## Valor esperado e probabilidade
+
+Caso especial, seja $A$ um possível evento e seja $g(x) = \mathbb{I}_A(x)$ onde $\mathbb{I}_A(x) = 1$ se $x \in A$, e $\mathbb{I}_A(x)= 0$ se $x \notin A$. 
+
+. . . 
+
+Então
+
+$$\mathbb{E}[\mathbb{I}_A(X)] = \int \mathbb{I}_A(x) f_x(x)dx \\ = \int_{x \in A} f_x(x)dx \\ = \mathbb{P}(X \in A).$$
+
+## Esperança (Momentos)
+
+O $k$-ésimo momento de uma variável aleatória $X$ é definido como $\mathbb{E}[X^k]$, assumindo que $\mathbb{E}[|X|^k] < \infty$
+
+::: incremental
+-   O primeiro momento é a média da variável aleatória $\mathbb{E}[X] = \mu$
+-   O $k$-ésimo momento central de $X$ é $\mathbb{E}[(X-\mu)^k]$
+-   O segundo momento central é chamado de variância $\mathbb{V}(X) = \mathbb{E}[(X-\mu)^2]$
+:::
+
+
+
+## "Espalhamento" de uma v.a. em torno da média
+
+Uma medida interessante para descrever uma distribuição de probabilidade é quanto ela é "espalhada" em torno da média.
+
+. . . 
+
+A primeira ideia seria pensar o qual o valor esperado de $X$ a medida que $X$ se distancia da média, ou seja, 
+
+. . .
+Mas o primeiro momento central, se $\mu<\infty$, é sempre zero.
+$$\mathbb{E}[X-\mu] = \mathbb{E}[X]- \mathbb{E}[\mu] = \mu - \mu = 0$$
+
+
+## Variância
+
+Então alguém resolveu quantificar esse "espalhamento" como uma função quadrática, e essa métrica é conhecida por variância
+
+. . . 
+
+$$\mathbb{V}[X] = \mathbb{E}[(X-\mu)^2]$$
+
+. . .
+
+Que pode ser reescrita como $\mathbb{V}[X] = \mathbb{E}[X^2] - \mathbb{E}[X]^2]$. 
+
+
+## Exemplos (Uniforme)
+
+Seja $X \sim U(a,b)$, então $f_X(x) = \frac{1}{b-a} \mathbb{I}_{(a,b)}(x)$.
+
+. . .
+
+<!-- $$\mathbb{E}[X] = \int_{-\infty}^{\infty} x f_X(x) dx = \int_{a}^b \frac{x}{b-a}dx = \frac{1}{b-a} \left. \frac{x^2}{2} \right|_a^b= \frac{a+b}{2}$$ -->
+$$\mathbb{E}[X] = \frac{a+b}{2}$$
+
+. . .
+
+$$\mathbb{E}[X^2] = \int_{-\infty}^{\infty} x^2 f_X(x) dx = \frac{1}{b-a} \left. \frac{x^3}{3} \right|_a^b= \frac{b^3-a^3}{3(b-a)}$$
+
+. . .
+
+$$\mathbb{V}[X] = \mathbb{E}[X^2]-\mathbb{E}[X]^2 = \ldots = \frac{(b-a)^2}{12}$$
+
+## Exemplo (Gamma) {.scrollable}
+
+Seja $X \sim Gamma(a,b)$, com $\mathbb{E}[X] =\frac{a}{b}$ e densidade dada por 
+$$f_X(x) = \frac{b^a}{\Gamma(a)}x^{a-1}e^{-xb}, \quad, x > 0$$
+
+. . .
+
+
+$$\mathbb{E}[X^2] = \int_0^\infty x^2 \frac{b^a}{\Gamma(a)}x^{a-1}e^{-xb} dx \\ 
+= \frac{b^a}{\Gamma(a)} \int_0^\infty x^{a + 2 -1}e^{-xb} dx \\ 
+= \frac{b^a}{\Gamma(a)} \frac{\Gamma(a+2)}{b^{a+2}} = \frac{(a+1)a}{b^2}$$
+
+. . .
+
+E a variância é dada por
+$$\mathbb{V}[X] = \mathbb{E}[X^2] - \mathbb{E}[X]^2 \\ 
+ = \frac{(a+1)a}{b^2} - \left(\frac{a}{b}\right)^2 = \frac{a}{b^2}$$
+
+## Exercícios {.scrollable}
+
+Calcule o valor esperado e a variância das seguintes distribuições:
+
+  - $X\sim Exp(\lambda)$, 
+  $$f_X(x) = \lambda e^{-\lambda}, \, x>0$$
+  - $X\sim Beta(a,b)$, 
+  $$f_X(x) = \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)} x^{a-1}(1-x)^{b-1},\, x\in (0,1)$$
+  - $X\sim Normal(\mu, \sigma^2)$, 
+  $$f_X(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{1}{2\sigma^2} (x-\mu)^2}, \, x\in \mathbb{R}$$
+  - $X\sim Binomial(n, p)$, 
+  $$f_X(x) = {n \choose x} p^x(1-p)^{n-x}, \, x=0,1,2,\ldots,n$$
+  - $X\sim Poisson(\lambda)$, 
+  $$f_X(x) = \frac{\lambda^x}{x!} e^{-\lambda}, \, x=0,1,2,\ldots$$
+
+
+## Variância (propriedades)
+
+Seja $X$ uma v.a. com função de densidade $f_X(x)$. 
+
+::: incremental
+- $\mathbb{V}[b] = 0$
+- $\mathbb{V}[aX] = a^2 \mathbb{V}[X]$
+- $\mathbb{V}[aX + b] = a^2 \mathbb{V}[X]$
+:::
+
+## Variância (propriedades)
+
+Variância de uma constante
+$$\mathbb{V}[b] = \mathbb{E}[b^2] - \mathbb{E}[b]^2 = b^2 - b^2 = 0.$$
+
+. . .
+
+Mostrando o caso geral
+
+\begin{eqnarray}
+\mathbb{V}[aX + b] & = & \mathbb{E}[(aX + b)^2] - (\mathbb{E}[aX + b])^2 \\
+ & = & \mathbb{E}[a^2X^2 + 2abX + b^2]  \\ 
+ &  &  - (a^2\mathbb{E}[X]^2 + 2ab\mathbb{E}[X] + b^2 \\
+ & = & a^2 (\mathbb{E}[X]^2 - \mathbb{E}[X]^2)
+\end{eqnarray}
+
+
+## Distribuições conjuntas
+
+Seja o para $(X,Y)$ v.a. com distribuição conjunta $f_{X,Y}(x,y)$, para qualquer conjunto $A \subset \mathbb{R}^2$, 
+
+$$P((X,Y) \in A) = \int \int_{(X,Y) \in A} f_{X,Y}(x,y) dxdy$$
+Se $X$ e/ou $Y$ forem discretas, a integral dá lugar a um somatório.
+
+
+## Distribuições conjuntas (Exemplo)
+
+Sejam $X$ e $Y$ variáveis aleatórias uniformes no quadrado unitário. Calcule $P(X+Y>1)$
+
+. . .
+
+$$P(X+Y>1) = \int \int_{X+Y>1} f_{X,Y}(x,y)dydx $$
+
+
+. . .
+
+$X+Y > 1$ corresponde ao conjunto $A = \{ (x,y) : 0<x<1, x<y<1\}$, logo 
+
+. . .
+
+$$P(X+Y>1) = \int_0^1 \int_x^1 1 dydx = \int_{0}^1 (1-x)dx = 1/2$$
+
+
+
+## Esperança de distribuições conjuntas
+
+O valor esperado de uma função de duas (ou mais) variáveis aleatórias $X$ e $Y$, $Z = g(X,Y)$ pode ser calculada da seguinte forma 
+$$\mathbb{E}[Z] = \mathbb{E}[g(X,Y)] = \int \int g(x,y) f_{X,Y}(x,y) dy dx$$
+
+. . .
+
+No exemplo anterior, onde $(X,Y)$ tem distribuição uniforme no quadrado unitário, qual o valor esperado para $X+Y$?
+
+. . .
+
+$$\mathbb{E}[X+Y] = \int\int (x+y) f_{X,Y}(x,y)dydx $$
+
+## Esperança de distribuições conjuntas
+
+$$\mathbb{E}[X+Y] = \int\int (x+y) f_{X,Y}(x,y)dydx \\ 
+= \int_0^1\int_0^1(x+y)dydx $$
+
+. . .
+
+$$= \int_0^1\int_0^1xdydx + \int_0^1\int_0^1 y dydx $$ 
+
+. . .
+
+$$= \left. \frac{x^2}{2}\right|_0^1 + \left. \frac{y^2}{2}\right|_0^1 = 1$$
+
+## Valor esperado (propriedades) {.scrollable}
+
+Uma propriedade importante do valor esperado é que a esperança da somas é a soma das esperanças, i.e. $$\mathbb{E}[X + Y] = \mathbb{E}[X] + \mathbb{E}[Y]$$
+
+
+. . .
+
+$$\mathbb{E}[X+Y] = \int\int (x+y) f_{X,Y}(x,y)dydx \\ 
+= \int\int x f_{X,Y}(x,y) dydx + \int\int y f_{X,Y}(x,y) dydx$$
+
+. . .
+
+$$ = \int x \int f_{X,Y}(x,y) dydx + \int y \int f_{X,Y}(x,y) dxdy \\ 
+ = \int x f_{X}(x) dx + \int y f_{Y}(y) dy = \mathbb{E}[X] + \mathbb{E}[Y]$$
 
 
 ## Valor esperado (propriedades)
 
-Uma propriedade importante do valor esperado é que a esperança da somas é a soma das esperanças, i.e.
-$$\mathbb{E}[X + Y] = \mathbb{E}[X] + \mathbb{E}[Y]$$
+
+De forma mais geral, sejam $X_1, X_2,\ldots, X_n$ v.a.s com $\mathbb{E}[X_i]<\infty$, e $(a_1,b_1), (a_2,b_2),\ldots,(a_n,b_n)$ constantes, $$\mathbb{E}\left[\sum_{i=1}^n (a_i X_i + b_i)\right] = \sum_{i=1}^n a_i \mathbb{E}[X_i] + \sum_{i=1}^n b_i$$
+
+
+## Variância de $X+Y$
+
+Qual a variância da soma de duas variáveis aleatórias com distribuição conjunta $f_{X,Y}(x,y)$?
 
 . . .
 
-De forma mais geral, sejam $X_1, X_2,\ldots, X_n$ v.a.s com $\mathbb{E}[X_i]<\infty$, e $(a_1,b_1), (a_2,b_2),\ldots,(a_n,b_n)$ constantes, 
-$$\mathbb{E}\left[\sum_{i=1}^n (a_i X_i + b_i)\right] = \sum_{i=1}^n a_i \mathbb{E}[X_i] + \sum_{i=1}^n b_i$$
-
-
-
-## Esperança (Momentos)
-
-O $k$-ésimo momento de uma variável aleatória $X$ é definido como
-$\mathbb{E}[X^k]$, assumindo que $\mathbb{E}[|X|^k] < \infty$ 
-
-::: incremental
-- O primeiro momento é a média da variável aleatória $\mathbb{E}[X] = \mu$
-- O $k$-ésimo momento central de $X$ é $\mathbb{E}[(X-\mu)^k]$
-- O segundo momento central é chamado de variância $\mathbb{V}(X) = \mathbb{E}[(X-\mu)^2]$
-:::
-
-
-## Esperança 
-
-O valor esperado de uma função de duas (ou mais) variáveis aleatórias $X$ e $Y$, $Z = g(X,Y)$ pode ser calculada da seguinte forma
-$$\mathbb{E}[Z] = \mathbb{E}[g(X,Y)] = \int \int g(x,y) f_{X,Y}(x,y) dy dx$$
-
-
-## Bullets (one by one)
-
-When you click the **Render** button a document will be generated that includes:
-
-::: incremental
--   Eat spaghetti
--   Drink wine
-:::
-
-## Slide with a pause
-
-content before the pause
+$$\mathbb{V}[X+Y] = \mathbb{E}[(X+Y)^2] - (\mathbb{E}[X+Y])^2 \\ 
+ = \mathbb{E}[(X^2+ 2XY +Y^2] - (\mathbb{E}[X] + \mathbb{E}[Y])^2$$
 
 . . .
 
-content after the pause
+$$ = \mathbb{E}[X^2] + 2\mathbb{E}[XY] +\mathbb{E}[Y^2] \\ - (\mathbb{E}[X]^2 + 2\mathbb{E}[X]\mathbb{E}[Y] + \mathbb{E}[Y]^2) $$
 
-## Code
+. . .
 
-When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+$$ = \mathbb{V}[X] + \mathbb{V}[Y] + 2( \mathbb{E}[XY] - \mathbb{E}[X]\mathbb{E}[Y])$$
+ 
+## Covariância e correlação 
+ 
+Sejam $X$ e $Y$ duas variáveis aleatórias com média e variância finitas. Definimos a **covariância** entre $X$ e $Y$ por
 
-```{r}
-1 + 1
-```
+$$\mathbb{Cov}(X,Y) = \mathbb{E}(X - \mathbb{E}(X)\mathbb{E}(Y - \mathbb{E}(Y))$$
 
-## Slide Title
+. . .
 
--   Green [^1]
--   Brown
--   Purple
+E definimos a correlação entre $X$ e $Y$ por
 
-[^1]: A footnote
+$$\rho = \rho_{X,Y} = \frac{\mathbb{Cov}(X,Y)}{\sqrt{\mathbb{V}(X)\mathbb{V}(Y)}}$$
 
-::: aside
-Some additional commentary of more peripheral interest.
+## Covariância e correlação  (propriedades)
+
+::: incremental
+- $\mathbb{Cov}(X,Y) = \mathbb{E}(XY] - \mathbb{E}(X)\mathbb{E}(Y))$
+- $-1 \leq \rho_{X,Y} \leq 1$
+- Se $Y = aX + b$, então $\rho_{X,Y} = 1$ se $a>0$ e $\rho_{X,Y} = -1$ se $a<0$
+- Se $X$ e $Y$ são independentes, então $\mathbb{Cov}(X,Y) = \rho_{X,Y} = 0$. 
+- Se $\mathbb{Cov}(X,Y) = \rho_{X,Y} = 0$, $X$ e $Y$ não são necessaramente  independentes.
 :::
-
-## Equations
-
-Equação no texto $A \in (0,\alpha)$ ou como equação centrada
-
-$$p(\theta \mid x) = \frac{p(\theta) p(x \mid \theta)}{\int_\theta p(\theta) p(x \mid \theta)d\theta}$$

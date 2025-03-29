@@ -311,6 +311,7 @@ ggplot() +
 ## Exemplo
 
 $n = 50$
+
 ```{r}
 #| label: qnorm.hist.50
 #| message: false
@@ -328,10 +329,10 @@ ggplot() +
   theme_bw(base_size = 16) #+     theme(legend.position = c(.8,.75))
 ```
 
-
 ## Exemplo
 
 $n = 100$
+
 ```{r}
 #| label: qnorm.hist.100
 #| message: false
@@ -352,10 +353,10 @@ ggplot() +
   theme_bw(base_size = 16) #+     theme(legend.position = c(.8,.75))
 ```
 
-
 ## Exemplo
 
 $n = 1000$
+
 ```{r}
 #| label: qnorm.hist.1000
 #| message: false
@@ -375,7 +376,6 @@ ggplot() +
   ) + 
   theme_bw(base_size = 16) #+     theme(legend.position = c(.8,.75))
 ```
-
 
 ## Transformações de variáveis aleatórias
 
@@ -507,18 +507,17 @@ Se a distribuição marginal $f_{X_i}(x_i)$ for a mesma para todo $i$, dizemos q
 
 ## Exemplo
 
-Seja $X_i \sim Exp(\lambda)$, $i=1,2,\ldots,n$ e $X_i \perp X_j$, $\forall i \neq j$. 
+Seja $X_i \sim Exp(\lambda)$, $i=1,2,\ldots,n$ e $X_i \perp X_j$, $\forall i \neq j$.
 
 Escreva a distribuição conjunta $f_{X_1, X_2, \ldots, X_n}$.
 
-. . . 
+. . .
 
 \begin{eqnarray} 
 f_{X_1, X_2, \ldots, X_n}(x_1, x_2, \ldots, x_n) & = & \prod_{i=1}^n f_{X_i}(x_i) \\
  & = & \prod_{i=1}^n \lambda e^{\lambda x_i} \\
  & = & \lambda^n e^{\lambda \sum_{i=1}^n x_i} 
 \end{eqnarray}
-
 
 ## Distribuições condicionais
 
@@ -559,7 +558,7 @@ $$f_{X|Y=0}(x \mid Y=0) = \frac{ f_{X,Y=0}(x, Y=0)}{f_Y(0)} = \left\{
 \frac{3/9}{6/9} = 1/2, & x=1
 \end{array}\right.$$
 
-## Exemplo (contínuo)  {.scrollable}
+## Exemplo (contínuo) {.scrollable}
 
 Suponha que $X | Y \sim Poisson(Y)$ e $Y \sim Exp(\lambda)$. Encontre a conjunta $f_{X,Y}$ e a marginal de $X$, $f_X$.
 
@@ -590,13 +589,11 @@ f_{Y\mid X}( y \mid x) = \frac{ f_{X \mid Y}(x \mid y) f_Y(y)}{ \int f_{X \mid Y
 Se $Y$ for discreta, a integral dá lugar a um somatório.
 :::
 
-
-. . . 
+. . .
 
 As vezes é conveniente escrever,
 
 $$f_{Y\mid X}( y \mid x) \propto f_{X \mid Y}(x \mid y) f_Y(y)$$
-
 
 ## Exemplo {.scrollable}
 
@@ -619,5 +616,5 @@ $Y \mid X=x \sim Gamma(x+1, 1+\lambda)$
 
 ## Proxima semana
 
-- Valor esperado, desigualdades, teoremas limite
-- Lista 1
+-   Valor esperado, desigualdades, teoremas limite
+-   Lista 1
