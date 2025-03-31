@@ -130,7 +130,8 @@ $$\mathbb{V}[X] = \mathbb{E}[(X-\mu)^2]$$
 
 . . .
 
-Que pode ser reescrita como $\mathbb{V}[X] = \mathbb{E}[X^2] - \mathbb{E}[X]^2]$. 
+Que pode ser reescrita como 
+$$\mathbb{V}[X] = \mathbb{E}[X^2] - \mathbb{E}[X]^2.$$
 
 
 ## Exemplos (Uniforme)
@@ -286,14 +287,18 @@ $$ = \int x \int f_{X,Y}(x,y) dydx + \int y \int f_{X,Y}(x,y) dxdy \\
 De forma mais geral, sejam $X_1, X_2,\ldots, X_n$ v.a.s com $\mathbb{E}[X_i]<\infty$, e $(a_1,b_1), (a_2,b_2),\ldots,(a_n,b_n)$ constantes, $$\mathbb{E}\left[\sum_{i=1}^n (a_i X_i + b_i)\right] = \sum_{i=1}^n a_i \mathbb{E}[X_i] + \sum_{i=1}^n b_i$$
 
 
+
 ## Variância de $X+Y$
 
 Qual a variância da soma de duas variáveis aleatórias com distribuição conjunta $f_{X,Y}(x,y)$?
 
 . . .
 
-$$\mathbb{V}[X+Y] = \mathbb{E}[(X+Y)^2] - (\mathbb{E}[X+Y])^2 \\ 
- = \mathbb{E}[(X^2+ 2XY +Y^2] - (\mathbb{E}[X] + \mathbb{E}[Y])^2$$
+$$\mathbb{V}[X+Y] = \mathbb{E}[(X+Y)^2] - (\mathbb{E}[X+Y])^2$$
+
+. . .
+
+$$ = \mathbb{E}[(X^2+ 2XY +Y^2] - (\mathbb{E}[X] + \mathbb{E}[Y])^2$$
 
 . . .
 
@@ -302,12 +307,53 @@ $$ = \mathbb{E}[X^2] + 2\mathbb{E}[XY] +\mathbb{E}[Y^2] \\ - (\mathbb{E}[X]^2 + 
 . . .
 
 $$ = \mathbb{V}[X] + \mathbb{V}[Y] + 2( \mathbb{E}[XY] - \mathbb{E}[X]\mathbb{E}[Y])$$
+
+
+## Variância de $X+Y$
+
+Se $X \perp Y$, então $\mathbb{E}[XY] = \mathbb{E}[X]\mathbb{E}[Y]$.
+
+. . .
+
+
+$$ \mathbb{V}(X+Y) = \mathbb{V}(X) + \mathbb{V}(Y) + 2( \mathbb{E}(XY) - \mathbb{E}(X)\mathbb{E}(Y) ) \\ 
+= \mathbb{V}(X) + \mathbb{V}(Y)$$
  
+
+## Variância da soma de v.a.s
+ 
+De forma mais geral, sejam $X_1, X_2,\ldots, X_n$ v.a.s **independentes** com $\mathbb{V}(X_i) < \infty, \, \forall i$, e $(a_1,b_1), (a_2,b_2),\ldots,(a_n,b_n)$ constantes, então 
+$$\mathbb{V}\left(\sum_{i=1}^n (a_i X_i + b_i)\right) = \sum_{i=1}^n a_i^2 \mathbb{V}(X_i)$$
+
+## Média amostral
+
+Sejam $X_1, X_2,\ldots, X_n$ v.a.s **independentes** com $\mathbb{E}[X_i] = \mu$ e $\mathbb{V}(X_i) =\sigma^2$ e seja, a **média amostral** definida por
+
+$$\bar{X}_n = \frac{\sum_{i=1}^n X_i}{n}$$
+
+então
+
+$$\mathbb{E}[\bar{X}_n] = \mu \quad \mbox{e} \quad\mathbb{V}[\bar{X}_n] = \frac{\sigma^2}{n}.$$
+
+
+## Média amostral
+
+$$\mathbb{E}[\bar{X}_n] = \mathbb{E}\left[\frac{\sum_{i=1}^n {X}_i}{n}\right] = \frac{n\mu}{n} = \mu $$
+
+. . .
+
+$$\mathbb{V}(\bar{X}_n) = \mathbb{V}\left(\frac{\sum_{i=1}^n {X}_i}{n}\right) $$
+
+. . .
+
+$$= \frac{\sum_{i=1}^n \mathbb{V}(X_i)}{n^2} \\ = \frac{n\sigma^2}{n^2} = \frac{\sigma^2}{n}.$$
+
 ## Covariância e correlação 
  
 Sejam $X$ e $Y$ duas variáveis aleatórias com média e variância finitas. Definimos a **covariância** entre $X$ e $Y$ por
 
-$$\mathbb{Cov}(X,Y) = \mathbb{E}(X - \mathbb{E}(X)\mathbb{E}(Y - \mathbb{E}(Y))$$
+$$\mathbb{Cov}(X,Y) = \mathbb{E}[X - \mathbb{E}(X)]\mathbb{E}[Y - \mathbb{E}(Y)] \\ 
+= \mathbb{E}(XY) - \mathbb{E}(X)\mathbb{E}(Y))$$
 
 . . .
 
@@ -318,9 +364,93 @@ $$\rho = \rho_{X,Y} = \frac{\mathbb{Cov}(X,Y)}{\sqrt{\mathbb{V}(X)\mathbb{V}(Y)}
 ## Covariância e correlação  (propriedades)
 
 ::: incremental
-- $\mathbb{Cov}(X,Y) = \mathbb{E}(XY] - \mathbb{E}(X)\mathbb{E}(Y))$
 - $-1 \leq \rho_{X,Y} \leq 1$
 - Se $Y = aX + b$, então $\rho_{X,Y} = 1$ se $a>0$ e $\rho_{X,Y} = -1$ se $a<0$
-- Se $X$ e $Y$ são independentes, então $\mathbb{Cov}(X,Y) = \rho_{X,Y} = 0$. 
-- Se $\mathbb{Cov}(X,Y) = \rho_{X,Y} = 0$, $X$ e $Y$ não são necessaramente  independentes.
+- Se $X$ e $Y$ são independentes, então $\mathbb{Cov}(X,Y) = \rho_{X,Y} = 0$.
+  - Se $X\perp Y$, enntão $\mathbb{V}[X+Y] = \mathbb{V}[X] + \mathbb{V}[Y]$
+- Se $\mathbb{Cov}(X,Y) = \rho_{X,Y} = 0$, $X$ e $Y$ não são necessariamente  independentes.
 :::
+
+
+
+## Esperança condicional
+
+A esperança condicional de $X$ dado $Y=y$ é 
+
+$$\mathbb{E}[X | Y=y] = \int x f_{X|Y=y}(x|Y=y) dx$$
+
+. . . 
+
+Se $h(x,y)$ é uma função de $X$ e $Y$  então
+
+$$\mathbb{E}[h(X,Y) | Y=y] = \int h(x,y) f_{X|Y=y}(x|Y=y) dx$$
+
+
+## Esperança condicional {.scrollable}
+
+Notem que $\mathbb{E}[X]$ é um número (ou uma função dos parâmetros da distribuição), já $\mathbb{E}[X | Y=y]$ é função de $Y$, e portanto também é uma variável aleatória. 
+
+. . .
+
+Exemplo. Suponha que sorteamos um valor $x$ de $X \sim U(0,1)$. Em seguida sorteamos $Y | X=x \sim U( x, 1)$. Qual o valor esperado de $Y|X=x$?
+
+. . .
+
+$$\mathbb{E}[Y|X=x] = \int y f_{Y|X=x}(y|x) dy = \int_{x}^1 y\frac{1}{1-x} dy$$
+$$= \frac{1}{1-x} \left. \frac{y^2}{2}\right|_x^1 = \frac{1-x^2}{2(1-x)} = \frac{1+x}{2}.$$
+
+## Esperança condicional  {.scrollable}
+
+Para as variáveis aleatórias $X$ e $Y$, assumindo que os valores esperados existem, temos que
+
+$$\mathbb{E}[\mathbb{E}[X|Y]] = \mathbb{E}[X] \quad \mathbb{E}[\mathbb{E}[Y|X]] = \mathbb{E}[Y]$$
+ 
+ . . . 
+ 
+ Prova. 
+ $$ \mathbb{E}[\mathbb{E}[X|Y]] =  \int \mathbb{E}[X|Y=y] f_Y(y) dy \\ = \int \int x f_{X|Y=y}(x|y) dx f_Y(y) dy  $$
+ 
+ . . .
+ 
+ $$= \int \int x f_{X,Y}(x,y) dydx = \int x f_{X}(x) dx \\ = \mathbb{E}[X]$$
+
+## Esperança condicional  {.scrollable}
+
+De forma mais geral, para as variáveis aleatórias $X$ e $Y$, assumindo que os valores esperados existem, temos que
+
+$$\mathbb{E}[\mathbb{E}[h(X,Y)|Y]] = \mathbb{E}[h(X,Y)]$$
+ 
+ . . .
+ 
+ No exemplo anterior, $X\sim U(0,1)$ e $Y|X=x \sim U(x,1)$.
+ 
+ $$\mathbb{E}[Y] = \mathbb{E}[\mathbb{E}[Y|X=x]] = \mathbb{E}[(1+X)/2] \\ = (1 + (1/2)) / 2 = 3/4.$$
+
+
+## Variancia condicional  {.scrollable}
+
+A variância condicional é definida por 
+$$\mathbb{V}(X|Y=y) = \int (X - \mathbb{E}[X|Y])^2 f_{X|Y}(x|y) dx$$
+ 
+ . . .
+ 
+ 
+ Teorema. Para duas v.a.s $X$ e $Y$
+ 
+ $$\mathbb{V}(X) = \mathbb{E}[\mathbb{V}(X|Y=y)]  + \mathbb{V}[\mathbb{E}(X|Y=y)]$$
+ 
+ 
+## Função geradora de momentos 
+
+A função geradora de momentos, f.g.m, de uma v.a. $X$ é definida por
+
+$$M_X(t) = \psi_X(t) = \mathbb{E}[e^{tX}] = \int e^{tX} f_X(x) dx, \quad t\in \mathbb{R}.$$
+
+. . .
+
+Propriedade 1: Se $M_X(t)$ existe para $t$ em um intervalo aberto contendo zero, então ela determina a distribuição de probabilidade de forma única.
+
+. . .
+
+Propriedade 2: Se $M_X(t)$ existe para $t$ em um intervalo aberto contendo zero, então $M^{(r)}_X(t) = \mathbb{E}[X^r]$.
+
