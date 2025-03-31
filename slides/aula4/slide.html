@@ -29,6 +29,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="slide_files/libs/revealjs/dist/theme/quarto.css">
   <link href="slide_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -595,6 +660,56 @@ Leo Bastos
 <p><span class="math display">\[= \frac{\sum_{i=1}^n \mathbb{V}(X_i)}{n^2} \\ = \frac{n\sigma^2}{n^2} = \frac{\sigma^2}{n}.\]</span></p>
 </div>
 </section>
+<section id="exemplo-1" class="slide level2">
+<h2>Exemplo</h2>
+<p>Suponha <span class="math inline">\(X_1,X_2,\ldots,X_n \sim Exp(0.25)\)</span>, então</p>
+<p><span class="math display">\[\mathbb{E}[\bar{X}] = 1/0.25 = 4\]</span> <span class="math display">\[\mathbb{V}(\bar{X}) = (1/0.25)^2 / n = 16/n\]</span></p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># Funcao que gera amostras da exponencial( 0.25 ) e calcula a média</span></span>
+<span id="cb1-2"><a href=""></a>aaa <span class="ot">&lt;-</span> <span class="cf">function</span>(n){</span>
+<span id="cb1-3"><a href=""></a>  x <span class="ot">&lt;-</span> <span class="fu">rexp</span>(n, <span class="fl">0.25</span>)</span>
+<span id="cb1-4"><a href=""></a>  <span class="fu">mean</span>(x)</span>
+<span id="cb1-5"><a href=""></a>}</span>
+<span id="cb1-6"><a href=""></a></span>
+<span id="cb1-7"><a href=""></a><span class="co"># Gerando uma amostra de tamanho 100 e tomando a média</span></span>
+<span id="cb1-8"><a href=""></a><span class="fu">aaa</span>(<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.074001</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="media-amostral-n-10" class="slide level2">
+<h2>Media amostral (n = 10)</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>    mean      var 
+3.979222 1.660885 </code></pre>
+</div>
+
+</div>
+<img data-src="slide_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
+<section id="media-amostral-n-100" class="slide level2">
+<h2>Media amostral (n = 100)</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>     mean       var 
+4.0149277 0.1649404 </code></pre>
+</div>
+
+</div>
+<img data-src="slide_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
+<section id="media-amostral-n-1000" class="slide level2">
+<h2>Media amostral (n = 1000)</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>      mean        var 
+4.00312211 0.01694452 </code></pre>
+</div>
+
+</div>
+<img data-src="slide_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
 <section id="covariância-e-correlação" class="slide level2">
 <h2>Covariância e correlação</h2>
 <p>Sejam <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> duas variáveis aleatórias com média e variância finitas. Definimos a <strong>covariância</strong> entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> por</p>
@@ -895,6 +1010,44 @@ Leo Bastos
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

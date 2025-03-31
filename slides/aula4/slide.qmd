@@ -15,9 +15,10 @@ editor: visual
 ## Valor esperado (definição)
 
 <!-- Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>. -->
-<!-- <https://quarto.org/docs/presentations/revealjs/> -->
-<!-- <https://github.com/quarto-dev/quarto-web/blob/main/docs/presentations/revealjs/demo/index.qmd> -->
 
+<!-- <https://quarto.org/docs/presentations/revealjs/> -->
+
+<!-- <https://github.com/quarto-dev/quarto-web/blob/main/docs/presentations/revealjs/demo/index.qmd> -->
 
 Vimos anteriormente que o valor esperado de uma v.a. $X$ é calculado da seguinta forme\
 $$\mathbb{E}[X] = \left\{ \begin{array}{ll} \sum_x xf_{X}(x), & \mbox{se } X \mbox{ discreta} \\
@@ -40,13 +41,12 @@ Seja $X$ uma v.a. com f.d.p. $f_X$ e seja $Y=aX+b$.
 
 $$\mathbb{E}[aX + b] = a\mathbb{E}[X] + b$$
 
-. . . 
-
+. . .
 
 $$\mathbb{E}[aX + b] = \int_{-\infty}^{\infty} (ax + b) f_X(x) dx  \\ 
 = \int_{-\infty}^{\infty} ax f_X(x)dx + \int_{-\infty}^{\infty}b f_X(x) dx $$
 
-. . . 
+. . .
 
 $$= a \int_{-\infty}^{\infty} x f_X(x)dx + b \int_{-\infty}^{\infty} f_X(x) dx = a\mathbb{E}[X] + b$$
 
@@ -84,12 +84,11 @@ Caminho 2:
 
 $$\mathbb{E}[Y = X^2] = \int_0^1 x^2 f_X(x) dx = \left. \frac{x}{2}\right|_0^1 = 1/2 $$
 
-
 ## Valor esperado e probabilidade
 
-Caso especial, seja $A$ um possível evento e seja $g(x) = \mathbb{I}_A(x)$ onde $\mathbb{I}_A(x) = 1$ se $x \in A$, e $\mathbb{I}_A(x)= 0$ se $x \notin A$. 
+Caso especial, seja $A$ um possível evento e seja $g(x) = \mathbb{I}_A(x)$ onde $\mathbb{I}_A(x) = 1$ se $x \in A$, e $\mathbb{I}_A(x)= 0$ se $x \notin A$.
 
-. . . 
+. . .
 
 Então
 
@@ -105,34 +104,27 @@ O $k$-ésimo momento de uma variável aleatória $X$ é definido como $\mathbb{E
 -   O segundo momento central é chamado de variância $\mathbb{V}(X) = \mathbb{E}[(X-\mu)^2]$
 :::
 
-
-
 ## "Espalhamento" de uma v.a. em torno da média
 
 Uma medida interessante para descrever uma distribuição de probabilidade é quanto ela é "espalhada" em torno da média.
 
-. . . 
-
-A primeira ideia seria pensar o qual o valor esperado de $X$ a medida que $X$ se distancia da média, ou seja, 
-
 . . .
-Mas o primeiro momento central, se $\mu<\infty$, é sempre zero.
-$$\mathbb{E}[X-\mu] = \mathbb{E}[X]- \mathbb{E}[\mu] = \mu - \mu = 0$$
 
+A primeira ideia seria pensar o qual o valor esperado de $X$ a medida que $X$ se distancia da média, ou seja,
+
+. . . Mas o primeiro momento central, se $\mu<\infty$, é sempre zero. $$\mathbb{E}[X-\mu] = \mathbb{E}[X]- \mathbb{E}[\mu] = \mu - \mu = 0$$
 
 ## Variância
 
 Então alguém resolveu quantificar esse "espalhamento" como uma função quadrática, e essa métrica é conhecida por variância
 
-. . . 
+. . .
 
 $$\mathbb{V}[X] = \mathbb{E}[(X-\mu)^2]$$
 
 . . .
 
-Que pode ser reescrita como 
-$$\mathbb{V}[X] = \mathbb{E}[X^2] - \mathbb{E}[X]^2.$$
-
+Que pode ser reescrita como $$\mathbb{V}[X] = \mathbb{E}[X^2] - \mathbb{E}[X]^2.$$
 
 ## Exemplos (Uniforme)
 
@@ -141,6 +133,7 @@ Seja $X \sim U(a,b)$, então $f_X(x) = \frac{1}{b-a} \mathbb{I}_{(a,b)}(x)$.
 . . .
 
 <!-- $$\mathbb{E}[X] = \int_{-\infty}^{\infty} x f_X(x) dx = \int_{a}^b \frac{x}{b-a}dx = \frac{1}{b-a} \left. \frac{x^2}{2} \right|_a^b= \frac{a+b}{2}$$ -->
+
 $$\mathbb{E}[X] = \frac{a+b}{2}$$
 
 . . .
@@ -153,11 +146,9 @@ $$\mathbb{V}[X] = \mathbb{E}[X^2]-\mathbb{E}[X]^2 = \ldots = \frac{(b-a)^2}{12}$
 
 ## Exemplo (Gamma) {.scrollable}
 
-Seja $X \sim Gamma(a,b)$, com $\mathbb{E}[X] =\frac{a}{b}$ e densidade dada por 
-$$f_X(x) = \frac{b^a}{\Gamma(a)}x^{a-1}e^{-xb}, \quad, x > 0$$
+Seja $X \sim Gamma(a,b)$, com $\mathbb{E}[X] =\frac{a}{b}$ e densidade dada por $$f_X(x) = \frac{b^a}{\Gamma(a)}x^{a-1}e^{-xb}, \quad, x > 0$$
 
 . . .
-
 
 $$\mathbb{E}[X^2] = \int_0^\infty x^2 \frac{b^a}{\Gamma(a)}x^{a-1}e^{-xb} dx \\ 
 = \frac{b^a}{\Gamma(a)} \int_0^\infty x^{a + 2 -1}e^{-xb} dx \\ 
@@ -165,40 +156,32 @@ $$\mathbb{E}[X^2] = \int_0^\infty x^2 \frac{b^a}{\Gamma(a)}x^{a-1}e^{-xb} dx \\
 
 . . .
 
-E a variância é dada por
-$$\mathbb{V}[X] = \mathbb{E}[X^2] - \mathbb{E}[X]^2 \\ 
+E a variância é dada por $$\mathbb{V}[X] = \mathbb{E}[X^2] - \mathbb{E}[X]^2 \\ 
  = \frac{(a+1)a}{b^2} - \left(\frac{a}{b}\right)^2 = \frac{a}{b^2}$$
 
 ## Exercícios {.scrollable}
 
 Calcule o valor esperado e a variância das seguintes distribuições:
 
-  - $X\sim Exp(\lambda)$, 
-  $$f_X(x) = \lambda e^{-\lambda}, \, x>0$$
-  - $X\sim Beta(a,b)$, 
-  $$f_X(x) = \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)} x^{a-1}(1-x)^{b-1},\, x\in (0,1)$$
-  - $X\sim Normal(\mu, \sigma^2)$, 
-  $$f_X(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{1}{2\sigma^2} (x-\mu)^2}, \, x\in \mathbb{R}$$
-  - $X\sim Binomial(n, p)$, 
-  $$f_X(x) = {n \choose x} p^x(1-p)^{n-x}, \, x=0,1,2,\ldots,n$$
-  - $X\sim Poisson(\lambda)$, 
-  $$f_X(x) = \frac{\lambda^x}{x!} e^{-\lambda}, \, x=0,1,2,\ldots$$
-
+-   $X\sim Exp(\lambda)$, $$f_X(x) = \lambda e^{-\lambda}, \, x>0$$
+-   $X\sim Beta(a,b)$, $$f_X(x) = \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)} x^{a-1}(1-x)^{b-1},\, x\in (0,1)$$
+-   $X\sim Normal(\mu, \sigma^2)$, $$f_X(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{1}{2\sigma^2} (x-\mu)^2}, \, x\in \mathbb{R}$$
+-   $X\sim Binomial(n, p)$, $$f_X(x) = {n \choose x} p^x(1-p)^{n-x}, \, x=0,1,2,\ldots,n$$
+-   $X\sim Poisson(\lambda)$, $$f_X(x) = \frac{\lambda^x}{x!} e^{-\lambda}, \, x=0,1,2,\ldots$$
 
 ## Variância (propriedades)
 
-Seja $X$ uma v.a. com função de densidade $f_X(x)$. 
+Seja $X$ uma v.a. com função de densidade $f_X(x)$.
 
 ::: incremental
-- $\mathbb{V}[b] = 0$
-- $\mathbb{V}[aX] = a^2 \mathbb{V}[X]$
-- $\mathbb{V}[aX + b] = a^2 \mathbb{V}[X]$
+-   $\mathbb{V}[b] = 0$
+-   $\mathbb{V}[aX] = a^2 \mathbb{V}[X]$
+-   $\mathbb{V}[aX + b] = a^2 \mathbb{V}[X]$
 :::
 
 ## Variância (propriedades)
 
-Variância de uma constante
-$$\mathbb{V}[b] = \mathbb{E}[b^2] - \mathbb{E}[b]^2 = b^2 - b^2 = 0.$$
+Variância de uma constante $$\mathbb{V}[b] = \mathbb{E}[b^2] - \mathbb{E}[b]^2 = b^2 - b^2 = 0.$$
 
 . . .
 
@@ -211,14 +194,11 @@ Mostrando o caso geral
  & = & a^2 (\mathbb{E}[X]^2 - \mathbb{E}[X]^2)
 \end{eqnarray}
 
-
 ## Distribuições conjuntas
 
-Seja o para $(X,Y)$ v.a. com distribuição conjunta $f_{X,Y}(x,y)$, para qualquer conjunto $A \subset \mathbb{R}^2$, 
+Seja o para $(X,Y)$ v.a. com distribuição conjunta $f_{X,Y}(x,y)$, para qualquer conjunto $A \subset \mathbb{R}^2$,
 
-$$P((X,Y) \in A) = \int \int_{(X,Y) \in A} f_{X,Y}(x,y) dxdy$$
-Se $X$ e/ou $Y$ forem discretas, a integral dá lugar a um somatório.
-
+$$P((X,Y) \in A) = \int \int_{(X,Y) \in A} f_{X,Y}(x,y) dxdy$$ Se $X$ e/ou $Y$ forem discretas, a integral dá lugar a um somatório.
 
 ## Distribuições conjuntas (Exemplo)
 
@@ -228,21 +208,17 @@ Sejam $X$ e $Y$ variáveis aleatórias uniformes no quadrado unitário. Calcule 
 
 $$P(X+Y>1) = \int \int_{X+Y>1} f_{X,Y}(x,y)dydx $$
 
-
 . . .
 
-$X+Y > 1$ corresponde ao conjunto $A = \{ (x,y) : 0<x<1, x<y<1\}$, logo 
+$X+Y > 1$ corresponde ao conjunto $A = \{ (x,y) : 0<x<1, x<y<1\}$, logo
 
 . . .
 
 $$P(X+Y>1) = \int_0^1 \int_x^1 1 dydx = \int_{0}^1 (1-x)dx = 1/2$$
 
-
-
 ## Esperança de distribuições conjuntas
 
-O valor esperado de uma função de duas (ou mais) variáveis aleatórias $X$ e $Y$, $Z = g(X,Y)$ pode ser calculada da seguinte forma 
-$$\mathbb{E}[Z] = \mathbb{E}[g(X,Y)] = \int \int g(x,y) f_{X,Y}(x,y) dy dx$$
+O valor esperado de uma função de duas (ou mais) variáveis aleatórias $X$ e $Y$, $Z = g(X,Y)$ pode ser calculada da seguinte forma $$\mathbb{E}[Z] = \mathbb{E}[g(X,Y)] = \int \int g(x,y) f_{X,Y}(x,y) dy dx$$
 
 . . .
 
@@ -259,7 +235,7 @@ $$\mathbb{E}[X+Y] = \int\int (x+y) f_{X,Y}(x,y)dydx \\
 
 . . .
 
-$$= \int_0^1\int_0^1xdydx + \int_0^1\int_0^1 y dydx $$ 
+$$= \int_0^1\int_0^1xdydx + \int_0^1\int_0^1 y dydx $$
 
 . . .
 
@@ -268,7 +244,6 @@ $$= \left. \frac{x^2}{2}\right|_0^1 + \left. \frac{y^2}{2}\right|_0^1 = 1$$
 ## Valor esperado (propriedades) {.scrollable}
 
 Uma propriedade importante do valor esperado é que a esperança da somas é a soma das esperanças, i.e. $$\mathbb{E}[X + Y] = \mathbb{E}[X] + \mathbb{E}[Y]$$
-
 
 . . .
 
@@ -280,13 +255,9 @@ $$\mathbb{E}[X+Y] = \int\int (x+y) f_{X,Y}(x,y)dydx \\
 $$ = \int x \int f_{X,Y}(x,y) dydx + \int y \int f_{X,Y}(x,y) dxdy \\ 
  = \int x f_{X}(x) dx + \int y f_{Y}(y) dy = \mathbb{E}[X] + \mathbb{E}[Y]$$
 
-
 ## Valor esperado (propriedades)
 
-
 De forma mais geral, sejam $X_1, X_2,\ldots, X_n$ v.a.s com $\mathbb{E}[X_i]<\infty$, e $(a_1,b_1), (a_2,b_2),\ldots,(a_n,b_n)$ constantes, $$\mathbb{E}\left[\sum_{i=1}^n (a_i X_i + b_i)\right] = \sum_{i=1}^n a_i \mathbb{E}[X_i] + \sum_{i=1}^n b_i$$
-
-
 
 ## Variância de $X+Y$
 
@@ -308,22 +279,18 @@ $$ = \mathbb{E}[X^2] + 2\mathbb{E}[XY] +\mathbb{E}[Y^2] \\ - (\mathbb{E}[X]^2 + 
 
 $$ = \mathbb{V}[X] + \mathbb{V}[Y] + 2( \mathbb{E}[XY] - \mathbb{E}[X]\mathbb{E}[Y])$$
 
-
 ## Variância de $X+Y$
 
 Se $X \perp Y$, então $\mathbb{E}[XY] = \mathbb{E}[X]\mathbb{E}[Y]$.
 
 . . .
 
-
 $$ \mathbb{V}(X+Y) = \mathbb{V}(X) + \mathbb{V}(Y) + 2( \mathbb{E}(XY) - \mathbb{E}(X)\mathbb{E}(Y) ) \\ 
 = \mathbb{V}(X) + \mathbb{V}(Y)$$
- 
 
 ## Variância da soma de v.a.s
- 
-De forma mais geral, sejam $X_1, X_2,\ldots, X_n$ v.a.s **independentes** com $\mathbb{V}(X_i) < \infty, \, \forall i$, e $(a_1,b_1), (a_2,b_2),\ldots,(a_n,b_n)$ constantes, então 
-$$\mathbb{V}\left(\sum_{i=1}^n (a_i X_i + b_i)\right) = \sum_{i=1}^n a_i^2 \mathbb{V}(X_i)$$
+
+De forma mais geral, sejam $X_1, X_2,\ldots, X_n$ v.a.s **independentes** com $\mathbb{V}(X_i) < \infty, \, \forall i$, e $(a_1,b_1), (a_2,b_2),\ldots,(a_n,b_n)$ constantes, então $$\mathbb{V}\left(\sum_{i=1}^n (a_i X_i + b_i)\right) = \sum_{i=1}^n a_i^2 \mathbb{V}(X_i)$$
 
 ## Média amostral
 
@@ -334,7 +301,6 @@ $$\bar{X}_n = \frac{\sum_{i=1}^n X_i}{n}$$
 então
 
 $$\mathbb{E}[\bar{X}_n] = \mu \quad \mbox{e} \quad\mathbb{V}[\bar{X}_n] = \frac{\sigma^2}{n}.$$
-
 
 ## Média amostral
 
@@ -348,8 +314,63 @@ $$\mathbb{V}(\bar{X}_n) = \mathbb{V}\left(\frac{\sum_{i=1}^n {X}_i}{n}\right) $$
 
 $$= \frac{\sum_{i=1}^n \mathbb{V}(X_i)}{n^2} \\ = \frac{n\sigma^2}{n^2} = \frac{\sigma^2}{n}.$$
 
-## Covariância e correlação 
- 
+## Exemplo
+
+Suponha $X_1,X_2,\ldots,X_n \sim Exp(0.25)$, então 
+
+$$\mathbb{E}[\bar{X}] = 1/0.25 = 4$$ 
+$$\mathbb{V}(\bar{X}) = (1/0.25)^2 / n = 16/n$$
+
+. . .
+
+```{r, echo=TRUE}
+# Funcao que gera amostras da exponencial( 0.25 ) e calcula a média
+aaa <- function(n){
+  x <- rexp(n, 0.25)
+  mean(x)
+}
+
+# Gerando uma amostra de tamanho 100 e tomando a média
+aaa(100)
+```
+
+## Media amostral (n = 10)
+
+```{r}
+medias <- lapply( rep(10, 1000), FUN = aaa) |> 
+  unlist()
+
+c(mean=mean(medias), var =var(medias)) 
+
+hist(medias, xlab = expression(bar(X)), main = "")
+```
+
+## Media amostral (n = 100)
+
+```{r}
+medias <- lapply( rep(100, 1000), FUN = aaa) |> 
+  unlist()
+
+c(mean=mean(medias), var =var(medias)) 
+
+hist(medias, xlab = expression(bar(X)), main = "")
+```
+
+
+## Media amostral (n = 1000)
+
+```{r}
+medias <- lapply( rep(1000, 1000), FUN = aaa) |> 
+  unlist()
+
+c(mean=mean(medias), var =var(medias)) 
+
+hist(medias, xlab = expression(bar(X)), main = "")
+```
+
+
+## Covariância e correlação
+
 Sejam $X$ e $Y$ duas variáveis aleatórias com média e variância finitas. Definimos a **covariância** entre $X$ e $Y$ por
 
 $$\mathbb{Cov}(X,Y) = \mathbb{E}[X - \mathbb{E}(X)]\mathbb{E}[Y - \mathbb{E}(Y)] \\ 
@@ -361,34 +382,31 @@ E definimos a correlação entre $X$ e $Y$ por
 
 $$\rho = \rho_{X,Y} = \frac{\mathbb{Cov}(X,Y)}{\sqrt{\mathbb{V}(X)\mathbb{V}(Y)}}$$
 
-## Covariância e correlação  (propriedades)
+## Covariância e correlação (propriedades)
 
 ::: incremental
-- $-1 \leq \rho_{X,Y} \leq 1$
-- Se $Y = aX + b$, então $\rho_{X,Y} = 1$ se $a>0$ e $\rho_{X,Y} = -1$ se $a<0$
-- Se $X$ e $Y$ são independentes, então $\mathbb{Cov}(X,Y) = \rho_{X,Y} = 0$.
-  - Se $X\perp Y$, enntão $\mathbb{V}[X+Y] = \mathbb{V}[X] + \mathbb{V}[Y]$
-- Se $\mathbb{Cov}(X,Y) = \rho_{X,Y} = 0$, $X$ e $Y$ não são necessariamente  independentes.
+-   $-1 \leq \rho_{X,Y} \leq 1$
+-   Se $Y = aX + b$, então $\rho_{X,Y} = 1$ se $a>0$ e $\rho_{X,Y} = -1$ se $a<0$
+-   Se $X$ e $Y$ são independentes, então $\mathbb{Cov}(X,Y) = \rho_{X,Y} = 0$.
+    -   Se $X\perp Y$, enntão $\mathbb{V}[X+Y] = \mathbb{V}[X] + \mathbb{V}[Y]$
+-   Se $\mathbb{Cov}(X,Y) = \rho_{X,Y} = 0$, $X$ e $Y$ não são necessariamente independentes.
 :::
-
-
 
 ## Esperança condicional
 
-A esperança condicional de $X$ dado $Y=y$ é 
+A esperança condicional de $X$ dado $Y=y$ é
 
 $$\mathbb{E}[X | Y=y] = \int x f_{X|Y=y}(x|Y=y) dx$$
 
-. . . 
+. . .
 
-Se $h(x,y)$ é uma função de $X$ e $Y$  então
+Se $h(x,y)$ é uma função de $X$ e $Y$ então
 
 $$\mathbb{E}[h(X,Y) | Y=y] = \int h(x,y) f_{X|Y=y}(x|Y=y) dx$$
 
-
 ## Esperança condicional {.scrollable}
 
-Notem que $\mathbb{E}[X]$ é um número (ou uma função dos parâmetros da distribuição), já $\mathbb{E}[X | Y=y]$ é função de $Y$, e portanto também é uma variável aleatória. 
+Notem que $\mathbb{E}[X]$ é um número (ou uma função dos parâmetros da distribuição), já $\mathbb{E}[X | Y=y]$ é função de $Y$, e portanto também é uma variável aleatória.
 
 . . .
 
@@ -396,51 +414,45 @@ Exemplo. Suponha que sorteamos um valor $x$ de $X \sim U(0,1)$. Em seguida sorte
 
 . . .
 
-$$\mathbb{E}[Y|X=x] = \int y f_{Y|X=x}(y|x) dy = \int_{x}^1 y\frac{1}{1-x} dy$$
-$$= \frac{1}{1-x} \left. \frac{y^2}{2}\right|_x^1 = \frac{1-x^2}{2(1-x)} = \frac{1+x}{2}.$$
+$$\mathbb{E}[Y|X=x] = \int y f_{Y|X=x}(y|x) dy = \int_{x}^1 y\frac{1}{1-x} dy$$ $$= \frac{1}{1-x} \left. \frac{y^2}{2}\right|_x^1 = \frac{1-x^2}{2(1-x)} = \frac{1+x}{2}.$$
 
-## Esperança condicional  {.scrollable}
+## Esperança condicional {.scrollable}
 
 Para as variáveis aleatórias $X$ e $Y$, assumindo que os valores esperados existem, temos que
 
 $$\mathbb{E}[\mathbb{E}[X|Y]] = \mathbb{E}[X] \quad \mathbb{E}[\mathbb{E}[Y|X]] = \mathbb{E}[Y]$$
- 
- . . . 
- 
- Prova. 
- $$ \mathbb{E}[\mathbb{E}[X|Y]] =  \int \mathbb{E}[X|Y=y] f_Y(y) dy \\ = \int \int x f_{X|Y=y}(x|y) dx f_Y(y) dy  $$
- 
- . . .
- 
- $$= \int \int x f_{X,Y}(x,y) dydx = \int x f_{X}(x) dx \\ = \mathbb{E}[X]$$
 
-## Esperança condicional  {.scrollable}
+. . .
+
+Prova. $$ \mathbb{E}[\mathbb{E}[X|Y]] =  \int \mathbb{E}[X|Y=y] f_Y(y) dy \\ = \int \int x f_{X|Y=y}(x|y) dx f_Y(y) dy  $$
+
+. . .
+
+$$= \int \int x f_{X,Y}(x,y) dydx = \int x f_{X}(x) dx \\ = \mathbb{E}[X]$$
+
+## Esperança condicional {.scrollable}
 
 De forma mais geral, para as variáveis aleatórias $X$ e $Y$, assumindo que os valores esperados existem, temos que
 
 $$\mathbb{E}[\mathbb{E}[h(X,Y)|Y]] = \mathbb{E}[h(X,Y)]$$
- 
- . . .
- 
- No exemplo anterior, $X\sim U(0,1)$ e $Y|X=x \sim U(x,1)$.
- 
- $$\mathbb{E}[Y] = \mathbb{E}[\mathbb{E}[Y|X=x]] = \mathbb{E}[(1+X)/2] \\ = (1 + (1/2)) / 2 = 3/4.$$
 
+. . .
 
-## Variancia condicional  {.scrollable}
+No exemplo anterior, $X\sim U(0,1)$ e $Y|X=x \sim U(x,1)$.
 
-A variância condicional é definida por 
-$$\mathbb{V}(X|Y=y) = \int (X - \mathbb{E}[X|Y])^2 f_{X|Y}(x|y) dx$$
- 
- . . .
- 
- 
- Teorema. Para duas v.a.s $X$ e $Y$
- 
- $$\mathbb{V}(X) = \mathbb{E}[\mathbb{V}(X|Y=y)]  + \mathbb{V}[\mathbb{E}(X|Y=y)]$$
- 
- 
-## Função geradora de momentos 
+$$\mathbb{E}[Y] = \mathbb{E}[\mathbb{E}[Y|X=x]] = \mathbb{E}[(1+X)/2] \\ = (1 + (1/2)) / 2 = 3/4.$$
+
+## Variancia condicional {.scrollable}
+
+A variância condicional é definida por $$\mathbb{V}(X|Y=y) = \int (X - \mathbb{E}[X|Y])^2 f_{X|Y}(x|y) dx$$
+
+. . .
+
+Teorema. Para duas v.a.s $X$ e $Y$
+
+$$\mathbb{V}(X) = \mathbb{E}[\mathbb{V}(X|Y=y)]  + \mathbb{V}[\mathbb{E}(X|Y=y)]$$
+
+## Função geradora de momentos
 
 A função geradora de momentos, f.g.m, de uma v.a. $X$ é definida por
 
@@ -453,4 +465,3 @@ Propriedade 1: Se $M_X(t)$ existe para $t$ em um intervalo aberto contendo zero,
 . . .
 
 Propriedade 2: Se $M_X(t)$ existe para $t$ em um intervalo aberto contendo zero, então $M^{(r)}_X(t) = \mathbb{E}[X^r]$.
-
