@@ -12,6 +12,54 @@ format:
 editor: visual
 ---
 
+## Matriz de variancias e covariâncias
+
+Sejam $X = (X_1,X_2,\ldots,X_n)$ um vetor com $n$ variáveis aleatórias. Defina $\mathbb{V}(X_i) = \sigma_i^2$, $\forall i$ e $\mathbb{Cov}(X_i, X_j) = \sigma_{ij}$, $\forall i\neq j$. 
+
+. . .
+
+A matriz de variâncias e covariâncias é dada por
+
+$$\Sigma = \left(
+\begin{array}{cc}
+\sigma_{1}^2 & \sigma_{12} & \ldots & \sigma_{1n} \\
+\sigma_{1,2} & \sigma_{2}^2 & \ldots & \sigma_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+\sigma_{n,1} & \sigma_{n,2} & \ldots & \sigma_{n}^2 
+\end{array}
+\right)$$
+
+
+
+
+
+## Normal-multivariada
+
+Dizemos que o vetor $X$ seguem uma distribuição normal multivariada, $X \sim N(\mu, \Sigma)$, se $$f_X(x) = \frac{1}{(2\pi)^k |\Sigma|^{1/2} } \exp\left\{ -\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu)\right\}$$ onde $|\Sigma|$ denota o determinante de $\Sigma$, $\mu$ é um vetor de tamanho $n$ e $\Sigma$ uma matriz $n\times n$ simétrica, positiva definida.
+
+## Propriedades da normal multivariada
+
+Suponha que o vetor $X$ é particionado em dois vetor $X_a$ e $X_b$, $X = (X_a, X_b)$
+
+. . .
+
+De forma similar $\mu=(\mu_a, \mu_b)$ e $$\Sigma = \left( 
+\begin{array}{cc} 
+\Sigma_{aa} & \Sigma_{ab} \\
+\Sigma_{ba} & \Sigma_{bb} 
+\end{array}\right)$$
+
+## Propriedades da normal multivariada
+
+Se $X \sim N(\mu, \Sigma)$. Então
+
+::: incremental
+1.  A distribuição marginal: $X_a \sim N(\mu_a, \Sigma_{aa})$ 
+2. A distribuição condicional: $X_b | X_a = x_a \sim N(\mu_{b|a}, \Sigma_{b|a})$ onde
+$$\mu_{b|a} = \mu_b + \Sigma_{ba} \Sigma_{aa}^{-1}(x_a-\mu_a) \\ 
+\Sigma_{b|a} = \Sigma_{bb} - \Sigma_{ba}\Sigma_{aa}^{-1}\Sigma_{ab}$$
+:::
+
 ## Esperança condicional
 
 <!-- Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>. -->
@@ -19,7 +67,6 @@ editor: visual
 <!-- <https://quarto.org/docs/presentations/revealjs/> -->
 
 <!-- <https://github.com/quarto-dev/quarto-web/blob/main/docs/presentations/revealjs/demo/index.qmd> -->
-
 
 A esperança condicional de $X$ dado $Y=y$ é
 
@@ -92,3 +139,23 @@ Propriedade 1: Se $M_X(t)$ existe para $t$ em um intervalo aberto contendo zero,
 . . .
 
 Propriedade 2: Se $M_X(t)$ existe para $t$ em um intervalo aberto contendo zero, então $M^{(r)}_X(t) = \mathbb{E}[X^r]$.
+
+# Principais desigualdades
+
+## Markov
+
+## Chebyshev
+
+## Jensen
+
+# Teoria assintótica
+
+## Convergencia em probabilidade
+
+## Convergencia em distribuição
+
+## Lei fraca dos grandes números
+
+## Teorema central do limite
+
+## Método Delta

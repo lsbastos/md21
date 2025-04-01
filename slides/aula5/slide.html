@@ -340,6 +340,47 @@ Leo Bastos
 </div>
 
 </section>
+<section id="matriz-de-variancias-e-covariâncias" class="slide level2">
+<h2>Matriz de variancias e covariâncias</h2>
+<p>Sejam <span class="math inline">\(X = (X_1,X_2,\ldots,X_n)\)</span> um vetor com <span class="math inline">\(n\)</span> variáveis aleatórias. Defina <span class="math inline">\(\mathbb{V}(X_i) = \sigma_i^2\)</span>, <span class="math inline">\(\forall i\)</span> e <span class="math inline">\(\mathbb{Cov}(X_i, X_j) = \sigma_{ij}\)</span>, <span class="math inline">\(\forall i\neq j\)</span>.</p>
+<div class="fragment">
+<p>A matriz de variâncias e covariâncias é dada por</p>
+<p><span class="math display">\[\Sigma = \left(
+\begin{array}{cc}
+\sigma_{1}^2 &amp; \sigma_{12} &amp; \ldots &amp; \sigma_{1n} \\
+\sigma_{1,2} &amp; \sigma_{2}^2 &amp; \ldots &amp; \sigma_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+\sigma_{n,1} &amp; \sigma_{n,2} &amp; \ldots &amp; \sigma_{n}^2
+\end{array}
+\right)\]</span></p>
+</div>
+</section>
+<section id="normal-multivariada" class="slide level2">
+<h2>Normal-multivariada</h2>
+<p>Dizemos que o vetor <span class="math inline">\(X\)</span> seguem uma distribuição normal multivariada, <span class="math inline">\(X \sim N(\mu, \Sigma)\)</span>, se <span class="math display">\[f_X(x) = \frac{1}{(2\pi)^k |\Sigma|^{1/2} } \exp\left\{ -\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu)\right\}\]</span> onde <span class="math inline">\(|\Sigma|\)</span> denota o determinante de <span class="math inline">\(\Sigma\)</span>, <span class="math inline">\(\mu\)</span> é um vetor de tamanho <span class="math inline">\(n\)</span> e <span class="math inline">\(\Sigma\)</span> uma matriz <span class="math inline">\(n\times n\)</span> simétrica, positiva definida.</p>
+</section>
+<section id="propriedades-da-normal-multivariada" class="slide level2">
+<h2>Propriedades da normal multivariada</h2>
+<p>Suponha que o vetor <span class="math inline">\(X\)</span> é particionado em dois vetor <span class="math inline">\(X_a\)</span> e <span class="math inline">\(X_b\)</span>, <span class="math inline">\(X = (X_a, X_b)\)</span></p>
+<div class="fragment">
+<p>De forma similar <span class="math inline">\(\mu=(\mu_a, \mu_b)\)</span> e <span class="math display">\[\Sigma = \left(
+\begin{array}{cc}
+\Sigma_{aa} &amp; \Sigma_{ab} \\
+\Sigma_{ba} &amp; \Sigma_{bb}
+\end{array}\right)\]</span></p>
+</div>
+</section>
+<section id="propriedades-da-normal-multivariada-1" class="slide level2">
+<h2>Propriedades da normal multivariada</h2>
+<p>Se <span class="math inline">\(X \sim N(\mu, \Sigma)\)</span>. Então</p>
+<div>
+<ol type="1">
+<li class="fragment">A distribuição marginal: <span class="math inline">\(X_a \sim N(\mu_a, \Sigma_{aa})\)</span></li>
+<li class="fragment">A distribuição condicional: <span class="math inline">\(X_b | X_a = x_a \sim N(\mu_{b|a}, \Sigma_{b|a})\)</span> onde <span class="math display">\[\mu_{b|a} = \mu_b + \Sigma_{ba} \Sigma_{aa}^{-1}(x_a-\mu_a) \\
+\Sigma_{b|a} = \Sigma_{bb} - \Sigma_{ba}\Sigma_{aa}^{-1}\Sigma_{ab}\]</span></li>
+</ol>
+</div>
+</section>
 <section id="esperança-condicional" class="slide level2">
 <h2>Esperança condicional</h2>
 <!-- Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>. -->
@@ -399,14 +440,48 @@ Leo Bastos
 </div>
 <div class="fragment">
 <p>Propriedade 2: Se <span class="math inline">\(M_X(t)\)</span> existe para <span class="math inline">\(t\)</span> em um intervalo aberto contendo zero, então <span class="math inline">\(M^{(r)}_X(t) = \mathbb{E}[X^r]\)</span>.</p>
+</div>
+</section>
+<section>
+<section id="principais-desigualdades" class="title-slide slide level1 center">
+<h1>Principais desigualdades</h1>
+
+</section>
+<section id="markov" class="slide level2">
+<h2>Markov</h2>
+</section>
+<section id="chebyshev" class="slide level2">
+<h2>Chebyshev</h2>
+</section>
+<section id="jensen" class="slide level2">
+<h2>Jensen</h2>
+</section></section>
+<section>
+<section id="teoria-assintótica" class="title-slide slide level1 center">
+<h1>Teoria assintótica</h1>
+
+</section>
+<section id="convergencia-em-probabilidade" class="slide level2">
+<h2>Convergencia em probabilidade</h2>
+</section>
+<section id="convergencia-em-distribuição" class="slide level2">
+<h2>Convergencia em distribuição</h2>
+</section>
+<section id="lei-fraca-dos-grandes-números" class="slide level2">
+<h2>Lei fraca dos grandes números</h2>
+</section>
+<section id="teorema-central-do-limite" class="slide level2">
+<h2>Teorema central do limite</h2>
+</section>
+<section id="método-delta" class="slide level2">
+<h2>Método Delta</h2>
 <div class="quarto-auto-generated-content">
 <p><img src="../../impa-tech-h.png" class="slide-logo"></p>
 <div class="footer footer-default">
 <p><a href="https://github.com/lsbastos/md21/" class="uri">https://github.com/lsbastos/md21/</a></p>
 </div>
 </div>
-</div>
-</section>
+</section></section>
     </div>
   </div>
 
