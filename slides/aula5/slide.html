@@ -29,71 +29,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="slide_files/libs/revealjs/dist/theme/quarto.css">
   <link href="slide_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -405,338 +340,70 @@ Leo Bastos
 </div>
 
 </section>
-<section id="valor-esperado-definição" class="slide level2">
-<h2>Valor esperado (definição)</h2>
+<section id="esperança-condicional" class="slide level2">
+<h2>Esperança condicional</h2>
 <!-- Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>. -->
 <!-- <https://quarto.org/docs/presentations/revealjs/> -->
 <!-- <https://github.com/quarto-dev/quarto-web/blob/main/docs/presentations/revealjs/demo/index.qmd> -->
-<p>Vimos anteriormente que o valor esperado de uma v.a. <span class="math inline">\(X\)</span> é calculado da seguinta forme<br>
-<span class="math display">\[\mathbb{E}[X] = \left\{ \begin{array}{ll} \sum_x xf_{X}(x), &amp; \mbox{se } X \mbox{ discreta} \\
-\int_{-\infty}^{\infty} xf_{X}(x) dx, &amp; \mbox{se } X \mbox{ contínua.} \\\end{array}
-\right.\]</span></p>
+<p>A esperança condicional de <span class="math inline">\(X\)</span> dado <span class="math inline">\(Y=y\)</span> é</p>
+<p><span class="math display">\[\mathbb{E}[X | Y=y] = \int x f_{X|Y=y}(x|Y=y) dx\]</span></p>
 <div class="fragment">
-<p>Algumas propriedades importantes.</p>
-<div>
-<ul>
-<li class="fragment"><span class="math inline">\(\mathbb{E}[b] = b\)</span>, onde <span class="math inline">\(b\)</span> é uma constante (não depende de <span class="math inline">\(X\)</span>).</li>
-<li class="fragment"><span class="math inline">\(\mathbb{E}[aX] = a\mathbb{E}[X]\)</span></li>
-<li class="fragment"><span class="math inline">\(\mathbb{E}[aX + b] = a\mathbb{E}[X] + b\)</span></li>
-</ul>
-</div>
+<p>Se <span class="math inline">\(h(x,y)\)</span> é uma função de <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> então</p>
+<p><span class="math display">\[\mathbb{E}[h(X,Y) | Y=y] = \int h(x,y) f_{X|Y=y}(x|Y=y) dx\]</span></p>
 </div>
 </section>
-<section id="mostrando-o-caso-geral" class="slide level2">
-<h2>Mostrando o caso geral</h2>
-<p>Seja <span class="math inline">\(X\)</span> uma v.a. com f.d.p. <span class="math inline">\(f_X\)</span> e seja <span class="math inline">\(Y=aX+b\)</span>.</p>
-<p><span class="math display">\[\mathbb{E}[aX + b] = a\mathbb{E}[X] + b\]</span></p>
+<section id="esperança-condicional-1" class="slide level2 scrollable">
+<h2>Esperança condicional</h2>
+<p>Notem que <span class="math inline">\(\mathbb{E}[X]\)</span> é um número (ou uma função dos parâmetros da distribuição), já <span class="math inline">\(\mathbb{E}[X | Y=y]\)</span> é função de <span class="math inline">\(Y\)</span>, e portanto também é uma variável aleatória.</p>
 <div class="fragment">
-<p><span class="math display">\[\mathbb{E}[aX + b] = \int_{-\infty}^{\infty} (ax + b) f_X(x) dx  \\
-= \int_{-\infty}^{\infty} ax f_X(x)dx + \int_{-\infty}^{\infty}b f_X(x) dx \]</span></p>
+<p>Exemplo. Suponha que sorteamos um valor <span class="math inline">\(x\)</span> de <span class="math inline">\(X \sim U(0,1)\)</span>. Em seguida sorteamos <span class="math inline">\(Y | X=x \sim U( x, 1)\)</span>. Qual o valor esperado de <span class="math inline">\(Y|X=x\)</span>?</p>
 </div>
 <div class="fragment">
-<p><span class="math display">\[= a \int_{-\infty}^{\infty} x f_X(x)dx + b \int_{-\infty}^{\infty} f_X(x) dx = a\mathbb{E}[X] + b\]</span></p>
+<p><span class="math display">\[\mathbb{E}[Y|X=x] = \int y f_{Y|X=x}(y|x) dy = \int_{x}^1 y\frac{1}{1-x} dy\]</span> <span class="math display">\[= \frac{1}{1-x} \left. \frac{y^2}{2}\right|_x^1 = \frac{1-x^2}{2(1-x)} = \frac{1+x}{2}.\]</span></p>
 </div>
 </section>
-<section id="valor-esperado-de-uma-função" class="slide level2">
-<h2>Valor esperado de uma função</h2>
-<p>Seja <span class="math inline">\(Y = g(X)\)</span>, para encontrarmos o valor esperado de <span class="math inline">\(Y\)</span></p>
-<p><span class="math display">\[\mathbb{E}[Y] = \int yf_Y(y) dy = \int y f_X(g^{-1}(y)) \left|\frac{d}{dy}g^{-1}(y)\right|dy\]</span></p>
+<section id="esperança-condicional-2" class="slide level2 scrollable">
+<h2>Esperança condicional</h2>
+<p>Para as variáveis aleatórias <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>, assumindo que os valores esperados existem, temos que</p>
+<p><span class="math display">\[\mathbb{E}[\mathbb{E}[X|Y]] = \mathbb{E}[X] \quad \mathbb{E}[\mathbb{E}[Y|X]] = \mathbb{E}[Y]\]</span></p>
 <div class="fragment">
-<p>Seja <span class="math inline">\(X\)</span> uma v.a. e <span class="math inline">\(Y = g(X)\)</span>, o valor esperado de <span class="math inline">\(Y\)</span> pode ser encontrado sem encontrar a distribuição de <span class="math inline">\(Y\)</span>.</p>
-<p><span class="math display">\[ \mathbb{E}[Y] = \mathbb{E}[g(X)] = \int g(X) f_X(x) dx \]</span></p>
-<!-- ::: aside -->
-<!-- Se $X$ for discreta, substituir a integral por um somatório. -->
-<!-- ::: -->
+<p>Prova. <span class="math display">\[ \mathbb{E}[\mathbb{E}[X|Y]] =  \int \mathbb{E}[X|Y=y] f_Y(y) dy \\ = \int \int x f_{X|Y=y}(x|y) dx f_Y(y) dy  \]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[= \int \int x f_{X,Y}(x,y) dydx = \int x f_{X}(x) dx \\ = \mathbb{E}[X]\]</span></p>
 </div>
 </section>
-<section id="exemplo" class="slide level2 scrollable">
-<h2>Exemplo</h2>
-<p>Seja <span class="math inline">\(X\)</span> uma v.a. com distribuição <span class="math inline">\(U(0,1)\)</span>, i.e.&nbsp;<span class="math inline">\(f_X(x) = \mathbb{I}_{X\in (0,1)}(x)\)</span>, e seja <span class="math inline">\(Y=X^2\)</span>. Calcule <span class="math inline">\(\mathbb{E}[X^2]\)</span></p>
+<section id="esperança-condicional-3" class="slide level2 scrollable">
+<h2>Esperança condicional</h2>
+<p>De forma mais geral, para as variáveis aleatórias <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>, assumindo que os valores esperados existem, temos que</p>
+<p><span class="math display">\[\mathbb{E}[\mathbb{E}[h(X,Y)|Y]] = \mathbb{E}[h(X,Y)]\]</span></p>
 <div class="fragment">
-<p>Caminho 1:</p>
-<p><span class="math display">\[\mathbb{E}[Y = X^2] = \int_0^1 y f_X(y^{1/2}) \left|\frac{d}{dy} y^{1/2}\right| dy \\ = \int_0^1 y \times 1 \times \frac{1}{2} y^{-1/2} dy \\ = \int_0^1 \frac{1}{2} y^{1/2} dy \\ = \left. \frac{1}{2} \frac{y^{3/2}{3/2}}\right|_0^1 = 1/3 \]</span></p>
-</div>
-<div class="fragment">
-<p>Caminho 2:</p>
-<p><span class="math display">\[\mathbb{E}[Y = X^2] = \int_0^1 x^2 f_X(x) dx = \left. \frac{x^3}{3}\right|_0^1 = 1/3 \]</span></p>
+<p>No exemplo anterior, <span class="math inline">\(X\sim U(0,1)\)</span> e <span class="math inline">\(Y|X=x \sim U(x,1)\)</span>.</p>
+<p><span class="math display">\[\mathbb{E}[Y] = \mathbb{E}[\mathbb{E}[Y|X=x]] = \mathbb{E}[(1+X)/2] \\ = (1 + (1/2)) / 2 = 3/4.\]</span></p>
 </div>
 </section>
-<section id="valor-esperado-e-probabilidade" class="slide level2">
-<h2>Valor esperado e probabilidade</h2>
-<p>Caso especial, seja <span class="math inline">\(A\)</span> um possível evento e seja <span class="math inline">\(g(x) = \mathbb{I}_A(x)\)</span> onde <span class="math inline">\(\mathbb{I}_A(x) = 1\)</span> se <span class="math inline">\(x \in A\)</span>, e <span class="math inline">\(\mathbb{I}_A(x)= 0\)</span> se <span class="math inline">\(x \notin A\)</span>.</p>
+<section id="variancia-condicional" class="slide level2 scrollable">
+<h2>Variancia condicional</h2>
+<p>A variância condicional é definida por <span class="math display">\[\mathbb{V}(X|Y=y) = \int (X - \mathbb{E}[X|Y])^2 f_{X|Y}(x|y) dx\]</span></p>
 <div class="fragment">
-<p>Então</p>
-<p><span class="math display">\[\mathbb{E}[\mathbb{I}_A(X)] = \int \mathbb{I}_A(x) f_x(x)dx \\ = \int_{x \in A} f_x(x)dx \\ = \mathbb{P}(X \in A).\]</span></p>
+<p>Teorema. Para duas v.a.s <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span></p>
+<p><span class="math display">\[\mathbb{V}(X) = \mathbb{E}[\mathbb{V}(X|Y=y)]  + \mathbb{V}[\mathbb{E}(X|Y=y)]\]</span></p>
 </div>
 </section>
-<section id="esperança-momentos" class="slide level2">
-<h2>Esperança (Momentos)</h2>
-<p>O <span class="math inline">\(k\)</span>-ésimo momento de uma variável aleatória <span class="math inline">\(X\)</span> é definido como <span class="math inline">\(\mathbb{E}[X^k]\)</span>, assumindo que <span class="math inline">\(\mathbb{E}[|X|^k] &lt; \infty\)</span></p>
-<div>
-<ul>
-<li class="fragment">O primeiro momento é a média da variável aleatória <span class="math inline">\(\mathbb{E}[X] = \mu\)</span></li>
-<li class="fragment">O <span class="math inline">\(k\)</span>-ésimo momento central de <span class="math inline">\(X\)</span> é <span class="math inline">\(\mathbb{E}[(X-\mu)^k]\)</span></li>
-<li class="fragment">O segundo momento central é chamado de variância <span class="math inline">\(\mathbb{V}(X) = \mathbb{E}[(X-\mu)^2]\)</span></li>
-</ul>
-</div>
-</section>
-<section id="espalhamento-de-uma-v.a.-em-torno-da-média" class="slide level2">
-<h2>“Espalhamento” de uma v.a. em torno da média</h2>
-<p>Uma medida interessante para descrever uma distribuição de probabilidade é quanto ela é “espalhada” em torno da média.</p>
+<section id="função-geradora-de-momentos" class="slide level2">
+<h2>Função geradora de momentos</h2>
+<p>A função geradora de momentos, f.g.m, de uma v.a. <span class="math inline">\(X\)</span> é definida por</p>
+<p><span class="math display">\[M_X(t) = \psi_X(t) = \mathbb{E}[e^{tX}] = \int e^{tX} f_X(x) dx, \quad t\in \mathbb{R}.\]</span></p>
 <div class="fragment">
-<p>A primeira ideia seria pensar o qual o valor esperado de <span class="math inline">\(X\)</span> a medida que <span class="math inline">\(X\)</span> se distancia da média, ou seja,</p>
-<p>. . . Mas o primeiro momento central, se <span class="math inline">\(\mu&lt;\infty\)</span>, é sempre zero. <span class="math display">\[\mathbb{E}[X-\mu] = \mathbb{E}[X]- \mathbb{E}[\mu] = \mu - \mu = 0\]</span></p>
-</div>
-</section>
-<section id="variância" class="slide level2">
-<h2>Variância</h2>
-<p>Então alguém resolveu quantificar esse “espalhamento” como uma função quadrática, e essa métrica é conhecida por variância</p>
-<div class="fragment">
-<p><span class="math display">\[\mathbb{V}[X] = \mathbb{E}[(X-\mu)^2]\]</span></p>
+<p>Propriedade 1: Se <span class="math inline">\(M_X(t)\)</span> existe para <span class="math inline">\(t\)</span> em um intervalo aberto contendo zero, então ela determina a distribuição de probabilidade de forma única.</p>
 </div>
 <div class="fragment">
-<p>Que pode ser reescrita como <span class="math display">\[\mathbb{V}[X] = \mathbb{E}[X^2] - \mathbb{E}[X]^2.\]</span></p>
-</div>
-</section>
-<section id="exemplos-uniforme" class="slide level2">
-<h2>Exemplos (Uniforme)</h2>
-<p>Seja <span class="math inline">\(X \sim U(a,b)\)</span>, então <span class="math inline">\(f_X(x) = \frac{1}{b-a} \mathbb{I}_{(a,b)}(x)\)</span>.</p>
-<div class="fragment">
-<!-- $$\mathbb{E}[X] = \int_{-\infty}^{\infty} x f_X(x) dx = \int_{a}^b \frac{x}{b-a}dx = \frac{1}{b-a} \left. \frac{x^2}{2} \right|_a^b= \frac{a+b}{2}$$ -->
-<p><span class="math display">\[\mathbb{E}[X] = \frac{a+b}{2}\]</span></p>
-</div>
-<div class="fragment">
-<p><span class="math display">\[\mathbb{E}[X^2] = \int_{-\infty}^{\infty} x^2 f_X(x) dx = \frac{1}{b-a} \left. \frac{x^3}{3} \right|_a^b= \frac{b^3-a^3}{3(b-a)}\]</span></p>
-</div>
-<div class="fragment">
-<p><span class="math display">\[\mathbb{V}[X] = \mathbb{E}[X^2]-\mathbb{E}[X]^2 = \ldots = \frac{(b-a)^2}{12}\]</span></p>
-</div>
-</section>
-<section id="exemplo-gamma" class="slide level2 scrollable">
-<h2>Exemplo (Gamma)</h2>
-<p>Seja <span class="math inline">\(X \sim Gamma(a,b)\)</span>, com <span class="math inline">\(\mathbb{E}[X] =\frac{a}{b}\)</span> e densidade dada por <span class="math display">\[f_X(x) = \frac{b^a}{\Gamma(a)}x^{a-1}e^{-xb}, \quad, x &gt; 0\]</span></p>
-<div class="fragment">
-<p><span class="math display">\[\mathbb{E}[X^2] = \int_0^\infty x^2 \frac{b^a}{\Gamma(a)}x^{a-1}e^{-xb} dx \\
-= \frac{b^a}{\Gamma(a)} \int_0^\infty x^{a + 2 -1}e^{-xb} dx \\
-= \frac{b^a}{\Gamma(a)} \frac{\Gamma(a+2)}{b^{a+2}} = \frac{(a+1)a}{b^2}\]</span></p>
-</div>
-<div class="fragment">
-<p>E a variância é dada por <span class="math display">\[\mathbb{V}[X] = \mathbb{E}[X^2] - \mathbb{E}[X]^2 \\
-= \frac{(a+1)a}{b^2} - \left(\frac{a}{b}\right)^2 = \frac{a}{b^2}\]</span></p>
-</div>
-</section>
-<section id="exercícios" class="slide level2 scrollable">
-<h2>Exercícios</h2>
-<p>Calcule o valor esperado e a variância das seguintes distribuições:</p>
-<ul>
-<li><span class="math inline">\(X\sim Exp(\lambda)\)</span>, <span class="math display">\[f_X(x) = \lambda e^{-\lambda}, \, x&gt;0\]</span></li>
-<li><span class="math inline">\(X\sim Beta(a,b)\)</span>, <span class="math display">\[f_X(x) = \frac{\Gamma(a+b)}{\Gamma(a)\Gamma(b)} x^{a-1}(1-x)^{b-1},\, x\in (0,1)\]</span></li>
-<li><span class="math inline">\(X\sim Normal(\mu, \sigma^2)\)</span>, <span class="math display">\[f_X(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{1}{2\sigma^2} (x-\mu)^2}, \, x\in \mathbb{R}\]</span></li>
-<li><span class="math inline">\(X\sim Binomial(n, p)\)</span>, <span class="math display">\[f_X(x) = {n \choose x} p^x(1-p)^{n-x}, \, x=0,1,2,\ldots,n\]</span></li>
-<li><span class="math inline">\(X\sim Poisson(\lambda)\)</span>, <span class="math display">\[f_X(x) = \frac{\lambda^x}{x!} e^{-\lambda}, \, x=0,1,2,\ldots\]</span></li>
-</ul>
-</section>
-<section id="variância-propriedades" class="slide level2">
-<h2>Variância (propriedades)</h2>
-<p>Seja <span class="math inline">\(X\)</span> uma v.a. com função de densidade <span class="math inline">\(f_X(x)\)</span>.</p>
-<div>
-<ul>
-<li class="fragment"><span class="math inline">\(\mathbb{V}[b] = 0\)</span></li>
-<li class="fragment"><span class="math inline">\(\mathbb{V}[aX] = a^2 \mathbb{V}[X]\)</span></li>
-<li class="fragment"><span class="math inline">\(\mathbb{V}[aX + b] = a^2 \mathbb{V}[X]\)</span></li>
-</ul>
-</div>
-</section>
-<section id="variância-propriedades-1" class="slide level2">
-<h2>Variância (propriedades)</h2>
-<p>Variância de uma constante <span class="math display">\[\mathbb{V}[b] = \mathbb{E}[b^2] - \mathbb{E}[b]^2 = b^2 - b^2 = 0.\]</span></p>
-<div class="fragment">
-<p>Mostrando o caso geral</p>
-<p><span class="math display">\[\begin{eqnarray}
-\mathbb{V}[aX + b] &amp; = &amp; \mathbb{E}[(aX + b)^2] - (\mathbb{E}[aX + b])^2 \\
-&amp; = &amp; \mathbb{E}[a^2X^2 + 2abX + b^2]  \\
-&amp;  &amp;  - (a^2\mathbb{E}[X]^2 + 2ab\mathbb{E}[X] + b^2 \\
-&amp; = &amp; a^2 (\mathbb{E}[X]^2 - \mathbb{E}[X]^2)
-\end{eqnarray}\]</span></p>
-</div>
-</section>
-<section id="distribuições-conjuntas" class="slide level2">
-<h2>Distribuições conjuntas</h2>
-<p>Seja o para <span class="math inline">\((X,Y)\)</span> v.a. com distribuição conjunta <span class="math inline">\(f_{X,Y}(x,y)\)</span>, para qualquer conjunto <span class="math inline">\(A \subset \mathbb{R}^2\)</span>,</p>
-<p><span class="math display">\[P((X,Y) \in A) = \int \int_{(X,Y) \in A} f_{X,Y}(x,y) dxdy\]</span> Se <span class="math inline">\(X\)</span> e/ou <span class="math inline">\(Y\)</span> forem discretas, a integral dá lugar a um somatório.</p>
-</section>
-<section id="distribuições-conjuntas-exemplo" class="slide level2">
-<h2>Distribuições conjuntas (Exemplo)</h2>
-<p>Sejam <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> variáveis aleatórias uniformes no quadrado unitário. Calcule <span class="math inline">\(P(X+Y&gt;1)\)</span></p>
-<div class="fragment">
-<p><span class="math display">\[P(X+Y&gt;1) = \int \int_{X+Y&gt;1} f_{X,Y}(x,y)dydx \]</span></p>
-</div>
-<div class="fragment">
-<p><span class="math inline">\(X+Y &gt; 1\)</span> corresponde ao conjunto <span class="math inline">\(A = \{ (x,y) : 0&lt;x&lt;1, (1-x)&lt;y&lt;1\}\)</span>, logo</p>
-</div>
-<div class="fragment">
-<p><span class="math display">\[P(X+Y&gt;1) = \int_0^1 \int_{(1-x)}^1 1 dydx = \int_{0}^1 (1-(1-x)) dx = 1/2\]</span></p>
-</div>
-</section>
-<section id="esperança-de-distribuições-conjuntas" class="slide level2">
-<h2>Esperança de distribuições conjuntas</h2>
-<p>O valor esperado de uma função de duas (ou mais) variáveis aleatórias <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>, <span class="math inline">\(Z = g(X,Y)\)</span> pode ser calculada da seguinte forma <span class="math display">\[\mathbb{E}[Z] = \mathbb{E}[g(X,Y)] = \int \int g(x,y) f_{X,Y}(x,y) dy dx\]</span></p>
-<div class="fragment">
-<p>No exemplo anterior, onde <span class="math inline">\((X,Y)\)</span> tem distribuição uniforme no quadrado unitário, qual o valor esperado para <span class="math inline">\(X+Y\)</span>?</p>
-</div>
-<div class="fragment">
-<p><span class="math display">\[\mathbb{E}[X+Y] = \int\int (x+y) f_{X,Y}(x,y)dydx \]</span></p>
-</div>
-</section>
-<section id="esperança-de-distribuições-conjuntas-1" class="slide level2">
-<h2>Esperança de distribuições conjuntas</h2>
-<p><span class="math display">\[\mathbb{E}[X+Y] = \int\int (x+y) f_{X,Y}(x,y)dydx \\
-= \int_0^1\int_0^1(x+y)dydx \]</span></p>
-<div class="fragment">
-<p><span class="math display">\[= \int_0^1\int_0^1xdydx + \int_0^1\int_0^1 y dydx \]</span></p>
-</div>
-<div class="fragment">
-<p><span class="math display">\[= \left. \frac{x^2}{2}\right|_0^1 + \left. \frac{y^2}{2}\right|_0^1 = 1\]</span></p>
-</div>
-</section>
-<section id="valor-esperado-propriedades" class="slide level2 scrollable">
-<h2>Valor esperado (propriedades)</h2>
-<p>Uma propriedade importante do valor esperado é que a esperança da somas é a soma das esperanças, i.e.&nbsp;<span class="math display">\[\mathbb{E}[X + Y] = \mathbb{E}[X] + \mathbb{E}[Y]\]</span></p>
-<div class="fragment">
-<p><span class="math display">\[\mathbb{E}[X+Y] = \int\int (x+y) f_{X,Y}(x,y)dydx \\
-= \int\int x f_{X,Y}(x,y) dydx + \int\int y f_{X,Y}(x,y) dydx\]</span></p>
-</div>
-<div class="fragment">
-<p><span class="math display">\[ = \int x \int f_{X,Y}(x,y) dydx + \int y \int f_{X,Y}(x,y) dxdy \\
-= \int x f_{X}(x) dx + \int y f_{Y}(y) dy = \mathbb{E}[X] + \mathbb{E}[Y]\]</span></p>
-</div>
-</section>
-<section id="valor-esperado-propriedades-1" class="slide level2">
-<h2>Valor esperado (propriedades)</h2>
-<p>De forma mais geral, sejam <span class="math inline">\(X_1, X_2,\ldots, X_n\)</span> v.a.s com <span class="math inline">\(\mathbb{E}[X_i]&lt;\infty\)</span>, e <span class="math inline">\((a_1,b_1), (a_2,b_2),\ldots,(a_n,b_n)\)</span> constantes, <span class="math display">\[\mathbb{E}\left[\sum_{i=1}^n (a_i X_i + b_i)\right] = \sum_{i=1}^n a_i \mathbb{E}[X_i] + \sum_{i=1}^n b_i\]</span></p>
-</section>
-<section id="variância-de-xy" class="slide level2">
-<h2>Variância de <span class="math inline">\(X+Y\)</span></h2>
-<p>Qual a variância da soma de duas variáveis aleatórias com distribuição conjunta <span class="math inline">\(f_{X,Y}(x,y)\)</span>?</p>
-<div class="fragment">
-<p><span class="math display">\[\mathbb{V}[X+Y] = \mathbb{E}[(X+Y)^2] - (\mathbb{E}[X+Y])^2\]</span></p>
-</div>
-<div class="fragment">
-<p><span class="math display">\[ = \mathbb{E}[X^2+ 2XY +Y^2] - (\mathbb{E}[X] + \mathbb{E}[Y])^2\]</span></p>
-</div>
-<div class="fragment">
-<p><span class="math display">\[ = \mathbb{E}[X^2] + 2\mathbb{E}[XY] +\mathbb{E}[Y^2] \\ - (\mathbb{E}[X]^2 + 2\mathbb{E}[X]\mathbb{E}[Y] + \mathbb{E}[Y]^2) \]</span></p>
-</div>
-<div class="fragment">
-<p><span class="math display">\[ = \mathbb{V}[X] + \mathbb{V}[Y] + 2( \mathbb{E}[XY] - \mathbb{E}[X]\mathbb{E}[Y])\]</span></p>
-</div>
-</section>
-<section id="variância-de-xy-1" class="slide level2">
-<h2>Variância de <span class="math inline">\(X+Y\)</span></h2>
-<p>Se <span class="math inline">\(X \perp Y\)</span>, então <span class="math inline">\(\mathbb{E}[XY] = \mathbb{E}[X]\mathbb{E}[Y]\)</span>.</p>
-<div class="fragment">
-<p><span class="math display">\[ \mathbb{V}(X+Y) = \mathbb{V}(X) + \mathbb{V}(Y) + 2( \mathbb{E}(XY) - \mathbb{E}(X)\mathbb{E}(Y) ) \\
-= \mathbb{V}(X) + \mathbb{V}(Y)\]</span></p>
-</div>
-</section>
-<section id="variância-da-soma-de-v.a.s" class="slide level2">
-<h2>Variância da soma de v.a.s</h2>
-<p>De forma mais geral, sejam <span class="math inline">\(X_1, X_2,\ldots, X_n\)</span> v.a.s <strong>independentes</strong> com <span class="math inline">\(\mathbb{V}(X_i) &lt; \infty, \, \forall i\)</span>, e <span class="math inline">\((a_1,b_1), (a_2,b_2),\ldots,(a_n,b_n)\)</span> constantes, então <span class="math display">\[\mathbb{V}\left(\sum_{i=1}^n (a_i X_i + b_i)\right) = \sum_{i=1}^n a_i^2 \mathbb{V}(X_i)\]</span></p>
-</section>
-<section id="média-amostral" class="slide level2">
-<h2>Média amostral</h2>
-<p>Sejam <span class="math inline">\(X_1, X_2,\ldots, X_n\)</span> v.a.s <strong>independentes</strong> com <span class="math inline">\(\mathbb{E}[X_i] = \mu\)</span> e <span class="math inline">\(\mathbb{V}(X_i) =\sigma^2\)</span> e seja, a <strong>média amostral</strong> definida por</p>
-<p><span class="math display">\[\bar{X}_n = \frac{\sum_{i=1}^n X_i}{n}\]</span></p>
-<p>então</p>
-<p><span class="math display">\[\mathbb{E}[\bar{X}_n] = \mu \quad \mbox{e} \quad\mathbb{V}[\bar{X}_n] = \frac{\sigma^2}{n}.\]</span></p>
-</section>
-<section id="média-amostral-1" class="slide level2">
-<h2>Média amostral</h2>
-<p><span class="math display">\[\mathbb{E}[\bar{X}_n] = \mathbb{E}\left[\frac{\sum_{i=1}^n {X}_i}{n}\right] = \frac{n\mu}{n} = \mu \]</span></p>
-<div class="fragment">
-<p><span class="math display">\[\mathbb{V}(\bar{X}_n) = \mathbb{V}\left(\frac{\sum_{i=1}^n {X}_i}{n}\right) \]</span></p>
-</div>
-<div class="fragment">
-<p><span class="math display">\[= \frac{\sum_{i=1}^n \mathbb{V}(X_i)}{n^2} \\ = \frac{n\sigma^2}{n^2} = \frac{\sigma^2}{n}.\]</span></p>
-</div>
-</section>
-<section id="exemplo-1" class="slide level2">
-<h2>Exemplo</h2>
-<p>Suponha <span class="math inline">\(X_1,X_2,\ldots,X_n \sim Exp(0.25)\)</span>, então</p>
-<p><span class="math display">\[\mathbb{E}[\bar{X}] = 1/0.25 = 4\]</span> <span class="math display">\[\mathbb{V}(\bar{X}) = (1/0.25)^2 / n = 16/n\]</span></p>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># Funcao que gera amostras da exponencial( 0.25 ) e calcula a média</span></span>
-<span id="cb1-2"><a href=""></a>aaa <span class="ot">&lt;-</span> <span class="cf">function</span>(n){</span>
-<span id="cb1-3"><a href=""></a>  x <span class="ot">&lt;-</span> <span class="fu">rexp</span>(n, <span class="fl">0.25</span>)</span>
-<span id="cb1-4"><a href=""></a>  <span class="fu">mean</span>(x)</span>
-<span id="cb1-5"><a href=""></a>}</span>
-<span id="cb1-6"><a href=""></a></span>
-<span id="cb1-7"><a href=""></a><span class="co"># Gerando uma amostra de tamanho 100 e tomando a média</span></span>
-<span id="cb1-8"><a href=""></a><span class="fu">aaa</span>(<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.175188</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="media-amostral-n-10" class="slide level2">
-<h2>Media amostral (n = 10)</h2>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>    mean      var 
-4.032173 1.619600 </code></pre>
-</div>
-
-</div>
-<img data-src="slide_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
-<section id="media-amostral-n-100" class="slide level2">
-<h2>Media amostral (n = 100)</h2>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>     mean       var 
-3.9919691 0.1439443 </code></pre>
-</div>
-
-</div>
-<img data-src="slide_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
-<section id="media-amostral-n-1000" class="slide level2">
-<h2>Media amostral (n = 1000)</h2>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>      mean        var 
-3.99988568 0.01586388 </code></pre>
-</div>
-
-</div>
-<img data-src="slide_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
-<section id="covariância-e-correlação" class="slide level2">
-<h2>Covariância e correlação</h2>
-<p>Sejam <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> duas variáveis aleatórias com média e variância finitas. Definimos a <strong>covariância</strong> entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> por</p>
-<p><span class="math display">\[\mathbb{Cov}(X,Y) = \mathbb{E}[X - \mathbb{E}(X)]\mathbb{E}[Y - \mathbb{E}(Y)] \\
-= \mathbb{E}(XY) - \mathbb{E}(X)\mathbb{E}(Y))\]</span></p>
-<div class="fragment">
-<p>E definimos a correlação entre <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> por</p>
-<p><span class="math display">\[\rho = \rho_{X,Y} = \frac{\mathbb{Cov}(X,Y)}{\sqrt{\mathbb{V}(X)\mathbb{V}(Y)}}\]</span></p>
-</div>
-</section>
-<section id="covariância-e-correlação-propriedades" class="slide level2">
-<h2>Covariância e correlação (propriedades)</h2>
-<div>
-<ul>
-<li class="fragment"><span class="math inline">\(-1 \leq \rho_{X,Y} \leq 1\)</span></li>
-<li class="fragment">Se <span class="math inline">\(Y = aX + b\)</span>, então <span class="math inline">\(\rho_{X,Y} = 1\)</span> se <span class="math inline">\(a&gt;0\)</span> e <span class="math inline">\(\rho_{X,Y} = -1\)</span> se <span class="math inline">\(a&lt;0\)</span></li>
-<li class="fragment">Se <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> são independentes, então <span class="math inline">\(\mathbb{Cov}(X,Y) = \rho_{X,Y} = 0\)</span>.
-<ul>
-<li class="fragment">Se <span class="math inline">\(X\perp Y\)</span>, então <span class="math inline">\(\mathbb{V}[X+Y] = \mathbb{V}[X] + \mathbb{V}[Y]\)</span></li>
-</ul></li>
-<li class="fragment">Se <span class="math inline">\(\mathbb{Cov}(X,Y) = \rho_{X,Y} = 0\)</span>, <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span> não são necessariamente independentes.</li>
-</ul>
-</div>
+<p>Propriedade 2: Se <span class="math inline">\(M_X(t)\)</span> existe para <span class="math inline">\(t\)</span> em um intervalo aberto contendo zero, então <span class="math inline">\(M^{(r)}_X(t) = \mathbb{E}[X^r]\)</span>.</p>
 <div class="quarto-auto-generated-content">
 <p><img src="../../impa-tech-h.png" class="slide-logo"></p>
 <div class="footer footer-default">
 <p><a href="https://github.com/lsbastos/md21/" class="uri">https://github.com/lsbastos/md21/</a></p>
+</div>
 </div>
 </div>
 </section>
@@ -952,44 +619,6 @@ Leo Bastos
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

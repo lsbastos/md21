@@ -1,0 +1,94 @@
+---
+title: "MD21 Introdução à Estatística"
+subtitle: "Valor esperado, desigualdades e teoria assintótica"
+author: "Leo Bastos"
+format: 
+  revealjs:
+    slide-number: true
+    logo: ../../impa-tech-h.png
+    footer: '<https://github.com/lsbastos/md21/>'
+    theme: simple
+    chalkboard: true
+editor: visual
+---
+
+## Esperança condicional
+
+<!-- Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>. -->
+
+<!-- <https://quarto.org/docs/presentations/revealjs/> -->
+
+<!-- <https://github.com/quarto-dev/quarto-web/blob/main/docs/presentations/revealjs/demo/index.qmd> -->
+
+
+A esperança condicional de $X$ dado $Y=y$ é
+
+$$\mathbb{E}[X | Y=y] = \int x f_{X|Y=y}(x|Y=y) dx$$
+
+. . .
+
+Se $h(x,y)$ é uma função de $X$ e $Y$ então
+
+$$\mathbb{E}[h(X,Y) | Y=y] = \int h(x,y) f_{X|Y=y}(x|Y=y) dx$$
+
+## Esperança condicional {.scrollable}
+
+Notem que $\mathbb{E}[X]$ é um número (ou uma função dos parâmetros da distribuição), já $\mathbb{E}[X | Y=y]$ é função de $Y$, e portanto também é uma variável aleatória.
+
+. . .
+
+Exemplo. Suponha que sorteamos um valor $x$ de $X \sim U(0,1)$. Em seguida sorteamos $Y | X=x \sim U( x, 1)$. Qual o valor esperado de $Y|X=x$?
+
+. . .
+
+$$\mathbb{E}[Y|X=x] = \int y f_{Y|X=x}(y|x) dy = \int_{x}^1 y\frac{1}{1-x} dy$$ $$= \frac{1}{1-x} \left. \frac{y^2}{2}\right|_x^1 = \frac{1-x^2}{2(1-x)} = \frac{1+x}{2}.$$
+
+## Esperança condicional {.scrollable}
+
+Para as variáveis aleatórias $X$ e $Y$, assumindo que os valores esperados existem, temos que
+
+$$\mathbb{E}[\mathbb{E}[X|Y]] = \mathbb{E}[X] \quad \mathbb{E}[\mathbb{E}[Y|X]] = \mathbb{E}[Y]$$
+
+. . .
+
+Prova. $$ \mathbb{E}[\mathbb{E}[X|Y]] =  \int \mathbb{E}[X|Y=y] f_Y(y) dy \\ = \int \int x f_{X|Y=y}(x|y) dx f_Y(y) dy  $$
+
+. . .
+
+$$= \int \int x f_{X,Y}(x,y) dydx = \int x f_{X}(x) dx \\ = \mathbb{E}[X]$$
+
+## Esperança condicional {.scrollable}
+
+De forma mais geral, para as variáveis aleatórias $X$ e $Y$, assumindo que os valores esperados existem, temos que
+
+$$\mathbb{E}[\mathbb{E}[h(X,Y)|Y]] = \mathbb{E}[h(X,Y)]$$
+
+. . .
+
+No exemplo anterior, $X\sim U(0,1)$ e $Y|X=x \sim U(x,1)$.
+
+$$\mathbb{E}[Y] = \mathbb{E}[\mathbb{E}[Y|X=x]] = \mathbb{E}[(1+X)/2] \\ = (1 + (1/2)) / 2 = 3/4.$$
+
+## Variancia condicional {.scrollable}
+
+A variância condicional é definida por $$\mathbb{V}(X|Y=y) = \int (X - \mathbb{E}[X|Y])^2 f_{X|Y}(x|y) dx$$
+
+. . .
+
+Teorema. Para duas v.a.s $X$ e $Y$
+
+$$\mathbb{V}(X) = \mathbb{E}[\mathbb{V}(X|Y=y)]  + \mathbb{V}[\mathbb{E}(X|Y=y)]$$
+
+## Função geradora de momentos
+
+A função geradora de momentos, f.g.m, de uma v.a. $X$ é definida por
+
+$$M_X(t) = \psi_X(t) = \mathbb{E}[e^{tX}] = \int e^{tX} f_X(x) dx, \quad t\in \mathbb{R}.$$
+
+. . .
+
+Propriedade 1: Se $M_X(t)$ existe para $t$ em um intervalo aberto contendo zero, então ela determina a distribuição de probabilidade de forma única.
+
+. . .
+
+Propriedade 2: Se $M_X(t)$ existe para $t$ em um intervalo aberto contendo zero, então $M^{(r)}_X(t) = \mathbb{E}[X^r]$.
