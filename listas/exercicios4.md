@@ -1,8 +1,8 @@
 ## Exercícios aula 4
 
-Wasserman:
+Wasserman: Cap. 3: 3,5,6,13
 
-Rice:
+Rice: Cap. 4: 14, 21, 22, 31
 
 Calcule o valor esperado e a variância das distribuições:
 
