@@ -605,28 +605,68 @@ Leo Bastos
 <h1>Teoria assintótica</h1>
 
 </section>
-<section id="principais-ideias" class="slide level2">
+<section id="principais-ideias" class="slide level2 scrollable">
 <h2>Principais ideias</h2>
-<p><strong>Lei forte dos grandes números</strong>. Dizemos que a média de <span class="math inline">\(n\)</span> v.a.s com valor esperado <span class="math inline">\(\mu = \mathbb{E}[X_i]\)</span> converge em probabilidade para para <span class="math inline">\(\mu\)</span>,</p>
-<p><span class="math display">\[\bar{X}_n \xrightarrow{P} \mu\]</span></p>
+<p><strong>Lei forte dos grandes números</strong>. Dizemos que a média de <span class="math inline">\(n\)</span> v.a.s com valor esperado <span class="math inline">\(\mu = \mathbb{E}[X_i]\)</span> converge (em probabilidade) para para <span class="math inline">\(\mu\)</span>,</p>
 <div class="fragment">
 <p><strong>Teorema central do limite</strong>. Dizemos que <span class="math inline">\(\sqrt{n}(\bar{X}_n - \mu)\)</span> converge em distribuição para a distribuição Normal.</p>
 </div>
 </section>
-<section id="convergencia-em-probabilidade" class="slide level2">
-<h2>Convergencia em probabilidade</h2>
+<section id="tipos-de-convergencia" class="slide level2 scrollable">
+<h2>Tipos de convergencia</h2>
+<p>Seja <span class="math inline">\(X_1, X_2, \ldots\)</span> uma sequência de variáveis aleatórias, e seja <span class="math inline">\(X\)</span> outra variável aleatória. Seja <span class="math inline">\(F_{i}\)</span> a função de distribuição acumulada de <span class="math inline">\(X_i\)</span>, e <span class="math inline">\(F\)</span> a f.d.a de <span class="math inline">\(X\)</span>.</p>
+<div>
+<ol type="1">
+<li class="fragment">Dizemos que <span class="math inline">\(X_n\)</span> converge em probabilidade para <span class="math inline">\(X\)</span>, <span class="math inline">\(X_n \xrightarrow{P} X\)</span>, se, para todo <span class="math inline">\(\epsilon &gt;0\)</span>, <span class="math display">\[\mathbb{P}(|X_n - X| &gt; \epsilon) \xrightarrow[n \to \infty]{} 0\]</span></li>
+<li class="fragment">Dizemos que <span class="math inline">\(X_n\)</span> converge em distribuição para <span class="math inline">\(X\)</span>, <span class="math inline">\(X_n \xrightarrow{D} X\)</span>, se <span class="math display">\[\lim_{n\to \infty} F_n(t) = F(t)\]</span> para todo <span class="math inline">\(t\)</span> na qual <span class="math inline">\(F\)</span> é contĩnua.</li>
+<li class="fragment">Se <span class="math inline">\(X_n \xrightarrow{P} X\)</span>, então <span class="math inline">\(X_n \xrightarrow{D} X\)</span>. (A recíproca não é verdadeira)</li>
+</ol>
+</div>
 </section>
-<section id="convergencia-em-distribuição" class="slide level2">
-<h2>Convergencia em distribuição</h2>
-</section>
-<section id="lei-fraca-dos-grandes-números" class="slide level2">
+<section id="lei-fraca-dos-grandes-números" class="slide level2 scrollable">
 <h2>Lei fraca dos grandes números</h2>
+<p>Se <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> são variáveis aleatórias iid (independentes e identicamente distribuídas) com média, <span class="math inline">\(\mathbb{E}[X_i] = \mu\)</span> e variância, <span class="math inline">\(\sigma^2 &lt; \infty\)</span>, então <span class="math display">\[\bar{X}_n = \frac{\sum_{i=1}^{n} X_i}{n} \xrightarrow{P} \mu\]</span></p>
+<div class="fragment">
+<p>Prova. (Usando a desigualdade de Chebyshev) <span class="math display">\[\mathbb{P}(|\bar{X}_n - \mu| &gt; \epsilon) \leq \frac{\mathbb{V}(\bar{X}_n)}{\epsilon} = \frac{\sigma^2}{n\epsilon} \xrightarrow[n\to \infty]{}0.\]</span></p>
+</div>
 </section>
+<section id="lei-fraca-dos-grandes-números-exemplo" class="slide level2 scrollable">
+<h2>Lei fraca dos grandes números (exemplo)</h2>
+<p>Suponha uma sequencia de experimentos independentes de bernoulli com probabilidade <span class="math inline">\(\theta \in (0,1)\)</span>. Sabemos que <span class="math inline">\(\bar{X}_n \xrightarrow[]{P}\theta\)</span>. Quantos experimentos eu preciso realizar para que meu erro seja menor que 10% com probabilidade de pelo menos 90%?</p>
+<div class="fragment">
+<p><span class="math display">\[\{n : \mathbb{P}(|\bar{X}_n - \theta| &lt; 0.1) \geq 0.90\}\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\mathbb{P}(|\bar{X}_n - \theta| &lt; 0.1) = 1 - \mathbb{P}(|\bar{X}_n - \theta| &gt; 0.1) \]</span></p>
+</div>
+<div class="fragment">
+<p>Pela desigualdade de Chebyshev <span class="math display">\[ \geq 1 - \frac{\mathbb{V}(\bar{X}_n)}{0.1^2}\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(\mathbb{V}(\bar{X}_n) = \theta(1-\theta)/n\)</span> <span class="math display">\[ \geq 1 - \frac{\theta(1-\theta)100}{n}\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(1 - \theta(1-\theta) 100 / n \geq 0.90\)</span> se <span class="math inline">\(n \geq \theta(1-\theta) 100 / (1-0.9) = \theta(1-\theta) 1000\)</span></p>
+</div>
+</section>
+<section id="lei-fraca-dos-grandes-números-exemplo-1" class="slide level2">
+<h2>Lei fraca dos grandes números (exemplo)</h2>
+<p><span class="math display">\[\{n : \mathbb{P}(|\bar{X}_n - \theta| &lt; 0.1) \geq 0.90\}\]</span></p>
+
+<img data-src="slide_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
+<section id="lei-fraca-dos-grandes-números-exemplo-2" class="slide level2">
+<h2>Lei fraca dos grandes números (exemplo)</h2>
+<p><span class="math display">\[\{n : \mathbb{P}(|\bar{X}_n - \theta| &lt; 0.03) \geq 0.95\}\]</span></p>
+
+<img data-src="slide_files/figure-revealjs/unnamed-chunk-2-1.png" width="960" class="r-stretch"></section>
 <section id="teorema-central-do-limite" class="slide level2">
 <h2>Teorema central do limite</h2>
+<p>Seja <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> variáveis aleatórias iid com média, <span class="math inline">\(\mathbb{E}[X_i] = \mu\)</span> e variância, <span class="math inline">\(\sigma^2 &lt; \infty\)</span>. Seja <span class="math inline">\(\bar{X}_n = \frac{\sum_{i=1}^{n} X_i}{n}\)</span>. Então <span class="math display">\[Z_n = \frac{(\bar{X}_n - \mu)}{\sigma/\sqrt{n}} \xrightarrow[n\to \infty]{D} Z\]</span> onde <span class="math inline">\(Z \sim N(0,1).\)</span></p>
 </section>
-<section id="método-delta" class="slide level2">
-<h2>Método Delta</h2>
+<section id="teorema-central-do-limite-1" class="slide level2">
+<h2>Teorema central do limite</h2>
+<p>Seja <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> variáveis aleatórias iid com média, <span class="math inline">\(\mathbb{E}[X_i] = \mu\)</span> e variância, <span class="math inline">\(\sigma^2 &lt; \infty\)</span>. Seja <span class="math inline">\(\bar{X}_n = \frac{\sum_{i=1}^{n} X_i}{n}\)</span> e <span class="math inline">\(S^2_n = \frac{1}{n-1}\sum_{i=1}^{n}(X_i-\bar{X}_n)^2\)</span>. Então <span class="math display">\[Z_n = \frac{(\bar{X}_n - \mu)}{S_n/\sqrt{n}} \xrightarrow[n\to \infty]{D} Z\]</span> onde <span class="math inline">\(Z \sim N(0,1).\)</span></p>
+<!-- ## Método Delta -->
 <div class="quarto-auto-generated-content">
 <p><img src="../../impa-tech-h.png" class="slide-logo"></p>
 <div class="footer footer-default">
@@ -846,6 +886,44 @@ Leo Bastos
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

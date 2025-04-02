@@ -349,27 +349,103 @@ $$ \leq \frac{\mathbb{E}[(X-\mu)^2]}{t^2} = \frac{\sigma^2}{t^2}.$$
 
 # Teoria assintótica
 
-## Principais ideias
+## Principais ideias {.scrollable}
 
-**Lei forte dos grandes números**. Dizemos que a média de $n$ v.a.s com valor esperado $\mu = \mathbb{E}[X_i]$ converge em probabilidade para para $\mu$, 
+**Lei forte dos grandes números**. Dizemos que a média de $n$ v.a.s com valor esperado $\mu = \mathbb{E}[X_i]$ converge (em probabilidade) para para $\mu$, 
 
-$$\bar{X}_n \xrightarrow{P} \mu$$
 
 . . .
 
 **Teorema central do limite**. Dizemos que $\sqrt{n}(\bar{X}_n - \mu)$ converge em distribuição para a distribuição Normal. 
 
 
-## Convergencia em probabilidade
+## Tipos de convergencia {.scrollable}
+
+Seja $X_1, X_2, \ldots$ uma sequência de variáveis aleatórias, e seja $X$ outra variável aleatória. Seja $F_{i}$ a função de distribuição acumulada de $X_i$, e $F$ a f.d.a de $X$.
+
+::: incremental
+1. Dizemos que $X_n$ converge em probabilidade para $X$, $X_n \xrightarrow{P} X$, se, para todo $\epsilon >0$,
+$$\mathbb{P}(|X_n - X| > \epsilon) \xrightarrow[n \to \infty]{} 0$$
+2. Dizemos que $X_n$ converge em distribuição para $X$, $X_n \xrightarrow{D} X$, se
+$$\lim_{n\to \infty} F_n(t) = F(t)$$
+para todo $t$ na qual $F$ é contĩnua.
+3. Se $X_n \xrightarrow{P} X$, então $X_n \xrightarrow{D} X$. (A recíproca não é verdadeira)
+:::
 
 
-## Convergencia em distribuição
+## Lei fraca dos grandes números {.scrollable}
+
+Se $X_1, X_2, \ldots, X_n$ são variáveis aleatórias iid (independentes e identicamente distribuídas) com média, $\mathbb{E}[X_i] = \mu$ e variância, $\sigma^2 < \infty$, então
+$$\bar{X}_n = \frac{\sum_{i=1}^{n} X_i}{n} \xrightarrow{P} \mu$$
+
+. . .
+
+Prova. (Usando a desigualdade de Chebyshev)
+$$\mathbb{P}(|\bar{X}_n - \mu| > \epsilon) \leq \frac{\mathbb{V}(\bar{X}_n)}{\epsilon} = \frac{\sigma^2}{n\epsilon} \xrightarrow[n\to \infty]{}0.$$
+
+## Lei fraca dos grandes números (exemplo) {.scrollable}
+
+Suponha uma sequencia de experimentos independentes de bernoulli com probabilidade $\theta \in (0,1)$. Sabemos que $\bar{X}_n \xrightarrow[]{P}\theta$. Quantos experimentos eu preciso realizar para que meu erro seja menor que 10% com probabilidade de pelo menos 90%?
+
+. . .
+
+$$\{n : \mathbb{P}(|\bar{X}_n - \theta| < 0.1) \geq 0.90\}$$
+
+. . .
+
+$$\mathbb{P}(|\bar{X}_n - \theta| < 0.1) = 1 - \mathbb{P}(|\bar{X}_n - \theta| > 0.1) $$ 
+
+. . .
+
+Pela desigualdade de Chebyshev
+$$ \geq 1 - \frac{\mathbb{V}(\bar{X}_n)}{0.1^2}$$
+
+. . .
+
+$\mathbb{V}(\bar{X}_n) = \theta(1-\theta)/n$
+$$ \geq 1 - \frac{\theta(1-\theta)100}{n}$$
+
+. . .
+
+$1 - \theta(1-\theta) 100 / n \geq 0.90$ se $n \geq \theta(1-\theta) 100 / (1-0.9) = \theta(1-\theta) 1000$
 
 
-## Lei fraca dos grandes números
+## Lei fraca dos grandes números (exemplo)
+
+$$\{n : \mathbb{P}(|\bar{X}_n - \theta| < 0.1) \geq 0.90\}$$
+```{r}
+theta = seq(0.01,.99,by=0.05)
+n = theta * (1-theta) * 1000
+
+plot(x = theta, y = n, xlab = expression(theta))
+```
+
+
+## Lei fraca dos grandes números (exemplo)
+
+$$\{n : \mathbb{P}(|\bar{X}_n - \theta| < 0.03) \geq 0.95\}$$
+```{r}
+theta = seq(0.01,.99,by=0.05)
+n = theta * (1-theta) * (1/0.03^2) * 1/0.05
+
+plot(x = theta, y = n, xlab = expression(theta))
+```
 
 
 ## Teorema central do limite
 
+Seja $X_1, X_2, \ldots, X_n$ variáveis aleatórias iid com média, $\mathbb{E}[X_i] = \mu$ e variância, $\sigma^2 < \infty$. Seja $\bar{X}_n = \frac{\sum_{i=1}^{n} X_i}{n}$. Então
+$$Z_n = \frac{(\bar{X}_n - \mu)}{\sigma/\sqrt{n}} \xrightarrow[n\to \infty]{D} Z$$
+onde $Z \sim N(0,1).$
 
-## Método Delta
+
+
+## Teorema central do limite
+
+Seja $X_1, X_2, \ldots, X_n$ variáveis aleatórias iid com média, $\mathbb{E}[X_i] = \mu$ e variância, $\sigma^2 < \infty$. Seja $\bar{X}_n = \frac{\sum_{i=1}^{n} X_i}{n}$ e $S^2_n = \frac{1}{n-1}\sum_{i=1}^{n}(X_i-\bar{X}_n)^2$. Então
+$$Z_n = \frac{(\bar{X}_n - \mu)}{S_n/\sqrt{n}} \xrightarrow[n\to \infty]{D} Z$$
+onde $Z \sim N(0,1).$
+
+
+<!-- ## Método Delta -->
+
