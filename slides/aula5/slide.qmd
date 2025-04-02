@@ -37,10 +37,7 @@ $$\mathbb{E}[a^TX] = a^T\mu \qquad \qquad  \mathbb{V}[a^TX] = a^T\Sigma a$$
 
 . . .
 
-Se $A$ for uma matriz $k\times n$, então
-$$\mathbb{E}[AX] = A\mu \qquad \qquad  \mathbb{V}[AX] = A\Sigma A^T.$$
-
-
+Se $A$ for uma matriz $k\times n$, então $$\mathbb{E}[AX] = A\mu \qquad \qquad  \mathbb{V}[AX] = A\Sigma A^T.$$
 
 ## Normal-multivariada
 
@@ -52,7 +49,9 @@ Suponha que o vetor $X$ é particionado em dois vetor $X_1$ e $X_2$, $X = (X_1, 
 
 . . .
 
-De forma similar $\mu=(\mu_1, \mu_2)$ e $$\Sigma = \left( 
+De forma similar temos que 
+
+$$\mu=(\mu_1, \mu_2) \qquad \mbox{ e } \qquad \Sigma = \left( 
 \begin{array}{cc} 
 \Sigma_{11} & \Sigma_{12} \\
 \Sigma_{21} & \Sigma_{22} 
@@ -66,8 +65,8 @@ Se $X \sim N(\mu, \Sigma)$. Então
 1.  A distribuição marginal: $X_1 \sim N(\mu_1, \Sigma_{11})$
 2.  A distribuição condicional: $X_2 | X_1 = x_1 \sim N(\mu_{2|1}, \Sigma_{2|1})$ onde $$\mu_{2|1} = \mu_2 + \Sigma_{21} \Sigma_{11}^{-1}(x_1-\mu_1) \\ 
     \Sigma_{2|1} = \Sigma_{22} - \Sigma_{21}\Sigma_{11}^{-1}\Sigma_{12}$$
-3. Se $a$ é um vetor, $a^TX \sim Normal(a^T\mu, a^T \Sigma a)$
-4. $V = (x - \mu)^T\Sigma^{-1}(x-\mu) \sim \chi^2_n$
+3.  Se $a$ é um vetor, $a^TX \sim Normal(a^T\mu, a^T \Sigma a)$
+4.  $V = (x - \mu)^T\Sigma^{-1}(x-\mu) \sim \chi^2_n$
 :::
 
 ## Esperança condicional
@@ -90,7 +89,8 @@ $$\mathbb{E}[h(X,Y) | Y=y] = \int h(x,y) f_{X|Y=y}(x|Y=y) dx$$
 
 ## Esperança condicional {.scrollable}
 
-Notem que $\mathbb{E}[X]$ é um número (ou uma função dos parâmetros da distribuição), já $\mathbb{E}[X | Y=y]$ é função de $Y$, e portanto também é uma variável aleatória.
+- $\mathbb{E}[X]$ é um número (ou função de parâmetros)
+- $\mathbb{E}[X | Y=y]$ é uma v.a. (função de $Y$)
 
 . . .
 
@@ -98,7 +98,7 @@ Exemplo. Suponha que sorteamos um valor $y$ de $Y \sim U(0,1)$. Em seguida sorte
 
 . . .
 
-$$\mathbb{E}[X|Y=y] = \int x f_{X|Y=y}(x|y) dy = \int_{y}^1 x\frac{1}{1-y} dx$$ 
+$$\mathbb{E}[X|Y=y] = \int x f_{X|Y=y}(x|y) dy = \int_{y}^1 x\frac{1}{1-y} dx$$
 
 . . .
 
@@ -122,19 +122,19 @@ $$= \int \int x f_{X,Y}(x,y) dydx = \int x f_{X}(x) dx \\ = \mathbb{E}[X]$$
 
 No exemplo anterior, onde $Y\sim U(0,1)$ e $X|Y=y \sim U(y,1)$. Quem é $\mathbb{E}[X]$?
 
-. . . 
-
-$$\mathbb{E}[X] = \mathbb{E}[\mathbb{E}[X|Y=y]] = \mathbb{E}[(1+Y)/2] \\ = (1 + (1/2)) / 2 = 3/4.$$
 . . .
 
-Exercício. Encontre $\mathbb{E}[X]$ a partir da marginal de $X$. 
+$$\mathbb{E}[X] = \mathbb{E}[\mathbb{E}[X|Y=y]] = \mathbb{E}[(1+Y)/2] \\ = (1 + (1/2)) / 2 = 3/4.$$ 
+
+. . .
+
+Exercício. Encontre $\mathbb{E}[X]$ a partir da distribuição marginal de $X$.
 
 ## Esperança condicional {.scrollable}
 
 De forma mais geral, para as variáveis aleatórias $X$ e $Y$, assumindo que os valores esperados existem, temos que
 
 $$\mathbb{E}[\mathbb{E}[h(X,Y)|Y=y]] = \mathbb{E}[h(X,y)]$$
-
 
 ## Variancia condicional {.scrollable}
 
@@ -146,7 +146,7 @@ Teorema. Para duas v.a.s $X$ e $Y$
 
 $$\mathbb{V}(X) = \mathbb{E}[\mathbb{V}(X|Y=y)]  + \mathbb{V}[\mathbb{E}(X|Y=y)]$$
 
-## Função geradora de momentos
+## Função geradora de momentos {.scrollable}
 
 A função geradora de momentos, f.g.m, de uma v.a. $X$ é definida por
 
@@ -160,17 +160,121 @@ Propriedade 1: Se $M_X(t)$ existe para $t$ em um intervalo aberto contendo zero,
 
 Propriedade 2: Se $M_X(t)$ existe para $t$ em um intervalo aberto contendo zero, então $M^{(r)}_X(t) = \mathbb{E}[X^r]$.
 
+## Exemplos (Exponencial) {.scrollable}
 
-## Exemplos
+Seja $X \sim Exp(\lambda)$, $f_X(x) = \lambda e^{-\lambda x}, \, \lambda >0.$
 
-F.g.m da exponencial
+. . .
 
-F.g.m da Poisson ?
+$$M_X(t) = \mathbb{E}(e^{tX}) = \int_0^\infty e^{tx} \lambda e^{-\lambda x} dx $$
+
+$$ = \lambda \int_0^\infty e^{-(\lambda - t) x} dx = \frac{\lambda}{\lambda - t} \int_0^\infty (\lambda - t) e^{-(\lambda - t) x} dx$$
+
+. . .
+
+$$ = \frac{\lambda}{\lambda - t}, \qquad t< \lambda.$$
+
+## Exemplos (Exponencial) {.scrollable}
+
+Se $X \sim Exp(\lambda$ então 
+$$ M_X(t) = \frac{\lambda}{\lambda - t}, \qquad t< \lambda.$$
+
+. . .
+
+$$\mathbb{E}[X] = M'_X(0) = \left.-\frac{\lambda}{(\lambda - t)^2}(-1)\right|_{t=0}=\frac{1}{\lambda}$$
+
+. . .
+
+$$\mathbb{E}[X^2] = M''_X(0) = \left.-2\frac{\lambda}{(\lambda - t)^3}(-1)\right|_{t=0}=\frac{2}{\lambda^2}$$
+
+. . .
+
+$$\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2 = \frac{2}{\lambda^2} - \frac{1}{\lambda^2} = \frac{1}{\lambda^2}$$
+
+## Exemplo (Poisson) {.scrollable}
 
 
-F.g.m da Normal
+Seja $X \sim Poisson(\lambda)$, $f_X(x) = \frac{\lambda^x}{x!}e^{-\lambda}, \, \lambda >0.$
 
-## Propriedades interessantes
+. . .
+
+$$M_X(t) = \mathbb{E}(e^{tX}) = \sum_{x=0}^\infty e^{tx} \frac{\lambda^x}{x!}e^{-\lambda}$$
+
+$$ = e^{-\lambda} \sum_{x=0}^\infty  \frac{(\lambda e^{t})^x}{x!} = e^{-\lambda} e^{\lambda e^t}$$
+
+. . .
+
+$$ = e^{\lambda(e^t-1)}$$
+
+## Exemplos (Poisson) {.scrollable}
+
+Se $X \sim Poisson(\lambda)$ então 
+$$ M_X(t) = e^{\lambda(e^t - 1)}$$
+
+. . .
+
+$$\mathbb{E}[X] = M'_X(0) = \left. e^{\lambda(e^t - 1)} \lambda e^t \right|_{t=0} = \lambda $$
+
+. . .
+
+$$\mathbb{E}[X^2] = M''_X(0) = \left. \frac{d}{dt}\lambda e^{\lambda(e^t - 1)+t}\right|_{t=0} \\ 
+= \left. \lambda e^{\lambda(e^t - 1)+t} (\lambda e^t + 1) \right|_{t=0} = \lambda^2 + \lambda$$
+
+. . .
+
+$$\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2 = \lambda^2 + \lambda - \lambda^2 = \lambda$$
+## Exemplos (Normal) {.scrollable}
+
+Seja $X \sim Normal(\mu, \sigma^2)$, $f_X(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2\sigma^2}(x-\mu)^2}$
+
+. . .
+
+$$M_X(t) = \mathbb{E}(e^{tX}) = \int_{-\infty}^\infty e^{tx}   \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2\sigma^2}(x-\mu)^2} dx $$
+
+$$ = \int_{-\infty}^{\infty} \frac{1}{\sigma\sqrt{2\pi}}  \exp\left\{ tx - \frac{1}{2\sigma^2}(x^2 - 2\mu x + \mu^2)\right\}dx$$
+
+. . .
+
+
+$$ = \int_{-\infty}^{\infty} \frac{1}{\sigma\sqrt{2\pi}}  \exp\left\{ - \frac{1}{2\sigma^2}(x^2 - 2 x (\mu + t\sigma^2)+ \mu^2)\right\}dx$$
+
+. . .
+
+$$ =  e^{\mu t + \frac{\sigma^2 t^2}{2}}\int_{-\infty}^{\infty} \frac{1}{\sigma\sqrt{2\pi}}  \exp\left\{ - \frac{1}{2\sigma^2}(x - (\mu + t\sigma^2) )^2\right\} dx$$
+
+. . .
+
+$$ = \exp \left\{ \mu t + \frac{\sigma^2 t^2}{2} \right\}$$
+
+
+## Exemplos (Normal) {.scrollable}
+
+Se $X \sim N(\mu, \sigma^2)$ então 
+$$ M_X(t) = \exp \left\{ \mu t + \frac{\sigma^2 t^2}{2} \right\}.$$
+
+. . .
+
+$$\mathbb{E}[X] = M'_X(0) = \left. \exp \left\{ \mu t + \frac{\sigma^2 t^2}{2} \right\} (\mu + t\sigma^2)\right|_{t=0}= \mu $$
+
+. . .
+
+$$\mathbb{E}[X^2] = M''_X(0) = \left. \frac{d}{dt}\exp \left\{ \mu t + \frac{\sigma^2 t^2}{2} \right\} (\mu + t\sigma^2)\right|_{t=0} $$
+
+. . .
+
+
+$$ = \left. \exp \left\{ \mu t + \frac{\sigma^2 t^2}{2} \right\} (0 + \sigma^2)\right|_{t=0} \\ + \left. \exp \left\{ \mu t + \frac{\sigma^2 t^2}{2} \right\} (\mu + t\sigma^2)^2 \right|_{t=0}$$ 
+
+. . .
+
+$$ = \sigma^2 + \mu^2$$
+
+. . .
+
+$$\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2 = \sigma^2 + \mu^2 - \mu^2 = \sigma^2$$
+
+
+## Propriedades interessantes {.scrollable}
 
 Se $Y = aX + b$, então $M_Y(t) = e^{bt}M_X(at)$
 
@@ -178,26 +282,94 @@ Se $Y = aX + b$, então $M_Y(t) = e^{bt}M_X(at)$
 
 Se $X_1, X_2,\ldots,X_n$ independentes com f.g.m $M_{X_i}(t)$ e $Y=\sum_iX_i$, então $$M_Y(t) = \prod_i M_{X_i}(t)$$
 
-## Exemplo
+. . .
 
-Soma de Poisson
+$$M_Y(t) = \mathbb{E}[e^{tY}] = \mathbb{E}\left[e^{t \sum_i X_i} \right] = \mathbb{E}\left[ \prod_i e^{t X_i} \right]$$
+
+. . .
+
+(por independência)
+$$ = \prod_i \mathbb{E}\left[ e^{t X_i}  \right] = \prod_i M_{X_i}(t)$$
+
+## Exemplo {.scrollable}
+
+Sejam $X_1, X_2,\ldots, X_n$ v.a.s com distribuição $X_i \sim Poisson(\lambda_i)$, e $Y = \sum_{i=1}^nX_i$.
+
+. . .
+
+Vimos que a f.g.m. da Poisson é dada por
+$$M_{X_i}(t) = e^{\lambda_i(e^t-1)}$$
+
+. . . 
+
+$$M_Y(t) = \prod_{i=1}^{n} e^{\lambda_i(e^t-1)} = e^{ (\sum_i \lambda_i) (e^t-1)}$$
+
+. . .
+Logo,
+
+$$Y \sim Poisson\left(\sum_{i=1}^{n} \lambda_i \right)$$
+
 
 # Principais desigualdades
 
-## Markov
+## Desigualdade de Markov {.scrollable}
 
-## Chebyshev
+Seja $X$ uma v.a. não negativa com esperança finita, $\mathbb{E}[X] < \infty$. Para qualquer $t>0$,
+$$\mathbb{P}(X > t) \leq \frac{\mathbb{E}[X]}{t}.$$
 
-## Jensen
+. . .
+
+Prova. 
+$$\mathbb{E}(X) = \int_0^\infty x f_X(x)dx = \int_0^t x f_X(x)dx + \int_t^\infty x f_X(x)dx$$
+
+. . .
+
+$$ \geq \int_t^\infty x f_X(x)dx \geq t \int_t^\infty f_X(x)dx = t \mathbb{P}(X>t)$$
+
+
+## Desigualdade de Chebyshev {.scrollable}
+
+Seja $X$ uma variável aleatória com media, $\mu$, e variância, $\sigma^2$, finitas. Então
+
+$$\mathbb{P}(|X - \mu| \geq t) \leq \frac{\sigma^2}{t^2} $$
+
+. . .
+
+Prova. 
+
+$$\mathbb{P}(|X - \mu| \geq t) = \mathbb{P}((X - \mu)^2 \geq t^2)  $$
+
+. . .
+
+(aplicando a desigualdade de Markov)
+
+$$ \leq \frac{\mathbb{E}[(X-\mu)^2]}{t^2} = \frac{\sigma^2}{t^2}.$$
+
+
 
 # Teoria assintótica
 
+## Principais ideias
+
+**Lei forte dos grandes números**. Dizemos que a média de $n$ v.a.s com valor esperado $\mu = \mathbb{E}[X_i]$ converge em probabilidade para para $\mu$, 
+
+$$\bar{X}_n \xrightarrow{P} \mu$$
+
+. . .
+
+**Teorema central do limite**. Dizemos que $\sqrt{n}(\bar{X}_n - \mu)$ converge em distribuição para a distribuição Normal. 
+
+
 ## Convergencia em probabilidade
+
 
 ## Convergencia em distribuição
 
+
 ## Lei fraca dos grandes números
 
+
 ## Teorema central do limite
+
 
 ## Método Delta

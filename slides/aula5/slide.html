@@ -371,7 +371,8 @@ Leo Bastos
 <h2>Propriedades da normal multivariada</h2>
 <p>Suponha que o vetor <span class="math inline">\(X\)</span> é particionado em dois vetor <span class="math inline">\(X_1\)</span> e <span class="math inline">\(X_2\)</span>, <span class="math inline">\(X = (X_1, X_2)\)</span></p>
 <div class="fragment">
-<p>De forma similar <span class="math inline">\(\mu=(\mu_1, \mu_2)\)</span> e <span class="math display">\[\Sigma = \left(
+<p>De forma similar temos que</p>
+<p><span class="math display">\[\mu=(\mu_1, \mu_2) \qquad \mbox{ e } \qquad \Sigma = \left(
 \begin{array}{cc}
 \Sigma_{11} &amp; \Sigma_{12} \\
 \Sigma_{21} &amp; \Sigma_{22}
@@ -405,19 +406,24 @@ Leo Bastos
 </section>
 <section id="esperança-condicional-1" class="slide level2 scrollable">
 <h2>Esperança condicional</h2>
-<p>Notem que <span class="math inline">\(\mathbb{E}[X]\)</span> é um número (ou uma função dos parâmetros da distribuição), já <span class="math inline">\(\mathbb{E}[X | Y=y]\)</span> é função de <span class="math inline">\(Y\)</span>, e portanto também é uma variável aleatória.</p>
+<ul>
+<li><span class="math inline">\(\mathbb{E}[X]\)</span> é um número (ou função de parâmetros)</li>
+<li><span class="math inline">\(\mathbb{E}[X | Y=y]\)</span> é uma v.a. (função de <span class="math inline">\(Y\)</span>)</li>
+</ul>
 <div class="fragment">
 <p>Exemplo. Suponha que sorteamos um valor <span class="math inline">\(y\)</span> de <span class="math inline">\(Y \sim U(0,1)\)</span>. Em seguida sorteamos <span class="math inline">\(X | Y=y \sim U( y, 1)\)</span>. Qual o valor esperado de <span class="math inline">\(X|Y=x\)</span>?</p>
 </div>
 <div class="fragment">
-<p><span class="math display">\[\mathbb{E}[X|Y=y] = \int x f_{X|Y=y}(x|y) dy = \int_{y}^1 x\frac{1}{1-y} dx\]</span> . . .</p>
+<p><span class="math display">\[\mathbb{E}[X|Y=y] = \int x f_{X|Y=y}(x|y) dy = \int_{y}^1 x\frac{1}{1-y} dx\]</span></p>
+</div>
+<div class="fragment">
 <p><span class="math display">\[= \frac{1}{(1-y)} \left. \frac{x^2}{2}\right|_y^1 = \frac{1-y^2}{2(1-y)} = \frac{1+y}{2}.\]</span></p>
 </div>
 </section>
 <section id="esperança-condicional-2" class="slide level2 scrollable">
 <h2>Esperança condicional</h2>
 <p>Para as variáveis aleatórias <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>, assumindo que os valores esperados existem, temos que</p>
-<p><span class="math display">\[\mathbb{E}[\mathbb{E}[X|Y]] = \mathbb{E}[X] \quad \mathbb{E}[\mathbb{E}[Y|X]] = \mathbb{E}[Y]\]</span></p>
+<p><span class="math display">\[\mathbb{E}[\mathbb{E}[X|Y]] = \mathbb{E}[X] \qquad \qquad \mathbb{E}[\mathbb{E}[Y|X]] = \mathbb{E}[Y]\]</span></p>
 <div class="fragment">
 <p>Prova. <span class="math display">\[ \mathbb{E}[\mathbb{E}[X|Y]] =  \int \mathbb{E}[X|Y=y] f_Y(y) dy \\ = \int \int x f_{X|Y=y}(x|y) dx f_Y(y) dy  \]</span></p>
 </div>
@@ -431,11 +437,14 @@ Leo Bastos
 <div class="fragment">
 <p><span class="math display">\[\mathbb{E}[X] = \mathbb{E}[\mathbb{E}[X|Y=y]] = \mathbb{E}[(1+Y)/2] \\ = (1 + (1/2)) / 2 = 3/4.\]</span></p>
 </div>
+<div class="fragment">
+<p>Exercício. Encontre <span class="math inline">\(\mathbb{E}[X]\)</span> a partir da distribuição marginal de <span class="math inline">\(X\)</span>.</p>
+</div>
 </section>
 <section id="esperança-condicional-4" class="slide level2 scrollable">
 <h2>Esperança condicional</h2>
 <p>De forma mais geral, para as variáveis aleatórias <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>, assumindo que os valores esperados existem, temos que</p>
-<p><span class="math display">\[\mathbb{E}[\mathbb{E}[h(X,Y)|Y]] = \mathbb{E}[h(X,Y)]\]</span></p>
+<p><span class="math display">\[\mathbb{E}[\mathbb{E}[h(X,Y)|Y=y]] = \mathbb{E}[h(X,y)]\]</span></p>
 </section>
 <section id="variancia-condicional" class="slide level2 scrollable">
 <h2>Variancia condicional</h2>
@@ -445,7 +454,7 @@ Leo Bastos
 <p><span class="math display">\[\mathbb{V}(X) = \mathbb{E}[\mathbb{V}(X|Y=y)]  + \mathbb{V}[\mathbb{E}(X|Y=y)]\]</span></p>
 </div>
 </section>
-<section id="função-geradora-de-momentos" class="slide level2">
+<section id="função-geradora-de-momentos" class="slide level2 scrollable">
 <h2>Função geradora de momentos</h2>
 <p>A função geradora de momentos, f.g.m, de uma v.a. <span class="math inline">\(X\)</span> é definida por</p>
 <p><span class="math display">\[M_X(t) = \psi_X(t) = \mathbb{E}[e^{tX}] = \int e^{tX} f_X(x) dx, \quad t\in \mathbb{R}.\]</span></p>
@@ -456,24 +465,153 @@ Leo Bastos
 <p>Propriedade 2: Se <span class="math inline">\(M_X(t)\)</span> existe para <span class="math inline">\(t\)</span> em um intervalo aberto contendo zero, então <span class="math inline">\(M^{(r)}_X(t) = \mathbb{E}[X^r]\)</span>.</p>
 </div>
 </section>
+<section id="exemplos-exponencial" class="slide level2 scrollable">
+<h2>Exemplos (Exponencial)</h2>
+<p>Seja <span class="math inline">\(X \sim Exp(\lambda)\)</span>, <span class="math inline">\(f_X(x) = \lambda e^{-\lambda x}, \, \lambda &gt;0.\)</span></p>
+<div class="fragment">
+<p><span class="math display">\[M_X(t) = \mathbb{E}(e^{tX}) = \int_0^\infty e^{tx} \lambda e^{-\lambda x} dx \]</span></p>
+<p><span class="math display">\[ = \lambda \int_0^\infty e^{-(\lambda - t) x} dx = \frac{\lambda}{\lambda - t} \int_0^\infty (\lambda - t) e^{-(\lambda - t) x} dx\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[ = \frac{\lambda}{\lambda - t}, \qquad t&lt; \lambda.\]</span></p>
+</div>
+</section>
+<section id="exemplos-exponencial-1" class="slide level2 scrollable">
+<h2>Exemplos (Exponencial)</h2>
+<p>Se <span class="math inline">\(X \sim Exp(\lambda\)</span> então <span class="math display">\[ M_X(t) = \frac{\lambda}{\lambda - t}, \qquad t&lt; \lambda.\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[\mathbb{E}[X] = M'_X(0) = \left.-\frac{\lambda}{(\lambda - t)^2}(-1)\right|_{t=0}=\frac{1}{\lambda}\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\mathbb{E}[X^2] = M''_X(0) = \left.-2\frac{\lambda}{(\lambda - t)^3}(-1)\right|_{t=0}=\frac{2}{\lambda^2}\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2 = \frac{2}{\lambda^2} - \frac{1}{\lambda^2} = \frac{1}{\lambda^2}\]</span></p>
+</div>
+</section>
+<section id="exemplo-poisson" class="slide level2 scrollable">
+<h2>Exemplo (Poisson)</h2>
+<p>Seja <span class="math inline">\(X \sim Poisson(\lambda)\)</span>, <span class="math inline">\(f_X(x) = \frac{\lambda^x}{x!}e^{-\lambda}, \, \lambda &gt;0.\)</span></p>
+<div class="fragment">
+<p><span class="math display">\[M_X(t) = \mathbb{E}(e^{tX}) = \sum_{x=0}^\infty e^{tx} \frac{\lambda^x}{x!}e^{-\lambda}\]</span></p>
+<p><span class="math display">\[ = e^{-\lambda} \sum_{x=0}^\infty  \frac{(\lambda e^{t})^x}{x!} = e^{-\lambda} e^{\lambda e^t}\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[ = e^{\lambda(e^t-1)}\]</span></p>
+</div>
+</section>
+<section id="exemplos-poisson" class="slide level2 scrollable">
+<h2>Exemplos (Poisson)</h2>
+<p>Se <span class="math inline">\(X \sim Poisson(\lambda)\)</span> então <span class="math display">\[ M_X(t) = e^{\lambda(e^t - 1)}\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[\mathbb{E}[X] = M'_X(0) = \left. e^{\lambda(e^t - 1)} \lambda e^t \right|_{t=0} = \lambda \]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\mathbb{E}[X^2] = M''_X(0) = \left. \frac{d}{dt}\lambda e^{\lambda(e^t - 1)+t}\right|_{t=0} \\
+= \left. \lambda e^{\lambda(e^t - 1)+t} (\lambda e^t + 1) \right|_{t=0} = \lambda^2 + \lambda\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2 = \lambda^2 + \lambda - \lambda^2 = \lambda\]</span> ## Exemplos (Normal) {.scrollable}</p>
+<p>Seja <span class="math inline">\(X \sim Normal(\mu, \sigma^2)\)</span>, <span class="math inline">\(f_X(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2\sigma^2}(x-\mu)^2}\)</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[M_X(t) = \mathbb{E}(e^{tX}) = \int_{-\infty}^\infty e^{tx}   \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2\sigma^2}(x-\mu)^2} dx \]</span></p>
+<p><span class="math display">\[ = \int_{-\infty}^{\infty} \frac{1}{\sigma\sqrt{2\pi}}  \exp\left\{ tx - \frac{1}{2\sigma^2}(x^2 - 2\mu x + \mu^2)\right\}dx\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[ = \int_{-\infty}^{\infty} \frac{1}{\sigma\sqrt{2\pi}}  \exp\left\{ - \frac{1}{2\sigma^2}(x^2 - 2 x (\mu + t\sigma^2)+ \mu^2)\right\}dx\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[ =  e^{\mu t + \frac{\sigma^2 t^2}{2}}\int_{-\infty}^{\infty} \frac{1}{\sigma\sqrt{2\pi}}  \exp\left\{ - \frac{1}{2\sigma^2}(x - (\mu + t\sigma^2) )^2\right\} dx\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[ = \exp \left\{ \mu t + \frac{\sigma^2 t^2}{2} \right\}\]</span></p>
+</div>
+</section>
+<section id="exemplos-normal" class="slide level2 scrollable">
+<h2>Exemplos (Normal)</h2>
+<p>Se <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span> então <span class="math display">\[ M_X(t) = \exp \left\{ \mu t + \frac{\sigma^2 t^2}{2} \right\}.\]</span></p>
+<div class="fragment">
+<p><span class="math display">\[\mathbb{E}[X] = M'_X(0) = \left. \exp \left\{ \mu t + \frac{\sigma^2 t^2}{2} \right\} (\mu + t\sigma^2)\right|_{t=0}= \mu \]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\mathbb{E}[X^2] = M''_X(0) = \left. \frac{d}{dt}\exp \left\{ \mu t + \frac{\sigma^2 t^2}{2} \right\} (\mu + t\sigma^2)\right|_{t=0} \]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[ = \left. \exp \left\{ \mu t + \frac{\sigma^2 t^2}{2} \right\} (0 + \sigma^2)\right|_{t=0} \\ + \left. \exp \left\{ \mu t + \frac{\sigma^2 t^2}{2} \right\} (\mu + t\sigma^2)^2 \right|_{t=0}\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[ = \sigma^2 + \mu^2\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2 = \sigma^2 + \mu^2 - \mu^2 = \sigma^2\]</span></p>
+</div>
+</section>
+<section id="propriedades-interessantes" class="slide level2 scrollable">
+<h2>Propriedades interessantes</h2>
+<p>Se <span class="math inline">\(Y = aX + b\)</span>, então <span class="math inline">\(M_Y(t) = e^{bt}M_X(at)\)</span></p>
+<div class="fragment">
+<p>Se <span class="math inline">\(X_1, X_2,\ldots,X_n\)</span> independentes com f.g.m <span class="math inline">\(M_{X_i}(t)\)</span> e <span class="math inline">\(Y=\sum_iX_i\)</span>, então <span class="math display">\[M_Y(t) = \prod_i M_{X_i}(t)\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[M_Y(t) = \mathbb{E}[e^{tY}] = \mathbb{E}\left[e^{t \sum_i X_i} \right] = \mathbb{E}\left[ \prod_i e^{t X_i} \right]\]</span></p>
+</div>
+<div class="fragment">
+<p>(por independência) <span class="math display">\[ = \prod_i \mathbb{E}\left[ e^{t X_i}  \right] = \prod_i M_{X_i}(t)\]</span></p>
+</div>
+</section>
+<section id="exemplo" class="slide level2 scrollable">
+<h2>Exemplo</h2>
+<p>Sejam <span class="math inline">\(X_1, X_2,\ldots, X_n\)</span> v.a.s com distribuição <span class="math inline">\(X_i \sim Poisson(\lambda_i)\)</span>, e <span class="math inline">\(Y = \sum_{i=1}^nX_i\)</span>.</p>
+<div class="fragment">
+<p>Vimos que a f.g.m. da Poisson é dada por <span class="math display">\[M_{X_i}(t) = e^{\lambda_i(e^t-1)}\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[M_Y(t) = \prod_{i=1}^{n} e^{\lambda_i(e^t-1)} = e^{ (\sum_i \lambda_i) (e^t-1)}\]</span></p>
+<p>. . . Logo,</p>
+<p><span class="math display">\[Y \sim Poisson\left(\sum_{i=1}^{n} \lambda_i \right)\]</span></p>
+</div>
+</section>
 <section>
 <section id="principais-desigualdades" class="title-slide slide level1 center">
 <h1>Principais desigualdades</h1>
 
 </section>
-<section id="markov" class="slide level2">
-<h2>Markov</h2>
+<section id="desigualdade-de-markov" class="slide level2 scrollable">
+<h2>Desigualdade de Markov</h2>
+<p>Seja <span class="math inline">\(X\)</span> uma v.a. não negativa com esperança finita, <span class="math inline">\(\mathbb{E}[X] &lt; \infty\)</span>. Para qualquer <span class="math inline">\(t&gt;0\)</span>, <span class="math display">\[\mathbb{P}(X &gt; t) \leq \frac{\mathbb{E}[X]}{t}.\]</span></p>
+<div class="fragment">
+<p>Prova. <span class="math display">\[\mathbb{E}(X) = \int_0^\infty x f_X(x)dx = \int_0^t x f_X(x)dx + \int_t^\infty x f_X(x)dx\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[ \geq \int_t^\infty x f_X(x)dx \geq t \int_t^\infty f_X(x)dx = t \mathbb{P}(X&gt;t)\]</span></p>
+</div>
 </section>
-<section id="chebyshev" class="slide level2">
-<h2>Chebyshev</h2>
-</section>
-<section id="jensen" class="slide level2">
-<h2>Jensen</h2>
+<section id="desigualdade-de-chebyshev" class="slide level2 scrollable">
+<h2>Desigualdade de Chebyshev</h2>
+<p>Seja <span class="math inline">\(X\)</span> uma variável aleatória com media, <span class="math inline">\(\mu\)</span>, e variância, <span class="math inline">\(\sigma^2\)</span>, finitas. Então</p>
+<p><span class="math display">\[\mathbb{P}(|X - \mu| \geq t) \leq \frac{\sigma^2}{t^2} \]</span></p>
+<div class="fragment">
+<p>Prova.</p>
+<p><span class="math display">\[\mathbb{P}(|X - \mu| \geq t) = \mathbb{P}((X - \mu)^2 \geq t^2)  \]</span></p>
+</div>
+<div class="fragment">
+<p>(aplicando a desigualdade de Markov)</p>
+<p><span class="math display">\[ \leq \frac{\mathbb{E}[(X-\mu)^2]}{t^2} = \frac{\sigma^2}{t^2}.\]</span></p>
+</div>
 </section></section>
 <section>
 <section id="teoria-assintótica" class="title-slide slide level1 center">
 <h1>Teoria assintótica</h1>
 
+</section>
+<section id="principais-ideias" class="slide level2">
+<h2>Principais ideias</h2>
+<p><strong>Lei forte dos grandes números</strong>. Dizemos que a média de <span class="math inline">\(n\)</span> v.a.s com valor esperado <span class="math inline">\(\mu = \mathbb{E}[X_i]\)</span> converge em probabilidade para para <span class="math inline">\(\mu\)</span>,</p>
+<p><span class="math display">\[\bar{X}_n \xrightarrow{P} \mu\]</span></p>
+<div class="fragment">
+<p><strong>Teorema central do limite</strong>. Dizemos que <span class="math inline">\(\sqrt{n}(\bar{X}_n - \mu)\)</span> converge em distribuição para a distribuição Normal.</p>
+</div>
 </section>
 <section id="convergencia-em-probabilidade" class="slide level2">
 <h2>Convergencia em probabilidade</h2>
