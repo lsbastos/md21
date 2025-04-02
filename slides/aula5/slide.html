@@ -355,18 +355,26 @@ Leo Bastos
 \right)\]</span></p>
 </div>
 </section>
+<section id="propriedades" class="slide level2">
+<h2>Propriedades</h2>
+<p>Se <span class="math inline">\(a = (a_1,\ldots,a_n)\)</span> é um vetor de constantes e <span class="math inline">\(X = (X_1,X_2,\ldots,X_n)\)</span> um vetor aleatório com média <span class="math inline">\(\mu = (\mu_1,\mu_2,\ldots,\mu_n)\)</span> e matriz de variância <span class="math inline">\(\Sigma\)</span>. Então</p>
+<p><span class="math display">\[\mathbb{E}[a^TX] = a^T\mu \qquad \qquad  \mathbb{V}[a^TX] = a^T\Sigma a\]</span></p>
+<div class="fragment">
+<p>Se <span class="math inline">\(A\)</span> for uma matriz <span class="math inline">\(k\times n\)</span>, então <span class="math display">\[\mathbb{E}[AX] = A\mu \qquad \qquad  \mathbb{V}[AX] = A\Sigma A^T.\]</span></p>
+</div>
+</section>
 <section id="normal-multivariada" class="slide level2">
 <h2>Normal-multivariada</h2>
 <p>Dizemos que o vetor <span class="math inline">\(X\)</span> seguem uma distribuição normal multivariada, <span class="math inline">\(X \sim N(\mu, \Sigma)\)</span>, se <span class="math display">\[f_X(x) = \frac{1}{(2\pi)^k |\Sigma|^{1/2} } \exp\left\{ -\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu)\right\}\]</span> onde <span class="math inline">\(|\Sigma|\)</span> denota o determinante de <span class="math inline">\(\Sigma\)</span>, <span class="math inline">\(\mu\)</span> é um vetor de tamanho <span class="math inline">\(n\)</span> e <span class="math inline">\(\Sigma\)</span> uma matriz <span class="math inline">\(n\times n\)</span> simétrica, positiva definida.</p>
 </section>
 <section id="propriedades-da-normal-multivariada" class="slide level2">
 <h2>Propriedades da normal multivariada</h2>
-<p>Suponha que o vetor <span class="math inline">\(X\)</span> é particionado em dois vetor <span class="math inline">\(X_a\)</span> e <span class="math inline">\(X_b\)</span>, <span class="math inline">\(X = (X_a, X_b)\)</span></p>
+<p>Suponha que o vetor <span class="math inline">\(X\)</span> é particionado em dois vetor <span class="math inline">\(X_1\)</span> e <span class="math inline">\(X_2\)</span>, <span class="math inline">\(X = (X_1, X_2)\)</span></p>
 <div class="fragment">
-<p>De forma similar <span class="math inline">\(\mu=(\mu_a, \mu_b)\)</span> e <span class="math display">\[\Sigma = \left(
+<p>De forma similar <span class="math inline">\(\mu=(\mu_1, \mu_2)\)</span> e <span class="math display">\[\Sigma = \left(
 \begin{array}{cc}
-\Sigma_{aa} &amp; \Sigma_{ab} \\
-\Sigma_{ba} &amp; \Sigma_{bb}
+\Sigma_{11} &amp; \Sigma_{12} \\
+\Sigma_{21} &amp; \Sigma_{22}
 \end{array}\right)\]</span></p>
 </div>
 </section>
@@ -375,9 +383,11 @@ Leo Bastos
 <p>Se <span class="math inline">\(X \sim N(\mu, \Sigma)\)</span>. Então</p>
 <div>
 <ol type="1">
-<li class="fragment">A distribuição marginal: <span class="math inline">\(X_a \sim N(\mu_a, \Sigma_{aa})\)</span></li>
-<li class="fragment">A distribuição condicional: <span class="math inline">\(X_b | X_a = x_a \sim N(\mu_{b|a}, \Sigma_{b|a})\)</span> onde <span class="math display">\[\mu_{b|a} = \mu_b + \Sigma_{ba} \Sigma_{aa}^{-1}(x_a-\mu_a) \\
-\Sigma_{b|a} = \Sigma_{bb} - \Sigma_{ba}\Sigma_{aa}^{-1}\Sigma_{ab}\]</span></li>
+<li class="fragment">A distribuição marginal: <span class="math inline">\(X_1 \sim N(\mu_1, \Sigma_{11})\)</span></li>
+<li class="fragment">A distribuição condicional: <span class="math inline">\(X_2 | X_1 = x_1 \sim N(\mu_{2|1}, \Sigma_{2|1})\)</span> onde <span class="math display">\[\mu_{2|1} = \mu_2 + \Sigma_{21} \Sigma_{11}^{-1}(x_1-\mu_1) \\
+\Sigma_{2|1} = \Sigma_{22} - \Sigma_{21}\Sigma_{11}^{-1}\Sigma_{12}\]</span></li>
+<li class="fragment">Se <span class="math inline">\(a\)</span> é um vetor, <span class="math inline">\(a^TX \sim Normal(a^T\mu, a^T \Sigma a)\)</span></li>
+<li class="fragment"><span class="math inline">\(V = (x - \mu)^T\Sigma^{-1}(x-\mu) \sim \chi^2_n\)</span></li>
 </ol>
 </div>
 </section>
@@ -397,10 +407,11 @@ Leo Bastos
 <h2>Esperança condicional</h2>
 <p>Notem que <span class="math inline">\(\mathbb{E}[X]\)</span> é um número (ou uma função dos parâmetros da distribuição), já <span class="math inline">\(\mathbb{E}[X | Y=y]\)</span> é função de <span class="math inline">\(Y\)</span>, e portanto também é uma variável aleatória.</p>
 <div class="fragment">
-<p>Exemplo. Suponha que sorteamos um valor <span class="math inline">\(x\)</span> de <span class="math inline">\(X \sim U(0,1)\)</span>. Em seguida sorteamos <span class="math inline">\(Y | X=x \sim U( x, 1)\)</span>. Qual o valor esperado de <span class="math inline">\(Y|X=x\)</span>?</p>
+<p>Exemplo. Suponha que sorteamos um valor <span class="math inline">\(y\)</span> de <span class="math inline">\(Y \sim U(0,1)\)</span>. Em seguida sorteamos <span class="math inline">\(X | Y=y \sim U( y, 1)\)</span>. Qual o valor esperado de <span class="math inline">\(X|Y=x\)</span>?</p>
 </div>
 <div class="fragment">
-<p><span class="math display">\[\mathbb{E}[Y|X=x] = \int y f_{Y|X=x}(y|x) dy = \int_{x}^1 y\frac{1}{1-x} dy\]</span> <span class="math display">\[= \frac{1}{1-x} \left. \frac{y^2}{2}\right|_x^1 = \frac{1-x^2}{2(1-x)} = \frac{1+x}{2}.\]</span></p>
+<p><span class="math display">\[\mathbb{E}[X|Y=y] = \int x f_{X|Y=y}(x|y) dy = \int_{y}^1 x\frac{1}{1-y} dx\]</span> . . .</p>
+<p><span class="math display">\[= \frac{1}{(1-y)} \left. \frac{x^2}{2}\right|_y^1 = \frac{1-y^2}{2(1-y)} = \frac{1+y}{2}.\]</span></p>
 </div>
 </section>
 <section id="esperança-condicional-2" class="slide level2 scrollable">
@@ -416,12 +427,15 @@ Leo Bastos
 </section>
 <section id="esperança-condicional-3" class="slide level2 scrollable">
 <h2>Esperança condicional</h2>
+<p>No exemplo anterior, onde <span class="math inline">\(Y\sim U(0,1)\)</span> e <span class="math inline">\(X|Y=y \sim U(y,1)\)</span>. Quem é <span class="math inline">\(\mathbb{E}[X]\)</span>?</p>
+<div class="fragment">
+<p><span class="math display">\[\mathbb{E}[X] = \mathbb{E}[\mathbb{E}[X|Y=y]] = \mathbb{E}[(1+Y)/2] \\ = (1 + (1/2)) / 2 = 3/4.\]</span></p>
+</div>
+</section>
+<section id="esperança-condicional-4" class="slide level2 scrollable">
+<h2>Esperança condicional</h2>
 <p>De forma mais geral, para as variáveis aleatórias <span class="math inline">\(X\)</span> e <span class="math inline">\(Y\)</span>, assumindo que os valores esperados existem, temos que</p>
 <p><span class="math display">\[\mathbb{E}[\mathbb{E}[h(X,Y)|Y]] = \mathbb{E}[h(X,Y)]\]</span></p>
-<div class="fragment">
-<p>No exemplo anterior, <span class="math inline">\(X\sim U(0,1)\)</span> e <span class="math inline">\(Y|X=x \sim U(x,1)\)</span>.</p>
-<p><span class="math display">\[\mathbb{E}[Y] = \mathbb{E}[\mathbb{E}[Y|X=x]] = \mathbb{E}[(1+X)/2] \\ = (1 + (1/2)) / 2 = 3/4.\]</span></p>
-</div>
 </section>
 <section id="variancia-condicional" class="slide level2 scrollable">
 <h2>Variancia condicional</h2>

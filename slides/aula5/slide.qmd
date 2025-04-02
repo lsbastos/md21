@@ -14,7 +14,7 @@ editor: visual
 
 ## Matriz de variancias e covariâncias
 
-Sejam $X = (X_1,X_2,\ldots,X_n)$ um vetor com $n$ variáveis aleatórias. Defina $\mathbb{V}(X_i) = \sigma_i^2$, $\forall i$ e $\mathbb{Cov}(X_i, X_j) = \sigma_{ij}$, $\forall i\neq j$. 
+Sejam $X = (X_1,X_2,\ldots,X_n)$ um vetor com $n$ variáveis aleatórias. Defina $\mathbb{V}(X_i) = \sigma_i^2$, $\forall i$ e $\mathbb{Cov}(X_i, X_j) = \sigma_{ij}$, $\forall i\neq j$.
 
 . . .
 
@@ -29,7 +29,16 @@ $$\Sigma = \left(
 \end{array}
 \right)$$
 
+## Propriedades
 
+Se $a = (a_1,\ldots,a_n)$ é um vetor de constantes e $X = (X_1,X_2,\ldots,X_n)$ um vetor aleatório com média $\mu = (\mu_1,\mu_2,\ldots,\mu_n)$ e matriz de variância $\Sigma$. Então
+
+$$\mathbb{E}[a^TX] = a^T\mu \qquad \qquad  \mathbb{V}[a^TX] = a^T\Sigma a$$
+
+. . .
+
+Se $A$ for uma matriz $k\times n$, então
+$$\mathbb{E}[AX] = A\mu \qquad \qquad  \mathbb{V}[AX] = A\Sigma A^T.$$
 
 
 
@@ -39,14 +48,14 @@ Dizemos que o vetor $X$ seguem uma distribuição normal multivariada, $X \sim N
 
 ## Propriedades da normal multivariada
 
-Suponha que o vetor $X$ é particionado em dois vetor $X_a$ e $X_b$, $X = (X_a, X_b)$
+Suponha que o vetor $X$ é particionado em dois vetor $X_1$ e $X_2$, $X = (X_1, X_2)$
 
 . . .
 
-De forma similar $\mu=(\mu_a, \mu_b)$ e $$\Sigma = \left( 
+De forma similar $\mu=(\mu_1, \mu_2)$ e $$\Sigma = \left( 
 \begin{array}{cc} 
-\Sigma_{aa} & \Sigma_{ab} \\
-\Sigma_{ba} & \Sigma_{bb} 
+\Sigma_{11} & \Sigma_{12} \\
+\Sigma_{21} & \Sigma_{22} 
 \end{array}\right)$$
 
 ## Propriedades da normal multivariada
@@ -54,10 +63,11 @@ De forma similar $\mu=(\mu_a, \mu_b)$ e $$\Sigma = \left(
 Se $X \sim N(\mu, \Sigma)$. Então
 
 ::: incremental
-1.  A distribuição marginal: $X_a \sim N(\mu_a, \Sigma_{aa})$ 
-2. A distribuição condicional: $X_b | X_a = x_a \sim N(\mu_{b|a}, \Sigma_{b|a})$ onde
-$$\mu_{b|a} = \mu_b + \Sigma_{ba} \Sigma_{aa}^{-1}(x_a-\mu_a) \\ 
-\Sigma_{b|a} = \Sigma_{bb} - \Sigma_{ba}\Sigma_{aa}^{-1}\Sigma_{ab}$$
+1.  A distribuição marginal: $X_1 \sim N(\mu_1, \Sigma_{11})$
+2.  A distribuição condicional: $X_2 | X_1 = x_1 \sim N(\mu_{2|1}, \Sigma_{2|1})$ onde $$\mu_{2|1} = \mu_2 + \Sigma_{21} \Sigma_{11}^{-1}(x_1-\mu_1) \\ 
+    \Sigma_{2|1} = \Sigma_{22} - \Sigma_{21}\Sigma_{11}^{-1}\Sigma_{12}$$
+3. Se $a$ é um vetor, $a^TX \sim Normal(a^T\mu, a^T \Sigma a)$
+4. $V = (x - \mu)^T\Sigma^{-1}(x-\mu) \sim \chi^2_n$
 :::
 
 ## Esperança condicional
@@ -84,17 +94,21 @@ Notem que $\mathbb{E}[X]$ é um número (ou uma função dos parâmetros da dist
 
 . . .
 
-Exemplo. Suponha que sorteamos um valor $x$ de $X \sim U(0,1)$. Em seguida sorteamos $Y | X=x \sim U( x, 1)$. Qual o valor esperado de $Y|X=x$?
+Exemplo. Suponha que sorteamos um valor $y$ de $Y \sim U(0,1)$. Em seguida sorteamos $X | Y=y \sim U( y, 1)$. Qual o valor esperado de $X|Y=x$?
 
 . . .
 
-$$\mathbb{E}[Y|X=x] = \int y f_{Y|X=x}(y|x) dy = \int_{x}^1 y\frac{1}{1-x} dy$$ $$= \frac{1}{1-x} \left. \frac{y^2}{2}\right|_x^1 = \frac{1-x^2}{2(1-x)} = \frac{1+x}{2}.$$
+$$\mathbb{E}[X|Y=y] = \int x f_{X|Y=y}(x|y) dy = \int_{y}^1 x\frac{1}{1-y} dx$$ 
+
+. . .
+
+$$= \frac{1}{(1-y)} \left. \frac{x^2}{2}\right|_y^1 = \frac{1-y^2}{2(1-y)} = \frac{1+y}{2}.$$
 
 ## Esperança condicional {.scrollable}
 
 Para as variáveis aleatórias $X$ e $Y$, assumindo que os valores esperados existem, temos que
 
-$$\mathbb{E}[\mathbb{E}[X|Y]] = \mathbb{E}[X] \quad \mathbb{E}[\mathbb{E}[Y|X]] = \mathbb{E}[Y]$$
+$$\mathbb{E}[\mathbb{E}[X|Y]] = \mathbb{E}[X] \qquad \qquad \mathbb{E}[\mathbb{E}[Y|X]] = \mathbb{E}[Y]$$
 
 . . .
 
@@ -106,15 +120,21 @@ $$= \int \int x f_{X,Y}(x,y) dydx = \int x f_{X}(x) dx \\ = \mathbb{E}[X]$$
 
 ## Esperança condicional {.scrollable}
 
-De forma mais geral, para as variáveis aleatórias $X$ e $Y$, assumindo que os valores esperados existem, temos que
+No exemplo anterior, onde $Y\sim U(0,1)$ e $X|Y=y \sim U(y,1)$. Quem é $\mathbb{E}[X]$?
 
-$$\mathbb{E}[\mathbb{E}[h(X,Y)|Y]] = \mathbb{E}[h(X,Y)]$$
+. . . 
 
+$$\mathbb{E}[X] = \mathbb{E}[\mathbb{E}[X|Y=y]] = \mathbb{E}[(1+Y)/2] \\ = (1 + (1/2)) / 2 = 3/4.$$
 . . .
 
-No exemplo anterior, $X\sim U(0,1)$ e $Y|X=x \sim U(x,1)$.
+Exercício. Encontre $\mathbb{E}[X]$ a partir da marginal de $X$. 
 
-$$\mathbb{E}[Y] = \mathbb{E}[\mathbb{E}[Y|X=x]] = \mathbb{E}[(1+X)/2] \\ = (1 + (1/2)) / 2 = 3/4.$$
+## Esperança condicional {.scrollable}
+
+De forma mais geral, para as variáveis aleatórias $X$ e $Y$, assumindo que os valores esperados existem, temos que
+
+$$\mathbb{E}[\mathbb{E}[h(X,Y)|Y=y]] = \mathbb{E}[h(X,y)]$$
+
 
 ## Variancia condicional {.scrollable}
 
@@ -139,6 +159,28 @@ Propriedade 1: Se $M_X(t)$ existe para $t$ em um intervalo aberto contendo zero,
 . . .
 
 Propriedade 2: Se $M_X(t)$ existe para $t$ em um intervalo aberto contendo zero, então $M^{(r)}_X(t) = \mathbb{E}[X^r]$.
+
+
+## Exemplos
+
+F.g.m da exponencial
+
+F.g.m da Poisson ?
+
+
+F.g.m da Normal
+
+## Propriedades interessantes
+
+Se $Y = aX + b$, então $M_Y(t) = e^{bt}M_X(at)$
+
+. . .
+
+Se $X_1, X_2,\ldots,X_n$ independentes com f.g.m $M_{X_i}(t)$ e $Y=\sum_iX_i$, então $$M_Y(t) = \prod_i M_{X_i}(t)$$
+
+## Exemplo
+
+Soma de Poisson
 
 # Principais desigualdades
 
