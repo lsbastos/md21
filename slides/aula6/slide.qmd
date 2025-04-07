@@ -56,7 +56,7 @@ p <- ggplot() +
   #               mapping = aes(colour = "5", linetype ="5" ) ) +
   # scale_color_manual(values = 1:5, breaks =  1:5, labels = labels) +
   # scale_linetype_manual(values = 1:5, breaks =  1:5, labels = labels) +
-  xlim(0,8) +
+  xlim(0,6) +
   labs(
     x = "x",
     y = "f(x)",
@@ -82,17 +82,17 @@ p +
 p +
   # xlim(0,4) +
   geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(1/10)), mapping = aes(colour = "n=10; N(2,1/n)" ) ) +
-  geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(1/30)), mapping = aes(colour = "n=30; N(2,1/n)" ) )  
+  geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(1/50)), mapping = aes(colour = "n=50; N(2,1/n)" ) )  
 ```
 
-### $N(2, 1/100)$
+### $N(2, 1/500)$
 
 ```{r}
 p +
   # xlim(0,4) +
   geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(2/10)), mapping = aes(colour = "n=10; N(2,1/n)" ) ) +
-  geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(2/30)), mapping = aes(colour = "n=30; N(2,1/n)" ) ) +
-  geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(2/100)), mapping = aes(colour = "n=100; N(2,1/n)" ) ) 
+  geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(2/50)), mapping = aes(colour = "n=50; N(2,1/n)" ) ) +
+  geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(2/500)), mapping = aes(colour = "n=500; N(2,1/n)" ) ) 
 ```
 :::
 
@@ -100,7 +100,7 @@ p +
 
 ::: {.incremental}
 
-- gerar $M=1000$ amostras de tamanho 50 de uma distribuição $Gama(a=4, b=2)$
+- gerar $M=1000$ amostras de tamanho $n$ de uma distribuição $Gama(a=4, b=2)$
 - calcular a média para cada amostra
 - vizualizar a distribuição das médias (histograma)
 
@@ -110,8 +110,8 @@ p +
 
 No R
 ```{r echo=T}
-M = 1000
-X <- matrix(rgamma(50*M, shape = 4, rate = 2), ncol=M)
+M = 1000; n = 10
+X <- matrix(rgamma(n*M, shape = 4, rate = 2), ncol=M)
 c(mean(X[,1]), mean(X[,2]), mean(X[,1000]))
 ```
 
@@ -125,20 +125,79 @@ x.mean[c(1,2,1000)]
 
 ## TCL (Simulação)
 
+
+::: panel-tabset
+
+### $n=10$
+
 ```{r}
 library(ggplot2)
 ggplot() + 
   geom_histogram(data = tibble::tibble(x = x.mean), mapping = aes(x=x, y=..density..), color=1, fill="white", bins = 30) + 
   # geom_density(aes(x=x, color = "Estimated")) + 
-  geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(1/50)), mapping = aes(colour = "N(2,1/50)" ) )  +
+  geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(1/n)), show.legend = T)  +
   theme_bw() +
   labs(
     x = expression(bar(x)),
     y = expression(f(bar(x))),
     colour = ""
-    ) +
-  theme(legend.position.inside = T, legend.position = c(0.9, 0.9)) 
+    ) 
 ```
+
+### $n=50$
+
+```{r}
+n = 50
+x.mean = matrix(rgamma(n*M, shape = 4, rate = 2), ncol=M) |> apply(MARGIN = 2, FUN = mean)
+ggplot() + 
+  geom_histogram(data = tibble::tibble(x = x.mean), mapping = aes(x=x, y=..density..), color=1, fill="white", bins = 30) + 
+  # geom_density(aes(x=x, color = "Estimated")) + 
+  geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(1/n)), show.legend = F )  +
+  theme_bw() +
+  labs(
+    x = expression(bar(x)),
+    y = expression(f(bar(x))),
+    colour = ""
+    ) 
+```
+
+### $n=100$
+
+```{r}
+n = 100
+x.mean = matrix(rgamma(n*M, shape = 4, rate = 2), ncol=M) |> apply(MARGIN = 2, FUN = mean)
+ggplot() + 
+  geom_histogram(data = tibble::tibble(x = x.mean), mapping = aes(x=x, y=..density..), color=1, fill="white", bins = 30) + 
+  # geom_density(aes(x=x, color = "Estimated")) + 
+  geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(1/n)), show.legend = F )  +
+  theme_bw() +
+  labs(
+    x = expression(bar(x)),
+    y = expression(f(bar(x))),
+    colour = ""
+    ) 
+```
+
+### $n=500$
+
+```{r}
+n = 500
+x.mean = matrix(rgamma(n*M, shape = 4, rate = 2), ncol=M) |> apply(MARGIN = 2, FUN = mean)
+ggplot() + 
+  geom_histogram(data = tibble::tibble(x = x.mean), mapping = aes(x=x, y=..density..), color=1, fill="white", bins = 30) + 
+  # geom_density(aes(x=x, color = "Estimated")) + 
+  geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(1/n)), show.legend = F )  +
+  theme_bw() +
+  labs(
+    x = expression(bar(x)),
+    y = expression(f(bar(x))),
+    colour = ""
+    ) 
+```
+
+
+:::
+
 
 ## Prova do TCL
 
