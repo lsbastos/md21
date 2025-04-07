@@ -1,6 +1,6 @@
 ---
 title: "MD21 Introdução à Estatística"
-subtitle: "TCL, método Delta e Introdução à inferência"
+subtitle: "TCL"
 author: "Leo Bastos"
 format: 
   revealjs:
@@ -12,25 +12,17 @@ format:
 editor: visual
 ---
 
-# Teorema central do limite
+## Teorema central do limite
 
+Seja $X_1, X_2, \ldots, X_n$ variáveis aleatórias iid com média, $\mathbb{E}[X_i] = \mu$ e variância, $\sigma^2 < \infty$. Seja $\bar{X}_n = \frac{\sum_{i=1}^{n} X_i}{n}$. Então $$Z_n = \frac{(\bar{X}_n - \mu)}{\mathbb{V}(\bar{X}_n)} = \frac{\sqrt{n}(\bar{X}_n - \mu)}{\sigma}  \xrightarrow[n\to \infty]{D} Z$$ onde $Z \sim N(0,1).$
 
 ## Teorema central do limite
 
-Seja $X_1, X_2, \ldots, X_n$ variáveis aleatórias iid com média, $\mathbb{E}[X_i] = \mu$ e variância, $\sigma^2 < \infty$. Seja $\bar{X}_n = \frac{\sum_{i=1}^{n} X_i}{n}$. Então 
-$$Z_n = \frac{(\bar{X}_n - \mu)}{\mathbb{V}(\bar{X}_n)} = \frac{\sqrt{n}(\bar{X}_n - \mu)}{\sigma}  \xrightarrow[n\to \infty]{D} Z$$ onde $Z \sim N(0,1).$
-
-
-## Teorema central do limite
-
-Uma implicação do TCL é que a distribuição de $\bar{X}_n$ converge para a normal, ou seja
-$$ \bar{X}_n \xrightarrow{D} X$$
-onde $X \sim N(\mu, \sigma^2/n)$.
+Uma implicação do TCL é que a distribuição de $\bar{X}_n$ converge para a normal, ou seja $$ \bar{X}_n \xrightarrow{D} X$$ onde $X \sim N(\mu, \sigma^2/n)$.
 
 . . .
 
-Abuso de notação
-$$ \bar{X}_n \xrightarrow{D} N(\mu, \sigma^2/n)$$.
+Abuso de notação $$ \bar{X}_n \xrightarrow{D} N(\mu, \sigma^2/n)$$
 
 ## TCL (Exemplo Gama)
 
@@ -38,14 +30,11 @@ Suponha que $X_1,X_2.\ldots, X_n$ seja uma amostra aleatória com distribuição
 
 . . .
 
-Pelo TCL, 
-$$ \bar{X}_n \xrightarrow{D} N\left(\frac{a}{b}=2, \frac{a}{b^2n}=\frac{1}{n} \right)$$
+Pelo TCL, $$ \bar{X}_n \xrightarrow{D} N\left(\frac{a}{b}=2, \frac{a}{b^2n}=\frac{1}{n} \right)$$
 
 ## TCL (Visualizando)
 
-
-::: {.panel-tabset}
-
+::: panel-tabset
 ### Gama(4,2)
 
 ```{r}
@@ -84,7 +73,7 @@ p
 ```{r}
 p +
   # xlim(0,4) +
-  geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(2/10)), mapping = aes(colour = "n=10; N(2,1/n)" ) )  
+  geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(1/10)), mapping = aes(colour = "n=10; N(2,1/n)" ) )  
 ```
 
 ### $N(2, 1/50)$
@@ -92,8 +81,8 @@ p +
 ```{r}
 p +
   # xlim(0,4) +
-  geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(2/10)), mapping = aes(colour = "n=10; N(2,1/n)" ) ) +
-  geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(2/30)), mapping = aes(colour = "n=30; N(2,1/n)" ) )  
+  geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(1/10)), mapping = aes(colour = "n=10; N(2,1/n)" ) ) +
+  geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(1/30)), mapping = aes(colour = "n=30; N(2,1/n)" ) )  
 ```
 
 ### $N(2, 1/100)$
@@ -105,23 +94,56 @@ p +
   geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(2/30)), mapping = aes(colour = "n=30; N(2,1/n)" ) ) +
   geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(2/100)), mapping = aes(colour = "n=100; N(2,1/n)" ) ) 
 ```
-
 :::
-
-
-
 
 ## TCL (Simulação)
 
-Vamos gerar amostras de uma distribuição $Gama(a=2, b=0.1)$
+::: {.incremental}
 
-```{r}
-x <- rgamma(100, shape = 4, rate = 2)
-mean(x)
+- gerar $M=1000$ amostras de tamanho 50 de uma distribuição $Gama(a=4, b=2)$
+- calcular a média para cada amostra
+- vizualizar a distribuição das médias (histograma)
+
+:::
+
+. . .
+
+No R
+```{r echo=T}
+M = 1000
+X <- matrix(rgamma(50*M, shape = 4, rate = 2), ncol=M)
+c(mean(X[,1]), mean(X[,2]), mean(X[,1000]))
 ```
 
-## Teorema central do limite
+. . .
 
-Seja $X_1, X_2, \ldots, X_n$ variáveis aleatórias iid com média, $\mathbb{E}[X_i] = \mu$ e variância, $\sigma^2 < \infty$. Seja $\bar{X}_n = \frac{\sum_{i=1}^{n} X_i}{n}$ e $S^2_n = \frac{1}{n-1}\sum_{i=1}^{n}(X_i-\bar{X}_n)^2$. Então $$Z_n = \frac{(\bar{X}_n - \mu)}{S_n/\sqrt{n}} \xrightarrow[n\to \infty]{D} Z$$ onde $Z \sim N(0,1).$
+```{r echo=T}
+# Calcula medias por coluna
+x.mean = apply(X = X, MARGIN = 2, FUN = mean)
+x.mean[c(1,2,1000)]
+```
+
+## TCL (Simulação)
+
+```{r}
+library(ggplot2)
+ggplot() + 
+  geom_histogram(data = tibble::tibble(x = x.mean), mapping = aes(x=x, y=..density..), color=1, fill="white", bins = 30) + 
+  # geom_density(aes(x=x, color = "Estimated")) + 
+  geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(1/50)), mapping = aes(colour = "N(2,1/50)" ) )  +
+  theme_bw() +
+  labs(
+    x = expression(bar(x)),
+    y = expression(f(bar(x))),
+    colour = ""
+    ) +
+  theme(legend.position.inside = T, legend.position = c(0.9, 0.9)) 
+```
+
+## Prova do TCL
+
+Existem várias provas do TCL, a mais popular é via função geradora de momentos.
+
+
 
 <!-- ## Método Delta -->
