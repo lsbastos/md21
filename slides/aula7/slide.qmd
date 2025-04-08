@@ -44,65 +44,105 @@ $$
 <!-- ## TCL (Visualizando) -->
 
 <!-- ::: panel-tabset -->
+
 <!-- ### Gama(4,2) -->
 
 <!-- ```{r} -->
+
 <!-- library(ggplot2) -->
 
 <!-- # param = cbind(c(0.5, 1:4), c(0.5, rep(2,3),1)) -->
+
 <!-- # labels <- parse(text = sprintf("alpha == %f ~ beta == %f", param[,1], param[,2])) -->
 
 <!-- p <- ggplot() + -->
+
 <!--   geom_function(fun = dgamma, args = list(shape = 4, rate =2), mapping = aes(colour = "Gamma(4,2)" ) ) + -->
+
 <!--   geom_vline(xintercept = 2, linetype=2) +  -->
+
 <!--   # geom_function(fun = dgamma, args = list(shape = param[2,1], scale = param[2,2]),  -->
+
 <!--   #               mapping = aes(colour = "2", linetype ="2" ) ) + -->
+
 <!--   # geom_function(fun = dgamma, args = list(shape = param[3,1], scale = param[3,2]),  -->
+
 <!--   #               mapping = aes(colour = "3", linetype ="3" ) ) + -->
+
 <!--   # geom_function(fun = dgamma, args = list(shape = param[4,1], scale = param[4,2]),  -->
+
 <!--   #               mapping = aes(colour = "4", linetype ="4" ) ) + -->
+
 <!--   # geom_function(fun = dgamma, args = list(shape = param[5,1], scale = param[5,2]),  -->
+
 <!--   #               mapping = aes(colour = "5", linetype ="5" ) ) + -->
+
 <!--   # scale_color_manual(values = 1:5, breaks =  1:5, labels = labels) + -->
+
 <!--   # scale_linetype_manual(values = 1:5, breaks =  1:5, labels = labels) + -->
+
 <!--   xlim(0,8) + -->
+
 <!--   labs( -->
+
 <!--     x = "x", -->
+
 <!--     y = "f(x)", -->
+
 <!--     colour = "", -->
+
 <!--   ) +  -->
+
 <!--   theme_bw(base_size = 16) +  -->
+
 <!--     theme(legend.position = c(.8,.75)) -->
 
 <!-- p -->
+
 <!-- ``` -->
 
 <!-- ### $n=10$ -->
 
 <!-- ```{r} -->
+
 <!-- p + -->
+
 <!--   # xlim(0,4) + -->
+
 <!--   geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(2/10)), mapping = aes(colour = "n=10; N(2,1/n)" ) )   -->
+
 <!-- ``` -->
 
 <!-- ### $n=50$ -->
 
 <!-- ```{r} -->
+
 <!-- p + -->
+
 <!--   # xlim(0,4) + -->
+
 <!--   geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(2/10)), mapping = aes(colour = "n=10; N(2,1/n)" ) ) + -->
+
 <!--   geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(2/30)), mapping = aes(colour = "n=30; N(2,1/n)" ) )   -->
+
 <!-- ``` -->
 
 <!-- ### $n=100$ -->
 
 <!-- ```{r} -->
+
 <!-- p + -->
+
 <!--   # xlim(0,4) + -->
+
 <!--   geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(2/10)), mapping = aes(colour = "n=10; N(2,1/n)" ) ) + -->
+
 <!--   geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(2/30)), mapping = aes(colour = "n=30; N(2,1/n)" ) ) + -->
+
 <!--   geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(2/100)), mapping = aes(colour = "n=100; N(2,1/n)" ) )  -->
+
 <!-- ``` -->
+
 <!-- ::: -->
 
 <!-- ## TCL (Prova) {.scrollable} -->
@@ -169,7 +209,7 @@ $$
 
 ## TCL (Variância desconhecida) {.scrollable}
 
-Seja $X_1, X_2, \ldots, X_n$ variáveis aleatórias **independentes e identicamente distribuídas** com média, $\mathbb{E}[X_i] = \mu$ e variância, $\sigma^2 < \infty$. Seja $\bar{X}_n = \frac{\sum_{i=1}^{n} X_i}{n}$ e $S_n^2 = \sum_{i=1}^n(X_i - \bar{X})/(n-1)$. Então 
+Seja $X_1, X_2, \ldots, X_n$ variáveis aleatórias **independentes e identicamente distribuídas** com média, $\mathbb{E}[X_i] = \mu$ e variância, $\sigma^2 < \infty$. Seja $\bar{X}_n = \frac{\sum_{i=1}^{n} X_i}{n}$ e $S_n^2 = \sum_{i=1}^n(X_i - \bar{X})/(n-1)$. Então
 
 $$Z_n = \frac{\sqrt{n}(\bar{X}_n - \mu)}{S_n}  \xrightarrow[n\to \infty]{D} \sim N(0,1).$$
 
@@ -369,5 +409,4 @@ Dado uma amostra $X_1,X_2,\ldots,X_n \sim F$, como nós inferimos a respeito de 
 
 . . .
 
-Em muitos casos, queremos saber apenas alguma característica de $F$ como a média por exemplo.
-S
+Em muitos casos, queremos saber apenas alguma característica de $F$ como a média por exemplo. S
