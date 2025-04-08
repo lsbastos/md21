@@ -1,7 +1,6 @@
 ## Exercícios aula 6
 
 Wasserman: Cap. 5: 14
-Rice:
 
 Refaça as demonstrações de:
 
