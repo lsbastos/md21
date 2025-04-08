@@ -1,0 +1,373 @@
+---
+title: "MD21 Introdução à Estatística"
+subtitle: "TCL, método Delta e Introdução à inferência"
+author: "Leo Bastos"
+format: 
+  revealjs:
+    slide-number: true
+    logo: ../../impa-tech-h.png
+    footer: '<https://github.com/lsbastos/md21/>'
+    theme: simple
+    chalkboard: true
+editor: visual
+---
+
+# Teorema central do limite
+
+## Teorema central do limite
+
+Seja $X_1, X_2, \ldots, X_n$ variáveis aleatórias **independentes e identicamente distribuídas** com média, $\mathbb{E}[X_i] = \mu$ e variância, $\sigma^2 < \infty$. Seja $\bar{X}_n = \frac{\sum_{i=1}^{n} X_i}{n}$. Então $$Z_n = \frac{(\bar{X}_n - \mu)}{\mathbb{V}(\bar{X}_n)} = \frac{\sqrt{n}(\bar{X}_n - \mu)}{\sigma}  \xrightarrow[n\to \infty]{D} Z$$ onde $Z \sim N(0,1).$
+
+. . .
+
+Abuso de notação: $Z_n \xrightarrow{D} N(0,1)$
+
+## Teorema central do limite
+
+Uma implicação do TCL é que a distribuição de $\bar{X}_n$ converge para a normal, ou seja $$ \bar{X}_n \xrightarrow{D} X$$ onde $X \sim N(\mu, \sigma^2/n)$.
+
+. . .
+
+Outras implicações, que significam a mesma coisa $$Z_n \xrightarrow{D} N(0,1) \qquad  \qquad \bar{X}_n \xrightarrow{D} N(\mu,\sigma^2/n) \\
+\bar{X}_n - \mu \xrightarrow{D} N(0,\sigma^2/n)  \quad  \qquad 
+\sqrt{n}(\bar{X}_n - \mu) \xrightarrow{D} N(0,\sigma^2) 
+$$
+
+<!-- ## TCL (Exemplo Gama) -->
+
+<!-- Suponha que $X_1,X_2.\ldots, X_n$ seja uma amostra aleatória com distribuição $Gama(a=4, b=2)$. Ou seja, $$\mathbb{E}[X_i] = a/b = 2, \qquad \mathbb{V}[X_i] = a/b^2 = 1.$$ -->
+
+<!-- . . . -->
+
+<!-- Pelo TCL, $$ \bar{X}_n \xrightarrow{D} N\left(\frac{a}{b}=2, \frac{a}{b^2n}=\frac{1}{n} \right)$$ -->
+
+<!-- ## TCL (Visualizando) -->
+
+<!-- ::: panel-tabset -->
+<!-- ### Gama(4,2) -->
+
+<!-- ```{r} -->
+<!-- library(ggplot2) -->
+
+<!-- # param = cbind(c(0.5, 1:4), c(0.5, rep(2,3),1)) -->
+<!-- # labels <- parse(text = sprintf("alpha == %f ~ beta == %f", param[,1], param[,2])) -->
+
+<!-- p <- ggplot() + -->
+<!--   geom_function(fun = dgamma, args = list(shape = 4, rate =2), mapping = aes(colour = "Gamma(4,2)" ) ) + -->
+<!--   geom_vline(xintercept = 2, linetype=2) +  -->
+<!--   # geom_function(fun = dgamma, args = list(shape = param[2,1], scale = param[2,2]),  -->
+<!--   #               mapping = aes(colour = "2", linetype ="2" ) ) + -->
+<!--   # geom_function(fun = dgamma, args = list(shape = param[3,1], scale = param[3,2]),  -->
+<!--   #               mapping = aes(colour = "3", linetype ="3" ) ) + -->
+<!--   # geom_function(fun = dgamma, args = list(shape = param[4,1], scale = param[4,2]),  -->
+<!--   #               mapping = aes(colour = "4", linetype ="4" ) ) + -->
+<!--   # geom_function(fun = dgamma, args = list(shape = param[5,1], scale = param[5,2]),  -->
+<!--   #               mapping = aes(colour = "5", linetype ="5" ) ) + -->
+<!--   # scale_color_manual(values = 1:5, breaks =  1:5, labels = labels) + -->
+<!--   # scale_linetype_manual(values = 1:5, breaks =  1:5, labels = labels) + -->
+<!--   xlim(0,8) + -->
+<!--   labs( -->
+<!--     x = "x", -->
+<!--     y = "f(x)", -->
+<!--     colour = "", -->
+<!--   ) +  -->
+<!--   theme_bw(base_size = 16) +  -->
+<!--     theme(legend.position = c(.8,.75)) -->
+
+<!-- p -->
+<!-- ``` -->
+
+<!-- ### $n=10$ -->
+
+<!-- ```{r} -->
+<!-- p + -->
+<!--   # xlim(0,4) + -->
+<!--   geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(2/10)), mapping = aes(colour = "n=10; N(2,1/n)" ) )   -->
+<!-- ``` -->
+
+<!-- ### $n=50$ -->
+
+<!-- ```{r} -->
+<!-- p + -->
+<!--   # xlim(0,4) + -->
+<!--   geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(2/10)), mapping = aes(colour = "n=10; N(2,1/n)" ) ) + -->
+<!--   geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(2/30)), mapping = aes(colour = "n=30; N(2,1/n)" ) )   -->
+<!-- ``` -->
+
+<!-- ### $n=100$ -->
+
+<!-- ```{r} -->
+<!-- p + -->
+<!--   # xlim(0,4) + -->
+<!--   geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(2/10)), mapping = aes(colour = "n=10; N(2,1/n)" ) ) + -->
+<!--   geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(2/30)), mapping = aes(colour = "n=30; N(2,1/n)" ) ) + -->
+<!--   geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(2/100)), mapping = aes(colour = "n=100; N(2,1/n)" ) )  -->
+<!-- ``` -->
+<!-- ::: -->
+
+<!-- ## TCL (Prova) {.scrollable} -->
+
+<!-- O TCL afirma que $Z_n = \sqrt{n}(\bar{X}_n - \mu)/\sigma \xrightarrow{D} N(0,1)$. -->
+
+<!-- . . . -->
+
+<!-- Basta mostrar que -->
+
+<!-- $$M_{Z_n}(t) \xrightarrow[n\to\infty]{} e^{t^2/2}$$ -->
+
+<!-- . . . -->
+
+<!-- Seja $Y_i = (X_i - \mu) / \sigma$, então $Z_n = n^{-1/2} \sum_i {Y_i}$ -->
+
+<!-- ## TCL (Prova) {.scrollable} -->
+
+<!-- Seja $M_{Y_i}(t) = M_Y(t), \, \forall i$ a f.g.m. de $Y_i, \, i=1,2,\ldots,n$. -->
+
+<!-- $$M_{Z_n}(t) = \prod_i M_{Y_i}(t/\sqrt{n}) = \left( M_{Y}(t/\sqrt{n}) \right)^n$$ -->
+
+<!-- . . . -->
+
+<!-- Como $Y_i = (X_i-\mu)/\sigma$,então $\mathbb{E}[Y] = 0$ e $\mathbb{E}[Y^2] = \mathbb{V}[Y] = 1$, logo -->
+
+<!-- $$M_{Y}^{(0)}(0) = 1 \qquad  M_{Y}^{(1)}(0) = 0 \qquad  M_{Y}^{(2)}(0) = 1$$ -->
+
+<!-- . . . -->
+
+<!-- Expandindo $M_Y(t)$ em torno de $0$ -->
+
+<!-- $$M_{Y}(t) = \sum_{k=0}^{\infty} \frac{t^k}{k!} M_{Y}^{(k)}(0) \\ = 1 + 0 + t^2 / 2 + \sum_{k=3}^{\infty} \frac{t^k}{k!} M_{Y}^{(k)}(0)$$ -->
+
+<!-- ## TCL (Prova) {.scrollable} -->
+
+<!-- Usando a expansão e calculando $M_Y(t / \sqrt{n})$ -->
+
+<!-- $$M_{Y}(t/ \sqrt{n}) = 1 + (t/\sqrt{n})^2 / 2 + \sum_{k=3}^{\infty} \frac{(t/\sqrt{n})^k}{k!} M_{Y}^{(k)}(0)$$ -->
+
+<!-- . . . -->
+
+<!-- $$ = 1 + \frac{1}{n} \left( t^2 / 2 + \sum_{k=3}^{\infty} \frac{t^k}{ n^{(k-1)/2} k!} M_{Y}^{(k)}(0) \right)$$ -->
+
+<!-- . . . -->
+
+<!-- Lembrando que -->
+
+<!-- $$M_{Z_n}(t) = \left(M_{Y}(t/\sqrt{n})\right)^n = \left( 1 + \frac{t^2/2 + A_n}{n} \right)^n$$ Notem que $A_n \to 0$ quando $n\to \infty$ -->
+
+<!-- ## TCL (Prova) {.scrollable} -->
+
+<!-- Tomando o limite -->
+
+<!-- $$\lim_{n\to \infty}M_{Z_n}(t) = \lim_{n\to \infty}\left( 1 + \frac{t^2/2 + A_n}{n} \right)^n$$ -->
+
+<!-- . . . -->
+
+<!-- { Resultado: se $a_n \to a$, então $\lim_{n\to\infty} (1 + \frac{a_n}{n})^n = e^a$ } -->
+
+<!-- $$ = e^{\frac{t^2}{2}}$$ -->
+
+<!-- Que é a f.g.m. da distribuição $N(0,1)$. C.Q.D.. -->
+
+## TCL (Variância desconhecida) {.scrollable}
+
+Seja $X_1, X_2, \ldots, X_n$ variáveis aleatórias **independentes e identicamente distribuídas** com média, $\mathbb{E}[X_i] = \mu$ e variância, $\sigma^2 < \infty$. Seja $\bar{X}_n = \frac{\sum_{i=1}^{n} X_i}{n}$ e $S_n^2 = \sum_{i=1}^n(X_i - \bar{X})/(n-1)$. Então 
+
+$$Z_n = \frac{\sqrt{n}(\bar{X}_n - \mu)}{S_n}  \xrightarrow[n\to \infty]{D} \sim N(0,1).$$
+
+## Para dados normais {.scrollable}
+
+::::: columns
+::: {.column width="70%"}
+Seja $X_1, X_2, \ldots, X_n$ variáveis aleatórias independentes **normalmente** distribuídas com média, $\mathbb{E}[X_i] = \mu$ e variância, $\sigma^2$. Então $$T_n = \frac{(\bar{X}_n - \mu)}{S_n/\sqrt{n}} \sim t_{n-1}$$
+:::
+
+::: {.column width="30%"}
+![](extra/gosset.jpg){width="60%"} [![](extra/paper2.png){width="100%"}](https://doi.org/10.2307/2331554)
+:::
+:::::
+
+. . .
+
+A distribuição $t$ de Student (Gosset) com $n-1$ graus de liberdade $$f_{T_n}(t) = \frac{\Gamma(n/2)}{\sqrt{\pi (n-1)}\Gamma((n-1)/2)}\left(1 +\frac{t^2}{n-1}\right)^{-n/2}$$
+
+## A distribuição $t$ de Student
+
+```{r}
+library(ggplot2)
+ggplot() +
+  geom_function(fun = dnorm, mapping = aes(colour = "N(0,1)" ) ) +
+  geom_function(fun = dt, args = list(df = 1), mapping = aes(colour = "t(1)" ) ) +
+  geom_function(fun = dt, args = list(df = 2), mapping = aes(colour = "t(2)" ) ) +
+  geom_function(fun = dt, args = list(df = 4), mapping = aes(colour = "t(4)" ) ) +
+  geom_function(fun = dt, args = list(df = 50), mapping = aes(colour = "t(50)" ) ) +
+  # scale_color_manual(values = 1:5, breaks =  1:5, labels = labels) +
+  xlim(-3,3) +
+  labs(
+    x = "x",
+    y = "f(x)",
+    colour = "",
+  ) + 
+  theme_bw(base_size = 16) + 
+    theme(legend.position = c(.8,.75))
+```
+
+$$t_n \xrightarrow[n\to \infty]{}N(0,1) $$
+
+## Teorema central do limite (Amostras sem reposição)
+
+::::: columns
+::: {.column width="70%"}
+Seja $X_1,X_2,\ldots,X_n$ v.a.s selecionadas **sem reposição de uma população finita**. $$\frac{(\bar{X}_n - \mu)}{S_n/\sqrt{n}} \xrightarrow[n\to \infty]{D} N(0,1)$$
+
+[![](extra/paper.png)](https://old.renyi.hu/~p_erdos/1959-13.pdf)
+:::
+
+::: {.column width="30%"}
+![](extra/erdos.jpg){width="60%"} ![](extra/renyi.jpg){width="50%"}
+:::
+:::::
+
+## Método Delta
+
+Suponha que $$\frac{\sqrt{n}(Y_n - \mu)}{\sigma} \xrightarrow{D} N(0,1)$$ e que $g$ seja uma função tal que $g'(\mu) \neq 0$. Então
+
+$$\frac{\sqrt{n}(g(Y_n) - g(\mu))}{|g'(\mu)|\sigma} \xrightarrow{D} N(0,1)$$
+
+## Método Delta
+
+Ou seja, $Y_n \xrightarrow{D} N(\mu, \sigma^2/n)$ então $$g(Y_n) \xrightarrow{D} N(g(\mu), g'(\mu)^2\sigma^2/n)$$
+
+## Método Delta (exemplo) {.scrollable}
+
+Exemplo. Suponha que $X_1,X_2,\ldots,X_n$ sejam v.a. independentes de uma distribuição Bernoulli($\theta$). Encontre as distribuições assintóticas de $\bar{X}_n$ e de $Y_n = \frac{\bar{X}_n}{1-\bar{X}_n}$?
+
+. . .
+
+Pelo TCL
+
+$$\bar{X}_n \xrightarrow N(\theta, \theta(1-\theta) / n)$$
+
+. . .
+
+Note que $Y_n = g(\bar{X}_n)$, onde $g(t) = \frac{t}{1-t}$.
+
+. . .
+
+Logo $g'(t) = \frac{1}{(1-t)^2}$. Aplicando o método Delta tem-se que
+
+. . .
+
+$$Y_n \xrightarrow{D} N\left(\frac{\theta}{1-\theta}, \frac{\theta (1-\theta)}{n(1-\theta)^4} \right)$$
+
+## Método Delta (visualizando)
+
+::: panel-tabset
+### $\bar{X_n}$
+
+```{r}
+n = c(10, 30, 50)
+px <- ggplot() +
+  geom_function(fun = dnorm, args = list(mean = 0.75, sd = sqrt(0.25 * (1-0.25) / n[1]) ), mapping = aes(colour = "n=10" ) ) +
+  geom_function(fun = dnorm, args = list(mean = 0.75, sd = sqrt(0.25 * (1-0.25) / n[2]) ), mapping = aes(colour = "n=30" ) ) +
+  geom_function(fun = dnorm, args = list(mean = 0.75, sd = sqrt(0.25 * (1-0.25) / n[3]) ), mapping = aes(colour = "n=50" ) ) +
+  geom_vline(xintercept = 0.75, linetype=2) + 
+  # geom_function(fun = dgamma, args = list(shape = param[2,1], scale = param[2,2]), 
+  #               mapping = aes(colour = "2", linetype ="2" ) ) +
+  # geom_function(fun = dgamma, args = list(shape = param[3,1], scale = param[3,2]), 
+  #               mapping = aes(colour = "3", linetype ="3" ) ) +
+  # geom_function(fun = dgamma, args = list(shape = param[4,1], scale = param[4,2]), 
+  #               mapping = aes(colour = "4", linetype ="4" ) ) +
+  # geom_function(fun = dgamma, args = list(shape = param[5,1], scale = param[5,2]), 
+  #               mapping = aes(colour = "5", linetype ="5" ) ) +
+  # scale_color_manual(values = 1:5, breaks =  1:5, labels = labels) +
+  # scale_linetype_manual(values = 1:5, breaks =  1:5, labels = labels) +
+  xlim(1/2, 1) +
+  labs(
+    x = "x",
+    y = "f(x)",
+    colour = "",
+  ) + 
+  theme_bw(base_size = 16) + 
+    theme(legend.position = c(.8,.75))
+
+px
+```
+
+### $Y_n = \bar{X_n}/(1-\bar{X_n})$
+
+```{r}
+py <- ggplot() +
+  geom_function(fun = dnorm, args = list(mean = 0.75 / (1-0.75), sd = sqrt(0.75 * (1-0.75)  / (n[1] * (1-0.75)^4) ) ), mapping = aes(colour = "n=10" ) ) +
+  geom_function(fun = dnorm, args = list(mean = 0.75 / (1-0.75), sd = sqrt(0.75 * (1-0.75)  / (n[2] * (1-0.75)^4) ) ), mapping = aes(colour = "n=30" ) ) +
+  geom_function(fun = dnorm, args = list(mean = 0.75 / (1-0.75), sd = sqrt(0.75 * (1-0.75)  / (n[3] * (1-0.75)^4) ) ), mapping = aes(colour = "n=50" ) ) +
+  geom_vline(xintercept = 0.75/0.25, linetype=2) + 
+  # geom_function(fun = dgamma, args = list(shape = param[2,1], scale = param[2,2]), 
+  #               mapping = aes(colour = "2", linetype ="2" ) ) +
+  # geom_function(fun = dgamma, args = list(shape = param[3,1], scale = param[3,2]), 
+  #               mapping = aes(colour = "3", linetype ="3" ) ) +
+  # geom_function(fun = dgamma, args = list(shape = param[4,1], scale = param[4,2]), 
+  #               mapping = aes(colour = "4", linetype ="4" ) ) +
+  # geom_function(fun = dgamma, args = list(shape = param[5,1], scale = param[5,2]), 
+  #               mapping = aes(colour = "5", linetype ="5" ) ) +
+  # scale_color_manual(values = 1:5, breaks =  1:5, labels = labels) +
+  # scale_linetype_manual(values = 1:5, breaks =  1:5, labels = labels) +
+  xlim(0,7.5) +
+  labs(
+    x = "y",
+    y = "f(y)",
+    colour = "",
+  ) + 
+  theme_bw(base_size = 16) + 
+    theme(legend.position = c(.8,.75))
+ 
+py
+```
+:::
+
+## Método Delta (simulando)
+
+```{r echo=T}
+M = 1000
+x <- matrix(rbinom(50*M,size = 1,prob = .75),ncol = M)
+```
+
+::: panel-tabset
+### $\bar{X_n}$
+
+```{r}
+library(tibble)
+tibble(x = apply(x,2,FUN = function(x) mean(x))) |> 
+  ggplot() + 
+  geom_histogram(aes(x=x, y=..density..), bins = 20, fill="white", color=1) + 
+  geom_function(fun = dnorm, args = list(mean = 0.75, sd = sqrt(0.25 * (1-0.25) / n[3]) ) ) +
+  geom_vline(xintercept = 0.75, linetype=2) + 
+  theme_bw()
+```
+
+### $Y_n = \bar{X_n}/(1-\bar{X_n})$
+
+```{r}
+ggplot() + 
+  geom_histogram(data = tibble(y = apply(x,2,FUN = function(x) mean(x)/(1-mean(x)))), mapping = aes(x=y, y=..density..), bins = 20, fill="white", color=1) + 
+  geom_function(fun = dnorm, args = list(mean = 0.75 / (1-0.75), sd = sqrt(0.75 * (1-0.75)  / (n[3] * (1-0.75)^4) ) ) ) +  
+  geom_vline(xintercept = 0.75/0.25, linetype=2) + 
+  theme_bw()
+
+```
+:::
+
+# Inferência estatística
+
+## Introdução à inferência
+
+Inferência estatística ou aprendizagem estatística é o processo de usar os dados para inferir (aprender a respeito de) a distribuição geradora dos dados.
+
+. . .
+
+Uma típica questão de inferência estatística é:
+
+Dado uma amostra $X_1,X_2,\ldots,X_n \sim F$, como nós inferimos a respeito de $F$?
+
+. . .
+
+Em muitos casos, queremos saber apenas alguma característica de $F$ como a média por exemplo.
+S

@@ -98,17 +98,16 @@ p +
 
 ## TCL (Simulação)
 
-::: {.incremental}
-
-- gerar $M=1000$ amostras de tamanho $n$ de uma distribuição $Gama(a=4, b=2)$
-- calcular a média para cada amostra
-- vizualizar a distribuição das médias (histograma)
-
+::: incremental
+-   gerar $M=1000$ amostras de tamanho $n$ de uma distribuição $Gama(a=4, b=2)$
+-   calcular a média para cada amostra
+-   vizualizar a distribuição das médias (histograma)
 :::
 
 . . .
 
 No R
+
 ```{r echo=T}
 M = 1000; n = 10
 X <- matrix(rgamma(n*M, shape = 4, rate = 2), ncol=M)
@@ -125,9 +124,7 @@ x.mean[c(1,2,1000)]
 
 ## TCL (Simulação)
 
-
 ::: panel-tabset
-
 ### $n=10$
 
 ```{r}
@@ -194,15 +191,10 @@ ggplot() +
     colour = ""
     ) 
 ```
-
-
 :::
-
 
 ## Prova do TCL
 
 Existem várias provas do TCL, a mais popular é via função geradora de momentos.
-
-
 
 <!-- ## Método Delta -->

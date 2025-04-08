@@ -394,7 +394,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">MD21 Introdução à Estatística</h1>
-  <p class="subtitle">TCL</p>
+  <p class="subtitle">TCL, método Delta e Introdução à inferência</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -405,41 +405,182 @@ Leo Bastos
 </div>
 
 </section>
-<section id="teorema-central-do-limite" class="slide level2">
-<h2>Teorema central do limite</h2>
-<p>Seja <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> variáveis aleatórias iid com média, <span class="math inline">\(\mathbb{E}[X_i] = \mu\)</span> e variância, <span class="math inline">\(\sigma^2 &lt; \infty\)</span>. Seja <span class="math inline">\(\bar{X}_n = \frac{\sum_{i=1}^{n} X_i}{n}\)</span>. Então <span class="math display">\[Z_n = \frac{(\bar{X}_n - \mu)}{\mathbb{V}(\bar{X}_n)} = \frac{\sqrt{n}(\bar{X}_n - \mu)}{\sigma}  \xrightarrow[n\to \infty]{D} Z\]</span> onde <span class="math inline">\(Z \sim N(0,1).\)</span></p>
+<section>
+<section id="teorema-central-do-limite" class="title-slide slide level1 center">
+<h1>Teorema central do limite</h1>
+
 </section>
 <section id="teorema-central-do-limite-1" class="slide level2">
 <h2>Teorema central do limite</h2>
+<p>Seja <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> variáveis aleatórias <strong>independentes e identicamente distribuídas</strong> com média, <span class="math inline">\(\mathbb{E}[X_i] = \mu\)</span> e variância, <span class="math inline">\(\sigma^2 &lt; \infty\)</span>. Seja <span class="math inline">\(\bar{X}_n = \frac{\sum_{i=1}^{n} X_i}{n}\)</span>. Então <span class="math display">\[Z_n = \frac{(\bar{X}_n - \mu)}{\mathbb{V}(\bar{X}_n)} = \frac{\sqrt{n}(\bar{X}_n - \mu)}{\sigma}  \xrightarrow[n\to \infty]{D} Z\]</span> onde <span class="math inline">\(Z \sim N(0,1).\)</span></p>
+<div class="fragment">
+<p>Abuso de notação: <span class="math inline">\(Z_n \xrightarrow{D} N(0,1)\)</span></p>
+</div>
+</section>
+<section id="teorema-central-do-limite-2" class="slide level2">
+<h2>Teorema central do limite</h2>
 <p>Uma implicação do TCL é que a distribuição de <span class="math inline">\(\bar{X}_n\)</span> converge para a normal, ou seja <span class="math display">\[ \bar{X}_n \xrightarrow{D} X\]</span> onde <span class="math inline">\(X \sim N(\mu, \sigma^2/n)\)</span>.</p>
 <div class="fragment">
-<p>Abuso de notação <span class="math display">\[ \bar{X}_n \xrightarrow{D} N(\mu, \sigma^2/n)\]</span></p>
+<p>Outras implicações, que significam a mesma coisa <span class="math display">\[Z_n \xrightarrow{D} N(0,1) \qquad  \qquad \bar{X}_n \xrightarrow{D} N(\mu,\sigma^2/n) \\
+\bar{X}_n - \mu \xrightarrow{D} N(0,\sigma^2/n)  \quad  \qquad
+\sqrt{n}(\bar{X}_n - \mu) \xrightarrow{D} N(0,\sigma^2)
+\]</span></p>
+<!-- ## TCL (Exemplo Gama) -->
+<!-- Suponha que $X_1,X_2.\ldots, X_n$ seja uma amostra aleatória com distribuição $Gama(a=4, b=2)$. Ou seja, $$\mathbb{E}[X_i] = a/b = 2, \qquad \mathbb{V}[X_i] = a/b^2 = 1.$$ -->
+<!-- . . . -->
+<!-- Pelo TCL, $$ \bar{X}_n \xrightarrow{D} N\left(\frac{a}{b}=2, \frac{a}{b^2n}=\frac{1}{n} \right)$$ -->
+<!-- ## TCL (Visualizando) -->
+<!-- ::: panel-tabset -->
+<!-- ### Gama(4,2) -->
+<!-- ```{r} -->
+<!-- library(ggplot2) -->
+<!-- # param = cbind(c(0.5, 1:4), c(0.5, rep(2,3),1)) -->
+<!-- # labels <- parse(text = sprintf("alpha == %f ~ beta == %f", param[,1], param[,2])) -->
+<!-- p <- ggplot() + -->
+<!--   geom_function(fun = dgamma, args = list(shape = 4, rate =2), mapping = aes(colour = "Gamma(4,2)" ) ) + -->
+<!--   geom_vline(xintercept = 2, linetype=2) +  -->
+<!--   # geom_function(fun = dgamma, args = list(shape = param[2,1], scale = param[2,2]),  -->
+<!--   #               mapping = aes(colour = "2", linetype ="2" ) ) + -->
+<!--   # geom_function(fun = dgamma, args = list(shape = param[3,1], scale = param[3,2]),  -->
+<!--   #               mapping = aes(colour = "3", linetype ="3" ) ) + -->
+<!--   # geom_function(fun = dgamma, args = list(shape = param[4,1], scale = param[4,2]),  -->
+<!--   #               mapping = aes(colour = "4", linetype ="4" ) ) + -->
+<!--   # geom_function(fun = dgamma, args = list(shape = param[5,1], scale = param[5,2]),  -->
+<!--   #               mapping = aes(colour = "5", linetype ="5" ) ) + -->
+<!--   # scale_color_manual(values = 1:5, breaks =  1:5, labels = labels) + -->
+<!--   # scale_linetype_manual(values = 1:5, breaks =  1:5, labels = labels) + -->
+<!--   xlim(0,8) + -->
+<!--   labs( -->
+<!--     x = "x", -->
+<!--     y = "f(x)", -->
+<!--     colour = "", -->
+<!--   ) +  -->
+<!--   theme_bw(base_size = 16) +  -->
+<!--     theme(legend.position = c(.8,.75)) -->
+<!-- p -->
+<!-- ``` -->
+<!-- ### $n=10$ -->
+<!-- ```{r} -->
+<!-- p + -->
+<!--   # xlim(0,4) + -->
+<!--   geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(2/10)), mapping = aes(colour = "n=10; N(2,1/n)" ) )   -->
+<!-- ``` -->
+<!-- ### $n=50$ -->
+<!-- ```{r} -->
+<!-- p + -->
+<!--   # xlim(0,4) + -->
+<!--   geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(2/10)), mapping = aes(colour = "n=10; N(2,1/n)" ) ) + -->
+<!--   geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(2/30)), mapping = aes(colour = "n=30; N(2,1/n)" ) )   -->
+<!-- ``` -->
+<!-- ### $n=100$ -->
+<!-- ```{r} -->
+<!-- p + -->
+<!--   # xlim(0,4) + -->
+<!--   geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(2/10)), mapping = aes(colour = "n=10; N(2,1/n)" ) ) + -->
+<!--   geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(2/30)), mapping = aes(colour = "n=30; N(2,1/n)" ) ) + -->
+<!--   geom_function(fun = dnorm, args = list(mean = 2, sd =sqrt(2/100)), mapping = aes(colour = "n=100; N(2,1/n)" ) )  -->
+<!-- ``` -->
+<!-- ::: -->
+<!-- ## TCL (Prova) {.scrollable} -->
+<!-- O TCL afirma que $Z_n = \sqrt{n}(\bar{X}_n - \mu)/\sigma \xrightarrow{D} N(0,1)$. -->
+<!-- . . . -->
+<!-- Basta mostrar que -->
+<!-- $$M_{Z_n}(t) \xrightarrow[n\to\infty]{} e^{t^2/2}$$ -->
+<!-- . . . -->
+<!-- Seja $Y_i = (X_i - \mu) / \sigma$, então $Z_n = n^{-1/2} \sum_i {Y_i}$ -->
+<!-- ## TCL (Prova) {.scrollable} -->
+<!-- Seja $M_{Y_i}(t) = M_Y(t), \, \forall i$ a f.g.m. de $Y_i, \, i=1,2,\ldots,n$. -->
+<!-- $$M_{Z_n}(t) = \prod_i M_{Y_i}(t/\sqrt{n}) = \left( M_{Y}(t/\sqrt{n}) \right)^n$$ -->
+<!-- . . . -->
+<!-- Como $Y_i = (X_i-\mu)/\sigma$,então $\mathbb{E}[Y] = 0$ e $\mathbb{E}[Y^2] = \mathbb{V}[Y] = 1$, logo -->
+<!-- $$M_{Y}^{(0)}(0) = 1 \qquad  M_{Y}^{(1)}(0) = 0 \qquad  M_{Y}^{(2)}(0) = 1$$ -->
+<!-- . . . -->
+<!-- Expandindo $M_Y(t)$ em torno de $0$ -->
+<!-- $$M_{Y}(t) = \sum_{k=0}^{\infty} \frac{t^k}{k!} M_{Y}^{(k)}(0) \\ = 1 + 0 + t^2 / 2 + \sum_{k=3}^{\infty} \frac{t^k}{k!} M_{Y}^{(k)}(0)$$ -->
+<!-- ## TCL (Prova) {.scrollable} -->
+<!-- Usando a expansão e calculando $M_Y(t / \sqrt{n})$ -->
+<!-- $$M_{Y}(t/ \sqrt{n}) = 1 + (t/\sqrt{n})^2 / 2 + \sum_{k=3}^{\infty} \frac{(t/\sqrt{n})^k}{k!} M_{Y}^{(k)}(0)$$ -->
+<!-- . . . -->
+<!-- $$ = 1 + \frac{1}{n} \left( t^2 / 2 + \sum_{k=3}^{\infty} \frac{t^k}{ n^{(k-1)/2} k!} M_{Y}^{(k)}(0) \right)$$ -->
+<!-- . . . -->
+<!-- Lembrando que -->
+<!-- $$M_{Z_n}(t) = \left(M_{Y}(t/\sqrt{n})\right)^n = \left( 1 + \frac{t^2/2 + A_n}{n} \right)^n$$ Notem que $A_n \to 0$ quando $n\to \infty$ -->
+<!-- ## TCL (Prova) {.scrollable} -->
+<!-- Tomando o limite -->
+<!-- $$\lim_{n\to \infty}M_{Z_n}(t) = \lim_{n\to \infty}\left( 1 + \frac{t^2/2 + A_n}{n} \right)^n$$ -->
+<!-- . . . -->
+<!-- { Resultado: se $a_n \to a$, então $\lim_{n\to\infty} (1 + \frac{a_n}{n})^n = e^a$ } -->
+<!-- $$ = e^{\frac{t^2}{2}}$$ -->
+<!-- Que é a f.g.m. da distribuição $N(0,1)$. C.Q.D.. -->
 </div>
 </section>
-<section id="tcl-exemplo-gama" class="slide level2">
-<h2>TCL (Exemplo Gama)</h2>
-<p>Suponha que <span class="math inline">\(X_1,X_2.\ldots, X_n\)</span> seja uma amostra aleatória com distribuição <span class="math inline">\(Gama(a=4, b=2)\)</span>. Ou seja, <span class="math display">\[\mathbb{E}[X_i] = a/b = 2, \qquad \mathbb{V}[X_i] = a/b^2 = 1.\]</span></p>
+<section id="tcl-variância-desconhecida" class="slide level2 scrollable">
+<h2>TCL (Variância desconhecida)</h2>
+</section>
+<section id="teorema-central-do-limite-3" class="slide level2">
+<h2>Teorema central do limite</h2>
+<p>Seja <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> variáveis aleatórias <strong>independentes e identicamente distribuídas</strong> com média, <span class="math inline">\(\mathbb{E}[X_i] = \mu\)</span> e variância, <span class="math inline">\(\sigma^2 &lt; \infty\)</span>. Seja <span class="math inline">\(\bar{X}_n = \frac{\sum_{i=1}^{n} X_i}{n}\)</span> e <span class="math inline">\(S_n^2 = \sum_{i=1}^n(X_i - \bar{X})/(n-1)\)</span>. Então</p>
+<p><span class="math display">\[Z_n = \frac{\sqrt{n}(\bar{X}_n - \mu)}{S_n}  \xrightarrow[n\to \infty]{D} Z\]</span> onde <span class="math inline">\(Z \sim N(0,1).\)</span></p>
+</section>
+<section id="para-dados-normais" class="slide level2 scrollable">
+<h2>Para dados normais</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p>Seja <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> variáveis aleatórias independentes <strong>normalmente</strong> distribuídas com média, <span class="math inline">\(\mathbb{E}[X_i] = \mu\)</span> e variância, <span class="math inline">\(\sigma^2\)</span>. Então <span class="math display">\[T_n = \frac{(\bar{X}_n - \mu)}{S_n/\sqrt{n}} \sim t_{n-1}\]</span></p>
+</div><div class="column" style="width:30%;">
+<p><img data-src="extra/gosset.jpg" style="width:60.0%"> <a href="https://doi.org/10.2307/2331554"><img data-src="extra/paper2.png" style="width:100.0%"></a></p>
+</div></div>
 <div class="fragment">
-<p>Pelo TCL, <span class="math display">\[ \bar{X}_n \xrightarrow{D} N\left(\frac{a}{b}=2, \frac{a}{b^2n}=\frac{1}{n} \right)\]</span></p>
+<p>A distribuição <span class="math inline">\(t\)</span> de Student (Gosset) com <span class="math inline">\(n-1\)</span> graus de liberdade <span class="math display">\[f_{T_n}(t) = \frac{\Gamma(n/2)}{\sqrt{\pi (n-1)}\Gamma((n-1)/2)}\left(1 +\frac{t^2}{n-1}\right)^{-n/2}\]</span></p>
 </div>
 </section>
-<section id="tcl-visualizando" class="slide level2">
-<h2>TCL (Visualizando)</h2>
+<section id="a-distribuição-t-de-student" class="slide level2">
+<h2>A distribuição <span class="math inline">\(t\)</span> de Student</h2>
+
+<img data-src="slide_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"><p><span class="math display">\[t_n \xrightarrow[n\to \infty]{}N(0,1) \]</span></p>
+</section>
+<section id="teorema-central-do-limite-amostras-sem-reposição" class="slide level2">
+<h2>Teorema central do limite (Amostras sem reposição)</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p>Seja <span class="math inline">\(X_1,X_2,\ldots,X_n\)</span> v.as identicamente distribuídas selecionadas sem reposição de uma população finita. <span class="math display">\[\frac{(\bar{X}_n - \mu)}{S_n/\sqrt{n}} \xrightarrow[n\to \infty]{D} N(0,1)\]</span></p>
+<p><a href="https://old.renyi.hu/~p_erdos/1959-13.pdf"><img data-src="extra/paper.png"></a></p>
+</div><div class="column" style="width:30%;">
+<p><img data-src="extra/erdos.jpg" style="width:60.0%"> <img data-src="extra/renyi.jpg" style="width:50.0%"></p>
+</div></div>
+</section>
+<section id="método-delta" class="slide level2">
+<h2>Método Delta</h2>
+<p>Suponha que <span class="math display">\[\frac{\sqrt{n}(Y_n - \mu)}{\sigma} \xrightarrow{D} N(0,1)\]</span> e que <span class="math inline">\(g\)</span> seja uma função tal que <span class="math inline">\(g'(\mu) \neq 0\)</span>. Então</p>
+<p><span class="math display">\[\frac{\sqrt{n}(g(Y_n) - g(\mu))}{|g'(\mu)|\sigma} \xrightarrow{D} N(0,1)\]</span></p>
+</section>
+<section id="método-delta-1" class="slide level2">
+<h2>Método Delta</h2>
+<p>Ou seja, <span class="math inline">\(Y_n \xrightarrow{D} N(\mu, \sigma^2/n)\)</span> então <span class="math display">\[g(Y_n) \xrightarrow{D} N(g(\mu), g'(\mu)^2\sigma^2/n)\]</span></p>
+</section>
+<section id="método-delta-exemplo" class="slide level2 scrollable">
+<h2>Método Delta (exemplo)</h2>
+<p>Exemplo. Suponha que <span class="math inline">\(X_1,X_2,\ldots,X_n\)</span> sejam v.a. independentes de uma distribuição Bernoulli(<span class="math inline">\(\theta\)</span>). Encontre as distribuições assintóticas de <span class="math inline">\(\bar{X}_n\)</span> e de <span class="math inline">\(Y_n = \frac{\bar{X}_n}{1-\bar{X}_n}\)</span>?</p>
+<div class="fragment">
+<p>Pelo TCL</p>
+<p><span class="math display">\[\bar{X}_n \xrightarrow N(\theta, \theta(1-\theta) / n)\]</span></p>
+</div>
+<div class="fragment">
+<p>Note que <span class="math inline">\(Y_n = g(\bar{X}_n)\)</span>, onde <span class="math inline">\(g(t) = \frac{t}{1-t}\)</span>.</p>
+</div>
+<div class="fragment">
+<p>Logo <span class="math inline">\(g'(t) = \frac{1}{(1-t)^2}\)</span>. Aplicando o método Delta tem-se que</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[Y_n \xrightarrow{D} N\left(\frac{\theta}{1-\theta}, \frac{\theta (1-\theta)}{n(1-\theta)^4} \right)\]</span></p>
+</div>
+</section>
+<section id="método-delta-visualizando" class="slide level2">
+<h2>Método Delta (visualizando)</h2>
 <div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Gama(4,2)</a></li><li><a href="#tabset-1-2"><span class="math inline">\(N(2, 1/10)\)</span></a></li><li><a href="#tabset-1-3"><span class="math inline">\(N(2, 1/50)\)</span></a></li><li><a href="#tabset-1-4"><span class="math inline">\(N(2, 1/500)\)</span></a></li></ul>
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1"><span class="math inline">\(\bar{X_n}\)</span></a></li><li><a href="#tabset-1-2"><span class="math inline">\(Y_n = \bar{X_n}/(1-\bar{X_n})\)</span></a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="slide_files/figure-revealjs/unnamed-chunk-1-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div id="tabset-1-2">
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -450,7 +591,7 @@ Leo Bastos
 </div>
 </div>
 </div>
-<div id="tabset-1-3">
+<div id="tabset-1-2">
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -461,62 +602,24 @@ Leo Bastos
 </div>
 </div>
 </div>
-<div id="tabset-1-4">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="slide_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
 </div>
 </div>
 </section>
-<section id="tcl-simulação" class="slide level2">
-<h2>TCL (Simulação)</h2>
-<div>
-<ul>
-<li class="fragment">gerar <span class="math inline">\(M=1000\)</span> amostras de tamanho <span class="math inline">\(n\)</span> de uma distribuição <span class="math inline">\(Gama(a=4, b=2)\)</span></li>
-<li class="fragment">calcular a média para cada amostra</li>
-<li class="fragment">vizualizar a distribuição das médias (histograma)</li>
-</ul>
-</div>
-<div class="fragment">
-<p>No R</p>
+<section id="método-delta-simulando" class="slide level2">
+<h2>Método Delta (simulando)</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>M <span class="ot">=</span> <span class="dv">1000</span>; n <span class="ot">=</span> <span class="dv">10</span></span>
-<span id="cb1-2"><a href=""></a>X <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rgamma</span>(n<span class="sc">*</span>M, <span class="at">shape =</span> <span class="dv">4</span>, <span class="at">rate =</span> <span class="dv">2</span>), <span class="at">ncol=</span>M)</span>
-<span id="cb1-3"><a href=""></a><span class="fu">c</span>(<span class="fu">mean</span>(X[,<span class="dv">1</span>]), <span class="fu">mean</span>(X[,<span class="dv">2</span>]), <span class="fu">mean</span>(X[,<span class="dv">1000</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2.495082 2.412137 1.879374</code></pre>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>M <span class="ot">=</span> <span class="dv">1000</span></span>
+<span id="cb1-2"><a href=""></a>x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rbinom</span>(<span class="dv">50</span><span class="sc">*</span>M,<span class="at">size =</span> <span class="dv">1</span>,<span class="at">prob =</span> .<span class="dv">75</span>),<span class="at">ncol =</span> M)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># Calcula medias por coluna</span></span>
-<span id="cb3-2"><a href=""></a>x.mean <span class="ot">=</span> <span class="fu">apply</span>(<span class="at">X =</span> X, <span class="at">MARGIN =</span> <span class="dv">2</span>, <span class="at">FUN =</span> mean)</span>
-<span id="cb3-3"><a href=""></a>x.mean[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">1000</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2.495082 2.412137 1.879374</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="tcl-simulação-1" class="slide level2">
-<h2>TCL (Simulação)</h2>
 <div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1"><span class="math inline">\(n=10\)</span></a></li><li><a href="#tabset-2-2"><span class="math inline">\(n=50\)</span></a></li><li><a href="#tabset-2-3"><span class="math inline">\(n=100\)</span></a></li><li><a href="#tabset-2-4"><span class="math inline">\(n=500\)</span></a></li></ul>
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1"><span class="math inline">\(\bar{X_n}\)</span></a></li><li><a href="#tabset-2-2"><span class="math inline">\(Y_n = \bar{X_n}/(1-\bar{X_n})\)</span></a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="slide_files/figure-revealjs/unnamed-chunk-7-1.png" width="960"></p>
+<p><img data-src="slide_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -527,48 +630,40 @@ Leo Bastos
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="slide_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div id="tabset-2-3">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="slide_files/figure-revealjs/unnamed-chunk-9-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div id="tabset-2-4">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="slide_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></p>
+<p><img data-src="slide_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </div>
+</div>
+</section></section>
+<section>
+<section id="inferência-estatística" class="title-slide slide level1 center">
+<h1>Inferência estatística</h1>
+
+</section>
+<section id="introdução-à-inferência" class="slide level2">
+<h2>Introdução à inferência</h2>
+<p>Inferência estatística ou aprendizagem estatística é o processo de usar os dados para inferir (aprender a respeito de) a distribuição geradora dos dados.</p>
+<div class="fragment">
+<p>Uma típica questão de inferência estatística é:</p>
+<p>Dado uma amostra <span class="math inline">\(X_1,X_2,\ldots,X_n \sim F\)</span>, como nós inferimos a respeito de <span class="math inline">\(F\)</span>?</p>
+</div>
+<div class="fragment">
+<p>Em muitos casos, queremos saber apenas alguma característica de <span class="math inline">\(F\)</span> como a média por exemplo.</p>
 </div>
 </section>
-<section id="prova-do-tcl" class="slide level2">
-<h2>Prova do TCL</h2>
-<p>Existem várias provas do TCL, a mais popular é via função geradora de momentos.</p>
-<!-- ## Método Delta -->
+<section id="section" class="slide level2">
+<h2></h2>
 <div class="quarto-auto-generated-content">
 <p><img src="../../impa-tech-h.png" class="slide-logo"></p>
 <div class="footer footer-default">
 <p><a href="https://github.com/lsbastos/md21/" class="uri">https://github.com/lsbastos/md21/</a></p>
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
