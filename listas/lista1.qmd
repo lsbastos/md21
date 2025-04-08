@@ -19,7 +19,7 @@ Lista de exercícios da disciplina MD21 - Introdução à Estatística.
 
     b.  Dado que ela já teve o computador infectado, qual a probabilidade dela ser um usuário Windows?
 
-3.  Seja a seguinte função de densidade e probabilidade: $$f_X(x) = \left\{ \begin{array}{lc} cx^2, & -1 < x < 1, \\ 0, & c.c..\end{array}\right.$$ onde $c$ é uma constante.
+3.  Seja a seguinte função de densidade e probabilidade: $$f_X(x) = \left\{ \begin{array}{lc} cx^2 & -1 < x < 1, \\ 0 & \mbox{caso contrário.}\end{array}\right.$$ onde $c$ é uma constante.
 
     a.  Encontre $c$.
 
@@ -29,19 +29,16 @@ Lista de exercícios da disciplina MD21 - Introdução à Estatística.
 
 4.  Mostre que $$f_X(x) = \theta (1-\theta)^{x-1}, \qquad \theta\in (0,1), \, x=1,2,3,\ldots$$ é uma função de probabilidade.
 
-5.  Sejam $X$ e $Y$ duas variáveis aleatórias independentes com distribuição uniforme no intervalo $(0,a)$. Encontre $f_Z(z)$ quando
+5.  Seja $X$ uma variável aleatória função de densidade dada por $$f_X(x) = = \left\{ \begin{array}{lc} \frac{\alpha}{x^{\alpha+1}} & x \geq 1, \\ 0 & x<1.\end{array}\right.$$ Encontre a distribuição de $Y = \log(X)$.
+
+6.  Sejam $X$ e $Y$ duas variáveis aleatórias independentes com distribuição uniforme no intervalo $(0,a)$. Encontre $f_Z(z)$ quando
 
     a.  $Z=X+Y$
-
     b.  $Z = XY$
-
     c.  $Z = \max(X,Y)$
 
-<!-- -->
+7.  Suponha que $X|Y \sim Poisson(Y)$ e $Y \sim Gamma(a,b)$.
 
-6.  Suponha que $X|Y \sim Poisson(Y)$ e $Y \sim Gamma(a,b)$.
+    a.  Encontre a distribuição marginal de $X$, $f_X(x)$
 
-<!-- -->
-
-a.  Encontre a distribuição marginal de $X$, $f_X(x)$
-b.  Encontre a distribuição condicional de $Y|X$, $f_{Y|X}(y|x)$
+    b.  Encontre a distribuição condicional de $Y|X$, $f_{Y|X}(y|x)$

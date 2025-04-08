@@ -409,4 +409,4 @@ Dado uma amostra $X_1,X_2,\ldots,X_n \sim F$, como nós inferimos a respeito de 
 
 . . .
 
-Em muitos casos, queremos saber apenas alguma característica de $F$ como a média por exemplo. S
+Em muitos casos, queremos saber apenas alguma característica de $F$ como a média por exemplo. 
