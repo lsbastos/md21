@@ -44,6 +44,6 @@ Revisão de variáveis aleatórias e Teorema Central do Limite. Conceitos e proc
 
 | Lista    | Tópico | Data para entrega | 
 |:---|:---|:---|
-| Lista 1    | Probabilidade e variáveis aleatórias | 16/4 | 
+| Lista 1    | [Probabilidade e variáveis aleatórias](listas/lista1.pdf) | 16/4 | 
 | Lista 2    | Valor esperado, desigualdades e teoria assintótica | - | 
 
