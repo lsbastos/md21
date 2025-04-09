@@ -207,13 +207,25 @@ $$
 
 <!-- Que é a f.g.m. da distribuição $N(0,1)$. C.Q.D.. -->
 
-## TCL (Variância desconhecida) {.scrollable}
+## Variância desconhecida {.scrollable}
 
-Seja $X_1, X_2, \ldots, X_n$ variáveis aleatórias **independentes e identicamente distribuídas** com média, $\mathbb{E}[X_i] = \mu$ e variância, $\sigma^2 < \infty$. Seja $\bar{X}_n = \frac{\sum_{i=1}^{n} X_i}{n}$ e $S_n^2 = \sum_{i=1}^n(X_i - \bar{X})/(n-1)$. Então
+Infelizmente, na prática, $\sigma^2$ não é conhecido.
 
-$$Z_n = \frac{\sqrt{n}(\bar{X}_n - \mu)}{S_n}  \xrightarrow[n\to \infty]{D} \sim N(0,1).$$
+. . .
 
-## Para dados normais {.scrollable}
+Podemos **estimar** $\sigma^2$, e um **estimador** para $\sigma^2$ é dado por $$ S_n^2 = \frac{\sum_{i=1}^n (X_i - \bar{X})^2}{n-1}$$
+
+. . .
+
+Notem que um possível estimador para $\mu$ é $\bar{X}_n$.
+
+. . .
+
+Substituindo, em $Z_n$, $\sigma^2$ por $S_n^2$, temos que
+
+$$T_n = \sqrt{n} \frac{(\bar{X} - \mu)}{S_n^2}$$
+
+## Caso normal
 
 ::::: columns
 ::: {.column width="70%"}
@@ -225,9 +237,16 @@ Seja $X_1, X_2, \ldots, X_n$ variáveis aleatórias independentes **normalmente*
 :::
 :::::
 
-. . .
+## Distribuição $t$
 
-A distribuição $t$ de Student (Gosset) com $n-1$ graus de liberdade $$f_{T_n}(t) = \frac{\Gamma(n/2)}{\sqrt{\pi (n-1)}\Gamma((n-1)/2)}\left(1 +\frac{t^2}{n-1}\right)^{-n/2}$$
+Se $T \sim t_{\nu}$ então $$f_{T}(t) = \frac{\Gamma((\nu+1)/2)}{\sqrt{\pi \nu}\Gamma(\nu/2)}\left(1 +\frac{t^2}{\nu}\right)^{-(\nu+1)/2}, \quad \nu>0.$$
+
+::: incremental
+-   $\mathbb{E}[T] = 0$ se $\nu>1$.
+-   A distribuição $t_1$ é chamada de distribuição de Cauchy.
+-   $\mathbb{V}[T] = \frac{\nu}{\nu-2}$ se $\nu>2$.
+-   $T \sim t_\nu \xrightarrow[\nu \to \infty]{} N(0,1)$
+:::
 
 ## A distribuição $t$ de Student
 
@@ -239,6 +258,7 @@ ggplot() +
   geom_function(fun = dt, args = list(df = 2), mapping = aes(colour = "t(2)" ) ) +
   geom_function(fun = dt, args = list(df = 4), mapping = aes(colour = "t(4)" ) ) +
   geom_function(fun = dt, args = list(df = 50), mapping = aes(colour = "t(50)" ) ) +
+  geom_function(fun = dt, args = list(df = 90), mapping = aes(colour = "t(90)" ) ) +
   # scale_color_manual(values = 1:5, breaks =  1:5, labels = labels) +
   xlim(-3,3) +
   labs(
@@ -250,7 +270,27 @@ ggplot() +
     theme(legend.position = c(.8,.75))
 ```
 
-$$t_n \xrightarrow[n\to \infty]{}N(0,1) $$
+## Caso normal
+
+::::: columns
+::: {.column width="60%"}
+$$T_n = \frac{(\bar{X}_n - \mu)}{S_n/\sqrt{n}} = \frac{\sigma}{\sigma}\frac{(\bar{X}_n - \mu)}{S_n/\sqrt{n}} \\ = \frac{Z_n}{\sqrt{V_n / n}}$$ onde $V_n = \frac{(n-1)S^2_n}{\sigma^2}$.
+:::
+
+::: {.column width="40%"}
+![](extra/fisher.png){width="90%"} [![](extra/paper3.png){width="100%"}](https://web.archive.org/web/20160305130235/http://www.sothis.ro/user/content/4ef6e90670749a86-student_distribution_1925.pdf)
+:::
+:::::
+
+. . .
+
+$$Z_n \sim N(0,1), \qquad \frac{(n-1)V_n}{\sigma^2} \sim \chi^2_{n-1}$$
+
+## TCL (Variância desconhecida) {.scrollable}
+
+Seja $X_1, X_2, \ldots, X_n$ variáveis aleatórias **independentes e identicamente distribuídas** com média, $\mathbb{E}[X_i] = \mu$ e variância, $\sigma^2 < \infty$. Seja $\bar{X}_n = \frac{\sum_{i=1}^{n} X_i}{n}$ e $S_n^2 = \sum_{i=1}^n(X_i - \bar{X})/(n-1)$. Então
+
+$$T_n = \frac{\sqrt{n}(\bar{X}_n - \mu)}{S_n}  \xrightarrow[n\to \infty]{D} N(0,1).$$
 
 ## Teorema central do limite (Amostras sem reposição)
 
@@ -399,7 +439,7 @@ ggplot() +
 
 ## Introdução à inferência
 
-Inferência estatística ou aprendizagem estatística é o processo de usar os dados para inferir (aprender a respeito de) a distribuição geradora dos dados.
+**Inferência estatística** ou **aprendizagem estatística** é o processo de usar os dados para **inferir** (**aprender** a respeito de) a distribuição geradora dos dados.
 
 . . .
 
@@ -409,4 +449,60 @@ Dado uma amostra $X_1,X_2,\ldots,X_n \sim F$, como nós inferimos a respeito de 
 
 . . .
 
-Em muitos casos, queremos saber apenas alguma característica de $F$ como a média por exemplo. 
+Em muitos casos, queremos saber apenas alguma característica de $F$ como a média por exemplo.
+
+## Modelos tipos de modelo
+
+Um **modelo estatístico** $\mathfrak{F}$ é um conjunto de distribuições.
+
+. . .
+
+Um modelo estatístico pode ser classificado como
+
+::: incremental
+-   **Paramétrico** (Quando é caracterizado por um conjunto finito de parâmetros)
+-   **Não paramétrico** (Quando não é possível caracterizar por um conjunto finito de parâmetros)
+:::
+
+## Modelo paramétrico
+
+Um **modelo paramétrico** é um conjunto $\mathfrak{F}$ parametrizado por um número finito de parâmetros. Ex. $$\mathfrak{F} = \left\{ f(x; \mu, \sigma^2) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2\sigma}(x-\mu)^2}, \quad \mu \in \mathbb{R},\, \sigma^2> 2\right\}$$
+
+. . .
+
+De forma geral, um modelo paramétrico é dado por
+
+$$\mathfrak{F} = \left\{ f(x; \theta) \, : \, \theta \in \Theta \right\}$$
+
+## Modelo não paramétrico
+
+Dizemos que um modelo estatístico é **não paramétrico** se não é possível caracterizá-lo com um número finito de parâmetros.
+
+. . .
+
+Por exemplo, seja $X_1,X_2,\ldots,X_n$ variáveis aleatórias independentes com função acumulada $F$. Estimar $F$ assumindo apenas que $F \in \mathfrak{F}_{ALL} = \{\mbox{todas possíveis f.d.a.s}\}$.
+
+## Regressão, previsão e classificação
+
+Suponha que observamos pares $(X_1, Y_1), (X_2, Y_2), \ldots, (X_n, Y_n)$
+
+::: incremental
+
+- Usualmente $X$ é chamada de preditor, regressor, variável independente, *feature*
+- Enquanto $Y$ é chamada de desfecho, variável resposta, variável dependente.
+- Chamamos de função de regressão 
+$$r(x) = \mathbb{E}[Y | X = x]$$
+
+::: 
+
+
+## Regressão, previsão e classificação
+
+::: incremental
+- Se assumirmos que $r \in \mathfrak{F}$ onde $\mathfrak{F}$ tem dimensão finita, então temos um **modelo paramétrico**.
+  - Ex. $r(x) = a + bx$
+  
+- Se $r \in \mathfrak{F}$ onde $\mathfrak{F}$ não tem dimensão finita, então temos um **modelo não paramétrico**
+  - Ex. $r(x) = a + f(x)$ onde $f \in \mathfrak{F}_{SOB}$. 
+  $$ \mathfrak{F}_{SOB} =\left\{ f : \int (f''(x))^2dx < \infty \right\}$$
+:::
