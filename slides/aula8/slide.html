@@ -401,8 +401,20 @@ Leo Bastos
 <div class="fragment">
 <p>Um estimador <span class="math inline">\(\hat{\theta}_n\)</span> é dito consistente se <span class="math inline">\(\hat{\theta}_n \xrightarrow{P} \theta\)</span></p>
 </div>
+</section>
+<section id="estimador-pontual-distribuição-amostral-e-erro-padrão" class="slide level2">
+<h2>Estimador pontual (distribuição amostral e erro padrão)</h2>
+<p>A distribuição de <span class="math inline">\(\hat{\theta}_n\)</span> é chamada de <strong>distribuição amostral</strong></p>
 <div class="fragment">
-<p>A distribuição de <span class="math inline">\(\hat{\theta}_n\)</span> é chamada de <strong>distribuição amostral</strong>, e o seu desvio padrão é chamado de <strong>erro padrão</strong>, denotado por <span class="math display">\[se(\hat{\theta}_n) = \sqrt{\mathbb{V}[\hat{\theta}_n]}.\]</span></p>
+<p>Seu desvio padrão é chamado de <strong>erro padrão</strong>, denotado por <span class="math display">\[se(\hat{\theta}_n) = \sqrt{\mathbb{V}[\hat{\theta}_n]}.\]</span></p>
+</div>
+</section>
+<section id="estimador-pontual-eqm" class="slide level2">
+<h2>Estimador pontual (EQM)</h2>
+<p>Uma medida de qualidade de um estimador pontual é o <strong>erro quadrático médio</strong> EQM (do ingles MSE), definido por <span class="math display">\[EQM = \mathbb{E}[(\hat{\theta}-\theta)^2]\]</span></p>
+<div class="fragment">
+<p>Que pode ser reescrito por</p>
+<p><span class="math display">\[EQM = B(\hat\theta)^2 + \mathbb{V}[\hat{\theta}]\]</span></p>
 </div>
 </section>
 <section id="exemplo" class="slide level2 scrollable">
@@ -413,11 +425,11 @@ Leo Bastos
 </div>
 <div class="fragment">
 <p>O erro padrão é dado por</p>
-<p><span class="math display">\[\mathbb{V}[\hat{\theta}_n]= \mathbb{V}[\bar{X}_n] = \frac{1}{n^2} \sum_{i=1}^n \mathbb{V}[X_i] = \frac{\theta}{n}.\]</span></p>
+<p><span class="math display">\[\mathbb{V}[\hat{\theta}_n]^{1/2}= \mathbb{V}[\bar{X}_n] = \frac{1}{n^2} \sum_{i=1}^n \mathbb{V}[X_i] = \left(\frac{\theta}{n}\right)^{1/2}.\]</span></p>
 </div>
 <div class="fragment">
 <p>Uma estimativa para o erro padrão é dada por</p>
-<p><span class="math display">\[\widehat{\mathbb{V}[\hat{\theta}_n]} = \frac{\hat{\theta}}{n}.\]</span></p>
+<p><span class="math display">\[\widehat{\mathbb{V}[\hat{\theta}_n]} = \left(\frac{\hat\theta}{n}\right)^{1/2}.\]</span></p>
 </div>
 </section>
 <section id="distribuição-da-média-caso-normal" class="slide level2 scrollable">

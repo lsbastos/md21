@@ -76,10 +76,27 @@ Dizemos que um estimador é não viciado se $\mathbf{E}[\hat{\theta}_n] = \theta
 
 Um estimador $\hat{\theta}_n$ é dito consistente se $\hat{\theta}_n \xrightarrow{P} \theta$
 
-. . . 
 
-A distribuição de $\hat{\theta}_n$ é chamada de **distribuição amostral**, e o seu desvio padrão é chamado de **erro padrão**, denotado por
+## Estimador pontual (distribuição amostral e erro padrão)
+
+A distribuição de $\hat{\theta}_n$ é chamada de **distribuição amostral**
+
+. . .
+
+Seu desvio padrão é chamado de **erro padrão**, denotado por
 $$se(\hat{\theta}_n) = \sqrt{\mathbb{V}[\hat{\theta}_n]}.$$
+
+
+## Estimador pontual (EQM)
+
+Uma medida de qualidade de um estimador pontual é o **erro quadrático médio** EQM (do ingles MSE), definido por
+$$EQM = \mathbb{E}[(\hat{\theta}-\theta)^2]$$
+
+. . .
+
+Que pode ser reescrito por
+
+$$EQM = B(\hat\theta)^2 + \mathbb{V}[\hat{\theta}]$$
 
 ## Exemplo {.scrollable}
 
@@ -94,13 +111,13 @@ $$\mathbb{E}[\hat{\theta}_n]= \mathbb{E}[\bar{X}_n] = \frac{1}{n} \sum_{i=1}^n \
 
 O erro padrão é dado por
 
-$$\mathbb{V}[\hat{\theta}_n]= \mathbb{V}[\bar{X}_n] = \frac{1}{n^2} \sum_{i=1}^n \mathbb{V}[X_i] = \frac{\theta}{n}.$$
+$$\mathbb{V}[\hat{\theta}_n]^{1/2}= \mathbb{V}[\bar{X}_n] = \frac{1}{n^2} \sum_{i=1}^n \mathbb{V}[X_i] = \left(\frac{\theta}{n}\right)^{1/2}.$$
 
 . . . 
 
 Uma estimativa para o erro padrão é dada por
 
-$$\widehat{\mathbb{V}[\hat{\theta}_n]} = \frac{\hat{\theta}}{n}.$$
+$$\widehat{\mathbb{V}[\hat{\theta}_n]} = \left(\frac{\hat\theta}{n}\right)^{1/2}.$$
 
 ## Distribuição da média (caso normal) {.scrollable}
 

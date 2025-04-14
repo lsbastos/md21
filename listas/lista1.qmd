@@ -2,7 +2,6 @@
 title: "Lista 1: Probabilidade e variáveis aleatórias"
 author: "Leo Bastos"
 format: pdf
-editor: visual
 ---
 
 Lista de exercícios da disciplina MD21 - Introdução à Estatística.
