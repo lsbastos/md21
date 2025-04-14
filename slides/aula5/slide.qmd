@@ -49,7 +49,7 @@ Suponha que o vetor $X$ é particionado em dois vetor $X_1$ e $X_2$, $X = (X_1, 
 
 . . .
 
-De forma similar temos que 
+De forma similar temos que
 
 $$\mu=(\mu_1, \mu_2) \qquad \mbox{ e } \qquad \Sigma = \left( 
 \begin{array}{cc} 
@@ -89,8 +89,8 @@ $$\mathbb{E}[h(X,Y) | Y=y] = \int h(x,y) f_{X|Y=y}(x|Y=y) dx$$
 
 ## Esperança condicional {.scrollable}
 
-- $\mathbb{E}[X]$ é um número (ou função de parâmetros)
-- $\mathbb{E}[X | Y=y]$ é uma v.a. (função de $Y$)
+-   $\mathbb{E}[X]$ é um número (ou função de parâmetros)
+-   $\mathbb{E}[X | Y=y]$ é uma v.a. (função de $Y$)
 
 . . .
 
@@ -124,7 +124,7 @@ No exemplo anterior, onde $Y\sim U(0,1)$ e $X|Y=y \sim U(y,1)$. Quem é $\mathbb
 
 . . .
 
-$$\mathbb{E}[X] = \mathbb{E}[\mathbb{E}[X|Y=y]] = \mathbb{E}[(1+Y)/2] \\ = (1 + (1/2)) / 2 = 3/4.$$ 
+$$\mathbb{E}[X] = \mathbb{E}[\mathbb{E}[X|Y=y]] = \mathbb{E}[(1+Y)/2] \\ = (1 + (1/2)) / 2 = 3/4.$$
 
 . . .
 
@@ -176,8 +176,7 @@ $$ = \frac{\lambda}{\lambda - t}, \qquad t< \lambda.$$
 
 ## Exemplos (Exponencial) {.scrollable}
 
-Se $X \sim Exp(\lambda$ então 
-$$ M_X(t) = \frac{\lambda}{\lambda - t}, \qquad t< \lambda.$$
+Se $X \sim Exp(\lambda)$ então $$ M_X(t) = \frac{\lambda}{\lambda - t}, \qquad t< \lambda.$$
 
 . . .
 
@@ -193,7 +192,6 @@ $$\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2 = \frac{2}{\lambda^2} - \fra
 
 ## Exemplo (Poisson) {.scrollable}
 
-
 Seja $X \sim Poisson(\lambda)$, $f_X(x) = \frac{\lambda^x}{x!}e^{-\lambda}, \, \lambda >0.$
 
 . . .
@@ -208,8 +206,7 @@ $$ = e^{\lambda(e^t-1)}$$
 
 ## Exemplos (Poisson) {.scrollable}
 
-Se $X \sim Poisson(\lambda)$ então 
-$$ M_X(t) = e^{\lambda(e^t - 1)}$$
+Se $X \sim Poisson(\lambda)$ então $$ M_X(t) = e^{\lambda(e^t - 1)}$$
 
 . . .
 
@@ -222,8 +219,7 @@ $$\mathbb{E}[X^2] = M''_X(0) = \left. \frac{d}{dt}\lambda e^{\lambda(e^t - 1)+t}
 
 . . .
 
-$$\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2 = \lambda^2 + \lambda - \lambda^2 = \lambda$$
-## Exemplos (Normal) {.scrollable}
+$$\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2 = \lambda^2 + \lambda - \lambda^2 = \lambda$$ \## Exemplos (Normal) {.scrollable}
 
 Seja $X \sim Normal(\mu, \sigma^2)$, $f_X(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2\sigma^2}(x-\mu)^2}$
 
@@ -235,7 +231,6 @@ $$ = \int_{-\infty}^{\infty} \frac{1}{\sigma\sqrt{2\pi}}  \exp\left\{ tx - \frac
 
 . . .
 
-
 $$ = \int_{-\infty}^{\infty} \frac{1}{\sigma\sqrt{2\pi}}  \exp\left\{ - \frac{1}{2\sigma^2}(x^2 - 2 x (\mu + t\sigma^2)+ \mu^2)\right\}dx$$
 
 . . .
@@ -246,11 +241,9 @@ $$ =  e^{\mu t + \frac{\sigma^2 t^2}{2}}\int_{-\infty}^{\infty} \frac{1}{\sigma\
 
 $$ = \exp \left\{ \mu t + \frac{\sigma^2 t^2}{2} \right\}$$
 
-
 ## Exemplos (Normal) {.scrollable}
 
-Se $X \sim N(\mu, \sigma^2)$ então 
-$$ M_X(t) = \exp \left\{ \mu t + \frac{\sigma^2 t^2}{2} \right\}.$$
+Se $X \sim N(\mu, \sigma^2)$ então $$ M_X(t) = \exp \left\{ \mu t + \frac{\sigma^2 t^2}{2} \right\}.$$
 
 . . .
 
@@ -262,8 +255,7 @@ $$\mathbb{E}[X^2] = M''_X(0) = \left. \frac{d}{dt}\exp \left\{ \mu t + \frac{\si
 
 . . .
 
-
-$$ = \left. \exp \left\{ \mu t + \frac{\sigma^2 t^2}{2} \right\} (0 + \sigma^2)\right|_{t=0} \\ + \left. \exp \left\{ \mu t + \frac{\sigma^2 t^2}{2} \right\} (\mu + t\sigma^2)^2 \right|_{t=0}$$ 
+$$ = \left. \exp \left\{ \mu t + \frac{\sigma^2 t^2}{2} \right\} (0 + \sigma^2)\right|_{t=0} \\ + \left. \exp \left\{ \mu t + \frac{\sigma^2 t^2}{2} \right\} (\mu + t\sigma^2)^2 \right|_{t=0}$$
 
 . . .
 
@@ -272,7 +264,6 @@ $$ = \sigma^2 + \mu^2$$
 . . .
 
 $$\mathbb{V}(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2 = \sigma^2 + \mu^2 - \mu^2 = \sigma^2$$
-
 
 ## Propriedades interessantes {.scrollable}
 
@@ -288,8 +279,7 @@ $$M_Y(t) = \mathbb{E}[e^{tY}] = \mathbb{E}\left[e^{t \sum_i X_i} \right] = \math
 
 . . .
 
-(por independência)
-$$ = \prod_i \mathbb{E}\left[ e^{t X_i}  \right] = \prod_i M_{X_i}(t)$$
+(por independência) $$ = \prod_i \mathbb{E}\left[ e^{t X_i}  \right] = \prod_i M_{X_i}(t)$$
 
 ## Exemplo {.scrollable}
 
@@ -297,35 +287,29 @@ Sejam $X_1, X_2,\ldots, X_n$ v.a.s com distribuição $X_i \sim Poisson(\lambda_
 
 . . .
 
-Vimos que a f.g.m. da Poisson é dada por
-$$M_{X_i}(t) = e^{\lambda_i(e^t-1)}$$
+Vimos que a f.g.m. da Poisson é dada por $$M_{X_i}(t) = e^{\lambda_i(e^t-1)}$$
 
-. . . 
+. . .
 
 $$M_Y(t) = \prod_{i=1}^{n} e^{\lambda_i(e^t-1)} = e^{ (\sum_i \lambda_i) (e^t-1)}$$
 
-. . .
-Logo,
+. . . Logo,
 
 $$Y \sim Poisson\left(\sum_{i=1}^{n} \lambda_i \right)$$
-
 
 # Principais desigualdades
 
 ## Desigualdade de Markov {.scrollable}
 
-Seja $X$ uma v.a. não negativa com esperança finita, $\mathbb{E}[X] < \infty$. Para qualquer $t>0$,
-$$\mathbb{P}(X > t) \leq \frac{\mathbb{E}[X]}{t}.$$
+Seja $X$ uma v.a. não negativa com esperança finita, $\mathbb{E}[X] < \infty$. Para qualquer $t>0$, $$\mathbb{P}(X > t) \leq \frac{\mathbb{E}[X]}{t}.$$
 
 . . .
 
-Prova. 
-$$\mathbb{E}(X) = \int_0^\infty x f_X(x)dx = \int_0^t x f_X(x)dx + \int_t^\infty x f_X(x)dx$$
+Prova. $$\mathbb{E}(X) = \int_0^\infty x f_X(x)dx = \int_0^t x f_X(x)dx + \int_t^\infty x f_X(x)dx$$
 
 . . .
 
 $$ \geq \int_t^\infty x f_X(x)dx \geq t \int_t^\infty f_X(x)dx = t \mathbb{P}(X>t)$$
-
 
 ## Desigualdade de Chebyshev {.scrollable}
 
@@ -335,7 +319,7 @@ $$\mathbb{P}(|X - \mu| \geq t) \leq \frac{\sigma^2}{t^2} $$
 
 . . .
 
-Prova. 
+Prova.
 
 $$\mathbb{P}(|X - \mu| \geq t) = \mathbb{P}((X - \mu)^2 \geq t^2)  $$
 
@@ -345,43 +329,33 @@ $$\mathbb{P}(|X - \mu| \geq t) = \mathbb{P}((X - \mu)^2 \geq t^2)  $$
 
 $$ \leq \frac{\mathbb{E}[(X-\mu)^2]}{t^2} = \frac{\sigma^2}{t^2}.$$
 
-
-
 # Teoria assintótica
 
 ## Principais ideias {.scrollable}
 
-**Lei forte dos grandes números**. Dizemos que a média de $n$ v.a.s com valor esperado $\mu = \mathbb{E}[X_i]$ converge (em probabilidade) para para $\mu$, 
-
+**Lei forte dos grandes números**. Dizemos que a média de $n$ v.a.s com valor esperado $\mu = \mathbb{E}[X_i]$ converge (em probabilidade) para para $\mu$,
 
 . . .
 
-**Teorema central do limite**. Dizemos que $\sqrt{n}(\bar{X}_n - \mu)$ converge em distribuição para a distribuição Normal. 
-
+**Teorema central do limite**. Dizemos que $\sqrt{n}(\bar{X}_n - \mu)$ converge em distribuição para a distribuição Normal.
 
 ## Tipos de convergencia {.scrollable}
 
 Seja $X_1, X_2, \ldots$ uma sequência de variáveis aleatórias, e seja $X$ outra variável aleatória. Seja $F_{i}$ a função de distribuição acumulada de $X_i$, e $F$ a f.d.a de $X$.
 
 ::: incremental
-1. Dizemos que $X_n$ converge em probabilidade para $X$, $X_n \xrightarrow{P} X$, se, para todo $\epsilon >0$,
-$$\mathbb{P}(|X_n - X| > \epsilon) \xrightarrow[n \to \infty]{} 0$$
-2. Dizemos que $X_n$ converge em distribuição para $X$, $X_n \xrightarrow{D} X$, se
-$$\lim_{n\to \infty} F_n(t) = F(t)$$
-para todo $t$ na qual $F$ é contĩnua.
-3. Se $X_n \xrightarrow{P} X$, então $X_n \xrightarrow{D} X$. (A recíproca não é verdadeira)
+1.  Dizemos que $X_n$ converge em probabilidade para $X$, $X_n \xrightarrow{P} X$, se, para todo $\epsilon >0$, $$\mathbb{P}(|X_n - X| > \epsilon) \xrightarrow[n \to \infty]{} 0$$
+2.  Dizemos que $X_n$ converge em distribuição para $X$, $X_n \xrightarrow{D} X$, se $$\lim_{n\to \infty} F_n(t) = F(t)$$ para todo $t$ na qual $F$ é contĩnua.
+3.  Se $X_n \xrightarrow{P} X$, então $X_n \xrightarrow{D} X$. (A recíproca não é verdadeira)
 :::
-
 
 ## Lei fraca dos grandes números {.scrollable}
 
-Se $X_1, X_2, \ldots, X_n$ são variáveis aleatórias iid (independentes e identicamente distribuídas) com média, $\mathbb{E}[X_i] = \mu$ e variância, $\sigma^2 < \infty$, então
-$$\bar{X}_n = \frac{\sum_{i=1}^{n} X_i}{n} \xrightarrow{P} \mu$$
+Se $X_1, X_2, \ldots, X_n$ são variáveis aleatórias iid (independentes e identicamente distribuídas) com média, $\mathbb{E}[X_i] = \mu$ e variância, $\sigma^2 < \infty$, então $$\bar{X}_n = \frac{\sum_{i=1}^{n} X_i}{n} \xrightarrow{P} \mu$$
 
 . . .
 
-Prova. (Usando a desigualdade de Chebyshev)
-$$\mathbb{P}(|\bar{X}_n - \mu| > \epsilon) \leq \frac{\mathbb{V}(\bar{X}_n)}{\epsilon} = \frac{\sigma^2}{n\epsilon} \xrightarrow[n\to \infty]{}0.$$
+Prova. (Usando a desigualdade de Chebyshev) $$\mathbb{P}(|\bar{X}_n - \mu| > \epsilon) \leq \frac{\mathbb{V}(\bar{X}_n)}{\epsilon} = \frac{\sigma^2}{n\epsilon} \xrightarrow[n\to \infty]{}0.$$
 
 ## Lei fraca dos grandes números (exemplo) {.scrollable}
 
@@ -393,26 +367,24 @@ $$\{n : \mathbb{P}(|\bar{X}_n - \theta| < 0.1) \geq 0.90\}$$
 
 . . .
 
-$$\mathbb{P}(|\bar{X}_n - \theta| < 0.1) = 1 - \mathbb{P}(|\bar{X}_n - \theta| > 0.1) $$ 
+$$\mathbb{P}(|\bar{X}_n - \theta| < 0.1) = 1 - \mathbb{P}(|\bar{X}_n - \theta| > 0.1) $$
 
 . . .
 
-Pela desigualdade de Chebyshev
-$$ \geq 1 - \frac{\mathbb{V}(\bar{X}_n)}{0.1^2}$$
+Pela desigualdade de Chebyshev $$ \geq 1 - \frac{\mathbb{V}(\bar{X}_n)}{0.1^2}$$
 
 . . .
 
-$\mathbb{V}(\bar{X}_n) = \theta(1-\theta)/n$
-$$ \geq 1 - \frac{\theta(1-\theta)100}{n}$$
+$\mathbb{V}(\bar{X}_n) = \theta(1-\theta)/n$ $$ \geq 1 - \frac{\theta(1-\theta)100}{n}$$
 
 . . .
 
 $1 - \theta(1-\theta) 100 / n \geq 0.90$ se $n \geq \theta(1-\theta) 100 / (1-0.9) = \theta(1-\theta) 1000$
 
-
 ## Lei fraca dos grandes números (exemplo)
 
 $$\{n : \mathbb{P}(|\bar{X}_n - \theta| < 0.1) \geq 0.90\}$$
+
 ```{r}
 theta = seq(0.01,.99,by=0.05)
 n = theta * (1-theta) * 1000
@@ -420,10 +392,10 @@ n = theta * (1-theta) * 1000
 plot(x = theta, y = n, xlab = expression(theta))
 ```
 
-
 ## Lei fraca dos grandes números (exemplo)
 
 $$\{n : \mathbb{P}(|\bar{X}_n - \theta| < 0.03) \geq 0.95\}$$
+
 ```{r}
 theta = seq(0.01,.99,by=0.05)
 n = theta * (1-theta) * (1/0.03^2) * 1/0.05
@@ -431,21 +403,12 @@ n = theta * (1-theta) * (1/0.03^2) * 1/0.05
 plot(x = theta, y = n, xlab = expression(theta))
 ```
 
+## Teorema central do limite
+
+Seja $X_1, X_2, \ldots, X_n$ variáveis aleatórias iid com média, $\mathbb{E}[X_i] = \mu$ e variância, $\sigma^2 < \infty$. Seja $\bar{X}_n = \frac{\sum_{i=1}^{n} X_i}{n}$. Então $$Z_n = \frac{(\bar{X}_n - \mu)}{\sigma/\sqrt{n}} \xrightarrow[n\to \infty]{D} Z$$ onde $Z \sim N(0,1).$
 
 ## Teorema central do limite
 
-Seja $X_1, X_2, \ldots, X_n$ variáveis aleatórias iid com média, $\mathbb{E}[X_i] = \mu$ e variância, $\sigma^2 < \infty$. Seja $\bar{X}_n = \frac{\sum_{i=1}^{n} X_i}{n}$. Então
-$$Z_n = \frac{(\bar{X}_n - \mu)}{\sigma/\sqrt{n}} \xrightarrow[n\to \infty]{D} Z$$
-onde $Z \sim N(0,1).$
-
-
-
-## Teorema central do limite
-
-Seja $X_1, X_2, \ldots, X_n$ variáveis aleatórias iid com média, $\mathbb{E}[X_i] = \mu$ e variância, $\sigma^2 < \infty$. Seja $\bar{X}_n = \frac{\sum_{i=1}^{n} X_i}{n}$ e $S^2_n = \frac{1}{n-1}\sum_{i=1}^{n}(X_i-\bar{X}_n)^2$. Então
-$$Z_n = \frac{(\bar{X}_n - \mu)}{S_n/\sqrt{n}} \xrightarrow[n\to \infty]{D} Z$$
-onde $Z \sim N(0,1).$
-
+Seja $X_1, X_2, \ldots, X_n$ variáveis aleatórias iid com média, $\mathbb{E}[X_i] = \mu$ e variância, $\sigma^2 < \infty$. Seja $\bar{X}_n = \frac{\sum_{i=1}^{n} X_i}{n}$ e $S^2_n = \frac{1}{n-1}\sum_{i=1}^{n}(X_i-\bar{X}_n)^2$. Então $$Z_n = \frac{(\bar{X}_n - \mu)}{S_n/\sqrt{n}} \xrightarrow[n\to \infty]{D} Z$$ onde $Z \sim N(0,1).$
 
 <!-- ## Método Delta -->
-
