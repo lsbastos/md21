@@ -50,7 +50,7 @@ A **estimação pontual** consite no melhor "chute" para alguma quantidade de in
 :::
 
 
-## Estimação pontual
+## Estimação pontual {.scrollable}
 
 Seja $X_1, X_2, \ldots, X_n$ v.a. iid de uma distribuição $F$.
 
