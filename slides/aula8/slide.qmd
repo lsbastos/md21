@@ -1,0 +1,258 @@
+---
+title: "MD21 Introdução à Estatística"
+subtitle: "Introdução à inferência"
+author: "Leo Bastos"
+format: 
+  revealjs:
+    slide-number: true
+    logo: ../../impa-tech-h.png
+    footer: '<https://github.com/lsbastos/md21/>'
+    theme: simple
+    chalkboard: true
+---
+
+
+## Introdução à inferência
+
+Vimos que, a **Inferência estatística** ou **aprendizagem estatística** é o processo de usar os dados para **inferir** (**aprender** a respeito de) a distribuição geradora dos dados.
+
+. . .
+
+Que um modelo estatístico, $\mathfrak{F}$, pode ser classificado como
+
+::: incremental
+-   **Paramétrico** (Quando é caracterizado por um conjunto finito de parâmetros)
+-   **Não paramétrico** (Quando não é possível caracterizar por um conjunto finito de parâmetros)
+:::
+
+## Fundamentos de inferência
+
+Um problema de inferência ou aprendizagem, geralmente, pode ser identificado como um desses três tipos:
+
+::: incremental
+1. Estimação (pontual)
+2. Conjuntos de confiança
+3. Testes de hipóteses
+:::
+
+# 1. Estimação pontual
+
+## Estimação pontual
+
+A **estimação pontual** consite no melhor "chute" para alguma quantidade de interesse, que pode ser:
+
+::: incremental
+  - Um parâmetro de um modelo paramétrico
+  - uma função acumulada $F$
+  - uma função de densidade $f$
+  - uma função de regressão $r$
+  - uma previsão para um valor futuro de um v.a.
+:::
+
+
+## Estimação pontual
+
+Seja $X_1, X_2, \ldots, X_n$ v.a. iid de uma distribuição $F$.
+
+. . .
+
+Um estimador pontual $\hat{\theta}_n$ para o parâmetro $\theta$ é alguma função de $X_1, X_2, \ldots, X_n$
+$$\hat{\theta}_n = g(X_1, X_2, \ldots, X_n).$$
+
+. . .
+
+Notem que $\hat{\theta}_n$ é uma variável aleatória.
+
+## Estimador pontual (viés ou vício)
+
+O viés ou vício (*bias*) de um estimador é definido por
+$$B(\hat{\theta}_n) = \mathbf{E}[\hat{\theta}_n] - \theta.$$
+
+. . .
+
+Dizemos que um estimador é não viciado se $\mathbf{E}[\hat{\theta}_n] = \theta.$
+
+. . . 
+
+Um estimador $\hat{\theta}_n$ é dito consistente se $\hat{\theta}_n \xrightarrow{P} \theta$
+
+. . . 
+
+A distribuição de $\hat{\theta}_n$ é chamada de **distribuição amostral**, e o seu desvio padrão é chamado de **erro padrão**, denotado por
+$$se(\hat{\theta}_n) = \sqrt{\mathbb{V}[\hat{\theta}_n]}.$$
+
+## Exemplo {.scrollable}
+
+Seja $X_1, X_2, \ldots, X_n \sim Poisson(\theta)$, e que $\hat{\theta}_n = \bar{X}_n$. 
+
+. . .
+
+$\hat{\theta}_n$ é um estimador não viciado.
+$$\mathbb{E}[\hat{\theta}_n]= \mathbb{E}[\bar{X}_n] = \frac{1}{n} \sum_{i=1}^n \mathbb{E}[X_i] = \theta.$$
+
+. . . 
+
+O erro padrão é dado por
+
+$$\mathbb{V}[\hat{\theta}_n]= \mathbb{V}[\bar{X}_n] = \frac{1}{n^2} \sum_{i=1}^n \mathbb{V}[X_i] = \frac{\theta}{n}.$$
+
+. . . 
+
+Uma estimativa para o erro padrão é dada por
+
+$$\widehat{\mathbb{V}[\hat{\theta}_n]} = \frac{\hat{\theta}}{n}.$$
+
+## Distribuição da média (caso normal) {.scrollable}
+
+Seja $X_1, X_2, \ldots, X_n$ v.a. normalmente distribuídas com média $\mu$ e variância $\sigma^2$. Um estimador para $\mu$ é a média amostral, ou seja $\hat{\mu} = \bar{X}_n$.
+
+. . .
+
+Vimos que $\bar{X}_n \sim N(\mu, \sigma^2/n)$. No entanto, $\sigma^2$ também é um parâmetro desconhecido e pode ser estimador pela **variância amostral** 
+$$\hat{\sigma}^2 = S^2_n = \sum_{i=1}^n \frac{(X_i - \bar{X})^2}{n-1}$$
+
+. . .
+
+Temos que 
+$$T_n = \frac{\bar{X} - \mu}{S_n / \sqrt{n}} \sim t_{n-1}$$
+
+## Normalidade assintótica {.scrollable}
+
+Uma propriedade conveniente para um estimador é a normalidade assintótica. Dizemos que um estimador é assintoticamente normal se 
+$$\frac{\hat{\theta}_n - \theta}{\sqrt{\mathbb{V}[\hat{\theta}_n]}} \xrightarrow[n\to \infty]{D} N(0,1)$$
+
+
+## Distribuição assintótica da média 
+
+Seja $X_1, X_2, \ldots X_n$ iid (não necessariamente normal) com média $\mu$ e variância finita $\sigma^2 < \infty$ aplicando uma das versões os TCL tem-se que
+
+$$T_n = \frac{\bar{X} - \mu}{S^2_n / \sqrt{n}}  \xrightarrow{D} N(0,1)$$
+
+# 2. Estimação intervalar
+
+## Intervalo de confiança
+
+Um **intervalo de confiança** de tamanho $1-\alpha$ para um parâmetro $\theta$ é um intervalo $C_n = (l,u)$ onde $l = l(X_1,\ldots,X_n)$ e $u = u(X_1,\ldots,X_n)$ são funções dos dados tais que
+$$\mathbb{P}(\theta \in C_n) \geq 1-\alpha, \qquad \forall \theta \in \Theta.$$
+
+. . .
+
+Notem que na probabilidade acima, $C_n=(l,u)$ é quem tem a aleatoriedade, pois $\theta$ é fixo, desconhecido e constante com respeito as v.a.s $X_1,\ldots,X_n$.
+
+. . .
+
+$(1-\alpha)$ é a cobertura do intervalo de confiança.
+
+
+
+## Intervalo de confiança para a média {.scrollable}
+
+Seja $X_1, X_2, \ldots X_n$ iid (não necessariamente normal) com média $\mu$ e variância finita $\sigma^2 < \infty$. Sabemos que $\bar{X} \xrightarrow{D} N(\mu, \mathbb{V}(\bar{X}))$.
+
+. . .
+
+Um possível intervalo de confiança para $\mu$ é dado por 
+
+$$C_n = \left[\bar{X} - z_{\alpha/2} S_n / \sqrt{n}; \bar{X} + z_{\alpha/2} S_n / \sqrt{n} \right]$$
+onde $z_{\alpha/2} = \{ z : \mathbb{P}(Z > z) = 1-\alpha/2\}$. 
+
+. . .
+
+$$\mathbb{P}(\mu \in C_n) = \mathbb{P}\left( \bar{X} - z_{\alpha/2} S_n / \sqrt{n} < \mu <  \bar{X} + z_{\alpha/2} S_n / \sqrt{n} \right) \\
+ = \mathbb{P}\left( - z_{\alpha/2} S_n / \sqrt{n} < \bar{X} - \mu <  z_{\alpha/2} S_n / \sqrt{n} \right) $$
+
+. . .
+
+$$ = \mathbb{P}\left( - z_{\alpha/2}  < \frac{\bar{X} - \mu}{S_n / \sqrt{n}} <  z_{\alpha/2} \right) 
+\to 1- \alpha$$
+
+
+## Intervalo de 95\% confiança para a média {.scrollable}
+
+Se $1-\alpha = 0.95$, $z_{\alpha/2} = 1.96$ ($P(-1.96 < Z < 1.96) = 0.95$), e o IC de 95\% para $\mu$ é dado por  
+$$C_n = \left[\bar{X} \pm 1.96 S_n / \sqrt{n} \right]$$
+
+## Intervalo de confiança para $\theta$
+
+Suponha que $\hat{\theta}$ é assintoticamente normal com média $\theta$ e erro padrao $se(\hat{\theta})$.
+
+. . .
+
+O intervalo de confiança de tamanho $1-\alpha$ para $\theta$ é aproximado por 
+
+$$C_n = \left[\bar{X} - z_{\alpha/2} \widehat{se(\hat{\theta})};  \bar{X} + z_{\alpha/2} \widehat{se(\hat{\theta})}\right]$$
+
+
+## Exemplo (Estimando uma proporção)
+
+Seja $X_1,X_2,\ldots,X_n \sim Ber(\theta)$, e $\hat{\theta}_n = \bar{X}$. Construa um intervalo de confiança de 95\% para $\theta$.
+
+. . .
+
+$\widehat{se(\hat{\theta})} = \sqrt{\widehat{\mathbb{V}[\hat{\theta}]}} = \sqrt{\hat{\theta}(1-\hat{\theta})/n}$
+
+
+. . . 
+
+$$C_n = \left[\hat{\theta} - z_{\alpha/2} \sqrt{\hat{\theta}(1-\hat{\theta})/n}; \; \hat{\theta} + z_{\alpha/2} \sqrt{\hat{\theta}(1-\hat{\theta})/n} \right] $$
+
+## Exemplo (lançamento de moedas) {.scrollable}
+
+
+Suponha que lançamos uma moeda honesta 50 vezes e observamos 20 caras. 
+
+. . .
+
+A estimativa pontual para $\theta$ é dada por
+$$\hat{\theta} = \frac{20}{50} = 0.4$$
+
+. . .
+
+
+A estimativa intervalar (de 95\%) para $\theta$ é dada por
+
+$$\left[\hat{\theta} - z_{\alpha/2} \sqrt{\hat{\theta}(1-\hat{\theta})/n}; \; \hat{\theta} + z_{\alpha/2} \sqrt{\hat{\theta}(1-\hat{\theta})/n} \right] \\ 
+\left[0.4 \pm 1.96 \sqrt{0.4(1-0.4)/50} \right] \\ [0.264; \; 0.536] $$
+
+# Teste de hipóteses 
+
+Quando queremos **testar uma hipótese** partimos de uma **hipótese nula**  e avaliamos se os dados fornecem evidência suficiente para rejeitar aquela teoria/hipótese.
+
+. . . 
+
+No exemplo do lançamento de moedas, gostaríamos de testar se a moeda é honesta, ou seja se $\theta=0.5$.
+
+. . .
+
+Entao temos as hipóteses
+$$ H_0: \theta = 1/2 \quad \mbox{versus} \quad H_A: \theta \neq 1/2$$
+
+. . .
+
+Um possível teste: rejeitar $H_0$ se $|\hat{\theta} - 1/2|$ for "grande".
+
+## Exemplo (lançamente de moeda)
+
+Se a hipótese nula for verdadeira, então
+$$Z = \frac{\hat{\theta} - \theta_0}{\sqrt{\theta_0(1-\theta_0)/n}} \xrightarrow{\mbox{sob } H_0} N(0, 1)$$
+
+. . .
+
+Sob $H_0$, a moeda é honesta, ou seja $\theta_0=0.5$. Então podemos calcular $Z$
+$$Z = \frac{0.4 - 0.5}{\sqrt{0.5(1-0.5)/50}} = -1.414$$
+
+## Exemplo (lançamente de moeda)
+
+```{r}
+library(ggplot2)
+ggplot() +
+  geom_function(fun = dnorm) +
+  geom_vline(xintercept = -1.414, linetype=2) + 
+  xlim(-3,3) +
+  labs(
+    x = "x",
+    y = "f(x)",
+    colour = "",
+  ) + 
+  theme_bw(base_size = 16)
+```
