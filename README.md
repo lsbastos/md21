@@ -40,11 +40,13 @@ Revisão de variáveis aleatórias e Teorema Central do Limite. Conceitos e proc
 | 6 |  [Slides](https://htmlpreview.github.io/?https://github.com/lsbastos/md21/blob/main/slides/aula6/slide.html) e [exercícios](listas/exercicios6.md)   | Wasserman 5.4  |
 | 7 |  [Slides](https://htmlpreview.github.io/?https://github.com/lsbastos/md21/blob/main/slides/aula7/slide.html) e [exercícios](listas/exercicios7.pdf)   | Wasserman capitulo 6.1 e 6.2  |
 | 8 |  [Slides](https://htmlpreview.github.io/?https://github.com/lsbastos/md21/blob/main/slides/aula8/slide.html) e [exercícios](listas/exercicios8.md)   | Wasserman capitulo 6.3 e Rice 6.1-6.3  |
+| 9 |  Aula no quadro   | Wasserman 9.1-9.2; Rice: 8.4  |
+
 
 ### Listas
 
 | Lista    | Tópico | Data para entrega | 
 |:---|:---|:---|
 | Lista 1    | [Probabilidade e variáveis aleatórias](listas/lista1.pdf) | 16/4 | 
-| Lista 2    | Valor esperado, desigualdades e teoria assintótica | - | 
+| Lista 2    | [Valor esperado e desigualdades](listas/lista2.pdf) | 30/4 | 
 
