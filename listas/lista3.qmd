@@ -1,0 +1,28 @@
+---
+title: "Lista 3"
+author: "Data esperada: 7/5"
+format: pdf
+---
+
+Terceira lista de exercícios da disciplina MD21 - Convergência em distribuição, Teorema central do limite, método delta e introdução à inferência.
+
+1. Seja $X$ uma variável aleatória normal padrão, $X \sim N(0,1)$, mostre que a função geradora de momentos (f.g.m) de $X$ é 
+$$M_X(t) = e^{t^2/2}$$
+
+2. Seja $X_1,X_2,\ldots$ uma sequência de variáveis aleatórias com distribuição dada por $X_n \sim Poisson(\lambda_n)$, onde $\lambda_1,\lambda_2,\ldots$ é uma sequência crescente com $\lambda_n \to \infty$. Mostre que a variável padronizada $Z_n = (X_n - \mathbb{E}[X_n]) / \mathbb{V}[X_n]^{1/2}$ converge para a Normal padrão.
+    a. Encontre a f.g.m. de $X_n$, $M_{X_n}(t)$ e depois de $Z_n$, $M_{Z_n}(t)$
+    c. Aplique a expansão de Taylor em $M_{Z_n}(t)$ e mostre que $M_{Z_n}(t) \to e^{t^2/2}$
+
+3. Sejam $X_1, X_2, \ldots, X_n$ variáveis aleatórias iid com distribuição $Beta(a,b)$. Aplique o TCL e encontre a distribuição limite de $\bar{X}_n = 1/n \sum_{i=1}^n X_i$.
+
+4. Sejam $X_1, X_2, \ldots, X_n$ variáveis aleatórias iid com distribuição $U(0,1)$. Encontre a distribuição limite de $Y_n = \bar{X}_n^2$.
+
+5. Sejam $X_1, X_2, \ldots, X_n$ variáveis aleatórias iid com distribuição Poisson com média $\lambda$. 
+    a. Mostre que o estimador de $\lambda$, $\hat{\lambda}$, via método de momentos e é igual ao de máxima verossimilhança
+    c. Mostre que $\hat{\lambda}$ em a e b são não viciados, isto é, $\mathbb{E}[\hat\lambda] = \lambda$.
+  
+6. Sejam $Y_1, Y_2, \ldots, Y_n$ variáveis aleatórias iid com distribuição Normal com média $\mu_i = \mathbb{E}[Y_i | X_i] = a + bX_i$ e variância $\sigma^2$, onde $X_1,X_2,\ldots,X_n$ são valores observados (não são variáveis aleatórias). Encontre os estimadores de máxima verossimilhança de $(a, b, \sigma^2)$.
+    a. Maximize o log da função de verossimilhança 
+    b. Encontre primeiro $\hat{b}$
+    c. Encontre $\hat{a}$ em função em $\hat{b}$
+    d. Finalmente encontre $\widehat{\sigma^2}$ em função de $(\hat{a}, \hat{b})$.
