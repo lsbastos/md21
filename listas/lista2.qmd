@@ -39,4 +39,4 @@ $$f_{X,Y}(x,y) = e^{-y}, \; 0 \leq x \leq y$$
 
 10. A desigualdade de Hoeffding diz que para $W_1,W_2,\ldots,W_n$ v.a.s independentes tais que $\mathbb{E}[W_i]=0$ e $a_i<Y_i<b_i$, para $\epsilon > 0$. Para $t>0$
 $$\mathbb{P}\left( \sum_{i=1}^n W_i \geq \epsilon \right) \leq e^{-t\epsilon} \prod_{i=1}^n e^{t^2(b_i-a_i)^2/8}$$
-Aplique a desigualdade de Hoeffding no exercício anterior (9) para encontrar um limite superior para $\mathbb{P}(|Y - \mathbb{Y}|>\epsilon)$ e compare os valores encontrados.
+Aplique a desigualdade de Hoeffding no exercício anterior (9) para encontrar um limite superior para $\mathbb{P}(|Y - \mathbb{E}[Y]|>\epsilon)$ e compare os valores encontrados.
