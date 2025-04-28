@@ -20,7 +20,7 @@ Segunda lista de exercícios da disciplina MD21 - Introdução à Estatística.
 5. Calcule a função geradora de momentos das distribuiições da questão (1).
 
 6. O coeficiente de assimetria de uma distribuição é definido por
-$$\gamma_1 = \mathbb{E}\left[\left( \frac{(X-\mu)^2}{\sigma} \right)^3 \right]$$
+$$\gamma_1 = \mathbb{E}\left[\left( \frac{X-\mu}{\sigma} \right)^3 \right]$$
 onde $\mu$ é a média e $\sigma^2$ a variância de $X$. Se $\gamma=0$ dizemos que a distribuição de $X$ é simétrica, se for $\gamma < 0$ a distribuição é simétrica à esquerda, e $\gamma > 0$ simétrica é direita. Encontre o coeficiente de assimetria para as ditribuições da questão (1)
 
 7. Sejam $X$ e $Y$ variáveis aleatórias com função de densidade conjunta 
