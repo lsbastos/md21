@@ -35,7 +35,7 @@ $$f_{X,Y}(x,y) = e^{-y}, \; 0 \leq x \leq y$$
     b. Mostre que $X+Y$ segue uma distribuição $\chi^2_{n+m}$
     c Encontre a distribuição de $X / (X+Y)$
 
-9. Seja $X_1,X_2,\ldots,X_n$ variáveis aleatórias independentes de uma distribuição $F$. Seja $Y = \sum_i I(X \leq x) / n$, encontre esperança e variancia de $Y$. E usando a desigualdade de Chebyshev, encontre um limite superior para $\mathbb{P}(|Y - \mathbb{Y}|>\epsilon)$.
+9. Seja $X_1,X_2,\ldots,X_n$ variáveis aleatórias independentes de uma distribuição $F$. Seja $Y = \sum_i I(X \leq x) / n$, encontre esperança e variancia de $Y$. E usando a desigualdade de Chebyshev, encontre um limite superior para $\mathbb{P}(|Y - \mathbb{E}[Y]|>\epsilon)$.
 
 10. A desigualdade de Hoeffding diz que para $W_1,W_2,\ldots,W_n$ v.a.s independentes tais que $\mathbb{E}[W_i]=0$ e $a_i<Y_i<b_i$, para $\epsilon > 0$. Para $t>0$
 $$\mathbb{P}\left( \sum_{i=1}^n W_i \geq \epsilon \right) \leq e^{-t\epsilon} \prod_{i=1}^n e^{t^2(b_i-a_i)^2/8}$$
