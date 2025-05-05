@@ -76,7 +76,7 @@ Seja $X$ uma v.a. com distribuição $U(0,1)$, i.e. $f_X(x) = \mathbb{I}_{X\in (
 
 Caminho 1:
 
-$$\mathbb{E}[Y = X^2] = \int_0^1 y f_X(y^{1/2}) \left|\frac{d}{dy} y^{1/2}\right| dy \\ = \int_0^1 y \times 1 \times \frac{1}{2} y^{-1/2} dy \\ = \int_0^1 \frac{1}{2} y^{1/2} dy \\ = \left. \frac{1}{2} \frac{y^{3/2}{3/2}}\right|_0^1 = 1/3 $$
+$$\mathbb{E}[Y = X^2] = \int_0^1 y f_X(y^{1/2}) \left|\frac{d}{dy} y^{1/2}\right| dy \\ = \int_0^1 y \times 1 \times \frac{1}{2} y^{-1/2} dy \\ = \int_0^1 \frac{1}{2} y^{1/2} dy \\ = \left. \frac{1}{2} \frac{y^{3/2}}{3/2}\right|_0^1 = 1/3 $$
 
 . . .
 
@@ -316,10 +316,9 @@ $$= \frac{\sum_{i=1}^n \mathbb{V}(X_i)}{n^2} \\ = \frac{n\sigma^2}{n^2} = \frac{
 
 ## Exemplo
 
-Suponha $X_1,X_2,\ldots,X_n \sim Exp(0.25)$, então 
+Suponha $X_1,X_2,\ldots,X_n \sim Exp(0.25)$, então
 
-$$\mathbb{E}[\bar{X}] = 1/0.25 = 4$$ 
-$$\mathbb{V}(\bar{X}) = (1/0.25)^2 / n = 16/n$$
+$$\mathbb{E}[\bar{X}] = 1/0.25 = 4$$ $$\mathbb{V}(\bar{X}) = (1/0.25)^2 / n = 16/n$$
 
 . . .
 
@@ -356,7 +355,6 @@ c(mean=mean(medias), var =var(medias))
 hist(medias, xlab = expression(bar(X)), main = "")
 ```
 
-
 ## Media amostral (n = 1000)
 
 ```{r}
@@ -367,7 +365,6 @@ c(mean=mean(medias), var =var(medias))
 
 hist(medias, xlab = expression(bar(X)), main = "")
 ```
-
 
 ## Covariância e correlação
 
@@ -391,4 +388,3 @@ $$\rho = \rho_{X,Y} = \frac{\mathbb{Cov}(X,Y)}{\sqrt{\mathbb{V}(X)\mathbb{V}(Y)}
     -   Se $X\perp Y$, então $\mathbb{V}[X+Y] = \mathbb{V}[X] + \mathbb{V}[Y]$
 -   Se $\mathbb{Cov}(X,Y) = \rho_{X,Y} = 0$, $X$ e $Y$ não são necessariamente independentes.
 :::
-

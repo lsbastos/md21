@@ -454,7 +454,7 @@ Leo Bastos
 <p>Seja <span class="math inline">\(X\)</span> uma v.a. com distribuição <span class="math inline">\(U(0,1)\)</span>, i.e.&nbsp;<span class="math inline">\(f_X(x) = \mathbb{I}_{X\in (0,1)}(x)\)</span>, e seja <span class="math inline">\(Y=X^2\)</span>. Calcule <span class="math inline">\(\mathbb{E}[X^2]\)</span></p>
 <div class="fragment">
 <p>Caminho 1:</p>
-<p><span class="math display">\[\mathbb{E}[Y = X^2] = \int_0^1 y f_X(y^{1/2}) \left|\frac{d}{dy} y^{1/2}\right| dy \\ = \int_0^1 y \times 1 \times \frac{1}{2} y^{-1/2} dy \\ = \int_0^1 \frac{1}{2} y^{1/2} dy \\ = \left. \frac{1}{2} \frac{y^{3/2}{3/2}}\right|_0^1 = 1/3 \]</span></p>
+<p><span class="math display">\[\mathbb{E}[Y = X^2] = \int_0^1 y f_X(y^{1/2}) \left|\frac{d}{dy} y^{1/2}\right| dy \\ = \int_0^1 y \times 1 \times \frac{1}{2} y^{-1/2} dy \\ = \int_0^1 \frac{1}{2} y^{1/2} dy \\ = \left. \frac{1}{2} \frac{y^{3/2}}{3/2}\right|_0^1 = 1/3 \]</span></p>
 </div>
 <div class="fragment">
 <p>Caminho 2:</p>
@@ -675,7 +675,7 @@ Leo Bastos
 <span id="cb1-7"><a href=""></a><span class="co"># Gerando uma amostra de tamanho 100 e tomando a média</span></span>
 <span id="cb1-8"><a href=""></a><span class="fu">aaa</span>(<span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.175188</code></pre>
+<pre><code>[1] 3.467314</code></pre>
 </div>
 </div>
 </div>
@@ -685,7 +685,7 @@ Leo Bastos
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>    mean      var 
-4.032173 1.619600 </code></pre>
+4.012860 1.619578 </code></pre>
 </div>
 
 </div>
@@ -695,7 +695,7 @@ Leo Bastos
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>     mean       var 
-3.9919691 0.1439443 </code></pre>
+3.9928044 0.1553979 </code></pre>
 </div>
 
 </div>
@@ -705,7 +705,7 @@ Leo Bastos
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>      mean        var 
-3.99988568 0.01586388 </code></pre>
+3.99716423 0.01579887 </code></pre>
 </div>
 
 </div>

@@ -514,27 +514,61 @@ Leo Bastos
 <!-- Que é a f.g.m. da distribuição $N(0,1)$. C.Q.D.. -->
 </div>
 </section>
-<section id="tcl-variância-desconhecida" class="slide level2 scrollable">
-<h2>TCL (Variância desconhecida)</h2>
-<p>Seja <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> variáveis aleatórias <strong>independentes e identicamente distribuídas</strong> com média, <span class="math inline">\(\mathbb{E}[X_i] = \mu\)</span> e variância, <span class="math inline">\(\sigma^2 &lt; \infty\)</span>. Seja <span class="math inline">\(\bar{X}_n = \frac{\sum_{i=1}^{n} X_i}{n}\)</span> e <span class="math inline">\(S_n^2 = \sum_{i=1}^n(X_i - \bar{X})/(n-1)\)</span>. Então</p>
-<p><span class="math display">\[Z_n = \frac{\sqrt{n}(\bar{X}_n - \mu)}{S_n}  \xrightarrow[n\to \infty]{D} \sim N(0,1).\]</span></p>
+<section id="variância-desconhecida" class="slide level2 scrollable">
+<h2>Variância desconhecida</h2>
+<p>Infelizmente, na prática, <span class="math inline">\(\sigma^2\)</span> não é conhecido.</p>
+<div class="fragment">
+<p>Podemos <strong>estimar</strong> <span class="math inline">\(\sigma^2\)</span>, e um <strong>estimador</strong> para <span class="math inline">\(\sigma^2\)</span> é dado por <span class="math display">\[ S_n^2 = \frac{\sum_{i=1}^n (X_i - \bar{X})^2}{n-1}\]</span></p>
+</div>
+<div class="fragment">
+<p>Notem que um possível estimador para <span class="math inline">\(\mu\)</span> é <span class="math inline">\(\bar{X}_n\)</span>.</p>
+</div>
+<div class="fragment">
+<p>Substituindo, em <span class="math inline">\(Z_n\)</span>, <span class="math inline">\(\sigma^2\)</span> por <span class="math inline">\(S_n^2\)</span>, temos que</p>
+<p><span class="math display">\[T_n = \sqrt{n} \frac{(\bar{X} - \mu)}{S_n^2}\]</span></p>
+</div>
 </section>
-<section id="para-dados-normais" class="slide level2 scrollable">
-<h2>Para dados normais</h2>
+<section id="caso-normal" class="slide level2">
+<h2>Caso normal</h2>
 <div class="columns">
 <div class="column" style="width:70%;">
 <p>Seja <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> variáveis aleatórias independentes <strong>normalmente</strong> distribuídas com média, <span class="math inline">\(\mathbb{E}[X_i] = \mu\)</span> e variância, <span class="math inline">\(\sigma^2\)</span>. Então <span class="math display">\[T_n = \frac{(\bar{X}_n - \mu)}{S_n/\sqrt{n}} \sim t_{n-1}\]</span></p>
 </div><div class="column" style="width:30%;">
 <p><img data-src="extra/gosset.jpg" style="width:60.0%"> <a href="https://doi.org/10.2307/2331554"><img data-src="extra/paper2.png" style="width:100.0%"></a></p>
 </div></div>
-<div class="fragment">
-<p>A distribuição <span class="math inline">\(t\)</span> de Student (Gosset) com <span class="math inline">\(n-1\)</span> graus de liberdade <span class="math display">\[f_{T_n}(t) = \frac{\Gamma(n/2)}{\sqrt{\pi (n-1)}\Gamma((n-1)/2)}\left(1 +\frac{t^2}{n-1}\right)^{-n/2}\]</span></p>
+</section>
+<section id="distribuição-t" class="slide level2">
+<h2>Distribuição <span class="math inline">\(t\)</span></h2>
+<p>Se <span class="math inline">\(T \sim t_{\nu}\)</span> então <span class="math display">\[f_{T}(t) = \frac{\Gamma((\nu+1)/2)}{\sqrt{\pi \nu}\Gamma(\nu/2)}\left(1 +\frac{t^2}{\nu}\right)^{-(\nu+1)/2}, \quad \nu&gt;0.\]</span></p>
+<div>
+<ul>
+<li class="fragment"><span class="math inline">\(\mathbb{E}[T] = 0\)</span> se <span class="math inline">\(\nu&gt;1\)</span>.</li>
+<li class="fragment">A distribuição <span class="math inline">\(t_1\)</span> é chamada de distribuição de Cauchy.</li>
+<li class="fragment"><span class="math inline">\(\mathbb{V}[T] = \frac{\nu}{\nu-2}\)</span> se <span class="math inline">\(\nu&gt;2\)</span>.</li>
+<li class="fragment"><span class="math inline">\(T \sim t_\nu \xrightarrow[\nu \to \infty]{} N(0,1)\)</span></li>
+</ul>
 </div>
 </section>
 <section id="a-distribuição-t-de-student" class="slide level2">
 <h2>A distribuição <span class="math inline">\(t\)</span> de Student</h2>
 
-<img data-src="slide_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"><p><span class="math display">\[t_n \xrightarrow[n\to \infty]{}N(0,1) \]</span></p>
+<img data-src="slide_files/figure-revealjs/unnamed-chunk-1-1.png" width="960" class="r-stretch"></section>
+<section id="caso-normal-1" class="slide level2">
+<h2>Caso normal</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><span class="math display">\[T_n = \frac{(\bar{X}_n - \mu)}{S_n/\sqrt{n}} = \frac{\sigma}{\sigma}\frac{(\bar{X}_n - \mu)}{S_n/\sqrt{n}} \\ = \frac{Z_n}{\sqrt{V_n / n}}\]</span> onde <span class="math inline">\(V_n = \frac{(n-1)S^2_n}{\sigma^2}\)</span>.</p>
+</div><div class="column" style="width:40%;">
+<p><img data-src="extra/fisher.png" style="width:90.0%"> <a href="https://web.archive.org/web/20160305130235/http://www.sothis.ro/user/content/4ef6e90670749a86-student_distribution_1925.pdf"><img data-src="extra/paper3.png" style="width:100.0%"></a></p>
+</div></div>
+<div class="fragment">
+<p><span class="math display">\[Z_n \sim N(0,1), \qquad \frac{(n-1)V_n}{\sigma^2} \sim \chi^2_{n-1}\]</span></p>
+</div>
+</section>
+<section id="tcl-variância-desconhecida" class="slide level2 scrollable">
+<h2>TCL (Variância desconhecida)</h2>
+<p>Seja <span class="math inline">\(X_1, X_2, \ldots, X_n\)</span> variáveis aleatórias <strong>independentes e identicamente distribuídas</strong> com média, <span class="math inline">\(\mathbb{E}[X_i] = \mu\)</span> e variância, <span class="math inline">\(\sigma^2 &lt; \infty\)</span>. Seja <span class="math inline">\(\bar{X}_n = \frac{\sum_{i=1}^{n} X_i}{n}\)</span> e <span class="math inline">\(S_n^2 = \sum_{i=1}^n(X_i - \bar{X})/(n-1)\)</span>. Então</p>
+<p><span class="math display">\[T_n = \frac{\sqrt{n}(\bar{X}_n - \mu)}{S_n}  \xrightarrow[n\to \infty]{D} N(0,1).\]</span></p>
 </section>
 <section id="teorema-central-do-limite-amostras-sem-reposição" class="slide level2">
 <h2>Teorema central do limite (Amostras sem reposição)</h2>
@@ -643,18 +677,72 @@ Leo Bastos
 </section>
 <section id="introdução-à-inferência" class="slide level2">
 <h2>Introdução à inferência</h2>
-<p>Inferência estatística ou aprendizagem estatística é o processo de usar os dados para inferir (aprender a respeito de) a distribuição geradora dos dados.</p>
+<p><strong>Inferência estatística</strong> ou <strong>aprendizagem estatística</strong> é o processo de usar os dados para <strong>inferir</strong> (<strong>aprender</strong> a respeito de) a distribuição geradora dos dados.</p>
 <div class="fragment">
 <p>Uma típica questão de inferência estatística é:</p>
 <p>Dado uma amostra <span class="math inline">\(X_1,X_2,\ldots,X_n \sim F\)</span>, como nós inferimos a respeito de <span class="math inline">\(F\)</span>?</p>
 </div>
 <div class="fragment">
-<p>Em muitos casos, queremos saber apenas alguma característica de <span class="math inline">\(F\)</span> como a média por exemplo. S</p>
+<p>Em muitos casos, queremos saber apenas alguma característica de <span class="math inline">\(F\)</span> como a média por exemplo.</p>
+</div>
+</section>
+<section id="modelos-tipos-de-modelo" class="slide level2">
+<h2>Modelos tipos de modelo</h2>
+<p>Um <strong>modelo estatístico</strong> <span class="math inline">\(\mathfrak{F}\)</span> é um conjunto de distribuições.</p>
+<div class="fragment">
+<p>Um modelo estatístico pode ser classificado como</p>
+<div>
+<ul>
+<li class="fragment"><strong>Paramétrico</strong> (Quando é caracterizado por um conjunto finito de parâmetros)</li>
+<li class="fragment"><strong>Não paramétrico</strong> (Quando não é possível caracterizar por um conjunto finito de parâmetros)</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="modelo-paramétrico" class="slide level2">
+<h2>Modelo paramétrico</h2>
+<p>Um <strong>modelo paramétrico</strong> é um conjunto <span class="math inline">\(\mathfrak{F}\)</span> parametrizado por um número finito de parâmetros. Ex. <span class="math display">\[\mathfrak{F} = \left\{ f(x; \mu, \sigma^2) = \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{1}{2\sigma}(x-\mu)^2}, \quad \mu \in \mathbb{R},\, \sigma^2&gt; 2\right\}\]</span></p>
+<div class="fragment">
+<p>De forma geral, um modelo paramétrico é dado por</p>
+<p><span class="math display">\[\mathfrak{F} = \left\{ f(x; \theta) \, : \, \theta \in \Theta \right\}\]</span></p>
+</div>
+</section>
+<section id="modelo-não-paramétrico" class="slide level2">
+<h2>Modelo não paramétrico</h2>
+<p>Dizemos que um modelo estatístico é <strong>não paramétrico</strong> se não é possível caracterizá-lo com um número finito de parâmetros.</p>
+<div class="fragment">
+<p>Por exemplo, seja <span class="math inline">\(X_1,X_2,\ldots,X_n\)</span> variáveis aleatórias independentes com função acumulada <span class="math inline">\(F\)</span>. Estimar <span class="math inline">\(F\)</span> assumindo apenas que <span class="math inline">\(F \in \mathfrak{F}_{ALL} = \{\mbox{todas possíveis f.d.a.s}\}\)</span>.</p>
+</div>
+</section>
+<section id="regressão-previsão-e-classificação" class="slide level2">
+<h2>Regressão, previsão e classificação</h2>
+<p>Suponha que observamos pares <span class="math inline">\((X_1, Y_1), (X_2, Y_2), \ldots, (X_n, Y_n)\)</span></p>
+<div>
+<ul>
+<li class="fragment">Usualmente <span class="math inline">\(X\)</span> é chamada de preditor, regressor, variável independente, <em>feature</em></li>
+<li class="fragment">Enquanto <span class="math inline">\(Y\)</span> é chamada de desfecho, variável resposta, variável dependente.</li>
+<li class="fragment">Chamamos de função de regressão <span class="math display">\[r(x) = \mathbb{E}[Y | X = x]\]</span></li>
+</ul>
+</div>
+</section>
+<section id="regressão-previsão-e-classificação-1" class="slide level2">
+<h2>Regressão, previsão e classificação</h2>
+<div>
+<ul>
+<li class="fragment">Se assumirmos que <span class="math inline">\(r \in \mathfrak{F}\)</span> onde <span class="math inline">\(\mathfrak{F}\)</span> tem dimensão finita, então temos um <strong>modelo paramétrico</strong>.
+<ul>
+<li class="fragment">Ex. <span class="math inline">\(r(x) = a + bx\)</span></li>
+</ul></li>
+<li class="fragment">Se <span class="math inline">\(r \in \mathfrak{F}\)</span> onde <span class="math inline">\(\mathfrak{F}\)</span> não tem dimensão finita, então temos um <strong>modelo não paramétrico</strong>
+<ul>
+<li class="fragment">Ex. <span class="math inline">\(r(x) = a + f(x)\)</span> onde <span class="math inline">\(f \in \mathfrak{F}_{SOB}\)</span>. <span class="math display">\[ \mathfrak{F}_{SOB} =\left\{ f : \int (f''(x))^2dx &lt; \infty \right\}\]</span></li>
+</ul></li>
+</ul>
+</div>
 <div class="quarto-auto-generated-content">
 <p><img src="../../impa-tech-h.png" class="slide-logo"></p>
 <div class="footer footer-default">
 <p><a href="https://github.com/lsbastos/md21/" class="uri">https://github.com/lsbastos/md21/</a></p>
-</div>
 </div>
 </div>
 </section></section>
