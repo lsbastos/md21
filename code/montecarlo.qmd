@@ -1,0 +1,63 @@
+---
+title: "Monte Carlo"
+author: "LB"
+format: html
+editor: visual
+---
+
+## Monte Carlo
+
+Suponha que estamos interessados em resolver a integral
+
+$$I = \int_{-\infty}^\infty h(x)dx$$
+
+para alguma função \$h\$.
+
+Se conseguirmos reescrever a função $h$ como o produto de duas função tal que uma delas é uma função de densidade (que sabemos gerar amostras), ou seja,
+
+$$h(x) = w(x)f(x)$$
+
+onde $f$ é uma função de densidade e probabilidade, e $w$ uma função qualquer. Então a integral, pode ser reescrita como
+
+$$I = \int_{-\infty}^\infty w(x)f(x)dx = \mathbb{E}[w(X)]$$
+
+O método de Monte Carlo faz uso da lei dos grandes números que diz que: Sejam $X_1,X_2,\ldots,X_n$ variáveis aleatórias independentes com densidade $f$. Segundo a lei dos grandes números $$\hat{I} = \frac{1}{n}\sum_{i=1}^{n}w(X_i) \xrightarrow[]{P} \mathbb{E}[w(X)].$$
+
+O método de integração de Monte Carlo (simples) consiste nos seguintes passos:
+
+  - a. Gere $n$ amostras de $f$
+  - b. calcule $\hat{I} = \frac{1}{n}\sum_{i=1}^n w(x_i)$
+  
+O desvio padrão da estimativa de $\hat{I}$, é chamado de erro de Monte Carlo que pode ser estimado por
+$$\hat{se}_{MC} = \frac{s}{\sqrt{n}}$$
+onde 
+  $$s^2 = \frac{\sum_{i=1}^n(w(x_i) - \hat{I})^2}{n-1}.$$
+
+
+## Exemplo 1 (Esperança da exponencial)
+
+Para demonstrar o método, vamos usar o método para calcular a seguinte integral:
+$$I = \int_0^\infty 2x e^{-2x} dx$$
+que é a esperança de uma distribuição exponencial com parâmetro 2. Ou seja, $f(x) = 2e^{-2x} I_{(0,\infty)}(x)$ e $w(x) = x$.
+
+Logo, basta gerarmos $M$ valores da exponencial com parâmetro 2 e calcular $\hat{I}$
+
+```{r}
+M <- 1000
+x <- rexp(n = M, rate = 2)
+mean(x)
+```
+Note que o valor analítico da integral $I$ é $\frac{1}{2}$. E o erro de Monte Carlo é 
+```{r}
+sd(x) / sqrt(M)
+```
+
+## Calculando uma probabilidade
+
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
