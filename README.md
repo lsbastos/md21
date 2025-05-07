@@ -45,7 +45,7 @@ Revisão de variáveis aleatórias e Teorema Central do Limite. Conceitos e proc
 | (23/4) |  Feriado: São Jorge  |  |  |
 | 10 (28/4) | Introdução à inferência bayesiana | Aula no quadro [exercícios](listas/exercicios10.md)   | Wasserman 11.1-11.2; Rice 8.6  |
 | 11 (30/4) | Estimador bayesiano | Aula no quadro [exercícios](listas/exercicios11.md) |  Rice 8.6 |
-| 12 (5/5) | ? |  |  |
+| 12 (5/5) | Método de Monte Carlo | - | - |
 | 13 (7/5) | Aula de revisão |  |  |
 | 14 (14/5) | AV1  | - | - |
 
