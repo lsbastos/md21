@@ -48,6 +48,8 @@ Revisão de variáveis aleatórias e Teorema Central do Limite. Conceitos e proc
 | 12 (5/5) | Método de Monte Carlo | - | - |
 | 13 (7/5) | Aula de revisão |  |  |
 | 14 (14/5) | AV1  | - | - |
+| 15 (19/5) | Comentários sobre a AV1, intervalos de confiança  | - | - |
+| 16 (21/5) | Estimando a função acumulada $F$ e funções de $F$    | - | Wasserman cap. 9  |
 
 
 ### Listas
@@ -58,3 +60,8 @@ Revisão de variáveis aleatórias e Teorema Central do Limite. Conceitos e proc
 | Lista 2    | [Valor esperado e desigualdades](listas/lista2.pdf) | 30/4 | 
 | Lista 3    | [Teorema central do limite e método delta](listas/lista3.pdf) | 7/5 | 
 
+## Provas
+
+| Prova | Link | Gabarito |
+|:---|:---|:---|
+| AV1 | [14/5/2025](exames/2025_AV1_md21.pdf) | - |
