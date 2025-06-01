@@ -1,0 +1,60 @@
+---
+title: "Lista 4"
+author: "Data esperada: 9/6"
+format: pdf
+---
+
+Quarta lista de exercícios da disciplina MD21 - Estimação não
+paramétrica via função de probabilidade acumulada (estimador plug-in) e
+bootstrap.
+
+1.  Seja $X_1,X_2,\ldots,X_n$ variáveis aleatórias contínuas de uma
+    mesma distribuição $F_X$, e $Y_1,Y_2,\ldots,Y_m$ variáveis
+    aleatórias contínuas de uma mesma distribuição $F_Y$.
+
+
+a.  Encontre o estimador plug-in e seu erro padrão para média de $F_X$.
+b.  Encontre o estimador plug-in e seu erro padrão para a diferença das
+    média de $F_X$ e de $F_Y$.
+c.  Encontre o estimador plug-in para a mediana de $F_X$
+
+
+2.  Baseado no exercício anterior, suponha que observamos os seguintes
+    valores para
+
+$$X=(3.85, 3.88, 1.46, 3.74, 3.69, 1.19, 3.06, 1.13, 1.11, 2.24, 4.00, 1.99, 2.40, 2.04, 1.31)$$
+e 
+$$Y=(4.95, 6.63, 4.65, 6.03, 5.26, 3.71, 6.06, 5.19, 3.37, 3.71)$$
+
+
+
+a.  Estime a mediana de $X$ e de $Y$,
+b.  Escreva o algoritmo bootstrap para estimar a incerteza da mediana de
+    $X$ e $Y$
+c.  Construa um intervalo de 90% para cada mediana
+d.  Temos evidência para dizer que as medianas são diferentes?
+
+<!-- x = c(3.85, 3.88, 1.46, 3.74, 3.69, 1.19, 3.06, 1.13, 1.11, 2.24, 4.00, 1.99, 2.40, 2.04, 1.31) -->
+<!-- y = c(4.95, 6.63, 4.65, 6.03, 5.26, 3.71, 6.06, 5.19, 3.37, 3.71) -->
+
+<!-- boots.q2 <- function(z, B = 1000){ -->
+<!--   med <- median(z) -->
+<!--   med.B <- rep(NA, B) -->
+<!--   for(b in 1:B){ -->
+<!--     med.B[b] <- median(sample(z,replace = T)) -->
+<!--   } -->
+
+<!--   out <- list() -->
+<!--   out$stats = c(med = med,  -->
+<!--                 ic.lower = med - qnorm(0.95) * sd(med.B),  -->
+<!--                 ic.upper = med + qnorm(0.95) * sd(med.B), -->
+<!--                 ic2.lower = quantile(med.B, probs=0.05),  -->
+<!--                 ic2.upper = quantile(med.B, probs=0.95) -->
+<!--   ) -->
+<!--   out$sample <- med.B -->
+<!--   out -->
+<!-- } -->
+
+<!-- boots.q2(x)$stats -->
+<!-- boots.q2(y)$stats -->
+
