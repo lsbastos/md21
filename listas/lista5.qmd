@@ -1,0 +1,65 @@
+---
+title: "Lista 5"
+author: "Data esperada: 16/6"
+format: pdf
+---
+
+Quinta lista de exercícios da disciplina MD21 - Teste de hipóteses.
+
+1.  Seja $X_1,X_2,\ldots,X_n$ um amostra aleatória de uma distribuição normal com média $\mu$ e variância $\sigma^2$ desconhecida. Para testar a hipótese $H_0: \, \mu \geq \mu_0$ versus $H_1: \, \mu < \mu_0$. Considere o teste $$\mbox{rejeita-se } H_0 \mbox{ se } T=\bar{X} < c$$
+    a.  Defina o espaço parametrico da hipótese nula, $\Theta_0$.
+    b.  Escreva a função poder $\beta(\mu) = \mathbb{P}(\bar{X} < c \mid \mu)$. (Lembrando que $\sigma^2$ é desconhecida)
+    c.  Com tamanho (ou nível de significância) $\alpha = 5\%$, encontre $c$.
+    d.  Suponha $n=15$, $\bar{x}=4.0$ e $s^2 = 2.0$. Teste a hipótese $H_0: \, \mu \geq 5$ versus $H_1: \, \mu < 5$.
+
+<!-- -->
+
+2.  Suponha que o número de acidentes de carro por semana em uma particular via expressa segue uma distribuição de Poisson. Haverá um investimento nessa via expressa com objetivo de reduzir essa taxa para 10 acidentes por semana.
+    a.  Construa as hipóteses para testar a efetividade desse investimento.
+    b.  Os dados das próximas $k$ semanas serão usados para avaliar a efetividade esse investimento, escreva o teste de Wald a ser usado para avaliar essa efetividade.
+    c.  Nas últimas $k=10$ semanas observou-se uma média de 9 acidentes por semana. Teste as hipóteses do item a com um nível de 5%.
+    d.  Calcule o valor-p associado (use uma tabela ou um softare que calcule valores acumulados da Normal).
+    e.  Conclua a respeito da efetividade do investimento nessa via expressa.
+
+<!-- -->
+
+3.  Em 1000 lançamentos de uma moeda, observou-se 560 caras e 440 coroas. É razoável assumir que a moeda é honesta?
+
+4.  Seja $X_1,X_2,\ldots,X_n$ uma amostra aleatória da distribuição exponencial com parâmetro $\theta$.
+
+    a.  Escreva a função de verossimilhança de $\theta$.
+    b.  Encontre o estimador de máxima verossimilhança de $\theta$.
+    c.  Construa o teste da razão de verossimilhança para testar $H_0: \, \theta = \theta_0$ versus $H_1: \, \theta \neq \theta_0$.
+
+<!-- -->
+
+5.  Comparando duas proporções. Seja $X_1,X_2,\ldots,X_n$ uma amostra aleatória da distribuição Bernoulli com parâmetro $\theta_X$, e seja $Y_1,Y_2,\ldots,Y_m$ uma amostra aleatória da distribuição Bernoulli com parâmetro $\theta_Y$.
+    a.  Escreva a função de verossimilhança de $(\theta_X, \theta_Y)$.
+    b.  Encontre o estimador de máxima verossimilhança de $\theta = (\theta_X, \theta_Y)$.
+    c.  Suponha que queremos testar $H_0: \, \theta_X =\theta_Y$ versus $H_1: \, \theta_X \neq \theta_Y$. Encontre o estimador de máxima verossimilhança para $\theta \in \Theta_0$.
+    d.  Construa o teste da razão de verossimilhança para testar $H_0: \, \theta_X =\theta_Y$ versus $H_1: \, \theta_X \neq \theta_Y$.
+
+<!-- -->
+
+6.  Construa o teste $\chi^2$ de Pearson para testar independência entre duas variáveis binárias $X=\{0,1\}$ e $Y=\{0,1\}$ com contagens dispostas em uma tabela 2x2.
+
+    |         |  $Y=0$   |  $Y=1$   |
+    |:-------:|:--------:|:--------:|
+    | $X = 0$ | $n_{00}$ | $n_{01}$ |
+    | $X = 1$ | $n_{10}$ | $n_{11}$ |
+
+    onde $n = \sum_{i=0}^1 \sum_{j=0}^1 n_{ij}$.
+
+    a.  Defina as hipóteses em função das probabilidades de uma distribuição multinomial.
+    b.  Escreva a estatística de teste.
+
+<!-- -->
+
+7.  Em um estudo que avaliou a inclinação política (republicanos versus democratas) de 438 estudantes americanos por gênero (M ou F) observou-se o seguinte
+
+|     | Democratas | Republicanos |
+|:---:|:----------:|:------------:|
+|  F  |    152     |      94      |
+|  M  |     97     |      95      |
+
+Com nível de 5%, teste a hipotese de indepedência entre inclinação política e genêro.

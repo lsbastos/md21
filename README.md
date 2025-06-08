@@ -52,8 +52,9 @@ Revisão de variáveis aleatórias e Teorema Central do Limite. Conceitos e proc
 | 16 (21/5) | Intervalos de confiança    | - | Wasserman 6.3.2  |
 | 17 (26/5) | Estimando a função acumulada $F$ e funções de $F$    | Aula no quadro [exercícios](listas/exercicios17.md) | Wasserman cap. 7  |
 | 18 (26/5) | Bootstrap    | Aula no quadro [exercícios](listas/exercicios18.md) | Wasserman cap. 8  |
-| 19 (2/6) | Teste de hipóteses  | - | Wasseman cap. 10 |
-| 20 (4/6) | Teste de hipóteses  | - | Wasseman cap. 10 |
+| 19 (2/6) | Teste de hipóteses: fundamentos  | - | Wasserman cap. 10 |
+| 20 (4/6) | Teste de Wald e valor-p  | - | Wasserman 10.1 e 10.2 |
+| 21 (9/6) | Teste de $\chi^2$ e teste da razão de verossimilhança | - | Wasserman cap. 10; Rice 9.4 e 9.5 |
 
 
 ### Listas
@@ -64,6 +65,8 @@ Revisão de variáveis aleatórias e Teorema Central do Limite. Conceitos e proc
 | Lista 2    | [Valor esperado e desigualdades](listas/lista2.pdf) | 30/4 | 
 | Lista 3    | [Teorema central do limite e método delta](listas/lista3.pdf) | 7/5 | 
 | Lista 4    | [Estimador plug-in e bootstrap](listas/lista4.pdf) | 9/6 | 
+| Lista 5    | [Teste de hipóteses](listas/lista5.pdf) | 16/6 | 
+
 
 
 ## Provas
@@ -71,5 +74,6 @@ Revisão de variáveis aleatórias e Teorema Central do Limite. Conceitos e proc
 | Prova | Link | Gabarito |
 |:---|:---|:---|
 | AV1 | [14/5/2025](exames/2025_AV1_md21.pdf) | - |
-| AV2 | 1-4/7/2025 | - |
-| AVS| 14-15/7/2025 | - |
+| AV2 | 2/7/2025 | - |
+| AVS| 14/7/2025 | - |
+| AVS (2a chamada)| 17/7/2025 | - |
