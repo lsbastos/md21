@@ -55,6 +55,7 @@ Revisão de variáveis aleatórias e Teorema Central do Limite. Conceitos e proc
 | 19 (2/6) | Teste de hipóteses: fundamentos  | - | Wasserman cap. 10 |
 | 20 (4/6) | Teste de Wald e valor-p  | - | Wasserman 10.1 e 10.2 |
 | 21 (9/6) | Teste de $\chi^2$ e teste da razão de verossimilhança | - | Wasserman cap. 10; Rice 9.4 e 9.5 |
+| 22 (11/6) | Teste da razão de verossimilhança equivalencia entre testes e intervalos | - | Wasserman cap. 10; Rice 9.3-9.5 |
 
 
 ### Listas
