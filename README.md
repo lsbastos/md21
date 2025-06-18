@@ -56,6 +56,8 @@ Revisão de variáveis aleatórias e Teorema Central do Limite. Conceitos e proc
 | 20 (4/6) | Teste de Wald e valor-p  | - | Wasserman 10.1 e 10.2 |
 | 21 (9/6) | Teste de $\chi^2$ e teste da razão de verossimilhança | - | Wasserman cap. 10; Rice 9.4 e 9.5 |
 | 22 (11/6) | Teste da razão de verossimilhança equivalencia entre testes e intervalos | - | Wasserman cap. 10; Rice 9.3-9.5 |
+| 23 (16/6) | Testes múltiplo, revisao inferencia frequentista, intervalos e testes bayesianos | - | Wasserman 10.7, cap. 11 |
+| 24 (18/6) | Problemas multiparamétricos, seleção de modelos e Fator de Bayes | - | Wasserman cap. 11 |
 
 
 ### Listas
@@ -66,7 +68,7 @@ Revisão de variáveis aleatórias e Teorema Central do Limite. Conceitos e proc
 | Lista 2    | [Valor esperado e desigualdades](listas/lista2.pdf) | 30/4 | 
 | Lista 3    | [Teorema central do limite e método delta](listas/lista3.pdf) | 7/5 | 
 | Lista 4    | [Estimador plug-in e bootstrap](listas/lista4.pdf) | 9/6 | 
-| Lista 5    | [Teste de hipóteses](listas/lista5.pdf) | 16/6 | 
+| Lista 5    | [Teste de hipóteses](listas/lista5.pdf) | 18/6 | 
 
 
 
