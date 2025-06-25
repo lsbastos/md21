@@ -1,0 +1,32 @@
+---
+title: "Lista 6"
+author: " "
+format: pdf
+---
+
+Sexta lista de exercícios da disciplina MD21 - Inferência bayesiana e teoria de decisão
+
+1.  Seja $X_1,X_2,\ldots,X_n$ um amostra aleatória de uma distribuição normal com média $\mu = 0$ e variância $\sigma^2$ desconhecida. Assuma a seguinte transformação, $\lambda = 1 / \sigma^2$, e atribua uma distribuição a priori Gamma com parâmetros $a$ e $b$ para $\lambda$. 
+    a.  Encontre a distribuição a posteriori de $\lambda$.
+    b.  Calcule $\mathbb{E}[\sigma^2 \mid X_1=x_1,\ldots,X_n=x_n]$
+    c.  Proponha um intervalo de credibilidade de 95\% para $\sigma^2$
+
+<!-- -->
+
+2.  Dizemos que a distribuição a priori para um parâmetro $\theta$ é uma **priori conjugada** quando a distribuição a posteriori para $\theta$ segue a mesma distribuição da priori.
+    a.  Seja $X_1,X_2,\ldots,X_n$ um amostra aleatória de uma distribuição Poisson com média $\lambda$. Mostre que a priori conjugada de $\lambda$ é a distribuição Gamma. (Ou seja, se a priori for Gamma$(a,b)$ então a posteriori será Gamma$(a^*,b^*)$)
+    b. Seja $X_1,X_2,\ldots,X_n$ um amostra aleatória da distribuição Bernoulli com parâmetro $\theta$. Encontre a priori conjugada para $\theta$.  
+
+<!-- -->
+
+3.  Suponha que uma amostra aleatória de tamanho $n$ é retirada da distribuição exponencial com parâmetro $\theta$. Assuma uma priori Gamma para $\theta$. 
+    a.  Encontre a posteriori para $\theta$
+    b.  Assumindo função de perda quadrática estime $\theta$.
+
+<!-- -->
+
+4. Mostre que se a posteriori de $\theta$ é conhecida, $p(\theta \mid x_1,\ldots, x_n)$, sob função de perda absoluta o estimador de $\theta$ é a mediana da posteriori de $\theta$.
+
+
+<!-- -->
+

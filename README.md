@@ -58,7 +58,7 @@ Revisão de variáveis aleatórias e Teorema Central do Limite. Conceitos e proc
 | 22 (11/6) | Teste da razão de verossimilhança equivalencia entre testes e intervalos | - | Wasserman cap. 10; Rice 9.3-9.5 |
 | 23 (16/6) | Testes múltiplo, revisao inferencia frequentista, intervalos e testes bayesianos | - | Wasserman 10.7, cap. 11 |
 | 24 (18/6) | Problemas multiparamétricos, seleção de modelos e Fator de Bayes | - | Wasserman cap. 11 |
-| 25 (23/6) | Introdução a teoria da decisão | - | Wasserman cap. 12 |
+| 25 (23/6) | Introdução a teoria de decisão | - | Wasserman cap. 12 |
 
 
 ### Listas
@@ -70,6 +70,7 @@ Revisão de variáveis aleatórias e Teorema Central do Limite. Conceitos e proc
 | Lista 3    | [Teorema central do limite e método delta](listas/lista3.pdf) | 7/5 | 
 | Lista 4    | [Estimador plug-in e bootstrap](listas/lista4.pdf) | 9/6 | 
 | Lista 5    | [Teste de hipóteses](listas/lista5.pdf) | 18/6 | 
+| Lista 6    | [Bayes e teoria de decisão](listas/lista6.pdf) | -- | 
 
 
 
