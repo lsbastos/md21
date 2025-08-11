@@ -79,6 +79,6 @@ Revisão de variáveis aleatórias e Teorema Central do Limite. Conceitos e proc
 | Prova | Link | Gabarito |
 |:---|:---|:---|
 | AV1 | [14/5/2025](exames/2025_AV1_md21.pdf) | - |
-| AV2 | 2/7/2025 | - |
+| AV2 | [2/7/2025](exames/2025_AV2_md21.pdf) | - |
 | AVS| 14/7/2025 | - |
 | AVS (2a chamada)| 17/7/2025 | - |
